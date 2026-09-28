@@ -15,3 +15,4 @@ export {
   type TranslationErrorInit,
 } from './errors';
 export { TranslationRouter } from './router';
+export { withTimeout } from './async';
