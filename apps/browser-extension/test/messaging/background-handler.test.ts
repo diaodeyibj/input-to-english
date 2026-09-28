@@ -21,6 +21,16 @@ function setup(
 }
 
 describe('background runtime handler', () => {
+  it('returns only the active provider ID to content without credentials or models', async () => {
+    const dependencies = setup(async () => { throw new Error('HTTP should not run'); }, {
+      activeProvider: 'kimi',
+    });
+    const response = await handleRuntimeMessage({ type: 'get-active-provider' }, dependencies);
+    expect(response).toEqual({ ok: true, type: 'get-active-provider', activeProvider: 'kimi' });
+    expect(JSON.stringify(response)).not.toContain('test-key');
+    expect(dependencies.http.request).not.toHaveBeenCalled();
+  });
+
   it('uses the requested remote provider even when a different provider is active', async () => {
     const dependencies = setup(async ({ url, headers, signal }) => {
       expect(url).toBe('https://api.moonshot.cn/v1/chat/completions');

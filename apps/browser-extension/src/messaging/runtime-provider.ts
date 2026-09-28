@@ -15,6 +15,8 @@ export interface RuntimeClient {
   sendMessage(message: RuntimeMessage): Promise<unknown>;
 }
 
+const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi', 'ollama'];
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
@@ -47,6 +49,15 @@ async function send(client: RuntimeClient, message: RuntimeMessage): Promise<Rec
   if (response.ok === false) throw readRuntimeError(response.error);
   if (response.ok !== true) throw malformedResponse();
   return response;
+}
+
+export async function getActiveProvider(runtimeClient: RuntimeClient): Promise<ProviderId> {
+  const response = await send(runtimeClient, { type: 'get-active-provider' });
+  if (response.type !== 'get-active-provider' || typeof response.activeProvider !== 'string' ||
+      !providerIds.includes(response.activeProvider as ProviderId)) {
+    throw malformedResponse();
+  }
+  return response.activeProvider as ProviderId;
 }
 
 function readTranslationResult(value: unknown, id: RemoteProviderId): TranslationResult {

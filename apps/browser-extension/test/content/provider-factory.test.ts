@@ -1,9 +1,36 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import { DEFAULT_SETTINGS } from '../../src/storage/settings';
-import { createConfiguredProvider, createDocumentBrowserBridges } from '../../src/content/provider-factory';
+import {
+  createActiveProvider,
+  createConfiguredProvider,
+  createDocumentBrowserBridges,
+} from '../../src/content/provider-factory';
 
 describe('content provider factory', () => {
+  it('uses the current background selection for each translation without reading storage', async () => {
+    let activeProvider = 'deepseek';
+    const sendMessage = vi.fn(async (message: { type: string; providerId?: string }) => {
+      if (message.type === 'get-active-provider') {
+        return { ok: true, type: 'get-active-provider', activeProvider };
+      }
+      return {
+        ok: true, type: 'translate',
+        result: { text: message.providerId, providerId: message.providerId },
+      };
+    });
+    const provider = createActiveProvider({ runtimeClient: { sendMessage } });
+
+    expect(await provider.translate({ text: '你好', targetLanguage: 'en' }))
+      .toEqual({ text: 'deepseek', providerId: 'deepseek' });
+    activeProvider = 'kimi';
+    expect(await provider.translate({ text: 'Bonjour', targetLanguage: 'en' }))
+      .toEqual({ text: 'kimi', providerId: 'kimi' });
+    expect(sendMessage.mock.calls.map(([message]) => message.type)).toEqual([
+      'get-active-provider', 'translate', 'get-active-provider', 'translate',
+    ]);
+  });
+
   it.each(['deepseek', 'kimi', 'ollama'] as const)('routes %s through only its runtime proxy', async (id) => {
     const sendMessage = vi.fn(async () => ({
       ok: true, type: 'translate', result: { text: 'Hello', providerId: id },

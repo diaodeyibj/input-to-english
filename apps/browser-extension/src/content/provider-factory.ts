@@ -1,11 +1,11 @@
-import type { TranslationProvider } from '../../../../packages/core/src/contracts';
+import type { ProviderId, TranslationProvider } from '../../../../packages/core/src/contracts';
 import {
   createBrowserLocalProvider,
   type LanguageDetectionBridge,
   type LanguagePairAvailability,
   type TranslationBridge,
 } from '../../../../packages/providers/src/browser-local';
-import { createRuntimeProvider, type RuntimeClient } from '../messaging/runtime-provider';
+import { createRuntimeProvider, getActiveProvider, type RuntimeClient } from '../messaging/runtime-provider';
 import type { ExtensionSettings } from '../storage/settings';
 
 interface DetectorModel {
@@ -109,4 +109,22 @@ export function createConfiguredProvider(
     });
   }
   return createRuntimeProvider(settings.activeProvider, dependencies.runtimeClient);
+}
+
+/** Resolve the trusted background selection on each action so options changes take effect immediately. */
+export function createActiveProvider(dependencies: ProviderFactoryDependencies): TranslationProvider {
+  let lastId: ProviderId = 'browser';
+  const selected = async (): Promise<TranslationProvider> => {
+    lastId = await getActiveProvider(dependencies.runtimeClient);
+    return createConfiguredProvider({ activeProvider: lastId }, dependencies);
+  };
+  return {
+    get id() { return lastId; },
+    async availability() { return (await selected()).availability(); },
+    async translate(request, options) {
+      const provider = await selected();
+      options?.signal?.throwIfAborted();
+      return provider.translate(request, options);
+    },
+  };
 }

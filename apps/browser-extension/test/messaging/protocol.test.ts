@@ -25,6 +25,9 @@ describe('runtime protocol', () => {
     expect(parseRuntimeMessage({ type: 'list-ollama-models' })).toEqual({
       type: 'list-ollama-models',
     });
+    expect(parseRuntimeMessage({ type: 'get-active-provider' })).toEqual({
+      type: 'get-active-provider',
+    });
   });
 
   it('fails closed for unknown types and malformed payloads', () => {

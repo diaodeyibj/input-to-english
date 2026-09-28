@@ -1,8 +1,19 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { createRuntimeProvider } from '../../src/messaging/runtime-provider';
+import { createRuntimeProvider, getActiveProvider } from '../../src/messaging/runtime-provider';
 
 describe('runtime provider proxy', () => {
+  it('reads only the active provider ID and rejects malformed background replies', async () => {
+    const sendMessage = vi.fn(async (): Promise<unknown> => ({
+      ok: true, type: 'get-active-provider', activeProvider: 'deepseek', apiKey: 'secret',
+    }));
+    expect(await getActiveProvider({ sendMessage })).toBe('deepseek');
+    expect(sendMessage).toHaveBeenCalledWith({ type: 'get-active-provider' });
+    sendMessage.mockResolvedValueOnce({ ok: true, type: 'get-active-provider', activeProvider: 'evil' });
+    await expect(getActiveProvider({ sendMessage }))
+      .rejects.toMatchObject({ code: 'MALFORMED_RESPONSE' });
+  });
+
   it('maps a translation request and result without sending credentials', async () => {
     const sendMessage = vi.fn(async () => ({
       ok: true, type: 'translate', result: { text: 'Hello', providerId: 'kimi' },

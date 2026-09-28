@@ -47,7 +47,8 @@ export async function handleRuntimeMessage(
   },
 ): Promise<RuntimeResponse> {
   const request = parseRuntimeMessage(message);
-  if (request === null || (request.type !== 'list-ollama-models' && request.providerId === 'browser')) {
+  if (request === null ||
+      ((request.type === 'translate' || request.type === 'test-provider') && request.providerId === 'browser')) {
     return safeFailure(null);
   }
 
@@ -63,6 +64,9 @@ export async function handleRuntimeMessage(
     return await withTimeout(async (signal): Promise<RuntimeResponse> => {
       const settings = await dependencies.settings.get();
       signal.throwIfAborted();
+      if (request.type === 'get-active-provider') {
+        return { ok: true, type: 'get-active-provider', activeProvider: settings.activeProvider };
+      }
       const router = new TranslationRouter(remoteProviders(settings, dependencies.http));
 
       if (request.type === 'translate') {
