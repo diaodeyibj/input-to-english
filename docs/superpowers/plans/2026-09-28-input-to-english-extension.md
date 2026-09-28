@@ -26,10 +26,10 @@
 ## Review Focus
 
 - Prompt-injection-like source text remains isolated as user content; Task 2 pins message-role separation.
-- Empty and whitespace-only editors make no request and stay unchanged; Task 9A pins both cases.
-- A late result after user editing never overwrites newer text; Task 9A pins the race with a deferred promise.
-- Repeated SPA mutations create exactly one control per active editor; Tasks 8 and 9C pin idempotence.
-- Auth and unknown-provider failures never expose API keys or raw bodies; Tasks 3A, 3B, and 7 pin redaction.
+- Empty and whitespace-only editors make no request and stay unchanged; Task 10 pins both cases.
+- A late result after user editing never overwrites newer text; Task 10 pins the race with a deferred promise.
+- Repeated SPA mutations create exactly one control per active editor; Tasks 9 and 12 pin idempotence.
+- Auth and unknown-provider failures never expose API keys or raw bodies; Tasks 3, 4, and 8 pin redaction.
 
 ---
 
@@ -106,7 +106,7 @@ Expected: FAIL because the core does not exist.
 
 `TranslationError` accepts `{ code, userMessage, retryable, cause? }`; its public message is never derived from `cause`.
 
-`TranslationRouter` is the background-side remote-provider registry and selector. Content does not maintain another provider registry: Task 9A's factory returns one Browser Local provider or one runtime proxy, and the controller invokes that single provider directly.
+`TranslationRouter` is the background-side remote-provider registry and selector. Content does not maintain another provider registry: Task 10's factory returns one Browser Local provider or one runtime proxy, and the controller invokes that single provider directly.
 
 - [ ] **Step 6: Verify tests and types**
 
@@ -169,7 +169,7 @@ git add packages/prompt
 git commit -m "feat: add translation-only prompt builder"
 ```
 
-### Task 3A: JSON HTTP transport and OpenAI-compatible provider
+### Task 3: JSON HTTP transport and OpenAI-compatible provider
 
 **Files:**
 - Create: `packages/providers/src/http.ts`, `openai-compatible.ts`, `index.ts`
@@ -215,7 +215,7 @@ git add packages/providers/src/http.ts packages/providers/src/openai-compatible.
 git commit -m "feat: add OpenAI-compatible provider transport"
 ```
 
-### Task 3B: DeepSeek and Kimi provider factories
+### Task 4: DeepSeek and Kimi provider factories
 
 **Files:**
 - Create: `packages/providers/src/deepseek.ts`, `kimi.ts`
@@ -223,7 +223,7 @@ git commit -m "feat: add OpenAI-compatible provider transport"
 - Test: `packages/providers/test/cloud-providers.test.ts`
 
 **Interfaces:**
-- Consumes: `createOpenAiCompatibleProvider` from Task 3A.
+- Consumes: `createOpenAiCompatibleProvider` from Task 3.
 - Produces: `createDeepSeekProvider({ apiKey, model, http }): TranslationProvider`.
 - Produces: `createKimiProvider({ apiKey, model, http }): TranslationProvider`.
 - Produces: `DEFAULT_DEEPSEEK_MODEL = 'deepseek-flash'` and `DEFAULT_KIMI_MODEL = 'kimi-k2.6'`.
@@ -240,7 +240,7 @@ Expected: FAIL because provider-specific factories do not exist.
 
 - [ ] **Step 3: Implement the DeepSeek and Kimi factories**
 
-Keep only endpoint, provider ID, and default-model decisions in provider-specific files; delegate request and error behavior to Task 3A.
+Keep only endpoint, provider ID, and default-model decisions in provider-specific files; delegate request and error behavior to Task 3.
 
 - [ ] **Step 4: Verify the tests pass**
 
@@ -255,7 +255,7 @@ git add packages/providers/src/deepseek.ts packages/providers/src/kimi.ts packag
 git commit -m "feat: add DeepSeek and Kimi provider factories"
 ```
 
-### Task 4: Local Ollama provider
+### Task 5: Local Ollama provider
 
 **Files:**
 - Create: `packages/providers/src/ollama.ts`
@@ -294,7 +294,7 @@ git add packages/providers/src/ollama.ts packages/providers/test/ollama.test.ts 
 git commit -m "feat: add local Ollama translation provider"
 ```
 
-### Task 5: Browser-local translation provider
+### Task 6: Browser-local translation provider
 
 **Files:**
 - Create: `packages/providers/src/browser-local.ts`
@@ -318,7 +318,7 @@ Expected: FAIL because the provider does not exist.
 
 - [ ] **Step 3: Implement the bridge-driven provider**
 
-Use `request.sourceLanguage` when supplied; otherwise detect a BCP 47 source tag defensively. `ALREADY_ENGLISH` is primarily decided by the Task 9A controller and repeated here only to protect direct provider use. `UNSUPPORTED_LANGUAGE` is Browser Local-specific and is thrown when `TranslationBridge.availability(source, 'en')` returns `unavailable`; cloud and Ollama providers do not emit it. Keep direct browser globals outside the portable package; the extension supplies bridges.
+Use `request.sourceLanguage` when supplied; otherwise detect a BCP 47 source tag defensively. `ALREADY_ENGLISH` is primarily decided by the Task 10 controller and repeated here only to protect direct provider use. `UNSUPPORTED_LANGUAGE` is Browser Local-specific and is thrown when `TranslationBridge.availability(source, 'en')` returns `unavailable`; cloud and Ollama providers do not emit it. Keep direct browser globals outside the portable package; the extension supplies bridges.
 
 - [ ] **Step 4: Verify the test passes**
 
@@ -333,7 +333,7 @@ git add packages/providers/src/browser-local.ts packages/providers/test/browser-
 git commit -m "feat: add browser-local translation provider"
 ```
 
-### Task 6: Local settings and typed runtime protocol
+### Task 7: Local settings and typed runtime protocol
 
 **Files:**
 - Create: `apps/browser-extension/src/storage/settings.ts`
@@ -343,7 +343,7 @@ git commit -m "feat: add browser-local translation provider"
 
 **Interfaces:**
 - Produces: `ExtensionSettings { activeProvider; deepseek: { apiKey; model }; kimi: { apiKey; model }; ollama: { model } }`.
-- Produces: `DEFAULT_SETTINGS` using provider `browser`, cloud defaults from Task 3B, blank keys, and blank Ollama model.
+- Produces: `DEFAULT_SETTINGS` using provider `browser`, cloud defaults from Task 4, blank keys, and blank Ollama model.
 - Produces: `SettingsStore.get()`, `update(patch)`, and `clearApiKey(provider)`.
 - Produces: discriminated messages for `translate`, `test-provider`, and `list-ollama-models`, plus typed success/error responses.
 
@@ -378,7 +378,7 @@ git add apps/browser-extension/src/storage apps/browser-extension/src/messaging/
 git commit -m "feat: add local settings and runtime protocol"
 ```
 
-### Task 7: Background provider service and timeout
+### Task 8: Background provider service and timeout
 
 **Files:**
 - Create: `apps/browser-extension/entrypoints/background.ts`
@@ -390,7 +390,7 @@ git commit -m "feat: add local settings and runtime protocol"
 - Test: `apps/browser-extension/test/messaging/runtime-provider.test.ts`
 
 **Interfaces:**
-- Consumes: Tasks 3B/4 providers and Task 6 settings/protocol.
+- Consumes: Tasks 4/5 providers and Task 7 settings/protocol.
 - Consumes: `TranslationRouter` as the single remote-provider registry and selector in the background context.
 - Produces: `handleRuntimeMessage(message): Promise<RuntimeResponse>`.
 - Produces: `createRuntimeProvider(id, runtimeClient): TranslationProvider` for `deepseek`, `kimi`, and `ollama`.
@@ -455,7 +455,7 @@ git add packages/core/src/async.ts packages/core/src/index.ts packages/core/test
 git commit -m "feat: add privileged provider messaging"
 ```
 
-### Task 8: ChatGPT and Claude editor adapters
+### Task 9: ChatGPT and Claude editor adapters
 
 **Files:**
 - Create: `apps/browser-extension/src/sites/editor-adapter.ts`, `dom-editor.ts`, `chatgpt.ts`, `claude.ts`, `select-adapter.ts`
@@ -482,7 +482,7 @@ Expected: FAIL because adapters do not exist.
 
 - [ ] **Step 4: Implement editor helpers and adapters**
 
-Keep selectors inside each adapter. Prefer IDs/data attributes, then narrowly scoped fallbacks; never select every contenteditable on the page. Each `EditorHandle` starts revision at `0` and increments it for every observed `input` event. Task 9A captures both the numeric revision and exact snapshot text, and requires both to match before replacement; text comparison protects against unobserved DOM changes.
+Keep selectors inside each adapter. Prefer IDs/data attributes, then narrowly scoped fallbacks; never select every contenteditable on the page. Each `EditorHandle` starts revision at `0` and increments it for every observed `input` event. Task 10 captures both the numeric revision and exact snapshot text, and requires both to match before replacement; text comparison protects against unobserved DOM changes.
 
 - [ ] **Step 5: Verify adapter tests pass**
 
@@ -497,14 +497,14 @@ git add apps/browser-extension/src/sites apps/browser-extension/test/sites
 git commit -m "feat: add ChatGPT and Claude editor adapters"
 ```
 
-### Task 9A: Provider factory and safe translation controller
+### Task 10: Provider factory and safe translation controller
 
 **Files:**
 - Create: `apps/browser-extension/src/content/provider-factory.ts`, `translation-controller.ts`
 - Test: `apps/browser-extension/test/content/provider-factory.test.ts`, `translation-controller.test.ts`
 
 **Interfaces:**
-- Consumes: settings, Task 5 browser bridges, runtime-provider proxies, and `EditorHandle`.
+- Consumes: settings, Task 6 browser bridges, runtime-provider proxies, and `EditorHandle`.
 - Produces: `createConfiguredProvider(settings, dependencies): TranslationProvider`; it returns one provider and contains no registry or fallback loop.
 - Produces: `TranslationController.translate()`, `undo()`, `dispose()`, and `subscribe(listener)`.
 - Produces: controller states `idle | translating | downloading | success | error`.
@@ -552,14 +552,14 @@ git add apps/browser-extension/src/content/provider-factory.ts apps/browser-exte
 git commit -m "feat: add safe translation controller"
 ```
 
-### Task 9B: Shadow DOM translation control
+### Task 11: Shadow DOM translation control
 
 **Files:**
 - Create: `apps/browser-extension/src/ui/translate-control.ts`, `translate-control.css.ts`
 - Test: `apps/browser-extension/test/ui/translate-control.test.ts`
 
 **Interfaces:**
-- Consumes: Task 9A controller states and translate/undo callbacks.
+- Consumes: Task 10 controller states and translate/undo callbacks.
 - Produces: `createTranslateControl(): TranslateControl` with `element`, `render(state)`, `onTranslate(handler)`, `onUndo(handler)`, and `dispose()`.
 
 - [ ] **Step 1: Write failing UI tests**
@@ -589,7 +589,7 @@ git add apps/browser-extension/src/ui apps/browser-extension/test/ui
 git commit -m "feat: add isolated translation control"
 ```
 
-### Task 9C: Idempotent mounting and content entrypoint
+### Task 12: Idempotent mounting and content entrypoint
 
 **Files:**
 - Create: `apps/browser-extension/src/content/mount.ts`
@@ -597,7 +597,7 @@ git commit -m "feat: add isolated translation control"
 - Test: `apps/browser-extension/test/content/mount.test.ts`
 
 **Interfaces:**
-- Consumes: Tasks 8, 9A, and 9B.
+- Consumes: Tasks 9, 10, and 11.
 - Produces: `mountForActiveEditor(document, adapter, dependencies): MountedControl | null`.
 - Produces: `startEditorObserver(document, adapter, dependencies): () => void`.
 
@@ -636,7 +636,7 @@ git add apps/browser-extension/src/content/mount.ts apps/browser-extension/entry
 git commit -m "feat: mount translation control on supported sites"
 ```
 
-### Task 10: Settings page and provider diagnostics
+### Task 13: Settings page and provider diagnostics
 
 **Files:**
 - Create: `apps/browser-extension/entrypoints/options/index.html`, `main.ts`, `style.css`
@@ -683,7 +683,7 @@ git add apps/browser-extension/entrypoints/options apps/browser-extension/src/op
 git commit -m "feat: add provider settings and diagnostics"
 ```
 
-### Task 11: Verification, packaging, and documentation
+### Task 14: Verification, packaging, and documentation
 
 **Files:**
 - Create: `README.md`, `docs/manual-test-checklist.md`, `.gitignore`
