@@ -1,0 +1,24 @@
+{
+  "name": "input-to-english",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "build:chrome": "wxt build --browser chrome",
+    "build:edge": "wxt build --browser edge",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "zip:chrome": "wxt zip --browser chrome",
+    "zip:edge": "wxt zip --browser edge"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.3.0",
+    "@types/dom-chromium-ai": "^0.0.17",
+    "jsdom": "^29.1.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2",
+    "wxt": "^0.21.4"
+  }
+}
