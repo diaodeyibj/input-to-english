@@ -26,10 +26,10 @@
 ## Review Focus
 
 - Prompt-injection-like source text remains isolated as user content; Task 2 pins message-role separation.
-- Empty and whitespace-only editors make no request and stay unchanged; Task 9 pins both cases.
-- A late result after user editing never overwrites newer text; Task 9 pins the race with a deferred promise.
-- Repeated SPA mutations create exactly one control per active editor; Tasks 8 and 9 pin idempotence.
-- Auth and unknown-provider failures never expose API keys or raw bodies; Tasks 3 and 7 pin redaction.
+- Empty and whitespace-only editors make no request and stay unchanged; Task 9A pins both cases.
+- A late result after user editing never overwrites newer text; Task 9A pins the race with a deferred promise.
+- Repeated SPA mutations create exactly one control per active editor; Tasks 8 and 9C pin idempotence.
+- Auth and unknown-provider failures never expose API keys or raw bodies; Tasks 3A, 3B, and 7 pin redaction.
 
 ---
 
@@ -37,8 +37,8 @@
 
 ```text
 package.json / tsconfig.json / vitest.config.ts / wxt.config.ts
-packages/core/src/{contracts,errors,router,index}.ts
-packages/core/test/router.test.ts
+packages/core/src/{contracts,errors,router,async,index}.ts
+packages/core/test/{router,async}.test.ts
 packages/prompt/src/{translation-prompt,index}.ts
 packages/prompt/test/translation-prompt.test.ts
 packages/providers/src/{http,openai-compatible,deepseek,kimi,ollama,browser-local,index}.ts
@@ -67,7 +67,7 @@ Each file has one responsibility: portable contracts and provider logic stay und
 **Interfaces:**
 - Produces: `ProviderId = 'browser' | 'deepseek' | 'kimi' | 'ollama'`.
 - Produces: `TranslationRequest { text: string; sourceLanguage?: string; targetLanguage: 'en' }`.
-- Produces: `TranslationResult { text: string; providerId: ProviderId; sourceLanguage?: string }`.
+- Produces: `TranslationResult { text: string; providerId: ProviderId; sourceLanguage?: string }`; Browser Local guarantees `sourceLanguage`, while DeepSeek, Kimi, and Ollama may omit it.
 - Produces: `TranslationProgress { kind: 'model-download'; loaded: number; total: number }`.
 - Produces: `ProviderAvailability { status: 'available' | 'unavailable' | 'downloadable' | 'downloading'; detail?: string }`.
 - Produces: `ConnectionTestResult = { ok: true; detail: string } | { ok: false; error: TranslationError }`.
@@ -105,6 +105,8 @@ Expected: FAIL because the core does not exist.
 - [ ] **Step 5: Implement the minimal contracts, errors, and router**
 
 `TranslationError` accepts `{ code, userMessage, retryable, cause? }`; its public message is never derived from `cause`.
+
+`TranslationRouter` is the background-side remote-provider registry and selector. Content does not maintain another provider registry: Task 9A's factory returns one Browser Local provider or one runtime proxy, and the controller invokes that single provider directly.
 
 - [ ] **Step 6: Verify tests and types**
 
@@ -167,42 +169,38 @@ git add packages/prompt
 git commit -m "feat: add translation-only prompt builder"
 ```
 
-### Task 3: DeepSeek and Kimi cloud providers
+### Task 3A: JSON HTTP transport and OpenAI-compatible provider
 
 **Files:**
-- Create: `packages/providers/src/http.ts`, `openai-compatible.ts`, `deepseek.ts`, `kimi.ts`, `index.ts`
-- Test: `packages/providers/test/openai-compatible.test.ts`, `cloud-providers.test.ts`
+- Create: `packages/providers/src/http.ts`, `openai-compatible.ts`, `index.ts`
+- Test: `packages/providers/test/http.test.ts`, `openai-compatible.test.ts`
 
 **Interfaces:**
 - Consumes: core contracts and `buildTranslationMessages(text)`.
 - Produces: `JsonHttpClient.request<T>(request): Promise<JsonHttpResponse<T>>`.
-- Produces: `createDeepSeekProvider({ apiKey, model, http }): TranslationProvider`.
-- Produces: `createKimiProvider({ apiKey, model, http }): TranslationProvider`.
-- Produces: `DEFAULT_DEEPSEEK_MODEL = 'deepseek-flash'` and `DEFAULT_KIMI_MODEL = 'kimi-k2.6'`.
+- Produces: `createOpenAiCompatibleProvider({ id, url, apiKey, model, http }): TranslationProvider`.
 
-- [ ] **Step 1: Write failing cloud-provider tests**
+- [ ] **Step 1: Write failing transport and shared-provider tests**
 
-Cover non-streaming low-randomness requests, `choices[0].message.content`, 401/403 authentication, 429 limiting, abort timeout, fetch failure, malformed content, and credential/raw-body redaction.
-
-Assert DeepSeek calls `https://api.deepseek.com/chat/completions`; Kimi calls `https://api.moonshot.cn/v1/chat/completions`; both send `stream: false` and the bearer header through the injected HTTP client.
+Cover JSON request/response handling, non-streaming low-randomness chat requests, `choices[0].message.content`, 401/403 authentication, 429 limiting, abort timeout, fetch failure, malformed content, and credential/raw-body redaction.
 
 - [ ] **Step 2: Verify the tests fail**
 
-Run: `npm test -- packages/providers/test/openai-compatible.test.ts packages/providers/test/cloud-providers.test.ts`
+Run: `npm test -- packages/providers/test/http.test.ts packages/providers/test/openai-compatible.test.ts`
 
-Expected: FAIL because the providers do not exist.
+Expected: FAIL because the transport/provider do not exist.
 
-- [ ] **Step 3: Implement the JSON transport and shared OpenAI-compatible provider**
+- [ ] **Step 3: Implement the JSON transport**
 
-Keep response parsing, status mapping, and safe errors in `openai-compatible.ts`; keep provider ID, endpoint, and defaults in provider-specific files.
+Use injected `fetch`, return status plus parsed JSON, honor `AbortSignal`, and convert non-JSON bodies to a safe status-only response.
 
-- [ ] **Step 4: Implement DeepSeek and Kimi factories**
+- [ ] **Step 4: Implement the shared OpenAI-compatible provider**
 
-Reject blank keys/models with `PROVIDER_NOT_CONFIGURED`, use Task 2 messages, and return the provider's own ID.
+Keep request construction, response parsing, status mapping, and safe error creation here. Provider construction remains side-effect free; `translate()` and `testConnection()` reject blank keys/models with `PROVIDER_NOT_CONFIGURED`, so the background can build a complete registry without requiring every provider to be configured.
 
 - [ ] **Step 5: Verify tests and types**
 
-Run: `npm test -- packages/providers/test/openai-compatible.test.ts packages/providers/test/cloud-providers.test.ts`
+Run: `npm test -- packages/providers/test/http.test.ts packages/providers/test/openai-compatible.test.ts`
 
 Expected: PASS.
 
@@ -213,8 +211,48 @@ Expected: exit 0.
 - [ ] **Step 6: Commit**
 
 ```bash
-git add packages/providers
-git commit -m "feat: add DeepSeek and Kimi translation providers"
+git add packages/providers/src/http.ts packages/providers/src/openai-compatible.ts packages/providers/src/index.ts packages/providers/test/http.test.ts packages/providers/test/openai-compatible.test.ts
+git commit -m "feat: add OpenAI-compatible provider transport"
+```
+
+### Task 3B: DeepSeek and Kimi provider factories
+
+**Files:**
+- Create: `packages/providers/src/deepseek.ts`, `kimi.ts`
+- Modify: `packages/providers/src/index.ts`
+- Test: `packages/providers/test/cloud-providers.test.ts`
+
+**Interfaces:**
+- Consumes: `createOpenAiCompatibleProvider` from Task 3A.
+- Produces: `createDeepSeekProvider({ apiKey, model, http }): TranslationProvider`.
+- Produces: `createKimiProvider({ apiKey, model, http }): TranslationProvider`.
+- Produces: `DEFAULT_DEEPSEEK_MODEL = 'deepseek-flash'` and `DEFAULT_KIMI_MODEL = 'kimi-k2.6'`.
+
+- [ ] **Step 1: Write failing provider-factory tests**
+
+Assert DeepSeek calls `https://api.deepseek.com/chat/completions`; Kimi calls `https://api.moonshot.cn/v1/chat/completions`; both send `stream: false`, use the bearer header, apply the expected default model, and return their own provider ID.
+
+- [ ] **Step 2: Verify the tests fail**
+
+Run: `npm test -- packages/providers/test/cloud-providers.test.ts`
+
+Expected: FAIL because provider-specific factories do not exist.
+
+- [ ] **Step 3: Implement the DeepSeek and Kimi factories**
+
+Keep only endpoint, provider ID, and default-model decisions in provider-specific files; delegate request and error behavior to Task 3A.
+
+- [ ] **Step 4: Verify the tests pass**
+
+Run: `npm test -- packages/providers/test/cloud-providers.test.ts`
+
+Expected: PASS.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add packages/providers/src/deepseek.ts packages/providers/src/kimi.ts packages/providers/src/index.ts packages/providers/test/cloud-providers.test.ts
+git commit -m "feat: add DeepSeek and Kimi provider factories"
 ```
 
 ### Task 4: Local Ollama provider
@@ -270,7 +308,7 @@ git commit -m "feat: add local Ollama translation provider"
 
 - [ ] **Step 1: Write failing browser-provider tests**
 
-Cover missing APIs, English detection, unsupported pairs, available translation, download progress, download failure, and abort. Assert English input throws `ALREADY_ENGLISH` without creating a translator.
+Cover missing APIs, defensive English detection, unsupported pairs, available translation, download progress, download failure, and abort. Assert English input throws `ALREADY_ENGLISH` without creating a translator.
 
 - [ ] **Step 2: Verify the test fails**
 
@@ -280,7 +318,7 @@ Expected: FAIL because the provider does not exist.
 
 - [ ] **Step 3: Implement the bridge-driven provider**
 
-Use detected BCP 47 source tags and fixed target `en`. Keep direct browser globals outside the portable package; the extension supplies bridges.
+Use `request.sourceLanguage` when supplied; otherwise detect a BCP 47 source tag defensively. `ALREADY_ENGLISH` is primarily decided by the Task 9A controller and repeated here only to protect direct provider use. `UNSUPPORTED_LANGUAGE` is Browser Local-specific and is thrown when `TranslationBridge.availability(source, 'en')` returns `unavailable`; cloud and Ollama providers do not emit it. Keep direct browser globals outside the portable package; the extension supplies bridges.
 
 - [ ] **Step 4: Verify the test passes**
 
@@ -305,7 +343,7 @@ git commit -m "feat: add browser-local translation provider"
 
 **Interfaces:**
 - Produces: `ExtensionSettings { activeProvider; deepseek: { apiKey; model }; kimi: { apiKey; model }; ollama: { model } }`.
-- Produces: `DEFAULT_SETTINGS` using provider `browser`, cloud defaults from Task 3, blank keys, and blank Ollama model.
+- Produces: `DEFAULT_SETTINGS` using provider `browser`, cloud defaults from Task 3B, blank keys, and blank Ollama model.
 - Produces: `SettingsStore.get()`, `update(patch)`, and `clearApiKey(provider)`.
 - Produces: discriminated messages for `translate`, `test-provider`, and `list-ollama-models`, plus typed success/error responses.
 
@@ -346,38 +384,61 @@ git commit -m "feat: add local settings and runtime protocol"
 - Create: `apps/browser-extension/entrypoints/background.ts`
 - Create: `apps/browser-extension/src/messaging/background-handler.ts`
 - Create: `apps/browser-extension/src/messaging/runtime-provider.ts`
+- Create: `packages/core/src/async.ts`
+- Test: `packages/core/test/async.test.ts`
 - Test: `apps/browser-extension/test/messaging/background-handler.test.ts`
 - Test: `apps/browser-extension/test/messaging/runtime-provider.test.ts`
 
 **Interfaces:**
-- Consumes: Tasks 3/4 providers and Task 6 settings/protocol.
+- Consumes: Tasks 3B/4 providers and Task 6 settings/protocol.
+- Consumes: `TranslationRouter` as the single remote-provider registry and selector in the background context.
 - Produces: `handleRuntimeMessage(message): Promise<RuntimeResponse>`.
 - Produces: `createRuntimeProvider(id, runtimeClient): TranslationProvider` for `deepseek`, `kimi`, and `ollama`.
-- Produces: `withTimeout(operation, 30_000): Promise<T>` using `AbortController`.
+- Produces: portable `withTimeout(operation, 30_000): Promise<T>` in `packages/core/src/async.ts` using `AbortController`.
 
-- [ ] **Step 1: Write failing background-handler tests**
+- [ ] **Step 1: Write failing timeout utility tests**
 
-Cover exact remote-provider dispatch, 30,000 ms abort with fake timers, connection tests, Ollama model listing, unknown-message failure, no fallback, and safe error serialization. Browser-provider messages must be rejected because local translation belongs in a document context.
+Use fake timers to assert normal completion, abort at exactly 30,000 ms, cleanup of the timer after early completion, and rejection of a late result.
 
-- [ ] **Step 2: Write failing runtime-provider tests**
+- [ ] **Step 2: Verify timeout tests fail**
+
+Run: `npm test -- packages/core/test/async.test.ts`
+
+Expected: FAIL because `withTimeout` does not exist.
+
+- [ ] **Step 3: Implement `withTimeout`**
+
+Accept an operation callback that receives an `AbortSignal`; clear the timer in `finally` and ignore completion after timeout.
+
+- [ ] **Step 4: Verify timeout tests pass**
+
+Run: `npm test -- packages/core/test/async.test.ts`
+
+Expected: PASS.
+
+- [ ] **Step 5: Write failing background-handler tests**
+
+Cover exact remote-provider dispatch through `TranslationRouter`, connection tests, Ollama model listing, unknown-message failure, no fallback, and safe error serialization. Browser-provider messages must be rejected because local translation belongs in a document context.
+
+- [ ] **Step 6: Write failing runtime-provider tests**
 
 Assert request/result mapping, runtime transport failure to `NETWORK_ERROR`, and preservation of structured error codes without exposing sensitive data.
 
-- [ ] **Step 3: Verify messaging tests fail**
+- [ ] **Step 7: Verify messaging tests fail**
 
 Run: `npm test -- apps/browser-extension/test/messaging/background-handler.test.ts apps/browser-extension/test/messaging/runtime-provider.test.ts`
 
 Expected: FAIL because handlers do not exist.
 
-- [ ] **Step 4: Implement the background service and runtime provider**
+- [ ] **Step 8: Implement the background service and runtime provider**
 
-Read credentials inside the handler, construct only the requested provider, race work against the timeout, and return a typed response. Never attach settings or request headers to errors.
+Read credentials inside the handler, register the configured remote providers in `TranslationRouter`, dispatch the requested provider ID through that router, wrap work with the core timeout utility, and return a typed response. Never attach settings or request headers to errors. This is the only runtime provider-selection registry.
 
-- [ ] **Step 5: Register the WXT background entrypoint**
+- [ ] **Step 9: Register the WXT background entrypoint**
 
 Register one `browser.runtime.onMessage` listener inside `defineBackground` and delegate logic to the tested handler.
 
-- [ ] **Step 6: Verify tests and types**
+- [ ] **Step 10: Verify tests and types**
 
 Run: `npm test -- apps/browser-extension/test/messaging`
 
@@ -387,10 +448,10 @@ Run: `npm run typecheck`
 
 Expected: exit 0.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 11: Commit**
 
 ```bash
-git add apps/browser-extension/entrypoints/background.ts apps/browser-extension/src/messaging apps/browser-extension/test/messaging
+git add packages/core/src/async.ts packages/core/src/index.ts packages/core/test/async.test.ts apps/browser-extension/entrypoints/background.ts apps/browser-extension/src/messaging apps/browser-extension/test/messaging
 git commit -m "feat: add privileged provider messaging"
 ```
 
@@ -401,13 +462,13 @@ git commit -m "feat: add privileged provider messaging"
 - Test: `apps/browser-extension/test/sites/dom-editor.test.ts`, `chatgpt.test.ts`, `claude.test.ts`
 
 **Interfaces:**
-- Produces: `EditorHandle { element; readText(); replaceText(text); getRevision(); focus() }`.
+- Produces: `EditorHandle { element; readText(); replaceText(text); getRevision(): number; focus() }`.
 - Produces: `SiteAdapter { id; findEditor(document); findControlAnchor(editor); isPromptSubmitted(event) }`.
 - Produces: `selectSiteAdapter(hostname): SiteAdapter | null`.
 
 - [ ] **Step 1: Write failing generic editor tests**
 
-Use textarea and ProseMirror-like contenteditable fixtures. Assert reads preserve newlines, replacement dispatches bubbling `beforeinput` and `input`, output is inserted as text rather than evaluated HTML, and revision changes after input.
+Use textarea and ProseMirror-like contenteditable fixtures. Assert reads preserve newlines, replacement dispatches bubbling `beforeinput` and `input`, output is inserted as text rather than evaluated HTML, and revision is a per-handle monotonic counter that increments on each observed input change.
 
 - [ ] **Step 2: Write failing site-adapter tests**
 
@@ -421,7 +482,7 @@ Expected: FAIL because adapters do not exist.
 
 - [ ] **Step 4: Implement editor helpers and adapters**
 
-Keep selectors inside each adapter. Prefer IDs/data attributes, then narrowly scoped fallbacks; never select every contenteditable on the page.
+Keep selectors inside each adapter. Prefer IDs/data attributes, then narrowly scoped fallbacks; never select every contenteditable on the page. Each `EditorHandle` starts revision at `0` and increments it for every observed `input` event. Task 9A captures both the numeric revision and exact snapshot text, and requires both to match before replacement; text comparison protects against unobserved DOM changes.
 
 - [ ] **Step 5: Verify adapter tests pass**
 
@@ -436,59 +497,47 @@ git add apps/browser-extension/src/sites apps/browser-extension/test/sites
 git commit -m "feat: add ChatGPT and Claude editor adapters"
 ```
 
-### Task 9: Safe translation controller and injected control
+### Task 9A: Provider factory and safe translation controller
 
 **Files:**
-- Create: `apps/browser-extension/src/content/provider-factory.ts`, `translation-controller.ts`, `mount.ts`
-- Create: `apps/browser-extension/src/ui/translate-control.ts`, `translate-control.css.ts`
-- Create: `apps/browser-extension/entrypoints/content.ts`
-- Test: `apps/browser-extension/test/content/provider-factory.test.ts`, `translation-controller.test.ts`, `mount.test.ts`
-- Test: `apps/browser-extension/test/ui/translate-control.test.ts`
+- Create: `apps/browser-extension/src/content/provider-factory.ts`, `translation-controller.ts`
+- Test: `apps/browser-extension/test/content/provider-factory.test.ts`, `translation-controller.test.ts`
 
 **Interfaces:**
-- Consumes: settings, browser-local bridge, runtime providers, and `SiteAdapter`.
-- Produces: `createConfiguredProvider(settings, dependencies): TranslationProvider`.
-- Produces: `TranslationController.translate(): Promise<void>`, `undo(): void`, and `dispose(): void`.
-- Produces: UI states `idle | translating | downloading | success | error`.
-- Produces: `mountForActiveEditor(document, adapter, dependencies): MountedControl | null`.
+- Consumes: settings, Task 5 browser bridges, runtime-provider proxies, and `EditorHandle`.
+- Produces: `createConfiguredProvider(settings, dependencies): TranslationProvider`; it returns one provider and contains no registry or fallback loop.
+- Produces: `TranslationController.translate()`, `undo()`, `dispose()`, and `subscribe(listener)`.
+- Produces: controller states `idle | translating | downloading | success | error`.
 
 - [ ] **Step 1: Write failing provider-factory tests**
 
-Assert `browser` creates only the local provider and each remote setting creates only its matching runtime proxy. A creation failure must not try another provider.
+Assert `browser` returns only a Browser Local provider and each remote choice returns only its matching runtime proxy. A creation failure must not try another provider. Assert `TranslationRouter` is neither imported nor instantiated by content code.
 
-- [ ] **Step 2: Write failing controller tests**
+- [ ] **Step 2: Write failing universal language-preflight tests**
 
-Cover empty text, whitespace-only text, duplicate clicks, success replacement, failure preservation, no submit/click event, and a deferred result after user editing. Test Undo separately after success and assert it is invalidated by user editing, prompt submission, a second translation, controller disposal/navigation, and the 10-second timer. The race test asserts edited text remains and state becomes `INPUT_CHANGED`.
+When Language Detector is available and returns `en`, assert every provider short-circuits with `ALREADY_ENGLISH` and receives no request. For a non-English result, assert the BCP 47 tag is passed as `request.sourceLanguage`. If detection is unavailable, assert DeepSeek/Kimi/Ollama still run with omitted `sourceLanguage`; Browser Local reports `BROWSER_API_UNAVAILABLE` through its bridge.
 
-- [ ] **Step 3: Write failing mount and UI tests**
+- [ ] **Step 3: Write failing controller safety tests**
 
-Assert a Shadow DOM root, exact `-> EN` label, disabled translating state, download percentage, actionable error copy, 10-second Undo visibility, editor recreation, and exactly one control after repeated mutation callbacks.
+Cover empty/whitespace input, duplicate clicks, success, failure preservation, no submit/click event, and a deferred result after editing. Capture both exact text and numeric revision; replacement requires both to match. Test Undo after success and invalidation by editing, submission, second translation, disposal/navigation, and 10 seconds.
 
-- [ ] **Step 4: Verify content/UI tests fail**
+- [ ] **Step 4: Verify controller tests fail**
 
-Run: `npm test -- apps/browser-extension/test/content apps/browser-extension/test/ui`
+Run: `npm test -- apps/browser-extension/test/content/provider-factory.test.ts apps/browser-extension/test/content/translation-controller.test.ts`
 
-Expected: FAIL because controller and UI modules do not exist.
+Expected: FAIL because factory and controller do not exist.
 
-- [ ] **Step 5: Implement provider selection and browser API bridges**
+- [ ] **Step 5: Implement provider selection and browser bridges**
 
-Feature-detect `globalThis.LanguageDetector` and `globalThis.Translator` in the content document context. Convert native availability/download events into Task 5 bridges; return `BROWSER_API_UNAVAILABLE` when absent.
+Feature-detect Language Detector and Translator in the document context. Supply one local provider or one runtime proxy; never introduce another provider registry.
 
 - [ ] **Step 6: Implement the controller**
 
-Snapshot text and revision, call exactly one provider, compare live text and revision before replacement, and hold one in-memory undo snapshot. Expire Undo after `10_000` ms and cancel timers/listeners in `dispose()`.
+Perform universal detection when available, snapshot text and revision, invoke the one provider, re-check both snapshot values, and hold one in-memory undo record. Expire Undo after `10_000` ms; cancel work, timers, subscriptions, and editor listeners in `dispose()`.
 
-- [ ] **Step 7: Implement the Shadow DOM control and idempotent mount observer**
+- [ ] **Step 7: Verify tests and types**
 
-Use marker `data-input-to-english-root="v1"`. Coalesce mutation records into one reconciliation pass.
-
-- [ ] **Step 8: Register the WXT content entrypoint**
-
-Match only ChatGPT and Claude, select by hostname, and connect mounting to the WXT content lifecycle.
-
-- [ ] **Step 9: Verify tests and types**
-
-Run: `npm test -- apps/browser-extension/test/content apps/browser-extension/test/ui`
+Run: `npm test -- apps/browser-extension/test/content/provider-factory.test.ts apps/browser-extension/test/content/translation-controller.test.ts`
 
 Expected: PASS.
 
@@ -496,11 +545,95 @@ Run: `npm run typecheck`
 
 Expected: exit 0.
 
-- [ ] **Step 10: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
-git add apps/browser-extension/src/content apps/browser-extension/src/ui apps/browser-extension/entrypoints/content.ts apps/browser-extension/test/content apps/browser-extension/test/ui
-git commit -m "feat: add safe one-click translation control"
+git add apps/browser-extension/src/content/provider-factory.ts apps/browser-extension/src/content/translation-controller.ts apps/browser-extension/test/content/provider-factory.test.ts apps/browser-extension/test/content/translation-controller.test.ts
+git commit -m "feat: add safe translation controller"
+```
+
+### Task 9B: Shadow DOM translation control
+
+**Files:**
+- Create: `apps/browser-extension/src/ui/translate-control.ts`, `translate-control.css.ts`
+- Test: `apps/browser-extension/test/ui/translate-control.test.ts`
+
+**Interfaces:**
+- Consumes: Task 9A controller states and translate/undo callbacks.
+- Produces: `createTranslateControl(): TranslateControl` with `element`, `render(state)`, `onTranslate(handler)`, `onUndo(handler)`, and `dispose()`.
+
+- [ ] **Step 1: Write failing UI tests**
+
+Assert a Shadow DOM root, exact `-> EN` label, keyboard-operable buttons, disabled translating state, download percentage, success/Undo, actionable errors, and removal of listeners on dispose.
+
+- [ ] **Step 2: Verify UI tests fail**
+
+Run: `npm test -- apps/browser-extension/test/ui/translate-control.test.ts`
+
+Expected: FAIL because the control does not exist.
+
+- [ ] **Step 3: Implement the isolated control**
+
+Render only text through DOM text APIs, keep CSS in the Shadow Root, and never use provider output as HTML.
+
+- [ ] **Step 4: Verify UI tests pass**
+
+Run: `npm test -- apps/browser-extension/test/ui/translate-control.test.ts`
+
+Expected: PASS.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add apps/browser-extension/src/ui apps/browser-extension/test/ui
+git commit -m "feat: add isolated translation control"
+```
+
+### Task 9C: Idempotent mounting and content entrypoint
+
+**Files:**
+- Create: `apps/browser-extension/src/content/mount.ts`
+- Create: `apps/browser-extension/entrypoints/content.ts`
+- Test: `apps/browser-extension/test/content/mount.test.ts`
+
+**Interfaces:**
+- Consumes: Tasks 8, 9A, and 9B.
+- Produces: `mountForActiveEditor(document, adapter, dependencies): MountedControl | null`.
+- Produces: `startEditorObserver(document, adapter, dependencies): () => void`.
+
+- [ ] **Step 1: Write failing mount tests**
+
+Assert marker `data-input-to-english-root="v1"`, one control after repeated mutation batches, disposal when the editor disappears, a fresh control for a recreated editor, Undo invalidation on navigation/submission, and observer/listener cleanup.
+
+- [ ] **Step 2: Verify mount tests fail**
+
+Run: `npm test -- apps/browser-extension/test/content/mount.test.ts`
+
+Expected: FAIL because mounting does not exist.
+
+- [ ] **Step 3: Implement coalesced reconciliation**
+
+Coalesce mutation records into one microtask or animation-frame pass, reuse the mount for the same editor element, and dispose before mounting for a different editor.
+
+- [ ] **Step 4: Register the WXT content entrypoint**
+
+Match only ChatGPT and Claude, select by hostname, and bind observer cleanup to WXT's content lifecycle.
+
+- [ ] **Step 5: Verify mount tests and types**
+
+Run: `npm test -- apps/browser-extension/test/content/mount.test.ts`
+
+Expected: PASS.
+
+Run: `npm run typecheck`
+
+Expected: exit 0.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add apps/browser-extension/src/content/mount.ts apps/browser-extension/entrypoints/content.ts apps/browser-extension/test/content/mount.test.ts
+git commit -m "feat: mount translation control on supported sites"
 ```
 
 ### Task 10: Settings page and provider diagnostics
@@ -555,7 +688,7 @@ git commit -m "feat: add provider settings and diagnostics"
 **Files:**
 - Create: `README.md`, `docs/manual-test-checklist.md`, `.gitignore`
 - Modify: `wxt.config.ts` only if manifest verification identifies a permission mismatch
-- Modify: tests only when verification exposes an uncovered contract
+- Modify: existing tests only when verification proves the documented contract was wrong; explain the reason in the task record. Otherwise add regression tests and never weaken an assertion merely to make a build pass.
 
 **Interfaces:**
 - Consumes: all earlier tasks.
