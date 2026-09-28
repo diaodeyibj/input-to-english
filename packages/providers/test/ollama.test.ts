@@ -155,6 +155,19 @@ describe('createOllamaProvider', () => {
     expect(String(error)).not.toContain('leaked-abort-detail');
   });
 
+  it('maps an AbortSignal timeout to a safe retryable timeout error', async () => {
+    const { http } = recordingHttpClient(() => {
+      throw new DOMException('leaked-timeout-detail', 'TimeoutError');
+    });
+
+    const error = await createOllamaProvider({ model: 'llama3.2:3b', http })
+      .translate(translationRequest)
+      .catch((caught: unknown) => caught);
+
+    expect(error).toMatchObject({ code: 'TIMEOUT', retryable: true });
+    expect(String(error)).not.toContain('leaked-timeout-detail');
+  });
+
   it('maps a missing selected model to a safe non-retryable model error', async () => {
     const { http } = recordingHttpClient(() => ({
       status: 404,

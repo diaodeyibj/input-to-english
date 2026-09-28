@@ -49,7 +49,10 @@ function malformedResponseError(): TranslationError {
 }
 
 function requestError(cause: unknown): TranslationError {
-  if (cause instanceof Error && cause.name === 'AbortError') {
+  if (
+    cause instanceof Error &&
+    (cause.name === 'AbortError' || cause.name === 'TimeoutError')
+  ) {
     return error('TIMEOUT', 'The Ollama request timed out.', true);
   }
   return error('OLLAMA_UNAVAILABLE', 'Ollama is unavailable on this device.', true);
