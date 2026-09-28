@@ -7,3 +7,8 @@ export {
 export { createOpenAiCompatibleProvider } from './openai-compatible';
 export { createDeepSeekProvider, DEFAULT_DEEPSEEK_MODEL } from './deepseek';
 export { createKimiProvider, DEFAULT_KIMI_MODEL } from './kimi';
+export {
+  createOllamaProvider,
+  listOllamaModels,
+  OLLAMA_BASE_URL,
+} from './ollama';
