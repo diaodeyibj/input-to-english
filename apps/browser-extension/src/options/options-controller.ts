@@ -163,9 +163,16 @@ function defaultDependencies(): OptionsControllerDependencies {
 
 export class OptionsController {
   private readonly dependencies: OptionsControllerDependencies;
+  private mutationTail: Promise<void> = Promise.resolve();
 
   constructor(dependencies: OptionsControllerDependencies = defaultDependencies()) {
     this.dependencies = dependencies;
+  }
+
+  private enqueueMutation<T>(action: () => Promise<T>): Promise<T> {
+    const result = this.mutationTail.then(action);
+    this.mutationTail = result.then(() => undefined, () => undefined);
+    return result;
   }
 
   async load(): Promise<OptionsSnapshot> {
@@ -182,12 +189,14 @@ export class OptionsController {
 
   async saveProvider(id: ProviderId): Promise<OptionsSnapshot> {
     if (!providerIds.includes(id)) throw unknownError();
-    try {
-      await this.dependencies.settings.update({ activeProvider: id });
-      return await this.load();
-    } catch (cause) {
-      throw safeFailure(cause);
-    }
+    return this.enqueueMutation(async () => {
+      try {
+        await this.dependencies.settings.update({ activeProvider: id });
+        return await this.load();
+      } catch (cause) {
+        throw safeFailure(cause);
+      }
+    });
   }
 
   async saveCloudConfig(
@@ -200,34 +209,38 @@ export class OptionsController {
       throw error('PROVIDER_NOT_CONFIGURED', `Enter a ${providerLabel(id)} model before saving.`, false);
     }
 
-    try {
-      const current = await this.dependencies.settings.get();
-      if (apiKey.length === 0 && current[id].apiKey.trim().length === 0) {
-        throw error(
-          'PROVIDER_NOT_CONFIGURED',
-          `Enter a ${providerLabel(id)} API key before saving.`,
-          false,
-        );
+    return this.enqueueMutation(async () => {
+      try {
+        const current = await this.dependencies.settings.get();
+        if (apiKey.length === 0 && current[id].apiKey.trim().length === 0) {
+          throw error(
+            'PROVIDER_NOT_CONFIGURED',
+            `Enter a ${providerLabel(id)} API key before saving.`,
+            false,
+          );
+        }
+        await this.dependencies.settings.update({
+          [id]: {
+            model,
+            ...(apiKey.length === 0 ? {} : { apiKey }),
+          },
+        });
+        return await this.load();
+      } catch (cause) {
+        throw safeFailure(cause);
       }
-      await this.dependencies.settings.update({
-        [id]: {
-          model,
-          ...(apiKey.length === 0 ? {} : { apiKey }),
-        },
-      });
-      return await this.load();
-    } catch (cause) {
-      throw safeFailure(cause);
-    }
+    });
   }
 
   async deleteApiKey(id: 'deepseek' | 'kimi'): Promise<OptionsSnapshot> {
-    try {
-      await this.dependencies.settings.clearApiKey(id);
-      return await this.load();
-    } catch (cause) {
-      throw safeFailure(cause);
-    }
+    return this.enqueueMutation(async () => {
+      try {
+        await this.dependencies.settings.clearApiKey(id);
+        return await this.load();
+      } catch (cause) {
+        throw safeFailure(cause);
+      }
+    });
   }
 
   async saveOllamaModel(model: string): Promise<OptionsSnapshot> {
@@ -235,12 +248,14 @@ export class OptionsController {
     if (normalized.length === 0) {
       throw error('PROVIDER_NOT_CONFIGURED', 'Select an installed Ollama model before saving.', false);
     }
-    try {
-      await this.dependencies.settings.update({ ollama: { model: normalized } });
-      return await this.load();
-    } catch (cause) {
-      throw safeFailure(cause);
-    }
+    return this.enqueueMutation(async () => {
+      try {
+        await this.dependencies.settings.update({ ollama: { model: normalized } });
+        return await this.load();
+      } catch (cause) {
+        throw safeFailure(cause);
+      }
+    });
   }
 
   async testProvider(id: ProviderId): Promise<ConnectionTestResult> {

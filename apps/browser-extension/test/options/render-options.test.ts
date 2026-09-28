@@ -145,6 +145,20 @@ describe('renderOptions', () => {
     expect(root.querySelectorAll('button[type="button"]').length).toBeGreaterThan(0);
   });
 
+  it('restores keyboard focus to the same stable control after a redraw', () => {
+    const { root, handlers } = mount();
+    const radio = root.querySelector<HTMLInputElement>('#provider-kimi')!;
+    radio.focus();
+
+    renderOptions(root, { ...baseState, activeProvider: 'kimi' }, handlers);
+    expect(document.activeElement?.id).toBe('provider-kimi');
+
+    const save = root.querySelector<HTMLButtonElement>('#deepseek-save-cloud')!;
+    save.focus();
+    renderOptions(root, baseState, handlers);
+    expect(document.activeElement?.id).toBe('deepseek-save-cloud');
+  });
+
   it('wires explicit option actions to controller results and rerenders the saved state', async () => {
     let snapshot = {
       activeProvider: baseState.activeProvider,

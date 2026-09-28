@@ -66,8 +66,14 @@ function fieldLabel(text: string, htmlFor: string): HTMLLabelElement {
   return label;
 }
 
-function actionButton(label: string, action: string, onClick: () => void): HTMLButtonElement {
+function actionButton(
+  id: string,
+  label: string,
+  action: string,
+  onClick: () => void,
+): HTMLButtonElement {
   const button = element('button', action === 'test-provider' ? 'button button-secondary' : 'button', label);
+  button.id = id;
   button.type = 'button';
   button.dataset.action = action;
   button.addEventListener('click', onClick);
@@ -154,14 +160,14 @@ function addCloudFields(
 
   const controls = element('div', 'button-row');
   controls.append(
-    actionButton('Save credentials', 'save-cloud', () => {
+    actionButton(`${id}-save-cloud`, 'Save credentials', 'save-cloud', () => {
       void actions.saveCloudConfig(id, { apiKey: key.value, model: model.value });
     }),
-    actionButton('Delete API key', 'delete-key', () => {
+    actionButton(`${id}-delete-key`, 'Delete API key', 'delete-key', () => {
       key.value = '';
       void actions.deleteApiKey(id);
     }),
-    actionButton('Test connection', 'test-provider', () => void actions.testProvider(id)),
+    actionButton(`${id}-test-provider`, 'Test connection', 'test-provider', () => void actions.testProvider(id)),
   );
   body.append(fields, controls);
 }
@@ -178,7 +184,12 @@ function addBrowserFields(
   body.append(
     readiness,
     element('p', 'capability-detail', state.browser.detail ?? 'Capability status unavailable.'),
-    actionButton('Check availability', 'test-provider', () => void actions.testProvider('browser')),
+    actionButton(
+      'browser-test-provider',
+      'Check availability',
+      'test-provider',
+      () => void actions.testProvider('browser'),
+    ),
   );
 }
 
@@ -221,9 +232,24 @@ function addOllamaFields(
 
   const controls = element('div', 'button-row');
   controls.append(
-    actionButton('Refresh models', 'refresh-models', () => void actions.refreshOllamaModels()),
-    actionButton('Save model', 'save-model', () => void actions.saveOllamaModel(model.value)),
-    actionButton('Test connection', 'test-provider', () => void actions.testProvider('ollama')),
+    actionButton(
+      'ollama-refresh-models',
+      'Refresh models',
+      'refresh-models',
+      () => void actions.refreshOllamaModels(),
+    ),
+    actionButton(
+      'ollama-save-model',
+      'Save model',
+      'save-model',
+      () => void actions.saveOllamaModel(model.value),
+    ),
+    actionButton(
+      'ollama-test-provider',
+      'Test connection',
+      'test-provider',
+      () => void actions.testProvider('ollama'),
+    ),
   );
   body.append(fields, controls);
 }
@@ -233,6 +259,9 @@ export function renderOptions(
   state: OptionsViewState,
   actions: OptionsActions,
 ): void {
+  const focusedId = root.contains(document.activeElement) && document.activeElement instanceof HTMLElement
+    ? document.activeElement.id
+    : '';
   const content = document.createDocumentFragment();
   const intro = element('header', 'page-header');
   const eyebrow = element('p', 'eyebrow', 'INPUT → ENGLISH');
@@ -268,4 +297,10 @@ export function renderOptions(
   );
   content.append(intro, privacy, list, footer);
   root.replaceChildren(content);
+  if (focusedId) {
+    const replacement = document.getElementById(focusedId);
+    if (replacement instanceof HTMLElement && root.contains(replacement)) {
+      replacement.focus({ preventScroll: true });
+    }
+  }
 }

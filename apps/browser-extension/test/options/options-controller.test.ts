@@ -26,6 +26,24 @@ function cloneSettings(settings: ExtensionSettings): ExtensionSettings {
   };
 }
 
+function deferred() {
+  let resolve!: () => void;
+  const promise = new Promise<void>((done) => { resolve = done; });
+  return { promise, resolve };
+}
+
+function mergeSettings(
+  settings: ExtensionSettings,
+  patch: ExtensionSettingsPatch,
+): ExtensionSettings {
+  return {
+    activeProvider: patch.activeProvider ?? settings.activeProvider,
+    deepseek: { ...settings.deepseek, ...patch.deepseek },
+    kimi: { ...settings.kimi, ...patch.kimi },
+    ollama: { ...settings.ollama, ...patch.ollama },
+  };
+}
+
 function createMemoryStore(initial: ExtensionSettings = DEFAULT_SETTINGS) {
   let settings = cloneSettings(initial);
   const store: OptionsSettingsStore = {
@@ -33,12 +51,7 @@ function createMemoryStore(initial: ExtensionSettings = DEFAULT_SETTINGS) {
       return cloneSettings(settings);
     },
     async update(patch: ExtensionSettingsPatch) {
-      settings = {
-        activeProvider: patch.activeProvider ?? settings.activeProvider,
-        deepseek: { ...settings.deepseek, ...patch.deepseek },
-        kimi: { ...settings.kimi, ...patch.kimi },
-        ollama: { ...settings.ollama, ...patch.ollama },
-      };
+      settings = mergeSettings(settings, patch);
       return cloneSettings(settings);
     },
     async clearApiKey(provider: 'deepseek' | 'kimi') {
@@ -144,6 +157,78 @@ describe('OptionsController', () => {
     await controller.saveCloudConfig('kimi', { apiKey: '', model: 'new-model' });
 
     expect(current().kimi).toEqual({ apiKey: 'saved-kimi-secret', model: 'new-model' });
+  });
+
+  it('processes rapid credential save then deletion in order so a late save cannot restore the key', async () => {
+    let persisted = cloneSettings(DEFAULT_SETTINGS);
+    const saveStarted = deferred();
+    const releaseSave = deferred();
+    const store: OptionsSettingsStore = {
+      async get() { return cloneSettings(persisted); },
+      async update(patch) {
+        if (patch.deepseek?.apiKey === 'new-private-key') {
+          saveStarted.resolve();
+          await releaseSave.promise;
+        }
+        persisted = mergeSettings(persisted, patch);
+        return cloneSettings(persisted);
+      },
+      async clearApiKey(provider) {
+        persisted = mergeSettings(persisted, { [provider]: { apiKey: '' } });
+        return cloneSettings(persisted);
+      },
+    };
+    const controller = new OptionsController({
+      settings: store,
+      browserCapability: { availability: async () => ({ status: 'available' }) },
+      runtimeClient: { sendMessage: async () => ({ ok: false }) },
+    });
+
+    const save = controller.saveCloudConfig('deepseek', {
+      apiKey: 'new-private-key',
+      model: 'deepseek-model',
+    });
+    await saveStarted.promise;
+    const remove = controller.deleteApiKey('deepseek');
+    await Promise.resolve();
+    releaseSave.resolve();
+    const results = await Promise.all([save, remove]);
+
+    expect(persisted.deepseek.apiKey).toBe('');
+    expect(results[1].deepseek.hasApiKey).toBe(false);
+    expect(JSON.stringify(results)).not.toContain('new-private-key');
+  });
+
+  it('applies rapid provider changes in invocation order so the last explicit choice wins', async () => {
+    let persisted = cloneSettings(DEFAULT_SETTINGS);
+    const firstStarted = deferred();
+    const releaseFirst = deferred();
+    const store: OptionsSettingsStore = {
+      async get() { return cloneSettings(persisted); },
+      async update(patch) {
+        if (patch.activeProvider === 'deepseek') {
+          firstStarted.resolve();
+          await releaseFirst.promise;
+        }
+        persisted = mergeSettings(persisted, patch);
+        return cloneSettings(persisted);
+      },
+      async clearApiKey() { return cloneSettings(persisted); },
+    };
+    const controller = new OptionsController({
+      settings: store,
+      browserCapability: { availability: async () => ({ status: 'available' }) },
+      runtimeClient: { sendMessage: async () => ({ ok: false }) },
+    });
+
+    const first = controller.saveProvider('deepseek');
+    await firstStarted.promise;
+    const last = controller.saveProvider('kimi');
+    await Promise.resolve();
+    releaseFirst.resolve();
+    await Promise.all([first, last]);
+
+    expect(persisted.activeProvider).toBe('kimi');
   });
 
   it('returns safe remote connection-test outcomes without changing the selected provider', async () => {
