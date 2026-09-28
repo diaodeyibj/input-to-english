@@ -241,6 +241,11 @@ describe('safe translation controller', () => {
 
   it('does not publish success when the host submits during replacement input', async () => {
     const { form, textarea, controller } = setup();
+    const emitted: Array<{ status: string; errorCode?: string }> = [];
+    controller.subscribe((state) => emitted.push({
+      status: state.status,
+      errorCode: state.error?.code,
+    }));
     textarea.addEventListener('input', () => {
       form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
     });
@@ -248,6 +253,8 @@ describe('safe translation controller', () => {
     await controller.translate();
 
     expect(controller.state).toMatchObject({ status: 'error', canUndo: false });
+    expect(emitted.map((state) => state.status)).not.toContain('success');
+    expect(emitted).toContainEqual({ status: 'error', errorCode: 'INPUT_CHANGED' });
     expect(controller.undo()).toBe(false);
   });
 
