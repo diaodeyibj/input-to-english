@@ -1,7 +1,7 @@
 # Input-to-English Browser Extension Design
 
 **Date:** 2026-09-28  
-**Status:** Approved in conversation; pending written-spec review  
+**Status:** Approved
 **Initial platforms:** Google Chrome and Microsoft Edge  
 **Initial websites:** ChatGPT and Claude
 
