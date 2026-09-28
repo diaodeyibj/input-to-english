@@ -30,6 +30,14 @@ describe('DOM editor handle', () => {
     expect(createEditorHandle(editor).readText()).toBe('\nmiddle\n');
   });
 
+  it('preserves an empty DIV block between nonempty blocks', () => {
+    const editor = document.createElement('div');
+    editor.contentEditable = 'true';
+    editor.innerHTML = '<div>first</div><div><br></div><div>last</div>';
+    document.body.append(editor);
+    expect(createEditorHandle(editor).readText()).toBe('first\n\nlast');
+  });
+
   it('replaces a textarea through bubbling input events and advances revision', () => {
     const textarea = document.createElement('textarea');
     textarea.value = 'old';
@@ -87,7 +95,7 @@ describe('DOM editor handle', () => {
     const handle = createEditorHandle(textarea);
     textarea.addEventListener('beforeinput', (event) => event.preventDefault());
 
-    handle.replaceText('replacement');
+    expect(() => handle.replaceText('replacement')).toThrow('Editor replacement was canceled');
 
     expect(handle.readText()).toBe('original');
     expect(handle.getRevision()).toBe(0);

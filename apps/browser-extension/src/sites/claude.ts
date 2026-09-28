@@ -3,7 +3,7 @@ import type { EditorHandle, SiteAdapter } from './editor-adapter';
 
 const SELECTORS = [
   '[data-testid="chat-input"] .ProseMirror[contenteditable="true"]',
-  'fieldset .ProseMirror[contenteditable="true"]',
+  'main form fieldset .ProseMirror[contenteditable="true"]',
 ];
 
 export const claudeAdapter: SiteAdapter = {

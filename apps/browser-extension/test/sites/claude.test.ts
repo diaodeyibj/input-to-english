@@ -21,9 +21,14 @@ describe('Claude adapter', () => {
   });
 
   it('uses only a composer scoped fallback', () => {
-    document.body.innerHTML = '<div class="ProseMirror" contenteditable="true"></div><fieldset><div class="ProseMirror" contenteditable="true"></div></fieldset>';
+    document.body.innerHTML = '<div class="ProseMirror" contenteditable="true"></div><main><form><fieldset><div class="ProseMirror" contenteditable="true"></div></fieldset></form></main>';
     expect(claudeAdapter.findEditor(document)?.element.closest('fieldset')).not.toBeNull();
     document.body.innerHTML = '<div class="ProseMirror" contenteditable="true"></div>';
+    expect(claudeAdapter.findEditor(document)).toBeNull();
+  });
+
+  it('ignores a rich text editor in an unrelated fieldset', () => {
+    document.body.innerHTML = '<aside><fieldset><div class="ProseMirror" contenteditable="true"></div></fieldset></aside>';
     expect(claudeAdapter.findEditor(document)).toBeNull();
   });
 

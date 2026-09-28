@@ -4,7 +4,7 @@ const handles = new WeakMap<HTMLElement, EditorHandle>();
 const BLOCK_TAGS = new Set(['DIV', 'P', 'LI', 'BLOCKQUOTE', 'PRE']);
 
 function readChildren(parent: Node): string {
-  if (parent instanceof Element && parent.tagName === 'P'
+  if (parent instanceof Element && (parent.tagName === 'P' || parent.tagName === 'DIV')
     && parent.childNodes.length === 1 && parent.firstChild instanceof HTMLBRElement) return '';
   let result = '';
   let previousWasBlock = false;
@@ -61,7 +61,9 @@ export function createEditorHandle(element: HTMLElement): EditorHandle {
     element,
     readText: () => element instanceof HTMLTextAreaElement ? element.value : readEditable(element),
     replaceText(text) {
-      if (!dispatchInput(element, 'beforeinput', text)) return;
+      if (!dispatchInput(element, 'beforeinput', text)) {
+        throw new Error('Editor replacement was canceled by the host editor.');
+      }
       if (element instanceof HTMLTextAreaElement) {
         const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value')?.set;
         if (setter) setter.call(element, text);
