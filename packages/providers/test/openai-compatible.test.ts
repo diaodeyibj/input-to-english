@@ -115,11 +115,32 @@ describe('createOpenAiCompatibleProvider', () => {
     expect(String(error)).not.toContain('top-secret');
   });
 
+  it('sanitizes TranslationError details thrown by the injected HTTP client', async () => {
+    const http: JsonHttpClient = {
+      request: vi.fn(async () => {
+        throw new TranslationError({
+          code: 'AUTHENTICATION_FAILED',
+          userMessage: 'Bearer fake-secret-key was rejected: raw-body-details',
+          retryable: false,
+          cause: new Error('headers included fake-secret-key'),
+        });
+      }),
+    };
+
+    const error = await provider(http).translate(request).catch((caught: unknown) => caught);
+
+    expect(error).toMatchObject({ code: 'NETWORK_ERROR', retryable: true });
+    expect(String(error)).not.toContain('fake-secret-key');
+    expect(String(error)).not.toContain('raw-body-details');
+    expect((error as Error & { cause?: unknown }).cause).toBeUndefined();
+  });
+
   it.each([
     {},
     { choices: [] },
     { choices: [{ message: {} }] },
     { choices: [{ message: { content: '' } }] },
+    { choices: [{ message: { content: '  \n\t ' } }] },
   ])('rejects malformed successful content without exposing the response body', async (data) => {
     const error = await provider(httpReturning(200, data)).translate(request).catch((caught: unknown) => caught);
 

@@ -55,14 +55,13 @@ function throwForStatus(status: number): void {
 function readContent(response: JsonHttpResponse<ChatCompletionResponse>): string {
   throwForStatus(response.status);
   const content = response.data?.choices?.[0]?.message?.content;
-  if (typeof content !== 'string' || content.length === 0) {
+  if (typeof content !== 'string' || content.trim().length === 0) {
     throw error('MALFORMED_RESPONSE', 'The provider returned an invalid response.', false);
   }
   return content;
 }
 
-function safeRequestError(cause: unknown): TranslationError {
-  if (cause instanceof TranslationError) return cause;
+function sanitizedHttpError(cause: unknown): TranslationError {
   if (cause instanceof Error && cause.name === 'AbortError') {
     return error('TIMEOUT', 'The provider request timed out.', true);
   }
@@ -84,8 +83,9 @@ export function createOpenAiCompatibleProvider({
   ): Promise<TranslationResult> => {
     if (!isConfigured()) throw configurationError();
 
+    let response: JsonHttpResponse<ChatCompletionResponse>;
     try {
-      const response = await http.request<ChatCompletionResponse>({
+      response = await http.request<ChatCompletionResponse>({
         url,
         method: 'POST',
         headers: { Authorization: `Bearer ${apiKey}` },
@@ -97,16 +97,17 @@ export function createOpenAiCompatibleProvider({
         },
         signal,
       });
-      return {
-        text: readContent(response),
-        providerId: id,
-        ...(request.sourceLanguage === undefined
-          ? {}
-          : { sourceLanguage: request.sourceLanguage }),
-      };
     } catch (cause) {
-      throw safeRequestError(cause);
+      throw sanitizedHttpError(cause);
     }
+
+    return {
+      text: readContent(response),
+      providerId: id,
+      ...(request.sourceLanguage === undefined
+        ? {}
+        : { sourceLanguage: request.sourceLanguage }),
+    };
   };
 
   return {
@@ -120,7 +121,13 @@ export function createOpenAiCompatibleProvider({
         await translate({ text: '测试', targetLanguage: 'en' });
         return { ok: true, detail: 'Connection successful.' };
       } catch (cause) {
-        return { ok: false, error: safeRequestError(cause) };
+        return {
+          ok: false,
+          error:
+            cause instanceof TranslationError
+              ? cause
+              : sanitizedHttpError(cause),
+        };
       }
     },
     translate: (request, options) => translate(request, options?.signal),
