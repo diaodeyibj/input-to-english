@@ -111,6 +111,31 @@ describe('background runtime handler', () => {
     expect(JSON.stringify(response)).not.toContain('cause');
   });
 
+  it.each(['translate', 'test-provider'] as const)(
+    'times out when settings.get hangs before %s',
+    async (type) => {
+      vi.useFakeTimers();
+      try {
+        const dependencies = setup(async () => { throw new Error('HTTP should not run'); });
+        let finishSettings!: (settings: ExtensionSettings) => void;
+        dependencies.settings.get.mockImplementationOnce(() => new Promise((resolve) => {
+          finishSettings = resolve;
+        }));
+        const message = type === 'translate'
+          ? { type, providerId: 'kimi', text: '你好' }
+          : { type, providerId: 'kimi' };
+        const pending = handleRuntimeMessage(message, dependencies);
+        await vi.advanceTimersByTimeAsync(30_000);
+        expect(await pending).toMatchObject({ ok: false, error: { code: 'TIMEOUT' } });
+        finishSettings(DEFAULT_SETTINGS);
+        await Promise.resolve();
+        expect(dependencies.http.request).not.toHaveBeenCalled();
+      } finally {
+        vi.useRealTimers();
+      }
+    },
+  );
+
   it('settles a timed-out request without returning a late result', async () => {
     vi.useFakeTimers();
     try {

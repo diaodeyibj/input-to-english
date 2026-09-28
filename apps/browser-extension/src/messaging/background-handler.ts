@@ -60,30 +60,27 @@ export async function handleRuntimeMessage(
       return { ok: true, type: 'list-ollama-models', models };
     }
 
-    const settings = await dependencies.settings.get();
-    const router = new TranslationRouter(remoteProviders(settings, dependencies.http));
+    return await withTimeout(async (signal): Promise<RuntimeResponse> => {
+      const settings = await dependencies.settings.get();
+      signal.throwIfAborted();
+      const router = new TranslationRouter(remoteProviders(settings, dependencies.http));
 
-    if (request.type === 'translate') {
-      const result = await withTimeout(
-        (signal) => router.translate(request.providerId, {
+      if (request.type === 'translate') {
+        const result = await router.translate(request.providerId, {
           text: request.text,
           targetLanguage: 'en',
           ...(request.sourceLanguage === undefined ? {} : { sourceLanguage: request.sourceLanguage }),
-        }, { signal }),
-        REQUEST_TIMEOUT_MS,
-      );
-      return { ok: true, type: 'translate', result };
-    }
+        }, { signal });
+        return { ok: true, type: 'translate', result };
+      }
 
-    await withTimeout(
-      (signal) => router.translate(request.providerId, { text: '测试', targetLanguage: 'en' }, { signal }),
-      REQUEST_TIMEOUT_MS,
-    );
-    return {
-      ok: true,
-      type: 'test-provider',
-      result: { ok: true, detail: 'Connection successful.' },
-    };
+      await router.translate(request.providerId, { text: '测试', targetLanguage: 'en' }, { signal });
+      return {
+        ok: true,
+        type: 'test-provider',
+        result: { ok: true, detail: 'Connection successful.' },
+      };
+    }, REQUEST_TIMEOUT_MS);
   } catch (cause) {
     return safeFailure(cause);
   }

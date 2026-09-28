@@ -8,12 +8,12 @@ export async function withTimeout<T>(
   let timer: ReturnType<typeof setTimeout> | undefined;
   const deadline = new Promise<never>((_resolve, reject) => {
     timer = setTimeout(() => {
-      controller.abort();
       reject(new TranslationError({
         code: 'TIMEOUT',
         userMessage: 'The provider request timed out.',
         retryable: true,
       }));
+      controller.abort();
     }, milliseconds);
   });
 

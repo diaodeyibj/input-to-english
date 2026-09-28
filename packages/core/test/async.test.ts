@@ -45,4 +45,14 @@ describe('withTimeout', () => {
     await Promise.resolve();
     expect(vi.getTimerCount()).toBe(0);
   });
+
+  it('rejects TIMEOUT when an abort listener synchronously resolves the operation', async () => {
+    vi.useFakeTimers();
+    const pending = withTimeout((signal) => new Promise<string>((resolve) => {
+      signal.addEventListener('abort', () => resolve('abort-handler result'));
+    }), 30_000);
+    const rejection = expect(pending).rejects.toMatchObject({ code: 'TIMEOUT' });
+    await vi.advanceTimersByTimeAsync(30_000);
+    await rejection;
+  });
 });
