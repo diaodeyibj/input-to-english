@@ -22,5 +22,8 @@ export function createKimiProvider({
     apiKey,
     model,
     http,
+    requestPolicy: model === DEFAULT_KIMI_MODEL
+      ? { thinking: { type: 'disabled' } }
+      : {},
   });
 }

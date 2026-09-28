@@ -22,5 +22,6 @@ export function createDeepSeekProvider({
     apiKey,
     model,
     http,
+    requestPolicy: { temperature: 0, thinking: { type: 'disabled' } },
   });
 }

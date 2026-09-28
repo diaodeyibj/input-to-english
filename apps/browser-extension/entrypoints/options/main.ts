@@ -84,9 +84,11 @@ export async function startOptionsPage(
     id: ProviderId,
     action: () => Promise<OptionsSnapshot>,
     successMessage: string,
+    afterSuccess?: () => void,
   ) => {
     try {
       updateSnapshot(await action(), id, successMessage);
+      afterSuccess?.();
     } catch (cause) {
       status(id, { kind: 'error', message: safeMessage(cause) });
     }
@@ -97,7 +99,10 @@ export async function startOptionsPage(
       await runMutation(id, () => controller.saveProvider(id), 'Active provider updated.');
     },
     async saveCloudConfig(id, config) {
-      await runMutation(id, () => controller.saveCloudConfig(id, config), 'Credentials saved locally.');
+      await runMutation(id, () => controller.saveCloudConfig(id, config), 'Credentials saved locally.', () => {
+        const field = root.querySelector<HTMLInputElement>(`#${id}-api-key`);
+        if (field) field.value = '';
+      });
     },
     async deleteApiKey(id) {
       await runMutation(id, () => controller.deleteApiKey(id), 'API key deleted.');

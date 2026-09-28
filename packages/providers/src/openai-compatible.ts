@@ -15,6 +15,10 @@ interface OpenAiCompatibleProviderOptions {
   apiKey: string;
   model: string;
   http: JsonHttpClient;
+  requestPolicy?: {
+    temperature?: number;
+    thinking?: { type: 'disabled' | 'enabled' };
+  };
 }
 
 interface ChatCompletionResponse {
@@ -74,6 +78,7 @@ export function createOpenAiCompatibleProvider({
   apiKey,
   model,
   http,
+  requestPolicy = { temperature: 0 },
 }: OpenAiCompatibleProviderOptions): TranslationProvider {
   const isConfigured = () => apiKey.trim().length > 0 && model.trim().length > 0;
 
@@ -92,7 +97,7 @@ export function createOpenAiCompatibleProvider({
         body: {
           model,
           messages: buildTranslationMessages(request.text),
-          temperature: 0,
+          ...requestPolicy,
           stream: false,
         },
         signal,

@@ -53,4 +53,40 @@ describe('cloud provider factories', () => {
       }),
     );
   });
+
+  it('uses non-thinking DeepSeek for translation and connection checks', async () => {
+    const http = successfulHttpClient();
+    const provider = createDeepSeekProvider({ apiKey: 'factory-test-key', http });
+
+    await provider.translate({ text: '你好', targetLanguage: 'en' });
+    await expect(provider.testConnection?.()).resolves.toMatchObject({ ok: true });
+
+    expect(http.request).toHaveBeenCalledTimes(2);
+    for (const call of vi.mocked(http.request).mock.calls) {
+      expect(call[0].body).toMatchObject({
+        model: 'deepseek-flash',
+        thinking: { type: 'disabled' },
+        temperature: 0,
+        stream: false,
+      });
+    }
+  });
+
+  it('sends valid non-thinking Kimi K2.6 parameters for translation and connection checks', async () => {
+    const http = successfulHttpClient();
+    const provider = createKimiProvider({ apiKey: 'factory-test-key', http });
+
+    await provider.translate({ text: '你好', targetLanguage: 'en' });
+    await expect(provider.testConnection?.()).resolves.toMatchObject({ ok: true });
+
+    expect(http.request).toHaveBeenCalledTimes(2);
+    for (const call of vi.mocked(http.request).mock.calls) {
+      expect(call[0].body).toMatchObject({
+        model: 'kimi-k2.6',
+        thinking: { type: 'disabled' },
+        stream: false,
+      });
+      expect(call[0].body).not.toHaveProperty('temperature');
+    }
+  });
 });

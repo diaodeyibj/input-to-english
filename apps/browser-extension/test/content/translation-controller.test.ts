@@ -129,6 +129,63 @@ describe('safe translation controller', () => {
     expect(destroy).toHaveBeenCalledTimes(1);
   });
 
+  it('times out a stalled language preflight within the full action deadline and ignores a late result', async () => {
+    vi.useFakeTimers();
+    const pending = deferred<{ detectedLanguage: string; confidence: number }>();
+    const translate = vi.fn(async () => ({ text: 'Hello', providerId: 'deepseek' as const }));
+    const { textarea, editor } = setup(translate);
+    let signal: AbortSignal | undefined;
+    const controller = new TranslationController({
+      editor,
+      provider: { id: 'deepseek', availability: async () => ({ status: 'available' }), translate },
+      detector: { detect: (_text, options) => {
+        signal = options?.signal;
+        return pending.promise;
+      } },
+    });
+
+    const work = controller.translate();
+    await vi.advanceTimersByTimeAsync(30_000);
+
+    expect(controller.state).toMatchObject({ status: 'error', error: { code: 'TIMEOUT' } });
+    expect(signal?.aborted).toBe(true);
+    expect(textarea.value).toBe('你好');
+    pending.resolve({ detectedLanguage: 'zh', confidence: 0.99 });
+    await work;
+    expect(translate).not.toHaveBeenCalled();
+    expect(textarea.value).toBe('你好');
+  });
+
+  it('times out a stalled browser-local translation and never applies its late result', async () => {
+    vi.useFakeTimers();
+    const pending = deferred<{ text: string; providerId: 'browser'; sourceLanguage: string }>();
+    let signal: AbortSignal | undefined;
+    const { textarea, editor } = setup();
+    const controller = new TranslationController({
+      editor,
+      provider: {
+        id: 'browser',
+        availability: async () => ({ status: 'available' }),
+        translate: (_request, options) => {
+          signal = options?.signal;
+          return pending.promise;
+        },
+      },
+      detector: { detect: async () => ({ detectedLanguage: 'zh', confidence: 0.99 }) },
+    });
+
+    const work = controller.translate();
+    await vi.advanceTimersByTimeAsync(30_000);
+
+    expect(controller.state).toMatchObject({ status: 'error', error: { code: 'TIMEOUT' } });
+    expect(signal?.aborted).toBe(true);
+    expect(textarea.value).toBe('你好');
+    pending.resolve({ text: 'Late translation', providerId: 'browser', sourceLanguage: 'zh' });
+    await work;
+    expect(textarea.value).toBe('你好');
+    expect(controller.state.error?.code).toBe('TIMEOUT');
+  });
+
   it('passes a canonical non-English source tag to its single provider', async () => {
     const translate = vi.fn(async () => ({ text: 'Hello', providerId: 'kimi' as const }));
     const { editor } = setup(translate, 'kimi');

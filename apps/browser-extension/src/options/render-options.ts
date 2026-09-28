@@ -259,6 +259,14 @@ export function renderOptions(
   state: OptionsViewState,
   actions: OptionsActions,
 ): void {
+  const drafts = new Map<string, string>();
+  for (const id of [
+    'deepseek-api-key', 'deepseek-model',
+    'kimi-api-key', 'kimi-model', 'ollama-model',
+  ]) {
+    const field = root.querySelector<HTMLInputElement | HTMLSelectElement>(`#${id}`);
+    if (field) drafts.set(id, field.value);
+  }
   const focusedId = root.contains(document.activeElement) && document.activeElement instanceof HTMLElement
     ? document.activeElement.id
     : '';
@@ -297,6 +305,10 @@ export function renderOptions(
   );
   content.append(intro, privacy, list, footer);
   root.replaceChildren(content);
+  for (const [id, value] of drafts) {
+    const field = root.querySelector<HTMLInputElement | HTMLSelectElement>(`#${id}`);
+    if (field) field.value = value;
+  }
   if (focusedId) {
     const replacement = document.getElementById(focusedId);
     if (replacement instanceof HTMLElement && root.contains(replacement)) {

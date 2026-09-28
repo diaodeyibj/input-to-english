@@ -159,6 +159,67 @@ describe('renderOptions', () => {
     expect(document.activeElement?.id).toBe('deepseek-save-cloud');
   });
 
+  it('preserves unsaved cloud and Ollama drafts when an unrelated async status redraws the page', async () => {
+    const { root, handlers } = mount();
+    root.querySelector<HTMLInputElement>('#deepseek-api-key')!.value = 'draft-deepseek-key';
+    root.querySelector<HTMLInputElement>('#deepseek-model')!.value = 'draft-deepseek-model';
+    root.querySelector<HTMLInputElement>('#kimi-api-key')!.value = 'draft-kimi-key';
+    root.querySelector<HTMLInputElement>('#kimi-model')!.value = 'draft-kimi-model';
+    root.querySelector<HTMLSelectElement>('#ollama-model')!.value = 'gemma3:4b';
+
+    await Promise.resolve();
+    renderOptions(root, {
+      ...baseState,
+      providerStatus: { browser: { kind: 'success', message: 'Available now.' } },
+    }, handlers);
+
+    expect(root.querySelector<HTMLInputElement>('#deepseek-api-key')?.value).toBe('draft-deepseek-key');
+    expect(root.querySelector<HTMLInputElement>('#deepseek-model')?.value).toBe('draft-deepseek-model');
+    expect(root.querySelector<HTMLInputElement>('#kimi-api-key')?.value).toBe('draft-kimi-key');
+    expect(root.querySelector<HTMLInputElement>('#kimi-model')?.value).toBe('draft-kimi-model');
+    expect(root.querySelector<HTMLSelectElement>('#ollama-model')?.value).toBe('gemma3:4b');
+  });
+
+  it('clears a secret draft after its save and delete actions complete', async () => {
+    let snapshot = {
+      activeProvider: baseState.activeProvider,
+      browser: baseState.browser,
+      deepseek: baseState.deepseek,
+      kimi: baseState.kimi,
+      ollama: baseState.ollama,
+    };
+    const controller: OptionsControllerLike = {
+      async load() { return snapshot; },
+      async saveProvider() { return snapshot; },
+      async saveCloudConfig(id, config) {
+        snapshot = { ...snapshot, [id]: { hasApiKey: true, model: config.model } };
+        return snapshot;
+      },
+      async deleteApiKey(id) {
+        snapshot = { ...snapshot, [id]: { ...snapshot[id], hasApiKey: false } };
+        return snapshot;
+      },
+      async saveOllamaModel() { return snapshot; },
+      async testProvider() { return { ok: true, detail: 'Connected.' }; },
+      async listOllamaModels() { return []; },
+    };
+    const root = document.createElement('main');
+    document.body.append(root);
+    await startOptionsPage(root, controller);
+
+    root.querySelector<HTMLInputElement>('#deepseek-api-key')!.value = 'first-secret';
+    root.querySelector<HTMLButtonElement>('#deepseek-save-cloud')!.click();
+    await vi.waitFor(() => expect(providerCard(root, 'deepseek').textContent)
+      .toContain('Credentials saved locally.'));
+    expect(root.querySelector<HTMLInputElement>('#deepseek-api-key')?.value).toBe('');
+
+    root.querySelector<HTMLInputElement>('#deepseek-api-key')!.value = 'second-secret';
+    root.querySelector<HTMLButtonElement>('#deepseek-delete-key')!.click();
+    await vi.waitFor(() => expect(providerCard(root, 'deepseek').textContent)
+      .toContain('API key deleted.'));
+    expect(root.querySelector<HTMLInputElement>('#deepseek-api-key')?.value).toBe('');
+  });
+
   it('wires explicit option actions to controller results and rerenders the saved state', async () => {
     let snapshot = {
       activeProvider: baseState.activeProvider,

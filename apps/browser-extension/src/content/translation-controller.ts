@@ -1,5 +1,6 @@
 import {
   TranslationError,
+  withTimeout,
   type TranslationProgress,
   type TranslationProvider,
   type TranslationRequest,
@@ -7,6 +8,8 @@ import {
 import type { LanguageDetectionBridge } from '../../../../packages/providers/src/browser-local';
 import type { EditorHandle } from '../sites/editor-adapter';
 import { createDocumentBrowserBridges } from './provider-factory';
+
+const ACTION_TIMEOUT_MS = 30_000;
 
 export type ControllerStatus = 'idle' | 'translating' | 'downloading' | 'success' | 'error';
 
@@ -103,68 +106,72 @@ export class TranslationController {
     this.submitted = false;
     this.publish({ status: 'translating', canUndo: false });
     try {
-      let sourceLanguage: string | undefined;
-      if (this.detector) {
+      await withTimeout(async (deadlineSignal) => {
+        const signal = AbortSignal.any([active.signal, deadlineSignal]);
+        const isWorkActive = () => this.isActive(active) && !signal.aborted;
+        let sourceLanguage: string | undefined;
+        if (this.detector) {
+          try {
+            const detected = await this.detector.detect(snapshot, { signal });
+            if (Number.isFinite(detected.confidence) && detected.confidence >= 0.5 &&
+                detected.confidence <= 1) {
+              sourceLanguage = canonicalLanguage(detected.detectedLanguage);
+            }
+          } catch {
+            // Remote providers can translate without source-language detection.
+            // Browser Local retains its own defensive detector check.
+          }
+        }
+        if (!isWorkActive()) return;
+        if (this.submitted || !isCurrent(this.editor, snapshot, revision)) throw inputChanged();
+        if (sourceLanguage?.split('-')[0].toLowerCase() === 'en') {
+          throw error('ALREADY_ENGLISH', 'This input is already in English.');
+        }
+
+        const request: TranslationRequest = {
+          text: snapshot,
+          targetLanguage: 'en',
+          ...(sourceLanguage === undefined ? {} : { sourceLanguage }),
+        };
+        const result = await this.provider.translate(request, {
+          signal,
+          onProgress: (progress) => {
+            if (isWorkActive()) {
+              this.publish({ status: 'downloading', canUndo: false, progress });
+            }
+          },
+        });
+        if (!isWorkActive()) return;
+        if (this.submitted || !isCurrent(this.editor, snapshot, revision)) throw inputChanged();
+        if (typeof result.text !== 'string' || result.text.trim().length === 0) {
+          throw error('MALFORMED_RESPONSE', 'The provider returned no translation.');
+        }
+
+        this.replacing = true;
         try {
-          const detected = await this.detector.detect(snapshot, { signal: active.signal });
-          if (Number.isFinite(detected.confidence) && detected.confidence >= 0.5 &&
-              detected.confidence <= 1) {
-            sourceLanguage = canonicalLanguage(detected.detectedLanguage);
-          }
-        } catch {
-          // Remote providers can translate without source-language detection.
-          // Browser Local retains its own defensive detector check.
+          this.editor.replaceText(result.text);
+        } finally {
+          this.replacing = false;
         }
-      }
-      if (!this.isActive(active)) return;
-      if (this.submitted || !isCurrent(this.editor, snapshot, revision)) throw inputChanged();
-      if (sourceLanguage?.split('-')[0].toLowerCase() === 'en') {
-        throw error('ALREADY_ENGLISH', 'This input is already in English.');
-      }
-
-      const request: TranslationRequest = {
-        text: snapshot,
-        targetLanguage: 'en',
-        ...(sourceLanguage === undefined ? {} : { sourceLanguage }),
-      };
-      const result = await this.provider.translate(request, {
-        signal: active.signal,
-        onProgress: (progress) => {
-          if (this.isActive(active)) {
-            this.publish({ status: 'downloading', canUndo: false, progress });
-          }
-        },
-      });
-      if (!this.isActive(active)) return;
-      if (this.submitted || !isCurrent(this.editor, snapshot, revision)) throw inputChanged();
-      if (typeof result.text !== 'string' || result.text.trim().length === 0) {
-        throw error('MALFORMED_RESPONSE', 'The provider returned no translation.');
-      }
-
-      this.replacing = true;
-      try {
-        this.editor.replaceText(result.text);
-      } finally {
-        this.replacing = false;
-      }
-      if (!this.isActive(active)) return;
-      if (this.submitted) throw inputChanged();
-      if (!isCurrent(this.editor, result.text, this.editor.getRevision())) {
-        throw error('EDITOR_NOT_FOUND', 'The editor could not be updated. Please try again.');
-      }
-      this.undoRecord = {
-        original: snapshot,
-        translated: result.text,
-        revision: this.editor.getRevision(),
-      };
-      this.undoTimer = setTimeout(() => {
-        this.clearUndo();
-        if (!this.disposed && this.currentState.status === 'success') {
-          this.publish({ status: 'idle', canUndo: false });
+        if (!isWorkActive()) return;
+        if (this.submitted) throw inputChanged();
+        if (!isCurrent(this.editor, result.text, this.editor.getRevision())) {
+          throw error('EDITOR_NOT_FOUND', 'The editor could not be updated. Please try again.');
         }
-      }, 10_000);
-      this.active = undefined;
-      this.publish({ status: 'success', canUndo: true });
+        this.undoRecord = {
+          original: snapshot,
+          translated: result.text,
+          revision: this.editor.getRevision(),
+        };
+        this.undoTimer = setTimeout(() => {
+          this.clearUndo();
+          if (!this.disposed && this.currentState.status === 'success') {
+            this.publish({ status: 'idle', canUndo: false });
+          }
+        }, 10_000);
+        this.active = undefined;
+        this.publish({ status: 'success', canUndo: true });
+      }, ACTION_TIMEOUT_MS);
     } catch (cause) {
       if (!this.isActive(active)) return;
       const failure = this.submitted || !isCurrent(this.editor, snapshot, revision)
