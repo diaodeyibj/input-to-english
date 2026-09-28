@@ -1,9 +1,9 @@
 import { defineConfig } from 'wxt';
 
 export default defineConfig({
+  manifestVersion: 3,
   srcDir: 'apps/browser-extension',
   manifest: {
-    manifest_version: 3,
     permissions: ['storage'],
     host_permissions: [
       'https://chatgpt.com/*',
