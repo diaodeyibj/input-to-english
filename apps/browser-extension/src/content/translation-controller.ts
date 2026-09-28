@@ -79,7 +79,11 @@ export class TranslationController {
   subscribe(listener: (state: ControllerState) => void): () => void {
     if (this.disposed) return () => {};
     this.listeners.add(listener);
-    listener(this.currentState);
+    try {
+      listener(this.currentState);
+    } catch {
+      this.listeners.delete(listener);
+    }
     return () => { this.listeners.delete(listener); };
   }
 
@@ -143,6 +147,8 @@ export class TranslationController {
       } finally {
         this.replacing = false;
       }
+      if (!this.isActive(active)) return;
+      if (this.submitted) throw inputChanged();
       if (!isCurrent(this.editor, result.text, this.editor.getRevision())) {
         throw error('EDITOR_NOT_FOUND', 'The editor could not be updated. Please try again.');
       }
@@ -220,7 +226,14 @@ export class TranslationController {
   private publish(state: ControllerState): void {
     if (this.disposed) return;
     this.currentState = state;
-    for (const listener of this.listeners) listener(state);
+    for (const listener of this.listeners) {
+      if (this.currentState !== state) break;
+      try {
+        listener(state);
+      } catch {
+        this.listeners.delete(listener);
+      }
+    }
   }
 
   private clearUndo(): void {

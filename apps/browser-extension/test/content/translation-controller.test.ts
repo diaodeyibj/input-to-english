@@ -239,6 +239,18 @@ describe('safe translation controller', () => {
     expect(controller.undo()).toBe(false);
   });
 
+  it('does not publish success when the host submits during replacement input', async () => {
+    const { form, textarea, controller } = setup();
+    textarea.addEventListener('input', () => {
+      form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    });
+
+    await controller.translate();
+
+    expect(controller.state).toMatchObject({ status: 'error', canUndo: false });
+    expect(controller.undo()).toBe(false);
+  });
+
   it('undoes one successful replacement only while the translated snapshot is still current', async () => {
     const { textarea, controller } = setup();
     await controller.translate();
@@ -260,6 +272,36 @@ describe('safe translation controller', () => {
 
     expect(undone).toBe(true);
     expect(textarea.value).toBe('你好');
+  });
+
+  it('does not send stale success to later subscribers after a listener undoes it', async () => {
+    const { controller } = setup();
+    controller.subscribe((state) => {
+      if (state.status === 'success') controller.undo();
+    });
+    const observed: string[] = [];
+    controller.subscribe((state) => observed.push(state.status));
+
+    await controller.translate();
+
+    expect(observed).toEqual(['idle', 'translating', 'idle']);
+    expect(controller.state.status).toBe('idle');
+  });
+
+  it('continues translation and later notifications when a subscriber throws', async () => {
+    const { textarea, controller } = setup();
+    controller.subscribe((state) => {
+      if (state.status === 'translating') throw new Error('UI callback failed');
+    });
+    const observed: string[] = [];
+    controller.subscribe((state) => observed.push(state.status));
+
+    await expect(controller.translate()).resolves.toBeUndefined();
+
+    expect(textarea.value).toBe('Hello');
+    expect(controller.state.status).toBe('success');
+    expect(observed).toEqual(['idle', 'translating', 'success']);
+    expect(controller.undo()).toBe(true);
   });
 
   it('does not report Undo success when the host rewrites the restored text', async () => {
