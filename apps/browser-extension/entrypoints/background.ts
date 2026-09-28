@@ -4,10 +4,12 @@ import { handleRuntimeMessage } from '../src/messaging/background-handler';
 import { serializeRuntimeError } from '../src/messaging/protocol';
 
 export default defineBackground(() => {
-  const storageReady = browser.storage.local.setAccessLevel({ accessLevel: 'TRUSTED_CONTEXTS' });
+  const storageReady = browser.storage.local
+    .setAccessLevel({ accessLevel: 'TRUSTED_CONTEXTS' })
+    .then(() => true, () => false);
   browser.runtime.onMessage.addListener((message: unknown, _sender, sendResponse) => {
     void storageReady
-      .then(() => handleRuntimeMessage(message))
+      .then((ready) => ready ? handleRuntimeMessage(message) : serializeRuntimeError(null))
       .then(sendResponse, () => sendResponse(serializeRuntimeError(null)));
     return true;
   });
