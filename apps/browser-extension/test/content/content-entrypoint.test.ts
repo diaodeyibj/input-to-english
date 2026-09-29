@@ -31,7 +31,7 @@ describe('content entrypoint', () => {
     root.shadowRoot!.querySelector<HTMLButtonElement>('button[aria-label="Translate prompt to English"]')!.click();
     await vi.waitFor(() => expect(document.querySelector('textarea')?.value).toBe('Hello'));
     expect(sendMessage.mock.calls.map(([message]) => message.type)).toEqual([
-      'get-active-provider', 'translate',
+      'get-active-provider', 'get-active-provider', 'translate',
     ]);
     invalidate?.();
     expect(root.isConnected).toBe(false);

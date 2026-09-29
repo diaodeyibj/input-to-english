@@ -35,6 +35,7 @@ Run every item once on ChatGPT and once on Claude in both Chrome and Edge.
 ## Browser Local provider
 
 Run in both supported browsers after Options reports Browser Local available. A first use may download a language pack.
+On a cold start, if language detection has not finished while the prompt is being typed, the first click may show a local preparation message. Keep the prompt unchanged, wait for preparation, and click again. The Translator API requires a detected source language before its model can be created with user activation.
 
 - [ ] Chinese input translates to English without submitting. **NOT RUN — requires Browser Local capability and an authenticated supported-site session.**
 - [ ] Japanese input translates to English without submitting. **NOT RUN — requires Browser Local capability and an authenticated supported-site session.**
@@ -80,7 +81,7 @@ The following checks ran on 2026-09-29. Automated checks do not substitute for t
 
 | Check | Result |
 | --- | --- |
-| `npm test` | PASS — 23 test files, 186 tests |
+| `npm test` | PASS — 23 test files, 200 tests |
 | `npm run typecheck` | PASS |
 | `npm run build:chrome` | PASS — `.output/chrome-mv3` |
 | `npm run build:edge` | PASS — `.output/edge-mv3` |

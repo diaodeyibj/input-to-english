@@ -15,6 +15,7 @@ export default defineContentScript({
     const runtimeClient = { sendMessage: (message: RuntimeMessage) =>
       browser.runtime.sendMessage(message) };
     const provider = createActiveProvider({ runtimeClient });
+    void provider.refreshSelection().catch(() => undefined);
     const stop = startEditorObserver(document, adapter, { provider });
     ctx.onInvalidated(stop);
   },
