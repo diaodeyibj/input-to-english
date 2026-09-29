@@ -43,6 +43,12 @@ function providerCard(root: HTMLElement, id: ProviderId): HTMLElement {
   return card;
 }
 
+function deferred<T>() {
+  let resolve!: (value: T) => void;
+  const promise = new Promise<T>((next) => { resolve = next; });
+  return { promise, resolve };
+}
+
 afterEach(() => document.body.replaceChildren());
 
 describe('renderOptions', () => {
@@ -218,6 +224,42 @@ describe('renderOptions', () => {
     await vi.waitFor(() => expect(providerCard(root, 'deepseek').textContent)
       .toContain('API key deleted.'));
     expect(root.querySelector<HTMLInputElement>('#deepseek-api-key')?.value).toBe('');
+  });
+
+  it('preserves a newer unsaved cloud key when an earlier save completes', async () => {
+    let snapshot = {
+      activeProvider: baseState.activeProvider,
+      browser: baseState.browser,
+      deepseek: baseState.deepseek,
+      kimi: baseState.kimi,
+      ollama: baseState.ollama,
+    };
+    const saved = deferred<typeof snapshot>();
+    const controller: OptionsControllerLike = {
+      async load() { return snapshot; },
+      async saveProvider() { return snapshot; },
+      async saveCloudConfig() { return saved.promise; },
+      async deleteApiKey() { return snapshot; },
+      async saveOllamaModel() { return snapshot; },
+      async testProvider() { return { ok: true, detail: 'Connected.' }; },
+      async listOllamaModels() { return []; },
+    };
+    const root = document.createElement('main');
+    document.body.append(root);
+    await startOptionsPage(root, controller);
+
+    const key = root.querySelector<HTMLInputElement>('#deepseek-api-key')!;
+    key.value = 'submitted-key-A';
+    root.querySelector<HTMLButtonElement>('#deepseek-save-cloud')!.click();
+    key.value = 'new-unsaved-key-B';
+    saved.resolve({
+      ...snapshot,
+      deepseek: { hasApiKey: true, model: snapshot.deepseek.model },
+    });
+
+    await vi.waitFor(() => expect(providerCard(root, 'deepseek').textContent)
+      .toContain('Credentials saved locally.'));
+    expect(root.querySelector<HTMLInputElement>('#deepseek-api-key')?.value).toBe('new-unsaved-key-B');
   });
 
   it('wires explicit option actions to controller results and rerenders the saved state', async () => {

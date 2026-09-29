@@ -101,7 +101,7 @@ export async function startOptionsPage(
     async saveCloudConfig(id, config) {
       await runMutation(id, () => controller.saveCloudConfig(id, config), 'Credentials saved locally.', () => {
         const field = root.querySelector<HTMLInputElement>(`#${id}-api-key`);
-        if (field) field.value = '';
+        if (field?.value === config.apiKey) field.value = '';
       });
     },
     async deleteApiKey(id) {
