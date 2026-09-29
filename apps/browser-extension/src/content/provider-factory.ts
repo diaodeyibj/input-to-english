@@ -1,4 +1,4 @@
-import { TranslationError, type ProviderId, type TranslationOptions, type TranslationProvider,
+import { TranslationError, withTimeout, type ProviderId, type TranslationOptions, type TranslationProvider,
   type TranslationRequest, type TranslationResult } from '../../../../packages/core/src/index';
 import {
   createBrowserLocalProvider,
@@ -52,6 +52,8 @@ interface PreparedTranslationBridge extends TranslationBridge {
   prepare?(source: string, target: string, options?: TranslationOptions): PreparedModel;
 }
 
+const DETECTION_PREWARM_TIMEOUT_MS = 30_000;
+
 export interface ProviderFactoryDependencies extends DocumentBrowserBridges {
   runtimeClient: RuntimeClient;
 }
@@ -67,6 +69,7 @@ export function createDocumentBrowserBridges(
       // first-use download needs activation. Awaiting availability first loses it.
       const model = await detectorApi.create({ signal: options?.signal });
       try {
+        options?.signal?.throwIfAborted();
         const result = await model.detect(text, { signal: options?.signal });
         const first = result[0];
         if (!first || typeof first.detectedLanguage !== 'string' ||
@@ -204,7 +207,8 @@ export function createActiveProvider(dependencies: ProviderFactoryDependencies):
     detecting = true;
     // The first call starts model creation in the user input/click task. Edits
     // made while it is pending are coalesced to one later detection pass.
-    void detector.detect(entry.text).then(async (result) => {
+    void withTimeout((signal) => detector.detect(entry.text, { signal }),
+      DETECTION_PREWARM_TIMEOUT_MS).then(async (result) => {
       if (detection !== entry) return;
       const source = result.confidence >= 0.5 && result.confidence <= 1
         ? canonicalSource(result.detectedLanguage) : undefined;
@@ -228,7 +232,7 @@ export function createActiveProvider(dependencies: ProviderFactoryDependencies):
 
   const prepareInput = (text: string, force = false): void => {
     if ((!force && (!trustedSelection || lastId !== 'browser')) ||
-        (detection?.text === text && detection.status !== 'failed') ||
+        detection?.text === text ||
         text.trim().length === 0) return;
     const entry: DetectionEntry = { text, status: 'pending' };
     detection = entry;

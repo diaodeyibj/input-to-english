@@ -145,6 +145,76 @@ describe('content provider factory', () => {
     expect(editor.value).toBe('你好');
   });
 
+  it('keeps an asynchronous detector failure visible on the next click and retries after new input', async () => {
+    let rejectCreation!: (reason: Error) => void;
+    const create = vi.fn()
+      .mockImplementationOnce(() => new Promise((_resolve, reject) => { rejectCreation = reject; }))
+      .mockResolvedValue({
+        detect: async () => [{ detectedLanguage: 'fr', confidence: 0.99 }],
+        destroy: vi.fn(),
+      });
+    vi.stubGlobal('LanguageDetector', { availability: vi.fn(async () => 'available'), create });
+    vi.stubGlobal('Translator', {
+      availability: vi.fn(async () => 'available'),
+      create: vi.fn(async () => ({ translate: async () => 'Hello', destroy: vi.fn() })),
+    });
+    const provider = createActiveProvider({ runtimeClient: {
+      sendMessage: vi.fn(async () => ({ ok: true, type: 'get-active-provider', activeProvider: 'browser' })),
+    } });
+    await provider.refreshSelection();
+    const { editor, controller, button } = controlFor(provider);
+
+    editor.dispatchEvent(new Event('input', { bubbles: true }));
+    button.click();
+    await vi.waitFor(() => expect(controller.state.error?.userMessage).toMatch(/prepar/i));
+    rejectCreation(new Error('raw browser detail'));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    button.click();
+    await vi.waitFor(() => expect(controller.state.error?.userMessage).toMatch(/unavailable/i));
+    expect(create).toHaveBeenCalledTimes(1);
+    expect(editor.value).toBe('你好');
+
+    editor.value = 'Bonjour';
+    editor.dispatchEvent(new Event('input', { bubbles: true }));
+    await vi.waitFor(() => expect(create).toHaveBeenCalledTimes(2));
+  });
+
+  it('bounds a detector creation that never settles, detects newer text, and destroys a late model', async () => {
+    vi.useFakeTimers();
+    try {
+      const staleDetect = vi.fn(async () => [{ detectedLanguage: 'zh', confidence: 0.99 }]);
+      const staleDestroy = vi.fn();
+      let finishStale!: (model: { detect: typeof staleDetect; destroy: typeof staleDestroy }) => void;
+      const freshDetect = vi.fn(async () => [{ detectedLanguage: 'fr', confidence: 0.99 }]);
+      const create = vi.fn()
+        .mockImplementationOnce(() => new Promise((resolve) => { finishStale = resolve; }))
+        .mockResolvedValue({ detect: freshDetect, destroy: vi.fn() });
+      vi.stubGlobal('LanguageDetector', { availability: vi.fn(async () => 'available'), create });
+      const availability = vi.fn(async () => 'available');
+      vi.stubGlobal('Translator', { availability, create: vi.fn() });
+      const provider = createActiveProvider({ runtimeClient: {
+        sendMessage: vi.fn(async () => ({ ok: true, type: 'get-active-provider', activeProvider: 'browser' })),
+      } });
+      await provider.refreshSelection();
+
+      provider.prepareInput?.('你好');
+      provider.prepareInput?.('Bonjour');
+      expect(create).toHaveBeenCalledTimes(1);
+      await vi.advanceTimersByTimeAsync(30_000);
+
+      expect(create).toHaveBeenCalledTimes(2);
+      expect(freshDetect).toHaveBeenCalledWith('Bonjour', expect.any(Object));
+      expect(availability).toHaveBeenCalledWith({ sourceLanguage: 'fr', targetLanguage: 'en' });
+      finishStale({ detect: staleDetect, destroy: staleDestroy });
+      await Promise.resolve();
+      expect(staleDetect).not.toHaveBeenCalled();
+      expect(staleDestroy).toHaveBeenCalledOnce();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('destroys a prepared local model when the prompt is cancelled before provider selection settles', async () => {
     const { translatorAvailability } = localApis();
     let completeModel!: (model: { translate: () => Promise<string>; destroy: () => void }) => void;
