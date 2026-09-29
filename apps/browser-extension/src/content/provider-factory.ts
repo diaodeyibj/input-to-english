@@ -207,20 +207,21 @@ export function createActiveProvider(dependencies: ProviderFactoryDependencies):
     detecting = true;
     // The first call starts model creation in the user input/click task. Edits
     // made while it is pending are coalesced to one later detection pass.
-    void withTimeout((signal) => detector.detect(entry.text, { signal }),
-      DETECTION_PREWARM_TIMEOUT_MS).then(async (result) => {
-      if (detection !== entry) return;
-      const source = result.confidence >= 0.5 && result.confidence <= 1
+    void withTimeout(async (signal) => {
+      const result = await detector.detect(entry.text, { signal });
+      if (detection !== entry) return undefined;
+      const sourceLanguage = result.confidence >= 0.5 && result.confidence <= 1
         ? canonicalSource(result.detectedLanguage) : undefined;
-      if (!source) throw new Error('Language detection returned no supported source.');
-      const pairAvailability = source.split('-')[0]?.toLowerCase() === 'en'
-        ? 'available' : await translator.availability(source, 'en');
+      if (!sourceLanguage) throw new Error('Language detection returned no supported source.');
+      const pairAvailability = sourceLanguage.split('-')[0]?.toLowerCase() === 'en'
+        ? 'available' : await translator.availability(sourceLanguage, 'en');
       if (!pairAvailability) throw new Error('Translator availability is missing.');
-      if (detection === entry) {
-        entry.sourceLanguage = source;
-        entry.pairAvailability = pairAvailability;
-        entry.status = 'ready';
-      }
+      return { sourceLanguage, pairAvailability };
+    }, DETECTION_PREWARM_TIMEOUT_MS).then((prepared) => {
+      if (!prepared || detection !== entry) return;
+      entry.sourceLanguage = prepared.sourceLanguage;
+      entry.pairAvailability = prepared.pairAvailability;
+      entry.status = 'ready';
     }).catch(() => { if (detection === entry) entry.status = 'failed'; })
       .finally(() => {
         detecting = false;

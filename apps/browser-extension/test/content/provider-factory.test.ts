@@ -215,6 +215,60 @@ describe('content provider factory', () => {
     }
   });
 
+  it('bounds pending pair availability, detects newer text, and ignores its late resolution', async () => {
+    vi.useFakeTimers();
+    try {
+      const detect = vi.fn(async (text: string) => [{
+        detectedLanguage: text === 'Bonjour' ? 'fr' : 'zh', confidence: 0.99,
+      }]);
+      const detectorCreate = vi.fn(async () => ({ detect, destroy: vi.fn() }));
+      let finishStaleAvailability!: (status: 'available') => void;
+      const translatorAvailability = vi.fn()
+        .mockImplementationOnce(() => new Promise<'available'>((resolve) => {
+          finishStaleAvailability = resolve;
+        }))
+        .mockResolvedValue('available');
+      const translatorCreate = vi.fn(async () => ({
+        translate: async () => 'Hello', destroy: vi.fn(),
+      }));
+      vi.stubGlobal('LanguageDetector', {
+        availability: vi.fn(async () => 'available'), create: detectorCreate,
+      });
+      vi.stubGlobal('Translator', {
+        availability: translatorAvailability, create: translatorCreate,
+      });
+      const provider = createActiveProvider({ runtimeClient: {
+        sendMessage: vi.fn(async () => ({
+          ok: true, type: 'get-active-provider', activeProvider: 'browser',
+        })),
+      } });
+      await provider.refreshSelection();
+
+      provider.prepareInput?.('你好');
+      await vi.waitFor(() => expect(translatorAvailability).toHaveBeenCalledWith({
+        sourceLanguage: 'zh', targetLanguage: 'en',
+      }));
+      provider.prepareInput?.('Bonjour');
+      await vi.advanceTimersByTimeAsync(30_000);
+
+      await vi.waitFor(() => expect(translatorAvailability).toHaveBeenCalledWith({
+        sourceLanguage: 'fr', targetLanguage: 'en',
+      }));
+      expect(detectorCreate).toHaveBeenCalledTimes(2);
+
+      finishStaleAvailability('available');
+      await Promise.resolve();
+      const action = provider.beginUserAction?.({ text: 'Bonjour', targetLanguage: 'en' });
+      expect(action).toBeDefined();
+      expect(translatorCreate).toHaveBeenCalledWith(expect.objectContaining({
+        sourceLanguage: 'fr', targetLanguage: 'en',
+      }));
+      action?.dispose();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('destroys a prepared local model when the prompt is cancelled before provider selection settles', async () => {
     const { translatorAvailability } = localApis();
     let completeModel!: (model: { translate: () => Promise<string>; destroy: () => void }) => void;
