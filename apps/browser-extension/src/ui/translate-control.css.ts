@@ -9,8 +9,16 @@ const translateControlCss = `
 
 .control {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 6px;
+}
+
+textarea {
+  flex-basis: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  min-height: 64px;
 }
 
 button {

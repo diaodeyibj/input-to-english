@@ -1,0 +1,1968 @@
+{
+  "native_status": "selected",
+  "english_status": "user-approved-B",
+  "source_manifest": "public/audio/v3/voices-manifest.json",
+  "zh": {
+    "frames": 120,
+    "onset": 0,
+    "head_end": 110.8,
+    "fade_start": 163,
+    "fade_end": 220,
+    "text": "帮我设计一个更有创意的新标志吧。",
+    "characters": [
+      {
+        "character": "帮",
+        "frame": 100,
+        "end_frame": 103.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "我",
+        "frame": 103.6,
+        "end_frame": 110.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "设",
+        "frame": 110.8,
+        "end_frame": 118,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "计",
+        "frame": 118,
+        "end_frame": 125.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "一",
+        "frame": 125.2,
+        "end_frame": 129.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "个",
+        "frame": 129.4,
+        "end_frame": 133.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "更",
+        "frame": 133.6,
+        "end_frame": 142,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "有",
+        "frame": 142,
+        "end_frame": 150.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "创",
+        "frame": 150.4,
+        "end_frame": 160,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "意",
+        "frame": 160,
+        "end_frame": 166,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "的",
+        "frame": 166,
+        "end_frame": 172,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.993181,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "新",
+        "frame": 172,
+        "end_frame": 180.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.939737,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "标",
+        "frame": 180.4,
+        "end_frame": 191.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.787164,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "志",
+        "frame": 191.2,
+        "end_frame": 199.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.508267,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "吧",
+        "frame": 199.6,
+        "end_frame": 206.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.284123,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "。",
+        "frame": 206.8,
+        "end_frame": 206.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.126589,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": false,
+    "voice_file": "public/audio/v3/native-b-logo/voice-zh-b-conversation-logo-faded.wav",
+    "voice_sha256": "f5fea434ce75f8d1ca1a5f7fae359de6e77fd0e2a99238c69eeb8442a91823eb"
+  },
+  "ja": {
+    "frames": 120,
+    "onset": 0,
+    "head_end": 236.6,
+    "fade_start": 263,
+    "fade_end": 320,
+    "text": "手伝ってほしいんだけど新",
+    "characters": [
+      {
+        "character": "手",
+        "frame": 200,
+        "end_frame": 206.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "伝",
+        "frame": 206.6,
+        "end_frame": 219.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "っ",
+        "frame": 219.8,
+        "end_frame": 228.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "て",
+        "frame": 228.2,
+        "end_frame": 236.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "ほ",
+        "frame": 236.6,
+        "end_frame": 265.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "し",
+        "frame": 265.4,
+        "end_frame": 272.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.995632,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "い",
+        "frame": 272.6,
+        "end_frame": 279.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.931628,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "ん",
+        "frame": 279.8,
+        "end_frame": 285.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.800541,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "だ",
+        "frame": 285.8,
+        "end_frame": 291.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.654508,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "け",
+        "frame": 291.8,
+        "end_frame": 299.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.491733,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "ど",
+        "frame": 299.6,
+        "end_frame": 307.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.284123,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "新",
+        "frame": 307.4,
+        "end_frame": 338.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.115799,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": true,
+    "voice_file": "public/audio/v3/native-b/voice-ja-b-conversation-r2-faded.wav",
+    "voice_sha256": "b3eba06edab38617dc19e5da101cce5c0cfbfbc79db103b403b3f4302385eb6d"
+  },
+  "ko": {
+    "frames": 120,
+    "onset": 0,
+    "head_end": 327,
+    "fade_start": 363,
+    "fade_end": 420,
+    "text": "도와줘 새 영상을 좀 더 멋지게",
+    "characters": [
+      {
+        "character": "도",
+        "frame": 300,
+        "end_frame": 309,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "와",
+        "frame": 309,
+        "end_frame": 318,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "줘",
+        "frame": 318,
+        "end_frame": 327,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 327,
+        "end_frame": 327,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "새",
+        "frame": 327,
+        "end_frame": 335.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 335.4,
+        "end_frame": 335.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "영",
+        "frame": 335.4,
+        "end_frame": 344.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "상",
+        "frame": 344.2,
+        "end_frame": 353,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "을",
+        "frame": 353,
+        "end_frame": 361.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 361.8,
+        "end_frame": 361.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "좀",
+        "frame": 361.8,
+        "end_frame": 387,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 387,
+        "end_frame": 387,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.622743,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "더",
+        "frame": 387,
+        "end_frame": 396.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.622743,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 396.6,
+        "end_frame": 396.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.361299,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "멋",
+        "frame": 396.6,
+        "end_frame": 404.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.361299,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "지",
+        "frame": 404.6,
+        "end_frame": 412.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.169551,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "게",
+        "frame": 412.6,
+        "end_frame": 420.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.041013,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": true,
+    "voice_file": "public/audio/v3/native-b/voice-ko-b-conversation-faded.wav",
+    "voice_sha256": "cde7905fd1c260c682c67f20348438a441bf69764e90ee637881c6a728bdaef2"
+  },
+  "de": {
+    "frames": 120,
+    "onset": 0.3,
+    "head_end": 433.6,
+    "fade_start": 463,
+    "fade_end": 520,
+    "text": "Hilf mir bitte bei einem neuen L",
+    "characters": [
+      {
+        "character": "H",
+        "frame": 400.3,
+        "end_frame": 405.625,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 405.625,
+        "end_frame": 410.95,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "l",
+        "frame": 410.95,
+        "end_frame": 416.275,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "f",
+        "frame": 416.275,
+        "end_frame": 421.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 421.6,
+        "end_frame": 421.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "m",
+        "frame": 421.6,
+        "end_frame": 425.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 425.6,
+        "end_frame": 429.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 429.6,
+        "end_frame": 433.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 433.6,
+        "end_frame": 433.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "b",
+        "frame": 433.6,
+        "end_frame": 436.96,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 436.96,
+        "end_frame": 440.32,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "t",
+        "frame": 440.32,
+        "end_frame": 443.68,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "t",
+        "frame": 443.68,
+        "end_frame": 447.04,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 447.04,
+        "end_frame": 450.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 450.4,
+        "end_frame": 450.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "b",
+        "frame": 450.4,
+        "end_frame": 456.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 456.4,
+        "end_frame": 462.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 462.4,
+        "end_frame": 468.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 468.4,
+        "end_frame": 468.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.978018,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 468.4,
+        "end_frame": 472.96,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.978018,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 472.96,
+        "end_frame": 477.52,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.926536,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 477.52,
+        "end_frame": 482.08,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.848253,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 482.08,
+        "end_frame": 486.64,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.748088,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "m",
+        "frame": 486.64,
+        "end_frame": 491.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.632335,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 491.2,
+        "end_frame": 491.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.508267,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 491.2,
+        "end_frame": 496.96,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.508267,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 496.96,
+        "end_frame": 502.72,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.351795,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 502.72,
+        "end_frame": 508.48,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.210135,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 508.48,
+        "end_frame": 514.24,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.097444,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 514.24,
+        "end_frame": 520,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.024985,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 520,
+        "end_frame": 520,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "L",
+        "frame": 520,
+        "end_frame": 528.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": true,
+    "voice_file": "public/audio/v3/native-b/voice-de-b-conversation-faded.wav",
+    "voice_sha256": "1d4d097a0ca084b6449262eb355c94b6ce5a9c6a0d166e7a71fe428ad71d8092"
+  },
+  "es": {
+    "frames": 120,
+    "onset": 0,
+    "head_end": 532.4,
+    "fade_start": 563,
+    "fade_end": 620,
+    "text": "Ayúdame a diseñar un nuevo cart",
+    "characters": [
+      {
+        "character": "A",
+        "frame": 500,
+        "end_frame": 504.6286,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "y",
+        "frame": 504.6286,
+        "end_frame": 509.2571,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "ú",
+        "frame": 509.2571,
+        "end_frame": 513.8857,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "d",
+        "frame": 513.8857,
+        "end_frame": 518.5143,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 518.5143,
+        "end_frame": 523.1429,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "m",
+        "frame": 523.1429,
+        "end_frame": 527.7714,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 527.7714,
+        "end_frame": 532.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 532.4,
+        "end_frame": 532.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 532.4,
+        "end_frame": 536,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 536,
+        "end_frame": 536,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "d",
+        "frame": 536,
+        "end_frame": 540.9714,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 540.9714,
+        "end_frame": 545.9429,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "s",
+        "frame": 545.9429,
+        "end_frame": 550.9143,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 550.9143,
+        "end_frame": 555.8857,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "ñ",
+        "frame": 555.8857,
+        "end_frame": 560.8571,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 560.8571,
+        "end_frame": 565.8286,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 565.8286,
+        "end_frame": 570.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.993936,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 570.8,
+        "end_frame": 570.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.954503,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 570.8,
+        "end_frame": 576.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.954503,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 576.8,
+        "end_frame": 582.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.862213,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 582.8,
+        "end_frame": 582.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.730671,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 582.8,
+        "end_frame": 586.16,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.730671,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 586.16,
+        "end_frame": 589.52,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.645043,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 589.52,
+        "end_frame": 592.88,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.554456,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "v",
+        "frame": 592.88,
+        "end_frame": 596.24,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.462007,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "o",
+        "frame": 596.24,
+        "end_frame": 599.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.370857,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 599.6,
+        "end_frame": 599.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.284123,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "c",
+        "frame": 599.6,
+        "end_frame": 604.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.284123,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 604.8,
+        "end_frame": 610,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.165435,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 610,
+        "end_frame": 615.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.07404,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "t",
+        "frame": 615.2,
+        "end_frame": 620.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.017396,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": true,
+    "voice_file": "public/audio/v3/native-b/voice-es-b-conversation-faded.wav",
+    "voice_sha256": "f78ecc1493b8e43613672781878405ffb2af60e55623697d1e419815bc08e065"
+  },
+  "fr": {
+    "frames": 120,
+    "onset": 0,
+    "head_end": 630.6,
+    "fade_start": 663,
+    "fade_end": 720,
+    "text": "Aide-moi à créer une nouvelle affiche pour",
+    "characters": [
+      {
+        "character": "A",
+        "frame": 600,
+        "end_frame": 602.85,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 602.85,
+        "end_frame": 605.7,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "d",
+        "frame": 605.7,
+        "end_frame": 608.55,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 608.55,
+        "end_frame": 611.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "-",
+        "frame": 611.4,
+        "end_frame": 611.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "m",
+        "frame": 611.4,
+        "end_frame": 617.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "o",
+        "frame": 617.8,
+        "end_frame": 624.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 624.2,
+        "end_frame": 630.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 630.6,
+        "end_frame": 630.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "à",
+        "frame": 630.6,
+        "end_frame": 645,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 645,
+        "end_frame": 645,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "c",
+        "frame": 645,
+        "end_frame": 648.12,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 648.12,
+        "end_frame": 651.24,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "é",
+        "frame": 651.24,
+        "end_frame": 654.36,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 654.36,
+        "end_frame": 657.48,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 657.48,
+        "end_frame": 660.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 660.6,
+        "end_frame": 660.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 660.6,
+        "end_frame": 665,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 665,
+        "end_frame": 669.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.996965,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 669.4,
+        "end_frame": 673.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.969215,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 673.8,
+        "end_frame": 673.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.914004,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 673.8,
+        "end_frame": 675.3,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.914004,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "o",
+        "frame": 675.3,
+        "end_frame": 676.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.889439,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 676.8,
+        "end_frame": 678.3,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.862213,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "v",
+        "frame": 678.3,
+        "end_frame": 679.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.832512,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 679.8,
+        "end_frame": 681.3,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.800541,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "l",
+        "frame": 681.3,
+        "end_frame": 682.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.766516,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "l",
+        "frame": 682.8,
+        "end_frame": 684.3,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.730671,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 684.3,
+        "end_frame": 685.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.69325,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 685.8,
+        "end_frame": 685.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.654508,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 685.8,
+        "end_frame": 689.5714,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.654508,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "f",
+        "frame": 689.5714,
+        "end_frame": 693.3429,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.553048,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "f",
+        "frame": 693.3429,
+        "end_frame": 697.1143,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.449301,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 697.1143,
+        "end_frame": 700.8857,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.347739,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "c",
+        "frame": 700.8857,
+        "end_frame": 704.6571,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.252733,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "h",
+        "frame": 704.6571,
+        "end_frame": 708.4286,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.168372,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 708.4286,
+        "end_frame": 712.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.098286,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 712.2,
+        "end_frame": 712.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.045497,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "p",
+        "frame": 712.2,
+        "end_frame": 714.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.045497,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "o",
+        "frame": 714.6,
+        "end_frame": 717,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.021982,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 717,
+        "end_frame": 719.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.006819,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 719.4,
+        "end_frame": 721.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.000273,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": true,
+    "voice_file": "public/audio/v3/native-b/voice-fr-b-conversation-faded.wav",
+    "voice_sha256": "5008c6e00a69040b105f6307bd8a41daa1b37ce340c7f6d21af40321b7b19958"
+  },
+  "it": {
+    "frames": 120,
+    "onset": 0.3,
+    "head_end": 728.5,
+    "fade_start": 763,
+    "fade_end": 820,
+    "text": "Aiutami a creare un nuovo video p",
+    "characters": [
+      {
+        "character": "A",
+        "frame": 700.3,
+        "end_frame": 704.3286,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 704.3286,
+        "end_frame": 708.3571,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 708.3571,
+        "end_frame": 712.3857,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "t",
+        "frame": 712.3857,
+        "end_frame": 716.4143,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 716.4143,
+        "end_frame": 720.4429,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "m",
+        "frame": 720.4429,
+        "end_frame": 724.4714,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 724.4714,
+        "end_frame": 728.5,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 728.5,
+        "end_frame": 728.5,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 728.5,
+        "end_frame": 735.7,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 735.7,
+        "end_frame": 735.7,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "c",
+        "frame": 735.7,
+        "end_frame": 740.5,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 740.5,
+        "end_frame": 745.3,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 745.3,
+        "end_frame": 750.1,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "a",
+        "frame": 750.1,
+        "end_frame": 754.9,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "r",
+        "frame": 754.9,
+        "end_frame": 759.7,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 759.7,
+        "end_frame": 764.5,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 764.5,
+        "end_frame": 764.5,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.998292,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 764.5,
+        "end_frame": 771.7,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.998292,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 771.7,
+        "end_frame": 778.9,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.943611,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 778.9,
+        "end_frame": 778.9,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.819984,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "n",
+        "frame": 778.9,
+        "end_frame": 781.54,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.819984,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "u",
+        "frame": 781.54,
+        "end_frame": 784.18,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.760897,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "o",
+        "frame": 784.18,
+        "end_frame": 786.82,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.696295,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "v",
+        "frame": 786.82,
+        "end_frame": 789.46,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.627545,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "o",
+        "frame": 789.46,
+        "end_frame": 792.1,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.5561,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 792.1,
+        "end_frame": 792.1,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.483468,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "v",
+        "frame": 792.1,
+        "end_frame": 797.14,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.483468,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "i",
+        "frame": 797.14,
+        "end_frame": 802.18,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.347065,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "d",
+        "frame": 802.18,
+        "end_frame": 807.22,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.222387,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "e",
+        "frame": 807.22,
+        "end_frame": 812.26,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.118993,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "o",
+        "frame": 812.26,
+        "end_frame": 817.3,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.04481,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 817.3,
+        "end_frame": 817.3,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.005526,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "p",
+        "frame": 817.3,
+        "end_frame": 822.5,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.005526,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": true,
+    "voice_file": "public/audio/v3/native-b/voice-it-b-conversation-faded.wav",
+    "voice_sha256": "cf33b7e6f1aaf394b447744451dc25ae55f33cde8fd4f50f57e484dcda621b27"
+  },
+  "ru": {
+    "frames": 120,
+    "onset": 3.3,
+    "head_end": 839.6,
+    "fade_start": 863,
+    "fade_end": 920,
+    "text": "Помоги мне сделать новый сайт дл",
+    "characters": [
+      {
+        "character": "П",
+        "frame": 803.3,
+        "end_frame": 807.95,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "о",
+        "frame": 807.95,
+        "end_frame": 812.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "м",
+        "frame": 812.6,
+        "end_frame": 817.25,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "о",
+        "frame": 817.25,
+        "end_frame": 821.9,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "г",
+        "frame": 821.9,
+        "end_frame": 826.55,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "и",
+        "frame": 826.55,
+        "end_frame": 831.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 831.2,
+        "end_frame": 831.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "м",
+        "frame": 831.2,
+        "end_frame": 834,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "н",
+        "frame": 834,
+        "end_frame": 836.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "е",
+        "frame": 836.8,
+        "end_frame": 839.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 839.6,
+        "end_frame": 839.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "с",
+        "frame": 839.6,
+        "end_frame": 842.8571,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "д",
+        "frame": 842.8571,
+        "end_frame": 846.1143,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "е",
+        "frame": 846.1143,
+        "end_frame": 849.3714,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "л",
+        "frame": 849.3714,
+        "end_frame": 852.6286,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "а",
+        "frame": 852.6286,
+        "end_frame": 855.8857,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "т",
+        "frame": 855.8857,
+        "end_frame": 859.1429,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "ь",
+        "frame": 859.1429,
+        "end_frame": 862.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 862.4,
+        "end_frame": 862.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "н",
+        "frame": 862.4,
+        "end_frame": 866.96,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 1,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "о",
+        "frame": 866.96,
+        "end_frame": 871.52,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.988138,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "в",
+        "frame": 871.52,
+        "end_frame": 876.08,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.945878,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "ы",
+        "frame": 876.08,
+        "end_frame": 880.64,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.875602,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "й",
+        "frame": 880.64,
+        "end_frame": 885.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.781725,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 885.2,
+        "end_frame": 885.2,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.670147,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "с",
+        "frame": 885.2,
+        "end_frame": 891.5,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.670147,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "а",
+        "frame": 891.5,
+        "end_frame": 897.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.5,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "й",
+        "frame": 897.8,
+        "end_frame": 904.1,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.329853,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "т",
+        "frame": 904.1,
+        "end_frame": 910.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.180016,
+        "within_faded_delivery": true
+      },
+      {
+        "character": " ",
+        "frame": 910.4,
+        "end_frame": 910.4,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.068372,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "д",
+        "frame": 910.4,
+        "end_frame": 917.6,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.068372,
+        "within_faded_delivery": true
+      },
+      {
+        "character": "л",
+        "frame": 917.6,
+        "end_frame": 924.8,
+        "method": "automatic Whisper word boundaries; character times interpolated, punctuation estimated",
+        "fade_gain": 0.004368,
+        "within_faded_delivery": true
+      }
+    ],
+    "clipped": true,
+    "voice_file": "public/audio/v3/native-b/voice-ru-b-conversation-faded.wav",
+    "voice_sha256": "0f27518500083768cb730531e4f2e860a117c6d769bc3af0c8802125d906475f"
+  },
+  "en": {
+    "frames": 172.5,
+    "onset": 0,
+    "text": "Help me design a new logo.",
+    "characters": [
+      {
+        "character": "H",
+        "frame": 1800,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "e",
+        "frame": 1805.4,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "l",
+        "frame": 1810.8,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "p",
+        "frame": 1816.2,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": " ",
+        "frame": 1821.6,
+        "method": "source whitespace at next aligned word onset"
+      },
+      {
+        "character": "m",
+        "frame": 1821.6,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "e",
+        "frame": 1831.2,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": " ",
+        "frame": 1840.8,
+        "method": "source whitespace at next aligned word onset"
+      },
+      {
+        "character": "d",
+        "frame": 1840.8,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "e",
+        "frame": 1845.6,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "s",
+        "frame": 1850.4,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "i",
+        "frame": 1855.2,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "g",
+        "frame": 1860,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "n",
+        "frame": 1864.8,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": " ",
+        "frame": 1869.6,
+        "method": "source whitespace at next aligned word onset"
+      },
+      {
+        "character": "a",
+        "frame": 1869.6,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": " ",
+        "frame": 1900.8,
+        "method": "source whitespace at next aligned word onset"
+      },
+      {
+        "character": "n",
+        "frame": 1900.8,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "e",
+        "frame": 1907.6,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "w",
+        "frame": 1914.4,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": " ",
+        "frame": 1921.2,
+        "method": "source whitespace at next aligned word onset"
+      },
+      {
+        "character": "l",
+        "frame": 1921.2,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "o",
+        "frame": 1928.4,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "g",
+        "frame": 1935.6,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": "o",
+        "frame": 1942.8,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      },
+      {
+        "character": ".",
+        "frame": 1950,
+        "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+      }
+    ],
+    "voice_file": "public/audio/v3/voice-en.wav",
+    "voice_sha256": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef"
+  }
+}

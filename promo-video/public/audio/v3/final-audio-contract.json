@@ -1,0 +1,147 @@
+{
+  "approval_status": "user-approved",
+  "music_revision": "C",
+  "native_selection": "B-logo",
+  "english_selection": "B",
+  "official_manifest_version": "v3-native-B-logo-English-B-approved",
+  "official_manifest_sha256": "2ea7024d186635546573277bc6dc87bc0c292b5b789f5ec3aaaf5ba4b5e1ba4a",
+  "master_file": "public/audio/v3/master.wav",
+  "master_sha256": "b1ca6ab4afbe1ba985a6196a50e84cb78fdf8d2fba5939f5712f77259b315169",
+  "master_frames": 1920000,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "master_measurement": {
+    "integrated_lufs": -16.15,
+    "true_peak_dbtp": -1.66,
+    "loudness_range_lu": 7.8,
+    "threshold_lufs": -26.55
+  },
+  "voice_windows": [
+    {
+      "language": "zh",
+      "start_frame": 100,
+      "end_frame": 220.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b-logo/voice-zh-b-conversation-logo-faded.wav"
+    },
+    {
+      "language": "ja",
+      "start_frame": 200,
+      "end_frame": 320.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-ja-b-conversation-r2-faded.wav"
+    },
+    {
+      "language": "ko",
+      "start_frame": 300,
+      "end_frame": 420.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-ko-b-conversation-faded.wav"
+    },
+    {
+      "language": "de",
+      "start_frame": 400,
+      "end_frame": 520.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-de-b-conversation-faded.wav"
+    },
+    {
+      "language": "es",
+      "start_frame": 500,
+      "end_frame": 620.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-es-b-conversation-faded.wav"
+    },
+    {
+      "language": "fr",
+      "start_frame": 600,
+      "end_frame": 720.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-fr-b-conversation-faded.wav"
+    },
+    {
+      "language": "it",
+      "start_frame": 700,
+      "end_frame": 820.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-it-b-conversation-faded.wav"
+    },
+    {
+      "language": "ru",
+      "start_frame": 800,
+      "end_frame": 920.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-ru-b-conversation-faded.wav"
+    },
+    {
+      "language": "en",
+      "start_frame": 1800,
+      "end_frame": 1978.5,
+      "mix_gain": 1.0,
+      "file": "public/audio/v3/voice-en.wav"
+    }
+  ],
+  "voice_input_hashes": {
+    "zh": {
+      "file": "public/audio/v3/native-b-logo/voice-zh-b-conversation-logo-faded.wav",
+      "sha256": "f5fea434ce75f8d1ca1a5f7fae359de6e77fd0e2a99238c69eeb8442a91823eb"
+    },
+    "ja": {
+      "file": "public/audio/v3/native-b/voice-ja-b-conversation-r2-faded.wav",
+      "sha256": "b3eba06edab38617dc19e5da101cce5c0cfbfbc79db103b403b3f4302385eb6d"
+    },
+    "ko": {
+      "file": "public/audio/v3/native-b/voice-ko-b-conversation-faded.wav",
+      "sha256": "cde7905fd1c260c682c67f20348438a441bf69764e90ee637881c6a728bdaef2"
+    },
+    "de": {
+      "file": "public/audio/v3/native-b/voice-de-b-conversation-faded.wav",
+      "sha256": "1d4d097a0ca084b6449262eb355c94b6ce5a9c6a0d166e7a71fe428ad71d8092"
+    },
+    "es": {
+      "file": "public/audio/v3/native-b/voice-es-b-conversation-faded.wav",
+      "sha256": "f78ecc1493b8e43613672781878405ffb2af60e55623697d1e419815bc08e065"
+    },
+    "fr": {
+      "file": "public/audio/v3/native-b/voice-fr-b-conversation-faded.wav",
+      "sha256": "5008c6e00a69040b105f6307bd8a41daa1b37ce340c7f6d21af40321b7b19958"
+    },
+    "it": {
+      "file": "public/audio/v3/native-b/voice-it-b-conversation-faded.wav",
+      "sha256": "cf33b7e6f1aaf394b447744451dc25ae55f33cde8fd4f50f57e484dcda621b27"
+    },
+    "ru": {
+      "file": "public/audio/v3/native-b/voice-ru-b-conversation-faded.wav",
+      "sha256": "0f27518500083768cb730531e4f2e860a117c6d769bc3af0c8802125d906475f"
+    },
+    "en": {
+      "file": "public/audio/v3/voice-en.wav",
+      "sha256": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef"
+    }
+  },
+  "voice_bus_peak_guard_gain": 1.0,
+  "timeline_sha256": "56d1b0cb4367839edc90534357ce1a8fe47e19bd6c148a26f4cc801eb193b2fc",
+  "voice_timing_sha256": "92774eba90723c864123c1dbdc94775e67734f8e78dcc0bf89ff73f3cc287e7f",
+  "generator_sha256": "2b5278d179c6d53fd7a47bed844187fcbb0c06e3fd9c8376a101b2e435a2cd9c",
+  "stem_sha256": {
+    "drums": "0b5750d587bc5f1dd5649764ff9ceec759e29c623540b61cae2661220b0f542e",
+    "bass": "c43f4c099796a6d8cfb9b70e52a328a615cea1e74b8907a4f9fab84d19845ab2",
+    "melody": "ad0b18f56e5d69802850dede8461595a0881755b5c1bcd5302f935acb3bdcb2e",
+    "keyboard": "41dc56e89a4a884b04bd6b3dd8698cf857a6a1cfa3a1797ae3b57a940866d835",
+    "mouse": "e4c2c226e2bf9f4f464e1b632342cfe92f1a96ac52f2205b301fe8c230a60354",
+    "motion": "853029ec06b80166cbdfa7c67cedc93f921148cebd61fd0e436da4d20e931a00",
+    "voices": "a82edae9944d1878f979bedb74a2b673ff17222227379ca75224d760c9b6c5c7",
+    "music": "e71f5eb26f3590522ada2839eb1c24e25d8a1ffa12fb229461629eb145a7e8b2",
+    "effects": "3e50ed574416427d5f7ca4c1ae5684d867df32851abd05853d227ebfe9a0eb68",
+    "master": "b1ca6ab4afbe1ba985a6196a50e84cb78fdf8d2fba5939f5712f77259b315169"
+  },
+  "preserved_master_file": "public/audio/v3/revision-a-rejected/master.wav",
+  "preserved_master_sha256": "58507821f06c98babb7ba6e536e4aff7142ba0a926fcb40746c78c266f41ad21",
+  "output_logo_file": "public/audio/v3/output-logo.wav",
+  "output_logo_frames_inclusive": [
+    1400,
+    2259
+  ],
+  "output_logo_sha256": "0f55bc4c31cd5ec07b2d729cb020bf29dcc8781eb43ad0c9601c2ac30a32022a"
+}

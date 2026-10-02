@@ -1,0 +1,14 @@
+{
+  "id": "fr",
+  "language": "fr",
+  "text": "Aide-moi, je veux créer une nouvelle affiche.",
+  "phrase": "Aide-moi",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+  "instruction": "Speak French naturally, with lively warmth and positive energy. Use a natural conversational pace; no rushing or shouting.",
+  "speed": 1.0,
+  "seed": 7305,
+  "start_frame": 600,
+  "ref_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+  "cache_key": "01b3d9dcd9e590862c3879598b1a8b0786246ac7880fe4a833e2be6eb3b8fd62",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-fr-01b3d9dcd9e59086-original.wav"
+}

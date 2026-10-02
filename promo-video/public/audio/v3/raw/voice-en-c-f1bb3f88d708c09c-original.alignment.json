@@ -1,0 +1,42 @@
+{
+  "text": " Help me design a new logo.",
+  "words": [
+    {
+      "word": " Help",
+      "start": 0.0,
+      "end": 0.46,
+      "probability": 0.09840752184391022
+    },
+    {
+      "word": " me",
+      "start": 0.46,
+      "end": 0.62,
+      "probability": 0.9878000020980835
+    },
+    {
+      "word": " design",
+      "start": 0.62,
+      "end": 0.94,
+      "probability": 0.9852980375289917
+    },
+    {
+      "word": " a",
+      "start": 0.94,
+      "end": 1.16,
+      "probability": 0.9944773316383362
+    },
+    {
+      "word": " new",
+      "start": 1.16,
+      "end": 1.3,
+      "probability": 0.9979767203330994
+    },
+    {
+      "word": " logo.",
+      "start": 1.3,
+      "end": 1.68,
+      "probability": 0.9965835213661194
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

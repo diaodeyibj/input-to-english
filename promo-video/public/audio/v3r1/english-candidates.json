@@ -1,0 +1,1100 @@
+{
+  "version": "v3r1-english-audition",
+  "approval_status": "pending-user-listening",
+  "text": "Help me design a more creative new logo",
+  "engine": "Fun-CosyVoice3-0.5B-2512",
+  "reference_sources": [
+    {
+      "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\reference-en-official-2.wav",
+      "url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/en/prompt_audio_2.wav",
+      "sha256": "37e8eefff86fc681cc7aae94ede4e10adbe31cd36a6178934396402246344c74",
+      "estimated_median_f0": 243.49398075784603,
+      "duration": 5.592
+    },
+    {
+      "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\reference-hard-en-official-4.wav",
+      "url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/hard-en/prompt_audio_4.wav",
+      "sha256": "e13be5eeae57ac6d2f226bf43fd88fc1efe0ed6133d204a1ede35bd30e970b81",
+      "estimated_median_f0": 130.75619430373467,
+      "duration": 7.704
+    }
+  ],
+  "english_candidates": [
+    {
+      "language": "en",
+      "take_id": "en-r1-a",
+      "text": "Help me design a more creative new logo",
+      "display_text": "Help me design a more creative new logo",
+      "instruction": "请像在商务会议上自然地向设计师提出需求，成熟男性，语气从容自信、温暖清晰，像平时聊天，不要朗读或播音，不要刻意放慢，不要夸张。",
+      "prompt_ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\reference-hard-en-official-4.wav",
+      "prompt_sha256": "e13be5eeae57ac6d2f226bf43fd88fc1efe0ed6133d204a1ede35bd30e970b81",
+      "inference_speed": 1.0,
+      "seed": 9701,
+      "cache_key": "409a2c68c95a4205ed33143c738657e8d3ff98537b2de819d79fb87f46f58a21",
+      "raw_file": "public/audio/v3r1/raw/en-r1-a-409a2c68c95a4205-original.wav",
+      "raw_sha256": "0c17e69989ded578d257ee0d812335aa902966e834852dbfc4b39002b3674060",
+      "raw_duration_seconds": 2.56,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3r1/voice-en-r1-a.wav",
+      "output_sha256": "d1ffae6924c99b5c86bc9c255d8889582bf58221f67dd668f73df58da149acec",
+      "duration_seconds": 2.535,
+      "start_frame": 1770,
+      "end_frame": 1922.1,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 150.0,
+      "speech_onset_frame": 1770.0,
+      "speech_end_frame": 1920.0,
+      "first_character_frame": 1770.0,
+      "crop_start_seconds": 0.025,
+      "crop_end_seconds": 2.56,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.035,
+      "gain_db": -3.0761075499528494,
+      "peak_dbfs": -3.7613651156425476,
+      "rms_dbfs": -17.00008749961853,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Help",
+          "start_seconds": 0.0,
+          "end_seconds": 0.195,
+          "start_frame": 1770.0,
+          "end_frame": 1781.7,
+          "confidence": 0.29632651805877686
+        },
+        {
+          "text": "me",
+          "start_seconds": 0.195,
+          "end_seconds": 0.375,
+          "start_frame": 1781.7,
+          "end_frame": 1792.5,
+          "confidence": 0.9894860982894897
+        },
+        {
+          "text": "design",
+          "start_seconds": 0.375,
+          "end_seconds": 0.715,
+          "start_frame": 1792.5,
+          "end_frame": 1812.9,
+          "confidence": 0.9853185415267944
+        },
+        {
+          "text": "a",
+          "start_seconds": 0.715,
+          "end_seconds": 0.935,
+          "start_frame": 1812.9,
+          "end_frame": 1826.1,
+          "confidence": 0.9911822080612183
+        },
+        {
+          "text": "more",
+          "start_seconds": 0.935,
+          "end_seconds": 1.075,
+          "start_frame": 1826.1,
+          "end_frame": 1834.5,
+          "confidence": 0.9937500357627869
+        },
+        {
+          "text": "creative",
+          "start_seconds": 1.075,
+          "end_seconds": 1.595,
+          "start_frame": 1834.5,
+          "end_frame": 1865.7,
+          "confidence": 0.9923200011253357
+        },
+        {
+          "text": "new",
+          "start_seconds": 1.595,
+          "end_seconds": 1.875,
+          "start_frame": 1865.7,
+          "end_frame": 1882.5,
+          "confidence": 0.9728370904922485
+        },
+        {
+          "text": "logo",
+          "start_seconds": 1.875,
+          "end_seconds": 2.335,
+          "start_frame": 1882.5,
+          "end_frame": 1910.1,
+          "confidence": 0.9952475428581238
+        }
+      ],
+      "character_markers": [
+        {
+          "character": "H",
+          "frame": 1770.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1772.925,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "l",
+          "frame": 1775.85,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "p",
+          "frame": 1778.775,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1781.7,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1781.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1787.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1792.5,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "d",
+          "frame": 1792.5,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1795.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "s",
+          "frame": 1799.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1802.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1806.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "n",
+          "frame": 1809.5,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1812.9,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "a",
+          "frame": 1812.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1826.1,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1826.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1828.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "r",
+          "frame": 1830.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1832.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1834.5,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "c",
+          "frame": 1834.5,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "r",
+          "frame": 1838.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1842.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "a",
+          "frame": 1846.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "t",
+          "frame": 1850.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1854.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "v",
+          "frame": 1857.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1861.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1865.7,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "n",
+          "frame": 1865.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1871.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "w",
+          "frame": 1876.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1882.5,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "l",
+          "frame": 1882.5,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1889.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1896.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1903.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        }
+      ],
+      "alignment": {
+        "text": " Help me design a more creative new logo",
+        "words": [
+          {
+            "word": "Help",
+            "start": 0.0,
+            "end": 0.22,
+            "probability": 0.29632651805877686
+          },
+          {
+            "word": "me",
+            "start": 0.22,
+            "end": 0.4,
+            "probability": 0.9894860982894897
+          },
+          {
+            "word": "design",
+            "start": 0.4,
+            "end": 0.74,
+            "probability": 0.9853185415267944
+          },
+          {
+            "word": "a",
+            "start": 0.74,
+            "end": 0.96,
+            "probability": 0.9911822080612183
+          },
+          {
+            "word": "more",
+            "start": 0.96,
+            "end": 1.1,
+            "probability": 0.9937500357627869
+          },
+          {
+            "word": "creative",
+            "start": 1.1,
+            "end": 1.62,
+            "probability": 0.9923200011253357
+          },
+          {
+            "word": "new",
+            "start": 1.62,
+            "end": 1.9,
+            "probability": 0.9728370904922485
+          },
+          {
+            "word": "logo",
+            "start": 1.9,
+            "end": 2.36,
+            "probability": 0.9952475428581238
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "en",
+      "take_id": "en-r1-b",
+      "text": "Help me design a more creative new logo",
+      "display_text": "Help me design a more creative new logo",
+      "instruction": "请像一位有经验的创业者在和设计师交流一样自然地说这句话，成熟男性，轻松干练，连读自然，在 more creative 上有轻微重音，不要播音腔，不要刻意放慢。",
+      "prompt_ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\reference-hard-en-official-4.wav",
+      "prompt_sha256": "e13be5eeae57ac6d2f226bf43fd88fc1efe0ed6133d204a1ede35bd30e970b81",
+      "inference_speed": 1.0,
+      "seed": 9702,
+      "cache_key": "a9dc5ba75637b956b850bfcbb73ac0d67c7dea192a8bc04a32e7dd9180a89252",
+      "raw_file": "public/audio/v3r1/raw/en-r1-b-a9dc5ba75637b956-original.wav",
+      "raw_sha256": "0aaf0a8ba6e38f81a15d3cddb7a5f8a3a2de9cc10107fde0dbe2ef408a96b298",
+      "raw_duration_seconds": 2.6,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3r1/voice-en-r1-b.wav",
+      "output_sha256": "4dcc1477646e9e9601efe07cc1c83179da0071e51e1f8a4c19d8c3c21aff2dc2",
+      "duration_seconds": 2.585,
+      "start_frame": 1770,
+      "end_frame": 1925.1,
+      "speech_onset_frames": 0.3,
+      "speech_end_frames": 151.5,
+      "speech_onset_frame": 1770.3,
+      "speech_end_frame": 1921.5,
+      "first_character_frame": 1770.3,
+      "crop_start_seconds": 0.015,
+      "crop_end_seconds": 2.6,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": -1.4784177693963003,
+      "peak_dbfs": -1.882920265197754,
+      "rms_dbfs": -17.000043392181396,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Help",
+          "start_seconds": 0.005,
+          "end_seconds": 0.185,
+          "start_frame": 1770.3,
+          "end_frame": 1781.1,
+          "confidence": 0.5744637250900269
+        },
+        {
+          "text": "me",
+          "start_seconds": 0.185,
+          "end_seconds": 0.405,
+          "start_frame": 1781.1,
+          "end_frame": 1794.3,
+          "confidence": 0.9977497458457947
+        },
+        {
+          "text": "design",
+          "start_seconds": 0.405,
+          "end_seconds": 0.805,
+          "start_frame": 1794.3,
+          "end_frame": 1818.3,
+          "confidence": 0.9696067571640015
+        },
+        {
+          "text": "a",
+          "start_seconds": 0.805,
+          "end_seconds": 1.105,
+          "start_frame": 1818.3,
+          "end_frame": 1836.3,
+          "confidence": 0.9464909434318542
+        },
+        {
+          "text": "more",
+          "start_seconds": 1.105,
+          "end_seconds": 1.205,
+          "start_frame": 1836.3,
+          "end_frame": 1842.3,
+          "confidence": 0.9975812435150146
+        },
+        {
+          "text": "creative",
+          "start_seconds": 1.205,
+          "end_seconds": 1.665,
+          "start_frame": 1842.3,
+          "end_frame": 1869.9,
+          "confidence": 0.9841465353965759
+        },
+        {
+          "text": "new",
+          "start_seconds": 1.665,
+          "end_seconds": 1.945,
+          "start_frame": 1869.9,
+          "end_frame": 1886.7,
+          "confidence": 0.9865124225616455
+        },
+        {
+          "text": "logo",
+          "start_seconds": 1.945,
+          "end_seconds": 2.345,
+          "start_frame": 1886.7,
+          "end_frame": 1910.7,
+          "confidence": 0.9798494577407837
+        }
+      ],
+      "character_markers": [
+        {
+          "character": "H",
+          "frame": 1770.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1773.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "l",
+          "frame": 1775.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "p",
+          "frame": 1778.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1781.1,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1781.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1787.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1794.3,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "d",
+          "frame": 1794.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1798.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "s",
+          "frame": 1802.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1806.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1810.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "n",
+          "frame": 1814.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1818.3,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "a",
+          "frame": 1818.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1836.3,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1836.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1837.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "r",
+          "frame": 1839.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1840.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1842.3,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "c",
+          "frame": 1842.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "r",
+          "frame": 1845.75,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1849.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "a",
+          "frame": 1852.65,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "t",
+          "frame": 1856.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1859.55,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "v",
+          "frame": 1863.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1866.45,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1869.9,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "n",
+          "frame": 1869.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1875.5,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "w",
+          "frame": 1881.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1886.7,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "l",
+          "frame": 1886.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1892.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1898.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1904.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        }
+      ],
+      "alignment": {
+        "text": " help me design a more creative new logo",
+        "words": [
+          {
+            "word": "Help",
+            "start": 0.0,
+            "end": 0.2,
+            "probability": 0.5744637250900269
+          },
+          {
+            "word": "me",
+            "start": 0.2,
+            "end": 0.42,
+            "probability": 0.9977497458457947
+          },
+          {
+            "word": "design",
+            "start": 0.42,
+            "end": 0.82,
+            "probability": 0.9696067571640015
+          },
+          {
+            "word": "a",
+            "start": 0.82,
+            "end": 1.12,
+            "probability": 0.9464909434318542
+          },
+          {
+            "word": "more",
+            "start": 1.12,
+            "end": 1.22,
+            "probability": 0.9975812435150146
+          },
+          {
+            "word": "creative",
+            "start": 1.22,
+            "end": 1.68,
+            "probability": 0.9841465353965759
+          },
+          {
+            "word": "new",
+            "start": 1.68,
+            "end": 1.96,
+            "probability": 0.9865124225616455
+          },
+          {
+            "word": "logo",
+            "start": 1.96,
+            "end": 2.36,
+            "probability": 0.9798494577407837
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "en",
+      "take_id": "en-r1-c",
+      "text": "Help me design a more creative new logo",
+      "display_text": "Help me design a more creative new logo",
+      "instruction": "请像一位专业产品负责人面对面请求同事帮助一样说这句话，成熟男性，平静有自信，自然口语，轻微微笑，不要朗读，不要夸张，不要刻意放慢。",
+      "prompt_ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\reference-hard-en-official-4.wav",
+      "prompt_sha256": "e13be5eeae57ac6d2f226bf43fd88fc1efe0ed6133d204a1ede35bd30e970b81",
+      "inference_speed": 1.0,
+      "seed": 9703,
+      "cache_key": "d7ca507b1c5fa12fd804c46233231d4700ca3fe0817241ef9a3d15a7c3ca817a",
+      "raw_file": "public/audio/v3r1/raw/en-r1-c-d7ca507b1c5fa12f-original.wav",
+      "raw_sha256": "4a44134755d187cbe09231f790e8117b499a725051e868476a167062a45bc45d",
+      "raw_duration_seconds": 2.4,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3r1/voice-en-r1-c.wav",
+      "output_sha256": "3dab65b1913ce2a48af57e15f69203f0edae7d7da864558d3492ddd06c5d06dc",
+      "duration_seconds": 2.35,
+      "start_frame": 1770,
+      "end_frame": 1911.0,
+      "speech_onset_frames": 1.2,
+      "speech_end_frames": 138.0,
+      "speech_onset_frame": 1771.2,
+      "speech_end_frame": 1908.0,
+      "first_character_frame": 1771.2,
+      "crop_start_seconds": 0.05,
+      "crop_end_seconds": 2.4,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": -1.0867215570867277,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -17.26793646812439,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Help",
+          "start_seconds": 0.02,
+          "end_seconds": 0.17,
+          "start_frame": 1771.2,
+          "end_frame": 1780.2,
+          "confidence": 0.09708686918020248
+        },
+        {
+          "text": "me",
+          "start_seconds": 0.17,
+          "end_seconds": 0.31,
+          "start_frame": 1780.2,
+          "end_frame": 1788.6,
+          "confidence": 0.9920603036880493
+        },
+        {
+          "text": "design",
+          "start_seconds": 0.31,
+          "end_seconds": 0.65,
+          "start_frame": 1788.6,
+          "end_frame": 1809.0,
+          "confidence": 0.9798725843429565
+        },
+        {
+          "text": "a",
+          "start_seconds": 0.65,
+          "end_seconds": 0.85,
+          "start_frame": 1809.0,
+          "end_frame": 1821.0,
+          "confidence": 0.9869409203529358
+        },
+        {
+          "text": "more",
+          "start_seconds": 0.85,
+          "end_seconds": 0.97,
+          "start_frame": 1821.0,
+          "end_frame": 1828.2,
+          "confidence": 0.9960099458694458
+        },
+        {
+          "text": "creative",
+          "start_seconds": 0.97,
+          "end_seconds": 1.47,
+          "start_frame": 1828.2,
+          "end_frame": 1858.2,
+          "confidence": 0.9935424327850342
+        },
+        {
+          "text": "new",
+          "start_seconds": 1.47,
+          "end_seconds": 1.73,
+          "start_frame": 1858.2,
+          "end_frame": 1873.8,
+          "confidence": 0.9492067694664001
+        },
+        {
+          "text": "logo",
+          "start_seconds": 1.73,
+          "end_seconds": 2.13,
+          "start_frame": 1873.8,
+          "end_frame": 1897.8,
+          "confidence": 0.9973064661026001
+        }
+      ],
+      "character_markers": [
+        {
+          "character": "H",
+          "frame": 1771.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1773.45,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "l",
+          "frame": 1775.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "p",
+          "frame": 1777.95,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1780.2,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1780.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1784.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1788.6,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "d",
+          "frame": 1788.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1792.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "s",
+          "frame": 1795.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1798.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1802.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "n",
+          "frame": 1805.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1809.0,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "a",
+          "frame": 1809.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1821.0,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1821.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1822.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "r",
+          "frame": 1824.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1826.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1828.2,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "c",
+          "frame": 1828.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "r",
+          "frame": 1831.95,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1835.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "a",
+          "frame": 1839.45,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "t",
+          "frame": 1843.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1846.95,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "v",
+          "frame": 1850.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1854.45,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1858.2,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "n",
+          "frame": 1858.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1863.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "w",
+          "frame": 1868.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1873.8,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "l",
+          "frame": 1873.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1879.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1885.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1891.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        }
+      ],
+      "alignment": {
+        "text": " Help me design a more creative new logo",
+        "words": [
+          {
+            "word": "Help",
+            "start": 0.0,
+            "end": 0.22,
+            "probability": 0.09708686918020248
+          },
+          {
+            "word": "me",
+            "start": 0.22,
+            "end": 0.36,
+            "probability": 0.9920603036880493
+          },
+          {
+            "word": "design",
+            "start": 0.36,
+            "end": 0.7,
+            "probability": 0.9798725843429565
+          },
+          {
+            "word": "a",
+            "start": 0.7,
+            "end": 0.9,
+            "probability": 0.9869409203529358
+          },
+          {
+            "word": "more",
+            "start": 0.9,
+            "end": 1.02,
+            "probability": 0.9960099458694458
+          },
+          {
+            "word": "creative",
+            "start": 1.02,
+            "end": 1.52,
+            "probability": 0.9935424327850342
+          },
+          {
+            "word": "new",
+            "start": 1.52,
+            "end": 1.78,
+            "probability": 0.9492067694664001
+          },
+          {
+            "word": "logo",
+            "start": 1.78,
+            "end": 2.18,
+            "probability": 0.9973064661026001
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": false,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    }
+  ],
+  "preserved_v3_voice_hashes": {
+    "public/audio/v3/native-b-logo/voice-zh-b-conversation-logo-faded.wav": "f5fea434ce75f8d1ca1a5f7fae359de6e77fd0e2a99238c69eeb8442a91823eb",
+    "public/audio/v3/native-b/voice-ja-b-conversation-r2-faded.wav": "b3eba06edab38617dc19e5da101cce5c0cfbfbc79db103b403b3f4302385eb6d",
+    "public/audio/v3/native-b/voice-ko-b-conversation-faded.wav": "cde7905fd1c260c682c67f20348438a441bf69764e90ee637881c6a728bdaef2",
+    "public/audio/v3/native-b/voice-de-b-conversation-faded.wav": "1d4d097a0ca084b6449262eb355c94b6ce5a9c6a0d166e7a71fe428ad71d8092",
+    "public/audio/v3/native-b/voice-es-b-conversation-faded.wav": "f78ecc1493b8e43613672781878405ffb2af60e55623697d1e419815bc08e065",
+    "public/audio/v3/native-b/voice-fr-b-conversation-faded.wav": "5008c6e00a69040b105f6307bd8a41daa1b37ce340c7f6d21af40321b7b19958",
+    "public/audio/v3/native-b/voice-it-b-conversation-faded.wav": "cf33b7e6f1aaf394b447744451dc25ae55f33cde8fd4f50f57e484dcda621b27",
+    "public/audio/v3/native-b/voice-ru-b-conversation-faded.wav": "0f27518500083768cb730531e4f2e860a117c6d769bc3af0c8802125d906475f",
+    "public/audio/v3/voice-en.wav": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef"
+  }
+}

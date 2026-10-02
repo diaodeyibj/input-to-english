@@ -1,0 +1,20 @@
+{
+  "lang": "zh",
+  "source": "帮我设计一张更有创意的新海报吧。",
+  "text": "帮我设计一张更有创意的新海报吧。",
+  "head": "帮我",
+  "ref_id": 4,
+  "prompt": "转任福建路转运判官。",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-zh-official.wav",
+  "ref_sha256": "eebef878ba64d38e8edabc58de7a6496763ac1699cc6b81f2cf8df1dffb7ac39",
+  "id": "zh-b-conversation",
+  "language": "zh",
+  "variant": "conversation",
+  "instruction": "请像和朋友聊天一样自然地说这句话，语气温暖轻松，不要朗读或播音。",
+  "mode": "instruct2",
+  "speed": 1.0,
+  "seed": 8601,
+  "start_frame": 100,
+  "cache_key": "977d4bb092ebdfb5d84092d5f39d78caaf44069372820611de911de5090122c7",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-zh-b-conversation-977d4bb092ebdfb5-original.wav"
+}

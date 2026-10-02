@@ -1,0 +1,14 @@
+{
+  "id": "it",
+  "language": "it",
+  "text": "Aiutami a creare un nuovo video.",
+  "phrase": "Aiutami",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+  "instruction": "Speak Italian naturally, with bright enthusiasm and confident expression. Use a natural conversational pace; no rushing or shouting.",
+  "speed": 1.0,
+  "seed": 7306,
+  "start_frame": 700,
+  "ref_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+  "cache_key": "186ffdad007047fa62a44ccf6df5345b949839ce169a4e834aea31b889310d7f",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-it-186ffdad007047fa-original.wav"
+}

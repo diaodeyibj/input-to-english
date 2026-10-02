@@ -7,7 +7,7 @@ export interface TranslationControllerBinding {
   state: ControllerState;
   subscribe(listener: (state: ControllerState) => void): () => void;
   translate(): Promise<void> | void;
-  undo(): boolean | void;
+  undo(): boolean | void | Promise<boolean>;
 }
 
 export interface TranslateControl {
@@ -55,7 +55,12 @@ export function createTranslateControl(): TranslateControl {
   const alert = document.createElement('span');
   alert.setAttribute('role', 'alert');
   alert.setAttribute('aria-live', 'polite');
-  container.append(translateButton, undoButton, alert);
+  const recovery = document.createElement('textarea');
+  recovery.readOnly = true;
+  recovery.setAttribute('aria-label', 'Original text for recovery');
+  recovery.style.width = '100%';
+  recovery.hidden = true;
+  container.append(translateButton, undoButton, alert, recovery);
   shadow.append(style, container);
 
   const translateHandlers = new Set<ActionHandler>();
@@ -67,9 +72,15 @@ export function createTranslateControl(): TranslateControl {
     if (disposed) return;
     for (const handler of handlers) handler();
   };
-  const onTranslateClick = (): void => invoke(translateHandlers);
-  const onUndoClick = (): void => invoke(undoHandlers);
+  const onTranslateClick = (event: Event): void => { event.stopPropagation(); invoke(translateHandlers); };
+  const onUndoClick = (event: Event): void => { event.stopPropagation(); invoke(undoHandlers); };
+  const onPointerDown = (event: Event): void => { event.stopPropagation(); };
+  const onMouseDown = (event: MouseEvent): void => {
+    event.stopPropagation();
+    if (event.button === 0) event.preventDefault(); // Keep the editor caret during a mouse action.
+  };
   const onKeyDown = (event: KeyboardEvent): void => {
+    event.stopPropagation();
     if (event.key !== 'Enter' && event.key !== ' ') return;
     event.preventDefault();
     const target = event.currentTarget;
@@ -81,6 +92,10 @@ export function createTranslateControl(): TranslateControl {
   translateButton.addEventListener('keydown', onKeyDown);
   undoButton.addEventListener('click', onUndoClick);
   undoButton.addEventListener('keydown', onKeyDown);
+  for (const button of [translateButton, undoButton]) {
+    button.addEventListener('pointerdown', onPointerDown);
+    button.addEventListener('mousedown', onMouseDown);
+  }
 
   const render = (state: ControllerState): void => {
     if (disposed) return;
@@ -90,7 +105,9 @@ export function createTranslateControl(): TranslateControl {
     translateButton.setAttribute('aria-busy', String(busy));
     undoButton.hidden = !state.canUndo;
     undoButton.disabled = !state.canUndo || busy;
-    alert.textContent = state.status === 'error' ? (state.error?.userMessage ?? 'Translation failed. Please try again.') : '';
+    recovery.hidden = state.recoveryText === undefined;
+    recovery.value = state.recoveryText ?? '';
+    alert.textContent = state.status === 'error' ? (state.error?.userMessage ?? 'Translation failed. Please try again.') + (state.recoveryText === undefined ? '' : ' Original text is available below.') : '';
   };
 
   const addHandler = (handlers: Set<ActionHandler>, handler: ActionHandler): (() => void) => {
@@ -131,6 +148,10 @@ export function createTranslateControl(): TranslateControl {
       translateButton.removeEventListener('keydown', onKeyDown);
       undoButton.removeEventListener('click', onUndoClick);
       undoButton.removeEventListener('keydown', onKeyDown);
+      for (const button of [translateButton, undoButton]) {
+        button.removeEventListener('pointerdown', onPointerDown);
+        button.removeEventListener('mousedown', onMouseDown);
+      }
       element.remove();
     },
   };

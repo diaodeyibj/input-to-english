@@ -1,5 +1,7 @@
 # Input-to-English Browser Extension Design
 
+> **Historical design record:** This documents the original release design. Local Ollama support was later retired and is not part of the current extension. See the current [README](../../../README.md) for supported providers.
+
 **Date:** 2026-09-28  
 **Status:** Approved
 **Initial platforms:** Google Chrome and Microsoft Edge  

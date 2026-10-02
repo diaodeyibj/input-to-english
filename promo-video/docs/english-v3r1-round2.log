@@ -1,0 +1,65 @@
+REFERENCE male 147
+REFERENCE third 170
+REFERENCE neutral 154
+Loading cached local Whisper large-v3-turbo for word alignment
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN male  Hey look a flying pig [{'word': ' Hey', 'start': 0.0, 'end': 1.16, 'probability': 0.8350445628166199}, {'word': ' look', 'start': 1.16, 'end': 1.64, 'probability': 0.774499773979187}, {'word': ' a', 'start': 1.64, 'end': 1.86, 'probability': 0.5458054542541504}, {'word': ' flying', 'start': 1.86, 'end': 2.24, 'probability': 0.9697753190994263}, {'word': ' pig', 'start': 2.24, 'end': 2.78, 'probability': 0.9451431632041931}]
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN third  I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis [{'word': " I'm", 'start': 0.0, 'end': 0.22, 'probability': 0.961694210767746}, {'word': ' so', 'start': 0.22, 'end': 0.64, 'probability': 0.9985572695732117}, {'word': ' happy', 'start': 0.64, 'end': 1.3, 'probability': 0.998531699180603}, {'word': ' I', 'start': 1.3, 'end': 1.46, 'probability': 0.9916127920150757}, {'word': ' got', 'start': 1.46, 'end': 1.58, 'probability': 0.999535322189331}, {'word': ' to', 'start': 1.58, 'end': 1.7, 'probability': 0.9996488094329834}, {'word': ' do', 'start': 1.7, 'end': 1.82, 'probability': 0.9995439648628235}, {'word': ' this.', 'start': 1.82, 'end': 2.12, 'probability': 0.9995392560958862}, {'word': ' I', 'start': 2.4, 'end': 2.48, 'probability': 0.9612112641334534}, {'word': ' really', 'start': 2.48, 'end': 2.76, 'probability': 0.9986775517463684}, {'word': ' wanted', 'start': 2.76, 'end': 2.98, 'probability': 0.9982227683067322}, {'word': ' to', 'start': 2.98, 'end': 3.12, 'probability': 0.9995459914207458}, {'word': ' work', 'start': 3.12, 'end': 3.26, 'probability': 0.9990860223770142}, {'word': ' with', 'start': 3.26, 'end': 3.4, 'probability': 0.9992321729660034}, {'word': ' Tom', 'start': 3.4, 'end': 3.58, 'probability': 0.9929965138435364}, {'word': ' Hooper.', 'start': 3.58, 'end': 3.86, 'probability': 0.9958304762840271}, {'word': ' I', 'start': 4.0, 'end': 4.02, 'probability': 0.99882572889328}, {'word': ' know', 'start': 4.02, 'end': 4.2, 'probability': 0.9996610879898071}, {'word': ' that', 'start': 4.2, 'end': 4.34, 'probability': 0.9967798590660095}, {'word': ' he', 'start': 4.34, 'end': 4.48, 'probability': 0.9994227886199951}, {'word': ' records', 'start': 4.48, 'end': 4.9, 'probability': 0.9977073669433594}, {'word': ' live', 'start': 4.9, 'end': 5.62, 'probability': 0.9942328333854675}, {'word': ' and', 'start': 5.62, 'end': 5.82, 'probability': 0.7631861567497253}, {'word': ' he', 'start': 5.82, 'end': 5.9, 'probability': 0.9975743889808655}, {'word': ' films', 'start': 5.9, 'end': 6.34, 'probability': 0.9986189603805542}, {'word': ' and', 'start': 6.8, 'end': 7.02, 'probability': 0.9933900833129883}, {'word': ' records', 'start': 7.02, 'end': 7.4, 'probability': 0.9973865151405334}, {'word': ' your', 'start': 7.4, 'end': 7.54, 'probability': 0.997327446937561}, {'word': ' vocals', 'start': 7.54, 'end': 7.9, 'probability': 0.9991655349731445}, {'word': ' live.', 'start': 7.9, 'end': 8.2, 'probability': 0.9972314238548279}, {'word': " It's", 'start': 8.58, 'end': 9.02, 'probability': 0.9978771507740021}, {'word': ' such', 'start': 9.02, 'end': 9.32, 'probability': 0.8104428052902222}, {'word': ' an', 'start': 9.32, 'end': 9.94, 'probability': 0.9997127652168274}, {'word': ' interesting', 'start': 9.94, 'end': 10.38, 'probability': 0.9998871088027954}, {'word': ' thing', 'start': 10.38, 'end': 10.68, 'probability': 0.9995476603507996}, {'word': ' to', 'start': 10.68, 'end': 10.88, 'probability': 0.9987133741378784}, {'word': ' me', 'start': 10.88, 'end': 11.04, 'probability': 0.9997517466545105}, {'word': ' and', 'start': 11.04, 'end': 11.18, 'probability': 0.4604363441467285}, {'word': ' I', 'start': 11.18, 'end': 11.28, 'probability': 0.9990259408950806}, {'word': ' wanted', 'start': 11.28, 'end': 11.54, 'probability': 0.9984079003334045}, {'word': ' to', 'start': 11.54, 'end': 11.68, 'probability': 0.9996886253356934}, {'word': ' see', 'start': 11.68, 'end': 11.84, 'probability': 0.9983768463134766}, {'word': ' him', 'start': 11.84, 'end': 11.98, 'probability': 0.9958426356315613}, {'word': ' work.', 'start': 11.98, 'end': 12.26, 'probability': 0.9995180368423462}, {'word': ' I', 'start': 12.64, 'end': 12.82, 'probability': 0.9988116025924683}, {'word': ' had', 'start': 12.82, 'end': 12.94, 'probability': 0.7455788254737854}, {'word': ' actually', 'start': 12.94, 'end': 13.4, 'probability': 0.9991195797920227}, {'word': ' done', 'start': 13.4, 'end': 14.6, 'probability': 0.9963157773017883}, {'word': ' screen', 'start': 14.6, 'end': 14.88, 'probability': 0.9975469708442688}, {'word': ' tests', 'start': 14.88, 'end': 15.28, 'probability': 0.9976589679718018}, {'word': ' for', 'start': 15.28, 'end': 15.48, 'probability': 0.9995095729827881}, {'word': ' Les', 'start': 15.48, 'end': 15.62, 'probability': 0.9444103837013245}, {'word': ' Mis', 'start': 15.62, 'end': 15.88, 'probability': 0.9864380359649658}]
+ALIGN neutral  Dogs are sitting by the door. [{'word': ' Dogs', 'start': 0.8200000000000003, 'end': 1.4, 'probability': 0.7817274928092957}, {'word': ' are', 'start': 1.4, 'end': 1.6, 'probability': 0.9957454800605774}, {'word': ' sitting', 'start': 1.6, 'end': 1.9, 'probability': 0.997670590877533}, {'word': ' by', 'start': 1.9, 'end': 2.36, 'probability': 0.9932324886322021}, {'word': ' the', 'start': 2.36, 'end': 2.54, 'probability': 0.9982684850692749}, {'word': ' door.', 'start': 2.54, 'end': 2.82, 'probability': 0.9993595480918884}]
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\requests\__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+Loading local CosyVoice3 with mother-tongue references
+2026-10-01 13:38:18,317 INFO input frame rate=25
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\torch\nn\utils\weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py:69: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-10-01 13:38:22,478 INFO no frontend is avaliable
+SYNTH en-r1-d
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 13:38:27,811 INFO synthesis text Help me design a more creative new logo
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\transformers\models\qwen2\modeling_qwen2.py:693: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+2026-10-01 13:38:33,814 INFO yield speech len 4.44, rtf 1.3519792406408635
+
+100%|██████████| 1/1 [00:06<00:00,  6.81s/it]
+100%|██████████| 1/1 [00:06<00:00,  6.81s/it]
+RAW en-r1-d 4.440s
+SYNTH en-r1-e
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 13:38:33,843 WARNING synthesis text Help me design a more creative new logo too short than prompt text You are a helpful assistant.<|endofprompt|>I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis, this may lead to bad performance
+2026-10-01 13:38:36,174 INFO synthesis text Help me design a more creative new logo
+2026-10-01 13:38:40,221 INFO yield speech len 2.88, rtf 1.405307650566101
+
+100%|██████████| 1/1 [00:06<00:00,  6.40s/it]
+100%|██████████| 1/1 [00:06<00:00,  6.40s/it]
+RAW en-r1-e 2.880s
+SYNTH en-r1-f
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 13:38:40,941 INFO synthesis text Help me design a more creative new logo
+2026-10-01 13:38:44,129 INFO yield speech len 2.2, rtf 1.4492021907459605
+
+100%|██████████| 1/1 [00:03<00:00,  3.90s/it]
+100%|██████████| 1/1 [00:03<00:00,  3.90s/it]
+RAW en-r1-f 2.200s
+Loading cached local Whisper large-v3-turbo for word alignment
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN en-r1-d  Help me design a more creative new logo [{'word': ' Help', 'start': 0.0, 'end': 0.78, 'probability': 0.07767944782972336}, {'word': ' me', 'start': 0.78, 'end': 1.18, 'probability': 0.9984198808670044}, {'word': ' design', 'start': 1.18, 'end': 1.88, 'probability': 0.9722582101821899}, {'word': ' a', 'start': 1.88, 'end': 2.16, 'probability': 0.9937251210212708}, {'word': ' more', 'start': 2.16, 'end': 2.48, 'probability': 0.9933429956436157}, {'word': ' creative', 'start': 2.48, 'end': 3.2, 'probability': 0.9939553141593933}, {'word': ' new', 'start': 3.2, 'end': 3.6, 'probability': 0.9338971376419067}, {'word': ' logo', 'start': 3.6, 'end': 4.08, 'probability': 0.9980534315109253}]
+ALIGN en-r1-e  Help me design a more creative new logo [{'word': ' Help', 'start': 0.0, 'end': 0.36, 'probability': 0.5878397822380066}, {'word': ' me', 'start': 0.36, 'end': 0.54, 'probability': 0.99433434009552}, {'word': ' design', 'start': 0.54, 'end': 0.88, 'probability': 0.9923930168151855}, {'word': ' a', 'start': 0.88, 'end': 1.08, 'probability': 0.9957259893417358}, {'word': ' more', 'start': 1.08, 'end': 1.22, 'probability': 0.996891438961029}, {'word': ' creative', 'start': 1.22, 'end': 1.76, 'probability': 0.9948939085006714}, {'word': ' new', 'start': 1.76, 'end': 2.08, 'probability': 0.9386112689971924}, {'word': ' logo', 'start': 2.08, 'end': 2.52, 'probability': 0.9991506338119507}]
+ALIGN en-r1-f  Help me design a more creative new logo [{'word': ' Help', 'start': 0.0, 'end': 0.24, 'probability': 0.7017150521278381}, {'word': ' me', 'start': 0.24, 'end': 0.38, 'probability': 0.9929417371749878}, {'word': ' design', 'start': 0.38, 'end': 0.64, 'probability': 0.9876077771186829}, {'word': ' a', 'start': 0.64, 'end': 0.82, 'probability': 0.992952287197113}, {'word': ' more', 'start': 0.82, 'end': 0.94, 'probability': 0.9961374402046204}, {'word': ' creative', 'start': 0.94, 'end': 1.36, 'probability': 0.9956976175308228}, {'word': ' new', 'start': 1.36, 'end': 1.56, 'probability': 0.9739289879798889}, {'word': ' logo', 'start': 1.56, 'end': 1.94, 'probability': 0.9978862404823303}]
+DELIVER en-r1-d 4.105s speech 0.00..240.30 frames
+DELIVER en-r1-e 2.605s speech 0.30..150.30 frames
+DELIVER en-r1-f 2.020s speech 0.00..115.20 frames
+READY F:\chatGPT\Second-Class\promo-video\public\audio\v3r1\audition-english-def.wav

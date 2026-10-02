@@ -14,9 +14,8 @@ const baseState: OptionsViewState = {
   browser: { status: 'available', detail: 'Browser language tools are ready.' },
   deepseek: { hasApiKey: true, model: 'deepseek-flash' },
   kimi: { hasApiKey: false, model: 'kimi-k2.6' },
-  ollama: { model: '' },
-  ollamaModels: ['qwen2.5:7b', 'gemma3:4b'],
   providerStatus: {},
+  displayLanguage: 'en',
 };
 
 function actions(): OptionsActions {
@@ -25,8 +24,7 @@ function actions(): OptionsActions {
     saveCloudConfig: vi.fn(),
     deleteApiKey: vi.fn(),
     testProvider: vi.fn(),
-    refreshOllamaModels: vi.fn(),
-    saveOllamaModel: vi.fn(),
+    setDisplayLanguage: vi.fn(),
   };
 }
 
@@ -57,8 +55,6 @@ describe('renderOptions', () => {
 
     expect(providerCard(root, 'browser').textContent).toContain('Browser Local');
     expect(providerCard(root, 'browser').textContent).toContain('Local');
-    expect(providerCard(root, 'ollama').textContent).toContain('Ollama');
-    expect(providerCard(root, 'ollama').textContent).toContain('Local');
     expect(providerCard(root, 'deepseek').textContent).toContain('DeepSeek');
     expect(providerCard(root, 'deepseek').textContent).toContain('Cloud');
     expect(providerCard(root, 'kimi').textContent).toContain('Kimi');
@@ -67,13 +63,26 @@ describe('renderOptions', () => {
     expect(root.textContent).toContain('Cloud providers send prompt text to the provider you select.');
   });
 
-  it('uses associated masked key fields, editable cloud models, and a fixed Ollama URL', () => {
+  it('renders a three-language selector and uses the selected Japanese interface copy', () => {
+    const handlers = actions();
+    const { root } = mount({ ...baseState, displayLanguage: 'ja' }, handlers);
+    const language = root.querySelector<HTMLSelectElement>('#display-language')!;
+
+    expect([...language.options].map((option) => option.value)).toEqual(['zh-CN', 'en', 'ja']);
+    expect(language.value).toBe('ja');
+    expect(root.textContent).toContain('表示言語');
+
+    language.value = 'zh-CN';
+    language.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(handlers.setDisplayLanguage).toHaveBeenCalledWith('zh-CN');
+  });
+
+  it('uses associated masked key fields and editable cloud models', () => {
     const { root } = mount();
     const deepseekKey = root.querySelector<HTMLInputElement>('#deepseek-api-key')!;
     const kimiKey = root.querySelector<HTMLInputElement>('#kimi-api-key')!;
     const deepseekModel = root.querySelector<HTMLInputElement>('#deepseek-model')!;
     const kimiModel = root.querySelector<HTMLInputElement>('#kimi-model')!;
-    const ollamaUrl = root.querySelector<HTMLInputElement>('#ollama-url')!;
 
     expect(deepseekKey.type).toBe('password');
     expect(kimiKey.type).toBe('password');
@@ -83,9 +92,6 @@ describe('renderOptions', () => {
     expect(root.querySelector(`label[for="${kimiKey.id}"]`)).not.toBeNull();
     expect(deepseekModel.readOnly).toBe(false);
     expect(kimiModel.readOnly).toBe(false);
-    expect(ollamaUrl.value).toBe('http://localhost:11434');
-    expect(ollamaUrl.readOnly).toBe(true);
-    expect(root.querySelector(`label[for="${ollamaUrl.id}"]`)).not.toBeNull();
   });
 
   it('keeps provider selection separate from diagnostics', () => {
@@ -100,7 +106,7 @@ describe('renderOptions', () => {
     expect(handlers.testProvider).not.toHaveBeenCalled();
   });
 
-  it('forwards explicit save, delete, test, refresh, and model-selection actions', () => {
+  it('forwards cloud actions', () => {
     const handlers = actions();
     const { root } = mount(baseState, handlers);
     const deepseek = providerCard(root, 'deepseek');
@@ -110,20 +116,12 @@ describe('renderOptions', () => {
     deepseek.querySelector<HTMLButtonElement>('[data-action="save-cloud"]')!.click();
     deepseek.querySelector<HTMLButtonElement>('[data-action="delete-key"]')!.click();
     deepseek.querySelector<HTMLButtonElement>('[data-action="test-provider"]')!.click();
-    providerCard(root, 'ollama')
-      .querySelector<HTMLButtonElement>('[data-action="refresh-models"]')!.click();
-    const select = root.querySelector<HTMLSelectElement>('#ollama-model')!;
-    select.value = 'gemma3:4b';
-    providerCard(root, 'ollama')
-      .querySelector<HTMLButtonElement>('[data-action="save-model"]')!.click();
 
     expect(handlers.saveCloudConfig).toHaveBeenCalledWith('deepseek', {
       apiKey: 'new-key', model: 'new-model',
     });
     expect(handlers.deleteApiKey).toHaveBeenCalledWith('deepseek');
     expect(handlers.testProvider).toHaveBeenCalledWith('deepseek');
-    expect(handlers.refreshOllamaModels).toHaveBeenCalledOnce();
-    expect(handlers.saveOllamaModel).toHaveBeenCalledWith('gemma3:4b');
   });
 
   it('renders safe status text without placing stored credentials in text or markup', () => {
@@ -165,13 +163,12 @@ describe('renderOptions', () => {
     expect(document.activeElement?.id).toBe('deepseek-save-cloud');
   });
 
-  it('preserves unsaved cloud and Ollama drafts when an unrelated async status redraws the page', async () => {
+  it('preserves unsaved cloud drafts when an unrelated async status redraws the page', async () => {
     const { root, handlers } = mount();
     root.querySelector<HTMLInputElement>('#deepseek-api-key')!.value = 'draft-deepseek-key';
     root.querySelector<HTMLInputElement>('#deepseek-model')!.value = 'draft-deepseek-model';
     root.querySelector<HTMLInputElement>('#kimi-api-key')!.value = 'draft-kimi-key';
     root.querySelector<HTMLInputElement>('#kimi-model')!.value = 'draft-kimi-model';
-    root.querySelector<HTMLSelectElement>('#ollama-model')!.value = 'gemma3:4b';
 
     await Promise.resolve();
     renderOptions(root, {
@@ -183,7 +180,6 @@ describe('renderOptions', () => {
     expect(root.querySelector<HTMLInputElement>('#deepseek-model')?.value).toBe('draft-deepseek-model');
     expect(root.querySelector<HTMLInputElement>('#kimi-api-key')?.value).toBe('draft-kimi-key');
     expect(root.querySelector<HTMLInputElement>('#kimi-model')?.value).toBe('draft-kimi-model');
-    expect(root.querySelector<HTMLSelectElement>('#ollama-model')?.value).toBe('gemma3:4b');
   });
 
   it('clears a secret draft after its save and delete actions complete', async () => {
@@ -192,11 +188,11 @@ describe('renderOptions', () => {
       browser: baseState.browser,
       deepseek: baseState.deepseek,
       kimi: baseState.kimi,
-      ollama: baseState.ollama,
     };
     const controller: OptionsControllerLike = {
       async load() { return snapshot; },
       async saveProvider() { return snapshot; },
+      async saveDisplayLanguage() { return snapshot; },
       async saveCloudConfig(id, config) {
         snapshot = { ...snapshot, [id]: { hasApiKey: true, model: config.model } };
         return snapshot;
@@ -205,9 +201,7 @@ describe('renderOptions', () => {
         snapshot = { ...snapshot, [id]: { ...snapshot[id], hasApiKey: false } };
         return snapshot;
       },
-      async saveOllamaModel() { return snapshot; },
       async testProvider() { return { ok: true, detail: 'Connected.' }; },
-      async listOllamaModels() { return []; },
     };
     const root = document.createElement('main');
     document.body.append(root);
@@ -232,17 +226,15 @@ describe('renderOptions', () => {
       browser: baseState.browser,
       deepseek: baseState.deepseek,
       kimi: baseState.kimi,
-      ollama: baseState.ollama,
     };
     const saved = deferred<typeof snapshot>();
     const controller: OptionsControllerLike = {
       async load() { return snapshot; },
       async saveProvider() { return snapshot; },
+      async saveDisplayLanguage() { return snapshot; },
       async saveCloudConfig() { return saved.promise; },
       async deleteApiKey() { return snapshot; },
-      async saveOllamaModel() { return snapshot; },
       async testProvider() { return { ok: true, detail: 'Connected.' }; },
-      async listOllamaModels() { return []; },
     };
     const root = document.createElement('main');
     document.body.append(root);
@@ -268,7 +260,6 @@ describe('renderOptions', () => {
       browser: baseState.browser,
       deepseek: baseState.deepseek,
       kimi: baseState.kimi,
-      ollama: baseState.ollama,
     };
     const events: string[] = [];
     const controller: OptionsControllerLike = {
@@ -278,20 +269,12 @@ describe('renderOptions', () => {
         snapshot = { ...snapshot, activeProvider: id };
         return snapshot;
       },
+      async saveDisplayLanguage() { return snapshot; },
       async saveCloudConfig(id) { events.push(`save:${id}`); return snapshot; },
       async deleteApiKey(id) { events.push(`delete:${id}`); return snapshot; },
-      async saveOllamaModel(model) {
-        events.push(`model:${model}`);
-        snapshot = { ...snapshot, ollama: { model } };
-        return snapshot;
-      },
       async testProvider(id) {
         events.push(`test:${id}`);
         return { ok: true, detail: 'Connection successful.' };
-      },
-      async listOllamaModels() {
-        events.push('models');
-        return ['gemma3:4b'];
       },
     };
     const root = document.createElement('main');

@@ -4,6 +4,10 @@ import { handleRuntimeMessage } from '../src/messaging/background-handler';
 import { serializeRuntimeError } from '../src/messaging/protocol';
 
 export default defineBackground(() => {
+  const toolbarAction = chrome.action ?? chrome.browserAction;
+  toolbarAction?.onClicked.addListener(() => {
+    void chrome.runtime.openOptionsPage();
+  });
   const storageReady = browser.storage.local
     .setAccessLevel({ accessLevel: 'TRUSTED_CONTEXTS' })
     .then(() => true, () => false);

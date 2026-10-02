@@ -1,0 +1,20 @@
+{
+  "lang": "it",
+  "source": "Aiutami a creare un nuovo video per il mio progetto.",
+  "text": "Aiutami a creare un nuovo video per il mio progetto.",
+  "head": "Aiutami",
+  "ref_id": 2,
+  "prompt": "Fin dall'inizio la sede episcopale è stata immediatamente soggetta alla Santa Sede.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-it-official.wav",
+  "ref_sha256": "a04e9007420abb86e2bc36db207893932e968f79c29dd32b64c45c006b3216e6",
+  "id": "it-b-conversation",
+  "language": "it",
+  "variant": "conversation",
+  "instruction": "请像和朋友聊天一样自然地说这句话，语气温暖轻松，不要朗读或播音。",
+  "mode": "instruct2",
+  "speed": 1.0,
+  "seed": 8661,
+  "start_frame": 700,
+  "cache_key": "245abc794d3681eb8912a4d205a155473f4e63c2347937d5417f1bcc72d0a3bd",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-it-b-conversation-245abc794d3681eb-original.wav"
+}

@@ -1,0 +1,830 @@
+{
+  "keyboard": [
+    {
+      "frame": 100,
+      "language": "zh",
+      "character": "帮",
+      "sample_frame": 80000,
+      "velocity": 0.56,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 106,
+      "language": "zh",
+      "character": "我",
+      "sample_frame": 84800,
+      "velocity": 0.595,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 112,
+      "language": "zh",
+      "character": "…",
+      "sample_frame": 89600,
+      "velocity": 0.4536,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 201,
+      "language": "ja",
+      "character": "手",
+      "sample_frame": 160800,
+      "velocity": 0.665,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 211,
+      "language": "ja",
+      "character": "伝",
+      "sample_frame": 168800,
+      "velocity": 0.7,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 222,
+      "language": "ja",
+      "character": "っ",
+      "sample_frame": 177600,
+      "velocity": 0.56,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 232,
+      "language": "ja",
+      "character": "て",
+      "sample_frame": 185600,
+      "velocity": 0.595,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 242,
+      "language": "ja",
+      "character": "…",
+      "sample_frame": 193600,
+      "velocity": 0.4536,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 300,
+      "language": "ko",
+      "character": "도",
+      "sample_frame": 240000,
+      "velocity": 0.665,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 305,
+      "language": "ko",
+      "character": "와",
+      "sample_frame": 244000,
+      "velocity": 0.7,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 310,
+      "language": "ko",
+      "character": "줘",
+      "sample_frame": 248000,
+      "velocity": 0.56,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 314,
+      "language": "ko",
+      "character": "…",
+      "sample_frame": 251200,
+      "velocity": 0.4284,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 400,
+      "language": "de",
+      "character": "H",
+      "sample_frame": 320000,
+      "velocity": 0.63,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 405,
+      "language": "de",
+      "character": "i",
+      "sample_frame": 324000,
+      "velocity": 0.665,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 409,
+      "language": "de",
+      "character": "l",
+      "sample_frame": 327200,
+      "velocity": 0.7,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 413,
+      "language": "de",
+      "character": "f",
+      "sample_frame": 330400,
+      "velocity": 0.56,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 417,
+      "language": "de",
+      "character": " ",
+      "sample_frame": 333600,
+      "velocity": 0.2975,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 422,
+      "language": "de",
+      "character": "m",
+      "sample_frame": 337600,
+      "velocity": 0.63,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 426,
+      "language": "de",
+      "character": "i",
+      "sample_frame": 340800,
+      "velocity": 0.665,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 430,
+      "language": "de",
+      "character": "r",
+      "sample_frame": 344000,
+      "velocity": 0.7,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 434,
+      "language": "de",
+      "character": "…",
+      "sample_frame": 347200,
+      "velocity": 0.4032,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 500,
+      "language": "es",
+      "character": "A",
+      "sample_frame": 400000,
+      "velocity": 0.595,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 504,
+      "language": "es",
+      "character": "y",
+      "sample_frame": 403200,
+      "velocity": 0.63,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 508,
+      "language": "es",
+      "character": "ú",
+      "sample_frame": 406400,
+      "velocity": 0.665,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 512,
+      "language": "es",
+      "character": "d",
+      "sample_frame": 409600,
+      "velocity": 0.7,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 516,
+      "language": "es",
+      "character": "a",
+      "sample_frame": 412800,
+      "velocity": 0.56,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 520,
+      "language": "es",
+      "character": "m",
+      "sample_frame": 416000,
+      "velocity": 0.595,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 524,
+      "language": "es",
+      "character": "e",
+      "sample_frame": 419200,
+      "velocity": 0.63,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 528,
+      "language": "es",
+      "character": "…",
+      "sample_frame": 422400,
+      "velocity": 0.4788,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 600,
+      "language": "fr",
+      "character": "A",
+      "sample_frame": 480000,
+      "velocity": 0.7,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 603,
+      "language": "fr",
+      "character": "i",
+      "sample_frame": 482400,
+      "velocity": 0.56,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 605,
+      "language": "fr",
+      "character": "d",
+      "sample_frame": 484000,
+      "velocity": 0.595,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 607,
+      "language": "fr",
+      "character": "e",
+      "sample_frame": 485600,
+      "velocity": 0.63,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 609,
+      "language": "fr",
+      "character": "-",
+      "sample_frame": 487200,
+      "velocity": 0.665,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 612,
+      "language": "fr",
+      "character": "m",
+      "sample_frame": 489600,
+      "velocity": 0.7,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 614,
+      "language": "fr",
+      "character": "o",
+      "sample_frame": 491200,
+      "velocity": 0.56,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 616,
+      "language": "fr",
+      "character": "i",
+      "sample_frame": 492800,
+      "velocity": 0.595,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 618,
+      "language": "fr",
+      "character": "…",
+      "sample_frame": 494400,
+      "velocity": 0.4536,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 701,
+      "language": "it",
+      "character": "A",
+      "sample_frame": 560800,
+      "velocity": 0.665,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 706,
+      "language": "it",
+      "character": "i",
+      "sample_frame": 564800,
+      "velocity": 0.7,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 712,
+      "language": "it",
+      "character": "u",
+      "sample_frame": 569600,
+      "velocity": 0.56,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 717,
+      "language": "it",
+      "character": "t",
+      "sample_frame": 573600,
+      "velocity": 0.595,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 722,
+      "language": "it",
+      "character": "a",
+      "sample_frame": 577600,
+      "velocity": 0.63,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 728,
+      "language": "it",
+      "character": "m",
+      "sample_frame": 582400,
+      "velocity": 0.665,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 733,
+      "language": "it",
+      "character": "i",
+      "sample_frame": 586400,
+      "velocity": 0.7,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 738,
+      "language": "it",
+      "character": "…",
+      "sample_frame": 590400,
+      "velocity": 0.4032,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 800,
+      "language": "ru",
+      "character": "П",
+      "sample_frame": 640000,
+      "velocity": 0.595,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 804,
+      "language": "ru",
+      "character": "о",
+      "sample_frame": 643200,
+      "velocity": 0.63,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 808,
+      "language": "ru",
+      "character": "м",
+      "sample_frame": 646400,
+      "velocity": 0.665,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 812,
+      "language": "ru",
+      "character": "о",
+      "sample_frame": 649600,
+      "velocity": 0.7,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 815,
+      "language": "ru",
+      "character": "г",
+      "sample_frame": 652000,
+      "velocity": 0.56,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 819,
+      "language": "ru",
+      "character": "и",
+      "sample_frame": 655200,
+      "velocity": 0.595,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 823,
+      "language": "ru",
+      "character": " ",
+      "sample_frame": 658400,
+      "velocity": 0.315,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 826,
+      "language": "ru",
+      "character": "м",
+      "sample_frame": 660800,
+      "velocity": 0.665,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 830,
+      "language": "ru",
+      "character": "н",
+      "sample_frame": 664000,
+      "velocity": 0.7,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 834,
+      "language": "ru",
+      "character": "е",
+      "sample_frame": 667200,
+      "velocity": 0.56,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 837,
+      "language": "ru",
+      "character": "…",
+      "sample_frame": 669600,
+      "velocity": 0.4284,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1800,
+      "language": "en",
+      "character": "H",
+      "sample_frame": 1440000,
+      "velocity": 0.63,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1806,
+      "language": "en",
+      "character": "e",
+      "sample_frame": 1444800,
+      "velocity": 0.665,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1811,
+      "language": "en",
+      "character": "l",
+      "sample_frame": 1448800,
+      "velocity": 0.7,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1817,
+      "language": "en",
+      "character": "p",
+      "sample_frame": 1453600,
+      "velocity": 0.56,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1822,
+      "language": "en",
+      "character": " ",
+      "sample_frame": 1457600,
+      "velocity": 0.2975,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1822,
+      "language": "en",
+      "character": "m",
+      "sample_frame": 1457600,
+      "velocity": 0.63,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1832,
+      "language": "en",
+      "character": "e",
+      "sample_frame": 1465600,
+      "velocity": 0.665,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1841,
+      "language": "en",
+      "character": " ",
+      "sample_frame": 1472800,
+      "velocity": 0.35,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1841,
+      "language": "en",
+      "character": "d",
+      "sample_frame": 1472800,
+      "velocity": 0.56,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1846,
+      "language": "en",
+      "character": "e",
+      "sample_frame": 1476800,
+      "velocity": 0.595,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1851,
+      "language": "en",
+      "character": "s",
+      "sample_frame": 1480800,
+      "velocity": 0.63,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1856,
+      "language": "en",
+      "character": "i",
+      "sample_frame": 1484800,
+      "velocity": 0.665,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1860,
+      "language": "en",
+      "character": "g",
+      "sample_frame": 1488000,
+      "velocity": 0.7,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1865,
+      "language": "en",
+      "character": "n",
+      "sample_frame": 1492000,
+      "velocity": 0.56,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1870,
+      "language": "en",
+      "character": " ",
+      "sample_frame": 1496000,
+      "velocity": 0.2975,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1870,
+      "language": "en",
+      "character": "a",
+      "sample_frame": 1496000,
+      "velocity": 0.63,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1901,
+      "language": "en",
+      "character": " ",
+      "sample_frame": 1520800,
+      "velocity": 0.3325,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1901,
+      "language": "en",
+      "character": "n",
+      "sample_frame": 1520800,
+      "velocity": 0.7,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1908,
+      "language": "en",
+      "character": "e",
+      "sample_frame": 1526400,
+      "velocity": 0.56,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1915,
+      "language": "en",
+      "character": "w",
+      "sample_frame": 1532000,
+      "velocity": 0.595,
+      "pitch_variant": 6,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1922,
+      "language": "en",
+      "character": " ",
+      "sample_frame": 1537600,
+      "velocity": 0.315,
+      "pitch_variant": 0,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1922,
+      "language": "en",
+      "character": "l",
+      "sample_frame": 1537600,
+      "velocity": 0.665,
+      "pitch_variant": 1,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1929,
+      "language": "en",
+      "character": "o",
+      "sample_frame": 1543200,
+      "velocity": 0.7,
+      "pitch_variant": 2,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1936,
+      "language": "en",
+      "character": "g",
+      "sample_frame": 1548800,
+      "velocity": 0.56,
+      "pitch_variant": 3,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1943,
+      "language": "en",
+      "character": "o",
+      "sample_frame": 1554400,
+      "velocity": 0.595,
+      "pitch_variant": 4,
+      "source": "visible text change on exact integer render frame"
+    },
+    {
+      "frame": 1950,
+      "language": "en",
+      "character": ".",
+      "sample_frame": 1560000,
+      "velocity": 0.4536,
+      "pitch_variant": 5,
+      "source": "visible text change on exact integer render frame"
+    }
+  ],
+  "mouse": [
+    {
+      "frame": 98,
+      "event": "input_focus",
+      "language": "zh",
+      "sample_frame": 78400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 198,
+      "event": "input_focus",
+      "language": "ja",
+      "sample_frame": 158400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 298,
+      "event": "input_focus",
+      "language": "ko",
+      "sample_frame": 238400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 398,
+      "event": "input_focus",
+      "language": "de",
+      "sample_frame": 318400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 498,
+      "event": "input_focus",
+      "language": "es",
+      "sample_frame": 398400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 598,
+      "event": "input_focus",
+      "language": "fr",
+      "sample_frame": 478400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 698,
+      "event": "input_focus",
+      "language": "it",
+      "sample_frame": 558400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 798,
+      "event": "input_focus",
+      "language": "ru",
+      "sample_frame": 638400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 1100,
+      "event": "settings_open",
+      "sample_frame": 880000,
+      "velocity": 0.61
+    },
+    {
+      "frame": 1230,
+      "event": "DeepSeek_select",
+      "sample_frame": 984000,
+      "velocity": 0.61
+    },
+    {
+      "frame": 1400,
+      "event": "EN_click",
+      "sample_frame": 1120000,
+      "velocity": 0.77
+    }
+  ],
+  "timeline_sha256": "5c7429ba2a671a01d30cd6361fd55da002c8ac70fb3b614d7fd31f5c1e093155",
+  "voice_timing_sha256": "3ee4242bbda99db98642474395955206df1961fd68dcfff5155fa65bd0e4e483",
+  "status": "Actual current visible-character frames; native voice/text timing undergoing revision. Rerun C to rebind."
+}

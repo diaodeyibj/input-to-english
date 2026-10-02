@@ -1,0 +1,20 @@
+{
+  "lang": "ja",
+  "source": "手伝ってほしいんだけど、新しいロゴを作りたいんだ。",
+  "text": "テツダッテ ホシインダケド、アタラシイ ロゴ ヲ ツクリタインダ。",
+  "head": "手伝って",
+  "ref_id": 25,
+  "prompt": "ライシュウ ビヨウイン デ カミ ヲ キロウ ト オモッテ イマス。",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-ja-official.wav",
+  "ref_sha256": "aa84b6770aedd0fd284129478a1514ae987b815c967bdc94dfdebbefa4dca4e4",
+  "id": "ja-b-context",
+  "language": "ja",
+  "variant": "context",
+  "instruction": null,
+  "mode": "zero_shot",
+  "speed": 1.0,
+  "seed": 8610,
+  "start_frame": 200,
+  "cache_key": "22d9d7e69baae8c1452295a6dd46c1599c59080fce3ea9828c2bd8d40f568480",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-ja-b-context-22d9d7e69baae8c1-original.wav"
+}

@@ -1,0 +1,48 @@
+{
+  "text": " Hilf mir, ein neues Logo zu entwerfen.",
+  "words": [
+    {
+      "word": " Hilf",
+      "start": 0.0,
+      "end": 0.36,
+      "probability": 0.8492128551006317
+    },
+    {
+      "word": " mir,",
+      "start": 0.36,
+      "end": 0.52,
+      "probability": 0.9890195727348328
+    },
+    {
+      "word": " ein",
+      "start": 0.68,
+      "end": 0.74,
+      "probability": 0.9956526756286621
+    },
+    {
+      "word": " neues",
+      "start": 0.74,
+      "end": 1.0,
+      "probability": 0.987636923789978
+    },
+    {
+      "word": " Logo",
+      "start": 1.0,
+      "end": 1.38,
+      "probability": 0.998016357421875
+    },
+    {
+      "word": " zu",
+      "start": 1.38,
+      "end": 1.52,
+      "probability": 0.9945762157440186
+    },
+    {
+      "word": " entwerfen.",
+      "start": 1.52,
+      "end": 2.04,
+      "probability": 0.9953798453013102
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

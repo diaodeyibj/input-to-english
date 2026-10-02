@@ -1,0 +1,14 @@
+{
+  "id": "en-a",
+  "language": "en",
+  "text": "Help me design a new logo.",
+  "phrase": "Help me design a new logo.",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+  "instruction": "请用尽可能慢地语速说一句话。使用成熟、低沉、浑厚的男声播音腔，语气自然沉稳，不要喊叫。",
+  "speed": 1.0,
+  "seed": 7390,
+  "start_frame": 1800,
+  "ref_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+  "cache_key": "1a87528758caa4fa62e2cb41c2dedce809e851fd7146f071f2861d79c209e301",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-en-a-1a87528758caa4fa-original.wav"
+}

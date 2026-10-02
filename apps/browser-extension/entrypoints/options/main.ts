@@ -16,15 +16,15 @@ import {
   type OptionsViewState,
   type ProviderStatusMessage,
 } from '../../src/options/render-options';
+import type { DisplayLanguage } from '../../src/storage/settings';
 
 export interface OptionsControllerLike {
   load(): Promise<OptionsSnapshot>;
   saveProvider(id: ProviderId): Promise<OptionsSnapshot>;
+  saveDisplayLanguage(language: DisplayLanguage): Promise<OptionsSnapshot>;
   saveCloudConfig(id: 'deepseek' | 'kimi', config: CloudConfigInput): Promise<OptionsSnapshot>;
   deleteApiKey(id: 'deepseek' | 'kimi'): Promise<OptionsSnapshot>;
-  saveOllamaModel(model: string): Promise<OptionsSnapshot>;
   testProvider(id: ProviderId): Promise<ConnectionTestResult>;
-  listOllamaModels(): Promise<string[]>;
 }
 
 function safeMessage(cause: unknown): string {
@@ -53,7 +53,6 @@ export async function startOptionsPage(
   try {
     state = {
       ...(await controller.load()),
-      ollamaModels: [],
       providerStatus: {},
     };
   } catch (cause) {
@@ -95,6 +94,19 @@ export async function startOptionsPage(
   };
 
   const actions: OptionsActions = {
+    async setDisplayLanguage(language) {
+      state = {
+        ...(await controller.saveDisplayLanguage(language)),
+        providerStatus: {},
+      };
+      document.documentElement.lang = language;
+      document.title = language === 'zh-CN'
+        ? '输入转英文 — 设置'
+        : language === 'ja'
+          ? '入力を英語に — 設定'
+          : 'Input to English — Settings';
+      draw();
+    },
     async selectProvider(id) {
       await runMutation(id, () => controller.saveProvider(id), 'Active provider updated.');
     },
@@ -112,23 +124,6 @@ export async function startOptionsPage(
       status(id, result.ok
         ? { kind: 'success', message: result.detail }
         : { kind: 'error', message: result.error.userMessage });
-    },
-    async refreshOllamaModels() {
-      try {
-        const models = await controller.listOllamaModels();
-        state = { ...state, ollamaModels: models };
-        status('ollama', {
-          kind: models.length === 0 ? 'info' : 'success',
-          message: models.length === 0
-            ? 'Ollama is reachable, but no installed models were found.'
-            : `${models.length} installed ${models.length === 1 ? 'model' : 'models'} found.`,
-        });
-      } catch (cause) {
-        status('ollama', { kind: 'error', message: safeMessage(cause) });
-      }
-    },
-    async saveOllamaModel(model) {
-      await runMutation('ollama', () => controller.saveOllamaModel(model), 'Ollama model saved.');
     },
   };
 

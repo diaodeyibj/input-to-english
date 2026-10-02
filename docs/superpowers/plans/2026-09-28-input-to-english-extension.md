@@ -1,5 +1,7 @@
 # Input-to-English Browser Extension Implementation Plan
 
+> **Historical implementation plan:** This records the original implementation. Local Ollama support was later retired; its provider, settings UI, messaging, and localhost permission are removed from the current extension. See the current [README](../../../README.md) for supported providers.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build a Chrome and Edge extension that translates a completed ChatGPT or Claude prompt into English through one explicitly selected local or cloud provider, replaces the editor safely, and supports one-step undo.

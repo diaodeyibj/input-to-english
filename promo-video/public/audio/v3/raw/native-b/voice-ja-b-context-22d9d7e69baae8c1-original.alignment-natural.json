@@ -1,0 +1,102 @@
+{
+  "text": "手伝ってほしいんだけど、新しいロゴを作りたいんだ。",
+  "words": [
+    {
+      "word": "手",
+      "start": 1.38,
+      "end": 1.82,
+      "probability": 0.031184060499072075
+    },
+    {
+      "word": "伝",
+      "start": 1.82,
+      "end": 2.04,
+      "probability": 0.6556108593940735
+    },
+    {
+      "word": "って",
+      "start": 2.04,
+      "end": 2.42,
+      "probability": 0.9960728883743286
+    },
+    {
+      "word": "ほ",
+      "start": 2.42,
+      "end": 2.8,
+      "probability": 0.11469539254903793
+    },
+    {
+      "word": "しい",
+      "start": 2.8,
+      "end": 3.02,
+      "probability": 0.9980792999267578
+    },
+    {
+      "word": "んだ",
+      "start": 3.02,
+      "end": 3.26,
+      "probability": 0.9995400905609131
+    },
+    {
+      "word": "けど、",
+      "start": 3.26,
+      "end": 3.56,
+      "probability": 0.9998103976249695
+    },
+    {
+      "word": "新",
+      "start": 3.96,
+      "end": 4.46,
+      "probability": 0.9100185036659241
+    },
+    {
+      "word": "しい",
+      "start": 4.46,
+      "end": 4.84,
+      "probability": 0.9999470710754395
+    },
+    {
+      "word": "ロ",
+      "start": 4.84,
+      "end": 4.98,
+      "probability": 0.9988928437232971
+    },
+    {
+      "word": "ゴ",
+      "start": 4.98,
+      "end": 5.12,
+      "probability": 0.9993886947631836
+    },
+    {
+      "word": "を",
+      "start": 5.12,
+      "end": 5.26,
+      "probability": 0.9999239444732666
+    },
+    {
+      "word": "作",
+      "start": 5.26,
+      "end": 5.46,
+      "probability": 0.9817072749137878
+    },
+    {
+      "word": "り",
+      "start": 5.46,
+      "end": 5.6,
+      "probability": 0.9999665021896362
+    },
+    {
+      "word": "たい",
+      "start": 5.6,
+      "end": 5.78,
+      "probability": 0.999910831451416
+    },
+    {
+      "word": "んだ。",
+      "start": 5.78,
+      "end": 5.98,
+      "probability": 0.99986732006073
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

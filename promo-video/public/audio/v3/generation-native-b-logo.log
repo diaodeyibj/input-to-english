@@ -1,0 +1,42 @@
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\requests\__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+Loading local CosyVoice3 with mother-tongue references
+2026-10-01 12:37:02,684 INFO input frame rate=25
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\torch\nn\utils\weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py:69: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-10-01 12:37:05,667 INFO no frontend is avaliable
+SYNTH zh-b-context-logo
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:37:08,237 WARNING synthesis text 帮我设计一个更有创意的新标志吧。 too short than prompt text You are a helpful assistant.<|endofprompt|>转任福建路转运判官。, this may lead to bad performance
+2026-10-01 12:37:08,757 INFO synthesis text 帮我设计一个更有创意的新标志吧。
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\transformers\models\qwen2\modeling_qwen2.py:693: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+2026-10-01 12:37:15,989 INFO yield speech len 6.36, rtf 1.1369005314209175
+
+100%|██████████| 1/1 [00:07<00:00,  7.77s/it]
+100%|██████████| 1/1 [00:07<00:00,  7.77s/it]
+RAW zh-b-context-logo 6.360s
+SYNTH zh-b-conversation-logo
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:37:16,489 INFO synthesis text 帮我设计一个更有创意的新标志吧。
+2026-10-01 12:37:19,243 INFO yield speech len 2.04, rtf 1.3499638613532572
+
+100%|██████████| 1/1 [00:03<00:00,  3.24s/it]
+100%|██████████| 1/1 [00:03<00:00,  3.24s/it]
+RAW zh-b-conversation-logo 2.040s
+Loading cached local Whisper large-v3-turbo for word alignment
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN zh-b-context-logo 帮我设计一个更有创意的新标志吧。 [{'word': '帮', 'start': 0.0, 'end': 0.44, 'probability': 0.9790676236152649}, {'word': '我', 'start': 0.44, 'end': 0.66, 'probability': 0.9992731213569641}, {'word': '设', 'start': 0.66, 'end': 0.88, 'probability': 0.9993433952331543}, {'word': '计', 'start': 0.88, 'end': 1.12, 'probability': 0.9984426498413086}, {'word': '一个', 'start': 1.12, 'end': 1.58, 'probability': 0.9955537915229797}, {'word': '更', 'start': 1.58, 'end': 3.22, 'probability': 0.9914056062698364}, {'word': '有', 'start': 3.22, 'end': 3.44, 'probability': 0.9997557997703552}, {'word': '创', 'start': 3.44, 'end': 3.7, 'probability': 0.9999189972877502}, {'word': '意', 'start': 3.7, 'end': 3.84, 'probability': 0.9955869913101196}, {'word': '的', 'start': 3.84, 'end': 4.12, 'probability': 0.9997605681419373}, {'word': '新', 'start': 4.12, 'end': 5.34, 'probability': 0.9987296462059021}, {'word': '标', 'start': 5.34, 'end': 5.66, 'probability': 0.9998118877410889}, {'word': '志', 'start': 5.66, 'end': 5.88, 'probability': 0.9977207779884338}, {'word': '吧。', 'start': 5.88, 'end': 6.1, 'probability': 0.9978893399238586}]
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN zh-b-conversation-logo 帮我设计一个更有创意的新标志吧。 [{'word': '帮', 'start': 0.0, 'end': 0.12, 'probability': 0.9826086461544037}, {'word': '我', 'start': 0.12, 'end': 0.24, 'probability': 0.9961150884628296}, {'word': '设', 'start': 0.24, 'end': 0.36, 'probability': 0.9977986514568329}, {'word': '计', 'start': 0.36, 'end': 0.48, 'probability': 0.9993277788162231}, {'word': '一个', 'start': 0.48, 'end': 0.62, 'probability': 0.9887802600860596}, {'word': '更', 'start': 0.62, 'end': 0.76, 'probability': 0.9943721294403076}, {'word': '有', 'start': 0.76, 'end': 0.9, 'probability': 0.9992977380752563}, {'word': '创', 'start': 0.9, 'end': 1.06, 'probability': 0.9992855787277222}, {'word': '意', 'start': 1.06, 'end': 1.16, 'probability': 0.9941745400428772}, {'word': '的', 'start': 1.16, 'end': 1.26, 'probability': 0.9993829727172852}, {'word': '新', 'start': 1.26, 'end': 1.4, 'probability': 0.9952115416526794}, {'word': '标', 'start': 1.4, 'end': 1.58, 'probability': 0.999855250120163}, {'word': '志', 'start': 1.58, 'end': 1.72, 'probability': 0.9971108436584473}, {'word': '吧。', 'start': 1.72, 'end': 1.84, 'probability': 0.9863731861114502}]
+READY F:\chatGPT\Second-Class\promo-video\public\audio\v3\native-b-logo\manifest-b-logo.json

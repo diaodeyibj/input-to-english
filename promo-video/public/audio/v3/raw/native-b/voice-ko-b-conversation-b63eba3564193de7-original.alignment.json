@@ -1,0 +1,60 @@
+{
+  "text": " 도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어.",
+  "words": [
+    {
+      "word": " 도와줘",
+      "start": 0.0,
+      "end": 0.48,
+      "probability": 0.8162264823913574
+    },
+    {
+      "word": " 새",
+      "start": 0.48,
+      "end": 0.62,
+      "probability": 0.17758823931217194
+    },
+    {
+      "word": " 영상을",
+      "start": 0.62,
+      "end": 1.06,
+      "probability": 0.9467349052429199
+    },
+    {
+      "word": " 좀",
+      "start": 1.06,
+      "end": 1.48,
+      "probability": 0.9460066556930542
+    },
+    {
+      "word": " 더",
+      "start": 1.48,
+      "end": 1.64,
+      "probability": 0.9963441491127014
+    },
+    {
+      "word": " 멋지게",
+      "start": 1.64,
+      "end": 2.04,
+      "probability": 0.9951542019844055
+    },
+    {
+      "word": " 만들어",
+      "start": 2.04,
+      "end": 2.24,
+      "probability": 0.4981819689273834
+    },
+    {
+      "word": " 보고",
+      "start": 2.24,
+      "end": 2.48,
+      "probability": 0.9927151799201965
+    },
+    {
+      "word": " 싶어.",
+      "start": 2.48,
+      "end": 2.78,
+      "probability": 0.9092817306518555
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

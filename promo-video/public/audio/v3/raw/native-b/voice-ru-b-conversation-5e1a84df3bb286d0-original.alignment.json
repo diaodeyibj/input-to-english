@@ -1,0 +1,54 @@
+{
+  "text": " Помоги мне сделать новый сайт для моего проекта.",
+  "words": [
+    {
+      "word": " Помоги",
+      "start": 0.0,
+      "end": 0.56,
+      "probability": 0.9603785276412964
+    },
+    {
+      "word": " мне",
+      "start": 0.56,
+      "end": 0.7,
+      "probability": 0.999909520149231
+    },
+    {
+      "word": " сделать",
+      "start": 0.7,
+      "end": 1.08,
+      "probability": 0.9996302127838135
+    },
+    {
+      "word": " новый",
+      "start": 1.08,
+      "end": 1.46,
+      "probability": 0.9995934367179871
+    },
+    {
+      "word": " сайт",
+      "start": 1.46,
+      "end": 1.88,
+      "probability": 0.9997588396072388
+    },
+    {
+      "word": " для",
+      "start": 1.88,
+      "end": 2.24,
+      "probability": 0.9990962743759155
+    },
+    {
+      "word": " моего",
+      "start": 2.24,
+      "end": 2.64,
+      "probability": 0.9999402165412903
+    },
+    {
+      "word": " проекта.",
+      "start": 2.64,
+      "end": 3.3,
+      "probability": 0.9999578595161438
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

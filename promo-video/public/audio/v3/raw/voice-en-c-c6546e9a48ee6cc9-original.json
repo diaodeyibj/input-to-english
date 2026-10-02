@@ -1,0 +1,14 @@
+{
+  "id": "en-c",
+  "language": "en",
+  "text": "Help me design a new logo.",
+  "phrase": "Help me design a new logo.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\reference-cross-last6.wav",
+  "instruction": "请用尽可能慢地语速说一句话。使用成熟低沉浑厚的男声，专业播音，温暖沉稳，自然停顿，不要喊叫。",
+  "speed": 1.0,
+  "seed": 7392,
+  "start_frame": 1800,
+  "ref_sha256": "341be93f13fa70a41e7068accf88005d5e89b04a4146aa1c97e267582d3e4ba5",
+  "cache_key": "c6546e9a48ee6cc929fd23f34356e9a3d2855e4c1dcebb5871ac0f0cfea6138a",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-en-c-c6546e9a48ee6cc9-original.wav"
+}

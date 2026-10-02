@@ -11,6 +11,7 @@ import type { RuntimeMessage } from '../messaging/protocol';
 import type { RuntimeClient } from '../messaging/runtime-provider';
 import {
   SettingsStore,
+  type DisplayLanguage,
   type ExtensionSettings,
   type ExtensionSettingsPatch,
 } from '../storage/settings';
@@ -26,11 +27,11 @@ export interface BrowserCapabilityBridge {
 }
 
 export interface OptionsSnapshot {
+  displayLanguage?: DisplayLanguage;
   activeProvider: ProviderId;
   browser: ProviderAvailability;
   deepseek: { hasApiKey: boolean; model: string };
   kimi: { hasApiKey: boolean; model: string };
-  ollama: { model: string };
 }
 
 export interface CloudConfigInput {
@@ -49,7 +50,7 @@ interface BrowserLanguageScope {
   Translator?: unknown;
 }
 
-const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi', 'ollama'];
+const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi'];
 
 function error(
   code: TranslationErrorCode,
@@ -95,6 +96,7 @@ function toSnapshot(
   browserAvailability: ProviderAvailability,
 ): OptionsSnapshot {
   return {
+    displayLanguage: settings.displayLanguage ?? 'zh-CN',
     activeProvider: settings.activeProvider,
     browser: browserAvailability,
     deepseek: {
@@ -105,7 +107,6 @@ function toSnapshot(
       hasApiKey: settings.kimi.apiKey.trim().length > 0,
       model: settings.kimi.model,
     },
-    ollama: { model: settings.ollama.model },
   };
 }
 
@@ -199,6 +200,17 @@ export class OptionsController {
     });
   }
 
+  async saveDisplayLanguage(language: DisplayLanguage): Promise<OptionsSnapshot> {
+    return this.enqueueMutation(async () => {
+      try {
+        await this.dependencies.settings.update({ displayLanguage: language });
+        return await this.load();
+      } catch (cause) {
+        throw safeFailure(cause);
+      }
+    });
+  }
+
   async saveCloudConfig(
     id: 'deepseek' | 'kimi',
     config: CloudConfigInput,
@@ -236,21 +248,6 @@ export class OptionsController {
     return this.enqueueMutation(async () => {
       try {
         await this.dependencies.settings.clearApiKey(id);
-        return await this.load();
-      } catch (cause) {
-        throw safeFailure(cause);
-      }
-    });
-  }
-
-  async saveOllamaModel(model: string): Promise<OptionsSnapshot> {
-    const normalized = model.trim();
-    if (normalized.length === 0) {
-      throw error('PROVIDER_NOT_CONFIGURED', 'Select an installed Ollama model before saving.', false);
-    }
-    return this.enqueueMutation(async () => {
-      try {
-        await this.dependencies.settings.update({ ollama: { model: normalized } });
         return await this.load();
       } catch (cause) {
         throw safeFailure(cause);
@@ -304,19 +301,4 @@ export class OptionsController {
     return { ok: false, error: malformedResponse() };
   }
 
-  async listOllamaModels(): Promise<string[]> {
-    let response: unknown;
-    try {
-      response = await this.dependencies.runtimeClient.sendMessage({ type: 'list-ollama-models' });
-    } catch {
-      throw networkError();
-    }
-    if (!isRecord(response)) throw malformedResponse();
-    if (response.ok === false) throw readRuntimeError(response.error);
-    if (response.ok !== true || response.type !== 'list-ollama-models' ||
-        !Array.isArray(response.models) || !response.models.every((model) => typeof model === 'string')) {
-      throw malformedResponse();
-    }
-    return [...response.models];
-  }
 }

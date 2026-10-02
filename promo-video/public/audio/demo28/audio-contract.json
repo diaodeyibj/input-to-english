@@ -1,0 +1,80 @@
+{
+  "source": "F:\\chatGPT\\Second-Class\\promo-video\\out\\A_ui_90-118.mp3",
+  "source_sha256": "f3612aa0a48166708d0507da8d1eb4ae7d8e3a30045bd5620829d5c71a3f1ee6",
+  "source_selection": "A_ui_90-118",
+  "master_sha256": "e8c205ac569b96843a0779056acf6039df1a8a6e295dbec472f038d90a1bb612",
+  "duration_seconds": 28,
+  "sample_rate": 48000,
+  "channels": 2,
+  "samples_per_channel": 1344000,
+  "fade_seconds": 0.6,
+  "sfx": [
+    {
+      "frame": 123,
+      "seconds": 2.05,
+      "kind": "tap",
+      "peak_aligned": true,
+      "gain": 0.055
+    },
+    {
+      "frame": 177,
+      "seconds": 2.95,
+      "kind": "tap",
+      "peak_aligned": true,
+      "gain": 0.055
+    },
+    {
+      "frame": 204,
+      "seconds": 3.4,
+      "kind": "tap",
+      "peak_aligned": true,
+      "gain": 0.055
+    },
+    {
+      "frame": 231,
+      "seconds": 3.85,
+      "kind": "tap",
+      "peak_aligned": true,
+      "gain": 0.055
+    },
+    {
+      "frame": 258,
+      "seconds": 4.3,
+      "kind": "tap",
+      "peak_aligned": true,
+      "gain": 0.055
+    },
+    {
+      "frame": 285,
+      "seconds": 4.75,
+      "kind": "tap",
+      "peak_aligned": true,
+      "gain": 0.055
+    },
+    {
+      "frame": 312,
+      "seconds": 5.2,
+      "kind": "tap",
+      "peak_aligned": true,
+      "gain": 0.055
+    },
+    {
+      "frame": 447,
+      "seconds": 7.45,
+      "kind": "click",
+      "peak_aligned": true,
+      "gain": 0.13
+    },
+    {
+      "frame": 528,
+      "seconds": 8.8,
+      "kind": "ready",
+      "peak_aligned": true,
+      "gain": 0.045
+    }
+  ],
+  "sample_peak_dbfs": -4.8609082661345,
+  "tail_last_sample": -0.0,
+  "voice": false,
+  "music_stretch": false
+}

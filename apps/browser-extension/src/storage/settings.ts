@@ -5,19 +5,20 @@ import {
 import type { ProviderId } from '../../../../packages/core/src/index';
 
 export const SETTINGS_STORAGE_KEY = 'inputToEnglish.settings.v1';
+export type DisplayLanguage = 'zh-CN' | 'en' | 'ja';
 
 export interface ExtensionSettings {
+  displayLanguage?: DisplayLanguage;
   activeProvider: ProviderId;
   deepseek: { apiKey: string; model: string };
   kimi: { apiKey: string; model: string };
-  ollama: { model: string };
 }
 
 export type ExtensionSettingsPatch = {
+  displayLanguage?: DisplayLanguage;
   activeProvider?: ProviderId;
   deepseek?: Partial<ExtensionSettings['deepseek']>;
   kimi?: Partial<ExtensionSettings['kimi']>;
-  ollama?: Partial<ExtensionSettings['ollama']>;
 };
 
 interface LocalStorageArea {
@@ -28,13 +29,14 @@ interface LocalStorageArea {
 declare const browser: { storage: { local: LocalStorageArea } };
 
 export const DEFAULT_SETTINGS: ExtensionSettings = {
+  displayLanguage: 'zh-CN',
   activeProvider: 'browser',
   deepseek: { apiKey: '', model: DEFAULT_DEEPSEEK_MODEL },
   kimi: { apiKey: '', model: DEFAULT_KIMI_MODEL },
-  ollama: { model: '' },
 };
 
-const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi', 'ollama'];
+const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi'];
+const displayLanguages: readonly DisplayLanguage[] = ['zh-CN', 'en', 'ja'];
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -44,16 +46,20 @@ function isProviderId(value: unknown): value is ProviderId {
   return typeof value === 'string' && providerIds.includes(value as ProviderId);
 }
 
+function isDisplayLanguage(value: unknown): value is DisplayLanguage {
+  return typeof value === 'string' && displayLanguages.includes(value as DisplayLanguage);
+}
+
 function stringOrDefault(value: unknown, fallback: string): string {
   return typeof value === 'string' ? value : fallback;
 }
 
 function cloneSettings(settings: ExtensionSettings): ExtensionSettings {
   return {
+    displayLanguage: settings.displayLanguage ?? DEFAULT_SETTINGS.displayLanguage,
     activeProvider: settings.activeProvider,
     deepseek: { ...settings.deepseek },
     kimi: { ...settings.kimi },
-    ollama: { ...settings.ollama },
   };
 }
 
@@ -61,9 +67,11 @@ export function sanitizeSettings(value: unknown): ExtensionSettings {
   const stored = isRecord(value) ? value : {};
   const deepseek = isRecord(stored.deepseek) ? stored.deepseek : {};
   const kimi = isRecord(stored.kimi) ? stored.kimi : {};
-  const ollama = isRecord(stored.ollama) ? stored.ollama : {};
 
   return {
+    displayLanguage: isDisplayLanguage(stored.displayLanguage)
+      ? stored.displayLanguage
+      : DEFAULT_SETTINGS.displayLanguage,
     activeProvider: isProviderId(stored.activeProvider)
       ? stored.activeProvider
       : DEFAULT_SETTINGS.activeProvider,
@@ -75,14 +83,12 @@ export function sanitizeSettings(value: unknown): ExtensionSettings {
       apiKey: stringOrDefault(kimi.apiKey, DEFAULT_SETTINGS.kimi.apiKey),
       model: stringOrDefault(kimi.model, DEFAULT_SETTINGS.kimi.model),
     },
-    ollama: {
-      model: stringOrDefault(ollama.model, DEFAULT_SETTINGS.ollama.model),
-    },
   };
 }
 
 function mergePatch(current: ExtensionSettings, patch: ExtensionSettingsPatch): ExtensionSettings {
   const next = cloneSettings(current);
+  if (isDisplayLanguage(patch.displayLanguage)) next.displayLanguage = patch.displayLanguage;
   if (isProviderId(patch.activeProvider)) next.activeProvider = patch.activeProvider;
 
   if (isRecord(patch.deepseek)) {
@@ -93,16 +99,19 @@ function mergePatch(current: ExtensionSettings, patch: ExtensionSettingsPatch): 
     next.kimi.apiKey = stringOrDefault(patch.kimi.apiKey, next.kimi.apiKey);
     next.kimi.model = stringOrDefault(patch.kimi.model, next.kimi.model);
   }
-  if (isRecord(patch.ollama)) {
-    next.ollama.model = stringOrDefault(patch.ollama.model, next.ollama.model);
-  }
   return next;
 }
 
 export class SettingsStore {
   async get(): Promise<ExtensionSettings> {
     const stored = await browser.storage.local.get(SETTINGS_STORAGE_KEY);
-    return sanitizeSettings(stored[SETTINGS_STORAGE_KEY]);
+    const raw = stored[SETTINGS_STORAGE_KEY];
+    const settings = sanitizeSettings(raw);
+    if (isRecord(raw) && ('ollama' in raw || raw.activeProvider === 'ollama')) {
+      if (raw.activeProvider === 'ollama') settings.activeProvider = DEFAULT_SETTINGS.activeProvider;
+      await browser.storage.local.set({ [SETTINGS_STORAGE_KEY]: cloneSettings(settings) });
+    }
+    return settings;
   }
 
   async update(patch: ExtensionSettingsPatch): Promise<ExtensionSettings> {

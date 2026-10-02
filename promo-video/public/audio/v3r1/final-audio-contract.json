@@ -1,0 +1,16 @@
+{
+  "approval_status": "user-approved",
+  "music_revision": "C",
+  "native_selection": "B-logo",
+  "english_selection": "en-r1-c",
+  "master_sha256": "e48159c7c1e152051859ca7b34822a2d9398752067b2ceef720641dd8ce3f863",
+  "official_manifest_sha256": "e52e2c25df5603eef320382d4dda143675c1bdec424808c20c82cb976881dbbc",
+  "voice_timing_sha256": "7e3bd3ad356aeb960116842635896a41627cfcb2ea3677f6e62fc487e43cc329",
+  "timeline_sha256": "9e4eda735a4063951c86731069cd71e9eefeef17041248b2a6a5c0d78fefeec1",
+  "loudness": {
+    "integrated_lufs": -16.16,
+    "true_peak_dbtp": -1.66,
+    "loudness_range_lu": 7.3,
+    "threshold_lufs": -26.56
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "text": "手伝って、アタラシイ ロゴ スクッテ。",
+  "words": [
+    {
+      "word": "手",
+      "start": 0.0,
+      "end": 0.14,
+      "probability": 0.9884327054023743
+    },
+    {
+      "word": "伝",
+      "start": 0.14,
+      "end": 0.36,
+      "probability": 0.9995160102844238
+    },
+    {
+      "word": "って、",
+      "start": 0.36,
+      "end": 0.68,
+      "probability": 0.999618411064148
+    },
+    {
+      "word": "ア",
+      "start": 0.82,
+      "end": 1.1,
+      "probability": 0.00035645675961859524
+    },
+    {
+      "word": "タ",
+      "start": 1.1,
+      "end": 1.26,
+      "probability": 0.9574829936027527
+    },
+    {
+      "word": "ラ",
+      "start": 1.26,
+      "end": 1.34,
+      "probability": 0.9153625965118408
+    },
+    {
+      "word": "シ",
+      "start": 1.34,
+      "end": 1.46,
+      "probability": 0.933872401714325
+    },
+    {
+      "word": "イ",
+      "start": 1.46,
+      "end": 1.56,
+      "probability": 0.8134437203407288
+    },
+    {
+      "word": " ロ",
+      "start": 1.56,
+      "end": 1.68,
+      "probability": 0.5053486432880163
+    },
+    {
+      "word": "ゴ",
+      "start": 1.68,
+      "end": 1.82,
+      "probability": 0.9300196766853333
+    },
+    {
+      "word": " ス",
+      "start": 1.96,
+      "end": 2.06,
+      "probability": 0.032944805920124054
+    },
+    {
+      "word": "ク",
+      "start": 2.06,
+      "end": 2.18,
+      "probability": 0.9893816709518433
+    },
+    {
+      "word": "ッ",
+      "start": 2.18,
+      "end": 2.26,
+      "probability": 0.8421672582626343
+    },
+    {
+      "word": "テ。",
+      "start": 2.26,
+      "end": 2.46,
+      "probability": 0.8496114611625671
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

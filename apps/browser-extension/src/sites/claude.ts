@@ -2,8 +2,11 @@ import { createEditorHandle, isEligibleEditor, isSubmitEvent } from './dom-edito
 import type { EditorHandle, SiteAdapter } from './editor-adapter';
 
 const SELECTORS = [
+  '[data-testid="chat-input"].ProseMirror[contenteditable="true"]',
   '[data-testid="chat-input"] .ProseMirror[contenteditable="true"]',
   'main form fieldset .ProseMirror[contenteditable="true"]',
+  'main form fieldset [contenteditable="true"]',
+  'main [contenteditable="true"][data-placeholder]',
 ];
 
 export const claudeAdapter: SiteAdapter = {
@@ -17,7 +20,10 @@ export const claudeAdapter: SiteAdapter = {
     return null;
   },
   findControlAnchor(editor: EditorHandle) {
-    return editor.element.closest('[data-testid="chat-input"], fieldset');
+    const chatInput = editor.element.closest<HTMLElement>('[data-testid="chat-input"]');
+    return chatInput === editor.element
+      ? editor.element.parentElement?.parentElement ?? editor.element.parentElement
+      : chatInput ?? editor.element.closest<HTMLElement>('fieldset');
   },
   isPromptSubmitted: isSubmitEvent,
 };

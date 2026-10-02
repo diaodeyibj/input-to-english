@@ -1,0 +1,90 @@
+[
+  {
+    "language": "zh",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/zh/prompt_audio_4.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-zh-official.wav",
+    "sha256": "eebef878ba64d38e8edabc58de7a6496763ac1699cc6b81f2cf8df1dffb7ac39",
+    "duration_seconds": 3.576,
+    "prompt_text": "转任福建路转运判官。",
+    "reference_language": "zh",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  },
+  {
+    "language": "ja",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/ja/prompt_audio_25.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-ja-official.wav",
+    "sha256": "aa84b6770aedd0fd284129478a1514ae987b815c967bdc94dfdebbefa4dca4e4",
+    "duration_seconds": 6.864,
+    "prompt_text": "ライシュウ ビヨウイン デ カミ ヲ キロウ ト オモッテ イマス。",
+    "reference_language": "ja",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  },
+  {
+    "language": "ko",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/ko/prompt_audio_5.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-ko-official.wav",
+    "sha256": "55493322a4dc908dc864c691fb59a99a0a65bb8b0c120fc781e3b1d56864ea18",
+    "duration_seconds": 3.96,
+    "prompt_text": "그들이 집까지 왔을 때는 어슬어슬한 황혼이었다.",
+    "reference_language": "ko",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  },
+  {
+    "language": "de",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/de/prompt_audio_1.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-de-official.wav",
+    "sha256": "31211fcd0787f908569c7846798abeab802152630bae450064821b37c686f722",
+    "duration_seconds": 3.552,
+    "prompt_text": "Zieht euch bitte draußen die Schuhe aus.",
+    "reference_language": "de",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  },
+  {
+    "language": "es",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/es/prompt_audio_1.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-es-official.wav",
+    "sha256": "373a10bc9ced818fb549ae3bdf34b1686dd04eb22a5fcdb1d2c782d84fb2760f",
+    "duration_seconds": 7.668,
+    "prompt_text": "Durante unos años, enseñó Física e Historia en el colegio de nobles de Parma.",
+    "reference_language": "es",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  },
+  {
+    "language": "fr",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/fr/prompt_audio_1.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-fr-official.wav",
+    "sha256": "af7487e23134c3fcc6d74627dcefb5c3c45a2bfa24b4290758efd89139a43884",
+    "duration_seconds": 3.816,
+    "prompt_text": "Ce dernier a évolué tout au long de l'histoire romaine.",
+    "reference_language": "fr",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  },
+  {
+    "language": "it",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/it/prompt_audio_2.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-it-official.wav",
+    "sha256": "a04e9007420abb86e2bc36db207893932e968f79c29dd32b64c45c006b3216e6",
+    "duration_seconds": 7.776,
+    "prompt_text": "Fin dall'inizio la sede episcopale è stata immediatamente soggetta alla Santa Sede.",
+    "reference_language": "it",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  },
+  {
+    "language": "ru",
+    "source_url": "https://raw.githubusercontent.com/QwenAudio/FunAudioLLM.github.io/master/cosyvoice3/audio/prompt/zero-shot/ru/prompt_audio_3.wav",
+    "official_page": "https://github.com/QwenAudio/FunAudioLLM.github.io/tree/master/cosyvoice3",
+    "file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-ru-official.wav",
+    "sha256": "c2a7629b6e11a03c8feb8d0884283b9c0dff982a3e810cd5cb142b6c32e40a3b",
+    "duration_seconds": 4.752,
+    "prompt_text": "Неожиданно катастрофа приобрела глобальные масштабы.",
+    "reference_language": "ru",
+    "reference_type": "Official demo zero-shot prompt, not generated comparison output."
+  }
+]

@@ -37,6 +37,38 @@ async function caught(promise: Promise<unknown>): Promise<TranslationError> {
 }
 
 describe('createBrowserLocalProvider', () => {
+  it('does not label mixed input as English when its non-English fragment is uncertain', async () => {
+    const ready = bridges();
+    ready.detector.detect = async () => ({ detectedLanguage: 'en', confidence: 0.99 });
+    const failure = await caught(createBrowserLocalProvider(ready).translate({
+      text: 'Please help 谢', targetLanguage: 'en',
+    }));
+    expect(failure.code).toBe('BROWSER_API_UNAVAILABLE');
+    expect(ready.events).toEqual([]);
+  });
+
+  it('rechecks a supplied English tag when the text includes non-Latin letters', async () => {
+    const ready = bridges();
+    await expect(createBrowserLocalProvider(ready).translate({
+      text: 'Please help谢谢', targetLanguage: 'en', sourceLanguage: 'en-US',
+    })).resolves.toMatchObject({ sourceLanguage: 'zh-Hans', text: 'Hello, world' });
+  });
+
+  it.each([
+    ['谢谢', 'zh'], ['ありがとう', 'ja'], ['감사합니다', 'ko'], ['شكرا', 'ar'], ['Спасибо', 'ru'],
+  ])('translates English-dominant input containing %s with the non-English source', async (fragment, language) => {
+    const text = `Please help me design a more creative new logo ${fragment}`;
+    const ready = bridges();
+    ready.detector.detect = async (input) => ({
+      detectedLanguage: input === text ? 'en-US' : language, confidence: 0.99,
+    });
+    const provider = createBrowserLocalProvider(ready);
+    await expect(provider.translate({ text, targetLanguage: 'en' })).resolves.toMatchObject({
+      text: 'Hello, world', sourceLanguage: language,
+    });
+    expect(ready.events).toContain(`translate:${text}:${language}:en:none`);
+  });
+
   it.each(['detector', 'translator'] as const)('reports unavailable when the %s API is missing', async (missing) => {
     const ready = bridges();
     const provider = createBrowserLocalProvider({
@@ -85,11 +117,12 @@ describe('createBrowserLocalProvider', () => {
     ready.detector.detect = async () => ({ detectedLanguage: 'en-US', confidence: 0.95 });
     const provider = createBrowserLocalProvider(ready);
 
-    expect(await caught(provider.translate(request))).toMatchObject({
+    const english: TranslationRequest = { text: 'Hello, world! 👋', targetLanguage: 'en' };
+    expect(await caught(provider.translate(english))).toMatchObject({
       code: 'ALREADY_ENGLISH',
       retryable: false,
     });
-    expect(await caught(provider.translate({ ...request, sourceLanguage: 'en-GB' }))).toMatchObject({
+    expect(await caught(provider.translate({ ...english, sourceLanguage: 'en-GB' }))).toMatchObject({
       code: 'ALREADY_ENGLISH',
       retryable: false,
     });

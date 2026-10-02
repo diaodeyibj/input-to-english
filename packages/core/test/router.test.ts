@@ -64,11 +64,4 @@ describe('TranslationRouter', () => {
     expect(kimiTranslate).not.toHaveBeenCalled();
   });
 
-  it('throws PROVIDER_NOT_CONFIGURED for an unregistered provider id', async () => {
-    const router = new TranslationRouter([]);
-
-    await expect(router.translate('ollama', request)).rejects.toMatchObject({
-      code: 'PROVIDER_NOT_CONFIGURED',
-    });
-  });
 });

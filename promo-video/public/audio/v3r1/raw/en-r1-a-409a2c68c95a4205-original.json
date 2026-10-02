@@ -1,0 +1,14 @@
+{
+  "id": "en-r1-a",
+  "language": "en",
+  "text": "Help me design a more creative new logo",
+  "phrase": "Help me design a more creative new logo",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\reference-hard-en-official-4.wav",
+  "ref_sha256": "e13be5eeae57ac6d2f226bf43fd88fc1efe0ed6133d204a1ede35bd30e970b81",
+  "instruction": "请像在商务会议上自然地向设计师提出需求，成熟男性，语气从容自信、温暖清晰，像平时聊天，不要朗读或播音，不要刻意放慢，不要夸张。",
+  "speed": 1.0,
+  "seed": 9701,
+  "start_frame": 1770,
+  "cache_key": "409a2c68c95a4205ed33143c738657e8d3ff98537b2de819d79fb87f46f58a21",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\en-r1-a-409a2c68c95a4205-original.wav"
+}

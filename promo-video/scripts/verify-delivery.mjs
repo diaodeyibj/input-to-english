@@ -1,0 +1,13 @@
+import {spawnSync} from 'node:child_process';
+import {existsSync,writeFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const file='out/input-to-english-1080p.mp4';assert.ok(existsSync(file),'Full delivery is not rendered yet');
+const p=spawnSync('ffprobe',['-v','error','-count_frames','-show_streams','-show_format','-of','json',file],{encoding:'utf8'});assert.equal(p.status,0,p.stderr);
+const info=JSON.parse(p.stdout);const v=info.streams.find(s=>s.codec_type==='video'),a=info.streams.find(s=>s.codec_type==='audio');
+assert.equal(v.width,1920);assert.equal(v.height,1080);assert.equal(v.avg_frame_rate,'60/1');assert.equal(Number(v.nb_read_frames),1800);assert.equal(a.channels,2);assert.equal(Number(a.sample_rate),48000);assert.ok(Math.abs(Number(info.format.duration)-30)<.05);
+const d=spawnSync('ffmpeg',['-v','error','-i',file,'-f','null','-'],{encoding:'utf8'});assert.equal(d.status,0,d.stderr);
+const intermediate='out/input-to-english-4k.mp4';
+const k=spawnSync('ffprobe',['-v','error','-count_frames','-show_streams','-show_format','-of','json',intermediate],{encoding:'utf8'});assert.equal(k.status,0,k.stderr);
+const ki=JSON.parse(k.stdout),kv=ki.streams.find(s=>s.codec_type==='video');
+assert.equal(kv.width,3840);assert.equal(kv.height,2160);assert.equal(kv.avg_frame_rate,'60/1');assert.equal(Number(kv.nb_read_frames),1800);
+writeFileSync('out/verification.json',JSON.stringify({verifiedAt:new Date().toISOString(),duration:info.format.duration,width:v.width,height:v.height,fps:v.avg_frame_rate,frames:v.nb_read_frames,audioChannels:a.channels,sampleRate:a.sample_rate,decode:'PASS',file,intermediate:{file:intermediate,width:kv.width,height:kv.height,frames:kv.nb_read_frames,fps:kv.avg_frame_rate}},null,2));console.log('PASS — 1920×1080 / 60fps / 1800 frames / 30s / stereo48k / full decode; 4K intermediate verified');

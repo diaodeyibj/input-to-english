@@ -14,6 +14,38 @@ describe('runtime provider proxy', () => {
       .rejects.toMatchObject({ code: 'MALFORMED_RESPONSE' });
   });
 
+  it('retries one failed read of the selected provider while the worker reconnects', async () => {
+    const sendMessage = vi.fn().mockRejectedValueOnce(new Error('Could not establish connection. Receiving end does not exist.'))
+      .mockResolvedValueOnce({ ok: true, type: 'get-active-provider', activeProvider: 'browser' });
+    expect(await getActiveProvider({ sendMessage })).toBe('browser');
+    expect(sendMessage).toHaveBeenCalledTimes(2);
+    expect(sendMessage.mock.calls.every(([message]) => message.type === 'get-active-provider')).toBe(true);
+  });
+
+  it('asks for page refresh on invalidated extension context without retrying', async () => {
+    const sendMessage = vi.fn().mockRejectedValue(new Error('Extension context invalidated.'));
+    await expect(getActiveProvider({ sendMessage })).rejects.toMatchObject({
+      code: 'NETWORK_ERROR', retryable: false,
+      userMessage: expect.stringContaining('Refresh this page'),
+    });
+    expect(sendMessage).toHaveBeenCalledOnce();
+  });
+
+  it('stops after one read retry and explains how to restore the connection', async () => {
+    const sendMessage = vi.fn().mockRejectedValue(new Error('Receiving end does not exist.'));
+    await expect(getActiveProvider({ sendMessage })).rejects.toMatchObject({
+      code: 'NETWORK_ERROR', userMessage: expect.stringContaining('Refresh this page'),
+    });
+    expect(sendMessage).toHaveBeenCalledTimes(2);
+  });
+
+  it('never retries a translation that may already have reached the provider', async () => {
+    const sendMessage = vi.fn().mockRejectedValue(new Error('The message port closed before a response was received.'));
+    const provider = createRuntimeProvider('kimi', { sendMessage });
+    await expect(provider.translate({ text: '你好', targetLanguage: 'en' })).rejects.toMatchObject({ code: 'NETWORK_ERROR' });
+    expect(sendMessage).toHaveBeenCalledOnce();
+  });
+
   it('maps a translation request and result without sending credentials', async () => {
     const sendMessage = vi.fn(async () => ({
       ok: true, type: 'translate', result: { text: 'Hello', providerId: 'kimi' },
@@ -35,17 +67,6 @@ describe('runtime provider proxy', () => {
     expect(sendMessage).toHaveBeenCalledWith({ type: 'test-provider', providerId: 'deepseek' });
   });
 
-  it('maps runtime transport failures to safe NETWORK_ERROR', async () => {
-    const provider = createRuntimeProvider('ollama', {
-      sendMessage: async () => { throw new Error('Bearer secret-token'); },
-    });
-    await expect(provider.translate({ text: '你好', targetLanguage: 'en' }))
-      .rejects.toMatchObject({ code: 'NETWORK_ERROR', retryable: true });
-    const result = await provider.testConnection?.();
-    expect(result).toMatchObject({ ok: false, error: { code: 'NETWORK_ERROR' } });
-    expect(JSON.stringify(result)).not.toContain('secret-token');
-  });
-
   it('preserves structured provider codes without retaining extra error fields', async () => {
     const provider = createRuntimeProvider('deepseek', {
       sendMessage: async () => ({
@@ -65,7 +86,7 @@ describe('runtime provider proxy', () => {
 
   it('rejects a mismatched or malformed runtime success response', async () => {
     const provider = createRuntimeProvider('kimi', {
-      sendMessage: async () => ({ ok: true, type: 'list-ollama-models', models: [] }),
+      sendMessage: async () => ({ ok: true, type: 'get-active-provider', activeProvider: 'kimi' }),
     });
     await expect(provider.translate({ text: '你好', targetLanguage: 'en' }))
       .rejects.toMatchObject({ code: 'MALFORMED_RESPONSE' });

@@ -1,0 +1,20 @@
+{
+  "lang": "es",
+  "source": "Ayúdame a diseñar un nuevo cartel para mi proyecto.",
+  "text": "Ayúdame a diseñar un nuevo cartel para mi proyecto.",
+  "head": "Ayúdame",
+  "ref_id": 1,
+  "prompt": "Durante unos años, enseñó Física e Historia en el colegio de nobles de Parma.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-es-official.wav",
+  "ref_sha256": "373a10bc9ced818fb549ae3bdf34b1686dd04eb22a5fcdb1d2c782d84fb2760f",
+  "id": "es-b-conversation",
+  "language": "es",
+  "variant": "conversation",
+  "instruction": "请像和朋友聊天一样自然地说这句话，语气温暖轻松，不要朗读或播音。",
+  "mode": "instruct2",
+  "speed": 1.0,
+  "seed": 8641,
+  "start_frame": 500,
+  "cache_key": "2bd4e1da89ea8471d032c9030129ca4af7314f6854acd60c603fcb8161c150cc",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-es-b-conversation-2bd4e1da89ea8471-original.wav"
+}

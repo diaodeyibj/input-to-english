@@ -1,0 +1,16 @@
+{
+  "id": "en-r1-e",
+  "language": "en",
+  "text": "Help me design a more creative new logo",
+  "phrase": "Help me design a more creative new logo",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\round2\\reference-third.wav",
+  "ref_sha256": "bcca83c0c11c45ea04b6b7fa4753bcc688f9751890861d774372c918654c9268",
+  "prompt": "I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis",
+  "instruction": null,
+  "mode": "zero_shot",
+  "speed": 1.0,
+  "seed": 9812,
+  "start_frame": 1770,
+  "cache_key": "48056bef5364c0d92e648e0b44b2b0fba648c0366731cf2e1eb51079219e7363",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\round2\\en-r1-e-48056bef5364c0d9-original.wav"
+}

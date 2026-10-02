@@ -20,6 +20,8 @@ describe('background entrypoint', () => {
   let failLock: (reason: unknown) => void;
   let accessOptions: unknown;
   let storageThen: ReturnType<typeof vi.spyOn>;
+  let actionListener: (() => void) | undefined;
+  let openOptionsPage: ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -34,25 +36,52 @@ describe('background entrypoint', () => {
       return storageReady;
     };
     const addListener = vi.fn((callback: Listener) => { listener = callback; });
+    openOptionsPage = vi.fn(async () => undefined);
     vi.stubGlobal('browser', {
       storage: { local: { setAccessLevel } },
       runtime: { onMessage: { addListener } },
+    });
+    vi.stubGlobal('chrome', {
+      action: { onClicked: { addListener: vi.fn((callback: () => void) => { actionListener = callback; }) } },
+      runtime: { openOptionsPage },
     });
     background.main();
     expect(addListener).toHaveBeenCalledTimes(1);
   });
 
   it('restricts local storage before handling a message and keeps the async response channel open', async () => {
-    const response: RuntimeResponse = { ok: true, type: 'list-ollama-models', models: [] };
+    const response: RuntimeResponse = { ok: true, type: 'get-active-provider', activeProvider: 'browser' };
     vi.mocked(handleRuntimeMessage).mockResolvedValueOnce(response);
     const sendResponse = vi.fn();
     expect(accessOptions).toEqual({ accessLevel: 'TRUSTED_CONTEXTS' });
-    expect(listener({ type: 'list-ollama-models' }, {}, sendResponse)).toBe(true);
+    expect(listener({ type: 'get-active-provider' }, {}, sendResponse)).toBe(true);
     expect(handleRuntimeMessage).not.toHaveBeenCalled();
     finishLock();
     await vi.waitFor(() => expect(sendResponse).toHaveBeenCalledWith(response));
-    expect(handleRuntimeMessage).toHaveBeenCalledWith({ type: 'list-ollama-models' });
+    expect(handleRuntimeMessage).toHaveBeenCalledWith({ type: 'get-active-provider' });
     expect(sendResponse).toHaveBeenCalledTimes(1);
+  });
+
+  it('opens the full settings page when the toolbar icon is clicked', async () => {
+    actionListener?.();
+
+    await vi.waitFor(() => expect(openOptionsPage).toHaveBeenCalledOnce());
+  });
+
+  it('uses Edge legacy browserAction when the MV3 action API is unavailable', async () => {
+    const legacyOpenOptionsPage = vi.fn(async () => undefined);
+    let legacyListener: (() => void) | undefined;
+    vi.stubGlobal('chrome', {
+      browserAction: {
+        onClicked: { addListener: vi.fn((callback: () => void) => { legacyListener = callback; }) },
+      },
+      runtime: { openOptionsPage: legacyOpenOptionsPage },
+    });
+
+    background.main();
+    legacyListener?.();
+
+    await vi.waitFor(() => expect(legacyOpenOptionsPage).toHaveBeenCalledOnce());
   });
 
   it('keeps handling closed and returns a safe error if storage restriction fails before a message', async () => {

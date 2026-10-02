@@ -1,0 +1,42 @@
+{
+  "text": " Aiutami, voglio creare un nuovo video.",
+  "words": [
+    {
+      "word": " Aiutami,",
+      "start": 0.0,
+      "end": 0.7,
+      "probability": 0.9584524631500244
+    },
+    {
+      "word": " voglio",
+      "start": 0.92,
+      "end": 1.12,
+      "probability": 0.9964208900928497
+    },
+    {
+      "word": " creare",
+      "start": 1.12,
+      "end": 1.48,
+      "probability": 0.9996581077575684
+    },
+    {
+      "word": " un",
+      "start": 1.48,
+      "end": 1.6,
+      "probability": 0.9996020197868347
+    },
+    {
+      "word": " nuovo",
+      "start": 1.6,
+      "end": 1.8,
+      "probability": 0.9992086291313171
+    },
+    {
+      "word": " video.",
+      "start": 1.8,
+      "end": 2.18,
+      "probability": 0.9994383454322815
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

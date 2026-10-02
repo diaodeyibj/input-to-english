@@ -1,0 +1,120 @@
+{
+  "text": "手伝ってほしいんだけど新しいロゴを一緒に作ってくれる？",
+  "words": [
+    {
+      "word": "手",
+      "start": 0.0,
+      "end": 0.16,
+      "probability": 0.5473344326019287
+    },
+    {
+      "word": "伝",
+      "start": 0.16,
+      "end": 0.38,
+      "probability": 0.9936789274215698
+    },
+    {
+      "word": "って",
+      "start": 0.38,
+      "end": 0.66,
+      "probability": 0.9925510883331299
+    },
+    {
+      "word": "ほ",
+      "start": 0.66,
+      "end": 1.14,
+      "probability": 0.14446453750133514
+    },
+    {
+      "word": "しい",
+      "start": 1.14,
+      "end": 1.38,
+      "probability": 0.9955450296401978
+    },
+    {
+      "word": "んだ",
+      "start": 1.38,
+      "end": 1.58,
+      "probability": 0.9891424775123596
+    },
+    {
+      "word": "けど",
+      "start": 1.58,
+      "end": 1.84,
+      "probability": 0.9989731311798096
+    },
+    {
+      "word": "新",
+      "start": 1.84,
+      "end": 2.36,
+      "probability": 0.5013865232467651
+    },
+    {
+      "word": "しい",
+      "start": 2.36,
+      "end": 2.7,
+      "probability": 0.9979915618896484
+    },
+    {
+      "word": "ロ",
+      "start": 2.7,
+      "end": 2.84,
+      "probability": 0.9687134623527527
+    },
+    {
+      "word": "ゴ",
+      "start": 2.84,
+      "end": 2.98,
+      "probability": 0.9405802488327026
+    },
+    {
+      "word": "を",
+      "start": 2.98,
+      "end": 3.1,
+      "probability": 0.9790740013122559
+    },
+    {
+      "word": "一",
+      "start": 3.1,
+      "end": 3.2,
+      "probability": 0.8181167244911194
+    },
+    {
+      "word": "緒",
+      "start": 3.2,
+      "end": 3.38,
+      "probability": 0.9997881948947906
+    },
+    {
+      "word": "に",
+      "start": 3.38,
+      "end": 3.5,
+      "probability": 0.9987133741378784
+    },
+    {
+      "word": "作",
+      "start": 3.5,
+      "end": 3.66,
+      "probability": 0.9031772017478943
+    },
+    {
+      "word": "って",
+      "start": 3.66,
+      "end": 3.86,
+      "probability": 0.9978857636451721
+    },
+    {
+      "word": "く",
+      "start": 3.86,
+      "end": 3.96,
+      "probability": 0.9977014660835266
+    },
+    {
+      "word": "れる？",
+      "start": 3.96,
+      "end": 4.14,
+      "probability": 0.9974615573883057
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

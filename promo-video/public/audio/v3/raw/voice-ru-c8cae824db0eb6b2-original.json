@@ -1,0 +1,14 @@
+{
+  "id": "ru",
+  "language": "ru",
+  "text": "Помоги мне сделать новый сайт.",
+  "phrase": "Помоги мне",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+  "instruction": "Speak Russian naturally, with warm enthusiastic confidence and clear expression. Use a natural conversational pace; no rushing or shouting.",
+  "speed": 1.0,
+  "seed": 7307,
+  "start_frame": 800,
+  "ref_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+  "cache_key": "c8cae824db0eb6b2305378a832e52b46ce068c7b8d1ca9c7c9053e62e2728e14",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-ru-c8cae824db0eb6b2-original.wav"
+}

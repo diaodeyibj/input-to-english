@@ -28,6 +28,11 @@ describe('ChatGPT adapter', () => {
     expect(chatgptAdapter.findEditor(document)).toBeNull();
   });
 
+  it('finds a current composer contenteditable without the legacy prompt ID', () => {
+    document.body.innerHTML = '<main><form><div data-lexical-editor="true" contenteditable="true"></div></form></main>';
+    expect(chatgptAdapter.findEditor(document)?.element.getAttribute('data-lexical-editor')).toBe('true');
+  });
+
   it('reuses a live element handle and gives a recreated editor a fresh handle', () => {
     document.body.innerHTML = '<main><form data-testid="prompt-form"><div id="prompt-textarea" contenteditable="true"></div></form></main>';
     const first = chatgptAdapter.findEditor(document)!;

@@ -1,0 +1,14 @@
+import {readFileSync,writeFileSync,existsSync,copyFileSync} from 'node:fs';
+const candidate=process.argv[2];
+if(!candidate||process.argv[3]!=='--user-approved')throw Error('Requires explicit recorded user listening approval');
+const target='public/audio/v3/voices-manifest.json',previous=JSON.parse(readFileSync(target,'utf8'));
+const next=JSON.parse(readFileSync(candidate,'utf8'));
+if(!existsSync('public/audio/v3/voices-manifest-before-native-B.json'))copyFileSync(target,'public/audio/v3/voices-manifest-before-native-B.json');
+if(next.voices.length!==8)throw Error('Eight selected source languages required');
+const english=previous.voices.find(v=>v.language==='en');
+if(english.selected_candidate!=='en-b')throw Error('Preserve user-approved English B');
+previous.version='v3-native-B-logo-English-B-approved';
+previous.voices=[...next.voices,english];
+previous.native_selection={status:'user-approved',manifest:candidate,note:'User approved native B natural delivery and overlapping fades; Chinese request aligned with final new-logo English output using the same reference and delivery.'};
+writeFileSync(target,JSON.stringify(previous,null,2)+'\n');
+console.log('Selected eight native B takes with Chinese logo request; English B preserved.');

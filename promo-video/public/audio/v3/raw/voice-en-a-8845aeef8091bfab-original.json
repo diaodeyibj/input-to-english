@@ -1,0 +1,14 @@
+{
+  "id": "en-a",
+  "language": "en",
+  "text": "Help me design a new logo.",
+  "phrase": "Help me design a new logo.",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+  "instruction": "Speak in a mature, deep, resonant male professional announcer voice. Calm confidence, rich low register, clear articulation. Take an unhurried natural breath and speak the complete sentence in about three seconds. Do not shout.",
+  "speed": 1.0,
+  "seed": 7390,
+  "start_frame": 1800,
+  "ref_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+  "cache_key": "8845aeef8091bfabb0d6a6da81ee9c1df20ca09f98220e7b6df3af79f9d022d3",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-en-a-8845aeef8091bfab-original.wav"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "zh",
+  "language": "zh",
+  "text": "帮我，我想设计一张新海报。",
+  "phrase": "帮我",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+  "instruction": "Speak Mandarin with gentle curiosity and natural conversational warmth. Use a natural conversational pace; no rushing or shouting.",
+  "speed": 1.0,
+  "seed": 7300,
+  "start_frame": 100,
+  "ref_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+  "cache_key": "ccd62c8d35377e01628583394c4cbfa94e825b0322087ad68e25cb810e6d6e31",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-zh-ccd62c8d35377e01-original.wav"
+}

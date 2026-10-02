@@ -1,0 +1,60 @@
+{
+  "text": " Ayúdame a diseñar un nuevo cartel para mi proyecto.",
+  "words": [
+    {
+      "word": " Ayúdame",
+      "start": 0.0,
+      "end": 0.6,
+      "probability": 0.8714927136898041
+    },
+    {
+      "word": " a",
+      "start": 0.6,
+      "end": 0.66,
+      "probability": 0.9902846217155457
+    },
+    {
+      "word": " diseñar",
+      "start": 0.66,
+      "end": 1.24,
+      "probability": 0.9993366599082947
+    },
+    {
+      "word": " un",
+      "start": 1.24,
+      "end": 1.44,
+      "probability": 0.9975939393043518
+    },
+    {
+      "word": " nuevo",
+      "start": 1.44,
+      "end": 1.72,
+      "probability": 0.9974950551986694
+    },
+    {
+      "word": " cartel",
+      "start": 1.72,
+      "end": 2.24,
+      "probability": 0.9942832589149475
+    },
+    {
+      "word": " para",
+      "start": 2.24,
+      "end": 2.46,
+      "probability": 0.9962783455848694
+    },
+    {
+      "word": " mi",
+      "start": 2.46,
+      "end": 2.64,
+      "probability": 0.9979405999183655
+    },
+    {
+      "word": " proyecto.",
+      "start": 2.64,
+      "end": 3.16,
+      "probability": 0.9979323148727417
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

@@ -1,0 +1,36 @@
+{
+  "text": " Hey look a flying pig",
+  "words": [
+    {
+      "word": " Hey",
+      "start": 0.0,
+      "end": 1.16,
+      "probability": 0.8350445628166199
+    },
+    {
+      "word": " look",
+      "start": 1.16,
+      "end": 1.64,
+      "probability": 0.774499773979187
+    },
+    {
+      "word": " a",
+      "start": 1.64,
+      "end": 1.86,
+      "probability": 0.5458054542541504
+    },
+    {
+      "word": " flying",
+      "start": 1.86,
+      "end": 2.24,
+      "probability": 0.9697753190994263
+    },
+    {
+      "word": " pig",
+      "start": 2.24,
+      "end": 2.78,
+      "probability": 0.9451431632041931
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

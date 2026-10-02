@@ -1,0 +1,20 @@
+{
+  "lang": "ru",
+  "source": "Помоги мне сделать новый сайт для моего проекта.",
+  "text": "Помоги мне сделать новый сайт для моего проекта.",
+  "head": "Помоги мне",
+  "ref_id": 3,
+  "prompt": "Неожиданно катастрофа приобрела глобальные масштабы.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-ru-official.wav",
+  "ref_sha256": "c2a7629b6e11a03c8feb8d0884283b9c0dff982a3e810cd5cb142b6c32e40a3b",
+  "id": "ru-b-context",
+  "language": "ru",
+  "variant": "context",
+  "instruction": null,
+  "mode": "zero_shot",
+  "speed": 1.0,
+  "seed": 8670,
+  "start_frame": 800,
+  "cache_key": "6f149f456618410c3bf5a1b4481d679b4ec1bde2316ee1414ce89c83ee83d540",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-ru-b-context-6f149f456618410c-original.wav"
+}

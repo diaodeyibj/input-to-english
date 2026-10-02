@@ -1,0 +1,14 @@
+{
+  "id": "es",
+  "language": "es",
+  "text": "Ayúdame a crear un nuevo cartel.",
+  "phrase": "Ayúdame",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+  "instruction": "Speak Spanish naturally, with warm enthusiasm and engaged expression. Use a natural conversational pace; no rushing or shouting.",
+  "speed": 1.0,
+  "seed": 7304,
+  "start_frame": 500,
+  "ref_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+  "cache_key": "f6e75589ba72cb08787e9c7c5352f82ed1670e4c96543a759dc2fb57821cdd04",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-es-f6e75589ba72cb08-original.wav"
+}

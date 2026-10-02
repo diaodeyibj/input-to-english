@@ -1,0 +1,42 @@
+{
+  "text": " Ayúdame, quiero crear un nuevo cartel.",
+  "words": [
+    {
+      "word": " Ayúdame,",
+      "start": 0.0,
+      "end": 0.56,
+      "probability": 0.9476578682661057
+    },
+    {
+      "word": " quiero",
+      "start": 0.76,
+      "end": 1.04,
+      "probability": 0.9970406889915466
+    },
+    {
+      "word": " crear",
+      "start": 1.04,
+      "end": 1.36,
+      "probability": 0.9993763566017151
+    },
+    {
+      "word": " un",
+      "start": 1.36,
+      "end": 1.54,
+      "probability": 0.9995668530464172
+    },
+    {
+      "word": " nuevo",
+      "start": 1.54,
+      "end": 1.76,
+      "probability": 0.9993225336074829
+    },
+    {
+      "word": " cartel.",
+      "start": 1.76,
+      "end": 2.22,
+      "probability": 0.9834242761135101
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

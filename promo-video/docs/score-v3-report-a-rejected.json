@@ -1,0 +1,232 @@
+{
+  "version": "v3",
+  "status": "Candidate A rejected by user: groove felt uncomfortable / insufficiently close to reference. Preserved for comparison; do not use for final video.",
+  "seconds": 40,
+  "sample_rate": 48000,
+  "channels": 2,
+  "pcm_bits": 24,
+  "bpm": 144,
+  "bars": 24,
+  "fps": 60,
+  "composition": "Original E minor / D / C / A minor syncopated bass, dry backbeat, ghost snare, hat variations, muted chord stabs and FM-bell call/reply. New composition; no reference audio sample.",
+  "reference_access": "The coordinating agent inspected direct browser playback and observed a 39-second feature promo with fast UI movement, feature headings and mouse zooms. Browser page asset inventory did not expose an exportable video. Reference audio was not heard or measured; no claim of tempo, beat or instrumentation equivalence is made.",
+  "reference_urls": [
+    "https://x.com/Kimi_Moonshot/status/2102372557190230244",
+    "https://www.youtube.com/watch?v=L1y09RA3fts"
+  ],
+  "mix": "Only 700-4800 Hz melodic band ducks for speech (native 0.39, English 0.24). No speech duck on drums/bass. 2-pass EBU master target -16 LUFS / <=-1.5 dBTP.",
+  "voice_windows": [
+    {
+      "language": "zh",
+      "start_frame": 100,
+      "end_frame": 127.6,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-zh.wav"
+    },
+    {
+      "language": "ja",
+      "start_frame": 200,
+      "end_frame": 247.1,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-ja.wav"
+    },
+    {
+      "language": "ko",
+      "start_frame": 300,
+      "end_frame": 319.8,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-ko.wav"
+    },
+    {
+      "language": "de",
+      "start_frame": 400,
+      "end_frame": 438.7,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-de.wav"
+    },
+    {
+      "language": "es",
+      "start_frame": 500,
+      "end_frame": 541.4,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-es.wav"
+    },
+    {
+      "language": "fr",
+      "start_frame": 600,
+      "end_frame": 634.5,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-fr.wav"
+    },
+    {
+      "language": "it",
+      "start_frame": 700,
+      "end_frame": 749.5,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-it.wav"
+    },
+    {
+      "language": "ru",
+      "start_frame": 800,
+      "end_frame": 845.6,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/voice-ru.wav"
+    },
+    {
+      "language": "en",
+      "start_frame": 1800,
+      "end_frame": 1961.4,
+      "mix_gain": 1.0,
+      "file": "public/audio/v3/voice-en.wav"
+    }
+  ],
+  "measurements": {
+    "drums": {
+      "integrated_lufs": -22.63,
+      "true_peak_dbtp": -7.94,
+      "loudness_range_lu": 3.1,
+      "threshold_lufs": -32.76
+    },
+    "bass": {
+      "integrated_lufs": -24.47,
+      "true_peak_dbtp": -15.58,
+      "loudness_range_lu": 4.5,
+      "threshold_lufs": -34.6
+    },
+    "melody": {
+      "integrated_lufs": -29.13,
+      "true_peak_dbtp": -12.96,
+      "loudness_range_lu": 8.9,
+      "threshold_lufs": -39.48
+    },
+    "music": {
+      "integrated_lufs": -20.18,
+      "true_peak_dbtp": -6.13,
+      "loudness_range_lu": 2.9,
+      "threshold_lufs": -30.31
+    },
+    "effects": {
+      "integrated_lufs": -35.4,
+      "true_peak_dbtp": -11.78,
+      "loudness_range_lu": 17.4,
+      "threshold_lufs": -47.12
+    },
+    "master": {
+      "integrated_lufs": -16.28,
+      "true_peak_dbtp": -1.66,
+      "loudness_range_lu": 5.0,
+      "threshold_lufs": -26.42
+    },
+    "voices": {
+      "integrated_lufs": -16.45,
+      "true_peak_dbtp": -1.48,
+      "loudness_range_lu": 5.1,
+      "threshold_lufs": -27.31
+    },
+    "audition": {
+      "integrated_lufs": -16.43,
+      "true_peak_dbtp": -1.65,
+      "loudness_range_lu": 1.9,
+      "threshold_lufs": -26.43
+    }
+  },
+  "regional_rms_dbfs": {
+    "languages": {
+      "drums": -22.95,
+      "bass": -24.25,
+      "music": -20.3,
+      "voices": -23.33
+    },
+    "before_en": {
+      "drums": -23.84,
+      "bass": -24.47,
+      "music": -21.0,
+      "voices": -240.0
+    },
+    "after_en": {
+      "drums": -21.91,
+      "bass": -24.39,
+      "music": -19.47,
+      "voices": -240.0
+    },
+    "english": {
+      "drums": -25.71,
+      "bass": -28.9,
+      "music": -23.98,
+      "voices": -18.37
+    },
+    "brand": {
+      "drums": -28.46,
+      "bass": -31.84,
+      "music": -24.25,
+      "voices": -240.0
+    }
+  },
+  "validation": {
+    "stem_frames": 1920000,
+    "audition_frames": 960000,
+    "stem_sum_max_error": 0.0,
+    "en_pocket_max_amplitude": 0.0,
+    "tail_max_amplitude": 0.0
+  },
+  "stops_frames": [
+    [
+      1390,
+      1400
+    ],
+    [
+      1095,
+      1100
+    ]
+  ],
+  "dry_tail_start_seconds": 39.65,
+  "audition": {
+    "file": "audition/music-groove.wav",
+    "source_start_seconds": 9,
+    "duration_seconds": 20,
+    "en_click_in_audition_seconds": 14.333333333333332
+  },
+  "phase_map": [
+    {
+      "frame": 0,
+      "label": "intro"
+    },
+    {
+      "frame": 100,
+      "label": "eight languages"
+    },
+    {
+      "frame": 900,
+      "label": "Waiting / Token overhead"
+    },
+    {
+      "frame": 1100,
+      "label": "settings / DeepSeek"
+    },
+    {
+      "frame": 1400,
+      "label": "EN click / converge"
+    },
+    {
+      "frame": 1600,
+      "label": "Less waiting / Fewer tokens"
+    },
+    {
+      "frame": 1800,
+      "label": "English full line"
+    },
+    {
+      "frame": 2000,
+      "label": "logo morph"
+    },
+    {
+      "frame": 2200,
+      "label": "brand land"
+    },
+    {
+      "frame": 2400,
+      "label": "end"
+    }
+  ],
+  "user_feedback": "需要更贴近参考片，这个有些怪，是有律动但律动是不舒服的"
+}

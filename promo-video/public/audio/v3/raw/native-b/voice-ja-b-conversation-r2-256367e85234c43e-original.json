@@ -1,0 +1,23 @@
+{
+  "lang": "ja",
+  "source": "手伝ってほしいんだけど新しいロゴを一緒に作ってくれる？",
+  "text": "テツダッテ ホシインダケド アタラシイ ロゴ ヲ イッショニ ツクッテ クレル？",
+  "head": "手伝って",
+  "ref_id": 25,
+  "prompt": "ライシュウ ビヨウイン デ カミ ヲ キロウ ト オモッテ イマス。",
+  "revision": "r2",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-ja-official.wav",
+  "ref_sha256": "aa84b6770aedd0fd284129478a1514ae987b815c967bdc94dfdebbefa4dca4e4",
+  "id": "ja-b-conversation-r2",
+  "language": "ja",
+  "variant": "conversation",
+  "instruction": "请像和朋友聊天一样自然地说这句话，语气温暖轻松，不要朗读或播音。",
+  "mode": "instruct2",
+  "asr_initial_prompt": "手伝ってほしいんだけど新しいロゴを一緒に作ってくれる？",
+  "alignment_suffix": ".alignment-natural.json",
+  "speed": 1.0,
+  "seed": 8611,
+  "start_frame": 200,
+  "cache_key": "256367e85234c43e7b5244f1637238424efe9c7a3f0cb0657563924165a733dd",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-ja-b-conversation-r2-256367e85234c43e-original.wav"
+}

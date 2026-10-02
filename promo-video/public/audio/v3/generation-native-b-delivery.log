@@ -1,0 +1,17 @@
+IDENTITY CACHE zh-b-context
+IDENTITY CACHE zh-b-conversation
+IDENTITY CACHE ja-b-context
+IDENTITY CACHE ja-b-conversation
+IDENTITY CACHE ko-b-context
+IDENTITY CACHE ko-b-conversation
+IDENTITY CACHE de-b-context
+IDENTITY CACHE de-b-conversation
+IDENTITY CACHE es-b-context
+IDENTITY CACHE es-b-conversation
+IDENTITY CACHE fr-b-context
+IDENTITY CACHE fr-b-conversation
+IDENTITY CACHE it-b-context
+IDENTITY CACHE it-b-conversation
+IDENTITY CACHE ru-b-context
+IDENTITY CACHE ru-b-conversation
+READY F:\chatGPT\Second-Class\promo-video\public\audio\v3\native-b\voices-manifest-native-b.json

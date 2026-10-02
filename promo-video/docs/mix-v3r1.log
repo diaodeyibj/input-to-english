@@ -1,0 +1,1 @@
+PASS v3r1 mix en-r1-c {'integrated_lufs': -16.16, 'true_peak_dbtp': -1.66, 'loudness_range_lu': 7.3, 'threshold_lufs': -26.56}

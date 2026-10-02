@@ -1,0 +1,25 @@
+{
+  "sample_rate": 48000,
+  "duration_seconds": 30,
+  "voice_sources": "local CosyVoice3",
+  "original_score_bpm": 144,
+  "music_gain": 1.5,
+  "premix_peak": 1.1787408409839222,
+  "premix_safe_gain": 0.7720102403853268,
+  "target_lufs": -16,
+  "true_peak_db": -1.5,
+  "measured_integrated_lufs": -17.63,
+  "measured_true_peak_dbTP": -1.50,
+  "measured_loudness_range_lu": 7.90,
+  "voice_start_frames": [
+    200,
+    250,
+    300,
+    350,
+    400,
+    450,
+    500,
+    550,
+    720
+  ]
+}

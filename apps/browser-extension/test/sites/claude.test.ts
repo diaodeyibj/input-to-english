@@ -20,6 +20,13 @@ describe('Claude adapter', () => {
     expect(claudeAdapter.findControlAnchor(handle!)).toBe(handle?.element.closest('[data-testid="chat-input"]'));
   });
 
+  it('finds a composer when chat-input is on the editor itself and anchors outside it', () => {
+    document.body.innerHTML = '<main><div id="composer"><div id="editor-layer"><div data-testid="chat-input" class="tiptap ProseMirror" contenteditable="true"></div></div></div></main>';
+    const handle = claudeAdapter.findEditor(document);
+    expect(handle?.element.getAttribute('data-testid')).toBe('chat-input');
+    expect(claudeAdapter.findControlAnchor(handle!)).toBe(document.querySelector('#composer'));
+  });
+
   it('uses only a composer scoped fallback', () => {
     document.body.innerHTML = '<div class="ProseMirror" contenteditable="true"></div><main><form><fieldset><div class="ProseMirror" contenteditable="true"></div></fieldset></form></main>';
     expect(claudeAdapter.findEditor(document)?.element.closest('fieldset')).not.toBeNull();
@@ -27,8 +34,23 @@ describe('Claude adapter', () => {
     expect(claudeAdapter.findEditor(document)).toBeNull();
   });
 
+  it('finds a current form-contained contenteditable without the ProseMirror class', () => {
+    document.body.innerHTML = '<main><form><fieldset><div data-placeholder="Message Claude" contenteditable="true"></div></fieldset></form></main>';
+    expect(claudeAdapter.findEditor(document)?.element.getAttribute('data-placeholder')).toBe('Message Claude');
+  });
+
+  it('finds the current standalone composer by its placeholder', () => {
+    document.body.innerHTML = '<main><div data-placeholder="Message Claude" contenteditable="true"></div></main>';
+    expect(claudeAdapter.findEditor(document)?.element.getAttribute('data-placeholder')).toBe('Message Claude');
+  });
+
   it('ignores a rich text editor in an unrelated fieldset', () => {
     document.body.innerHTML = '<aside><fieldset><div class="ProseMirror" contenteditable="true"></div></fieldset></aside>';
+    expect(claudeAdapter.findEditor(document)).toBeNull();
+  });
+
+  it('ignores an unmarked ProseMirror editor outside a Claude composer', () => {
+    document.body.innerHTML = '<main><section><div class="ProseMirror" contenteditable="true"></div></section></main>';
     expect(claudeAdapter.findEditor(document)).toBeNull();
   });
 

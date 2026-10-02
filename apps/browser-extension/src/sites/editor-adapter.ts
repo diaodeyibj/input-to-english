@@ -1,15 +1,17 @@
 export interface EditorHandle {
   readonly element: HTMLElement;
   readText(): string;
-  /** Throws if the host editor cancels beforeinput; a normal return means replacement occurred. */
-  replaceText(text: string): void;
+  /** Resolves only when the host accepts the text; rechecks ownership before writing. */
+  replaceText(text: string, canWrite?: () => boolean): void | Promise<void>;
   getRevision(): number;
   focus(): void;
 }
 
 export interface SiteAdapter {
-  readonly id: 'chatgpt' | 'claude';
-  findEditor(document: Document): EditorHandle | null;
+  readonly id: 'chatgpt' | 'claude' | 'gemini' | 'x';
+  readonly requiresFocus?: boolean;
+  readonly protectContent?: boolean;
+  findEditor(document: Document, focusedTarget?: Element | null): EditorHandle | null;
   findControlAnchor(editor: EditorHandle): HTMLElement | null;
-  isPromptSubmitted(event: Event): boolean;
+  isPromptSubmitted(event: Event, editor?: EditorHandle): boolean;
 }

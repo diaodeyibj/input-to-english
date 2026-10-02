@@ -44,6 +44,28 @@ afterEach(() => {
 });
 
 describe('content provider factory', () => {
+  it('prewarms the non-English language in English-dominant input before the local click', async () => {
+    const { translatorAvailability } = localApis();
+    const mixed = 'Please help me design a more creative new logo 谢谢';
+    vi.stubGlobal('LanguageDetector', { create: async () => ({
+      detect: async (text: string) => [{ detectedLanguage: text === mixed ? 'en' : 'zh', confidence: 0.99 }],
+      destroy: vi.fn(),
+    }) });
+    const provider = createActiveProvider({ runtimeClient: {
+      sendMessage: async () => ({ ok: true, type: 'get-active-provider', activeProvider: 'browser' }),
+    } });
+    await provider.refreshSelection();
+    const { editor, controller, button } = controlFor(provider);
+    editor.value = mixed;
+    editor.dispatchEvent(new Event('input', { bubbles: true }));
+    await vi.waitFor(() => expect(translatorAvailability).toHaveBeenCalledWith({ sourceLanguage: 'zh', targetLanguage: 'en' }));
+    await Promise.resolve();
+    button.click();
+    await vi.waitFor(() => expect(controller.state.status).toBe('success'));
+    expect(editor.value).toBe('Hello');
+    controller.dispose();
+  });
+
   it('starts detector creation during input and translator creation in the click task before selection resolves', async () => {
     const { detectorCreate, translatorCreate, translatorAvailability } = localApis();
     let actionSelection!: (value: unknown) => void;
@@ -140,7 +162,10 @@ describe('content provider factory', () => {
     button.click();
     await vi.waitFor(() => expect(controller.state.status).toBe('error'));
     expect(controller.state.error?.code).toBe('BROWSER_API_UNAVAILABLE');
-    expect(controller.state.error?.userMessage).toMatch(/unavailable/i);
+    await vi.waitFor(async () => {
+      await controller.translate();
+      expect(controller.state.error?.userMessage).toMatch(/unavailable/i);
+    });
     expect(controller.state.error?.userMessage).not.toMatch(/prepar/i);
     expect(editor.value).toBe('你好');
   });
@@ -370,7 +395,7 @@ describe('content provider factory', () => {
     ]);
   });
 
-  it.each(['deepseek', 'kimi', 'ollama'] as const)('routes %s through only its runtime proxy', async (id) => {
+  it.each(['deepseek', 'kimi'] as const)('routes %s through only its runtime proxy', async (id) => {
     const sendMessage = vi.fn(async () => ({
       ok: true, type: 'translate', result: { text: 'Hello', providerId: id },
     }));

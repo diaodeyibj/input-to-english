@@ -1,0 +1,20 @@
+{
+  "lang": "fr",
+  "source": "Aide-moi à créer une nouvelle affiche pour mon projet.",
+  "text": "Aide-moi à créer une nouvelle affiche pour mon projet.",
+  "head": "Aide-moi",
+  "ref_id": 1,
+  "prompt": "Ce dernier a évolué tout au long de l'histoire romaine.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-fr-official.wav",
+  "ref_sha256": "af7487e23134c3fcc6d74627dcefb5c3c45a2bfa24b4290758efd89139a43884",
+  "id": "fr-b-conversation",
+  "language": "fr",
+  "variant": "conversation",
+  "instruction": "请像和朋友聊天一样自然地说这句话，语气温暖轻松，不要朗读或播音。",
+  "mode": "instruct2",
+  "speed": 1.0,
+  "seed": 8651,
+  "start_frame": 600,
+  "cache_key": "4298502aa1d1bdb1783f5b833aa4a647b08cef7e6a8fe4d68cfd30bce22e244a",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-fr-b-conversation-4298502aa1d1bdb1-original.wav"
+}

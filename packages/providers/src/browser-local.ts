@@ -3,6 +3,7 @@ import {
   type TranslationOptions,
   type TranslationProvider,
 } from '../../core/src/index';
+import { detectSourceLanguage, nonLatinText } from './language-detection';
 
 export interface LanguageDetectionBridge {
   detect(
@@ -86,23 +87,14 @@ export function createBrowserLocalProvider({
       if (!detector || !translator) throw browserUnavailable();
 
       let source = normalizeLanguageTag(request.sourceLanguage);
-      if (request.sourceLanguage === undefined) {
-        let detection: { detectedLanguage: string; confidence: number };
+      if (request.sourceLanguage === undefined ||
+          (source?.split('-')[0].toLowerCase() === 'en' && nonLatinText(request.text))) {
         try {
-          detection = await detector.detect(request.text, { signal: options?.signal });
+          source = await detectSourceLanguage(request.text, detector, { signal: options?.signal });
         } catch (cause) {
           throw isAbort(cause, options?.signal) ? timedOut() : browserUnavailable();
         }
         checkAbort(options?.signal);
-        if (
-          !detection ||
-          !Number.isFinite(detection.confidence) ||
-          detection.confidence < 0.5 ||
-          detection.confidence > 1
-        ) {
-          throw browserUnavailable();
-        }
-        source = normalizeLanguageTag(detection.detectedLanguage);
       }
       if (!source) throw browserUnavailable();
       if (source.toLowerCase().split('-')[0] === 'en') {

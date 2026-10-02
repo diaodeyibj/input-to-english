@@ -1,24 +1,24 @@
 # Input to English
 
-Input to English is a Manifest V3 browser extension for Chrome and Edge. It adds a compact `-> EN` control beside the active prompt editor on ChatGPT and Claude. Pressing the control translates the current prompt into English in place. It never submits the prompt.
+Input to English is a Manifest V3 browser extension for Chrome and Edge. It adds a compact `-> EN` control beside the active input editor on ChatGPT, Claude, Gemini and X. Pressing the control translates your own input into English in place. It never submits the input or publishes a post. Gemini and X target Edge for initial verification; their adapters are shared with Chrome.
 
 The first release supports:
 
 - ChatGPT at `https://chatgpt.com`
 - Claude at `https://claude.ai`
+- Gemini at `https://gemini.google.com` (web chat, not a Gemini API provider)
+- X at `https://x.com` (posts, replies, quote commentary and individual thread entries; excludes DMs and Grok)
 - Browser Local Translation
 - DeepSeek with your own API key
 - Kimi with your own API key
-- A locally running Ollama service at `http://localhost:11434`
 
 ## Prerequisites
 
 - A current Node.js LTS release with npm
 - Chrome 138 or later for Browser Local Translation
 - Edge 148 or later for Browser Local Translation
-- An authenticated ChatGPT or Claude session for normal use
+- An authenticated session for the site you want to use
 - Optional: a DeepSeek or Kimi API key for the matching cloud provider
-- Optional: Ollama running locally with at least one installed chat model
 
 Browser Local support is determined by the browser at runtime. Browser version alone does not guarantee that every source-language pack is available.
 
@@ -65,17 +65,21 @@ npm run zip:edge
 3. Select **Load unpacked**.
 4. Choose `.output/edge-mv3`.
 
-After loading the extension, open its **Options** page to select and configure one provider. Reload an already-open ChatGPT or Claude tab after installing or rebuilding the extension.
+After loading the extension, open its **Options** page to select and configure one provider. Reload an already-open supported-site tab after installing or rebuilding the extension. After updating, confirm the browser has granted access to Gemini and X as well.
 
 ## Use it
 
-1. Open ChatGPT or Claude and focus the prompt editor.
+1. Open a supported site and focus the input editor. On Gemini and X, the control appears only after you focus a supported editor.
 2. Enter a prompt in Chinese, Japanese, French, or another supported source language.
 3. Press `-> EN`.
 4. Review the English replacement, then submit it yourself if it is correct.
 5. Press **Undo** to restore the original prompt while Undo is still available.
 
 Undo is deliberately invalidated after you edit or submit the translated prompt, start another translation, navigate, or allow the Undo window to expire. If the prompt changes while a translation request is running, the extension keeps the newer prompt instead of overwriting it.
+
+On Gemini and X, only one control follows the focused editor. Switching to another editor cancels the previous translation and invalidates its Undo. Clicking the extension's own buttons retains the current target. Quoted posts, received replies and page content are never translated.
+
+Links, `@usernames`, `#hashtags`, emoji and line breaks are protected on the new sites. If a provider changes or loses the protected markers, no replacement occurs. Unsupported embedded rich content is also left untouched. Only editor text is replaced; attachments and quote/reply context are not modified. English that exceeds X's limit is written in full; review X's native counter and shorten it yourself before posting.
 
 ## Configure providers
 
@@ -103,23 +107,14 @@ The default model ID is `deepseek-flash`, and it can be edited. Translated promp
 
 The default model ID is `kimi-k2.6`, and it can be edited. Translated prompt text is sent to the official Kimi API only when Kimi is selected and you press `-> EN`.
 
-### Ollama
-
-1. Install and start Ollama locally.
-2. Install at least one suitable model, for example with `ollama pull <model>`.
-3. Open the extension Options page and select **Ollama**.
-4. Press **Refresh models**, choose a model, press **Save model**, and then **Test connection**.
-
-Version 1 always connects to `http://localhost:11434`. Remote and LAN Ollama endpoints are intentionally unsupported.
-
 ## Privacy and security
 
 - Settings and API keys are stored only in extension-local storage; sync storage is not used.
-- API keys stay in the background extension context and are not placed in ChatGPT or Claude page content.
-- Browser Local and Ollama keep prompt text on this device.
+- API keys stay in the background extension context and are not placed in supported-site page content.
+- Browser Local keeps prompt text on this device.
 - DeepSeek and Kimi send only the prompt being translated to the selected provider's official API.
 - There is no translation history, telemetry, account system, or automatic provider fallback.
-- The extension requests access only to ChatGPT, Claude, the two official cloud API origins, and local Ollama.
+- The extension requests access only to ChatGPT, Claude, Gemini, X and the two official cloud API origins.
 
 Never commit real API keys to this repository or paste them into issue reports.
 
@@ -127,10 +122,15 @@ Never commit real API keys to this repository or paste them into issue reports.
 
 ### The `-> EN` control is missing
 
-- Confirm the page is `chatgpt.com` or `claude.ai`.
+- Confirm the page is `chatgpt.com`, `claude.ai`, `gemini.google.com` or `x.com`.
 - Focus the site's active prompt editor.
 - Reload the tab after installing, updating, or rebuilding the extension.
 - Confirm the matching unpacked build is enabled on the browser's extensions page.
+- On Gemini/X, click inside your own supported composer first. Search, DMs and Grok are excluded. Moving between thread entries switches the translation target.
+
+### The rich editor or protected content cannot be updated
+
+X uses the host's plain-text paste handler to update Draft state; Gemini uses native insertion and waits for Quill to normalize it. No direct DOM rewrite fallback is used. Unsupported embedded content, unavailable editing or invalid protected markers stop the action. If a host fails after partially changing its draft, the error control offers the exact original in a read-only recovery field. Subsequent user edits are never rolled back automatically.
 
 ### Browser Local is unavailable or downloading
 
@@ -149,13 +149,6 @@ Never commit real API keys to this repository or paste them into issue reports.
 ### DeepSeek or Kimi reports a rate limit or service error
 
 Check the provider account quota and service status, then retry later. The extension will not switch providers automatically; choose another provider explicitly if desired.
-
-### Ollama is unavailable or no models appear
-
-- Confirm Ollama is running at `http://localhost:11434`.
-- Open that address or run `ollama list` locally to confirm the service responds.
-- Install a model, return to Options, and press **Refresh models** again.
-- If a saved model was removed, select and save an installed replacement.
 
 ### Translation failed but my prompt is still present
 

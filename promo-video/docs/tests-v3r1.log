@@ -1,0 +1,158 @@
+
+> input-to-english-promo@1.0.0 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: all nine locally generated clips match the scene timing and contain valid stereo PCM
+ok 1 - all nine locally generated clips match the scene timing and contain valid stereo PCM
+  ---
+  duration_ms: 5.3748
+  type: 'test'
+  ...
+# Subtest: 30 seconds at 60fps with eight distinct two-beat slots
+ok 2 - 30 seconds at 60fps with eight distinct two-beat slots
+  ---
+  duration_ms: 1.0948
+  type: 'test'
+  ...
+# Subtest: all frame boundaries select the intended scene and never extend delivery
+ok 3 - all frame boundaries select the intended scene and never extend delivery
+  ---
+  duration_ms: 0.2216
+  type: 'test'
+  ...
+# Subtest: v2 media provenance and voice end frames agree with window choreography
+ok 4 - v2 media provenance and voice end frames agree with window choreography
+  ---
+  duration_ms: 20.6296
+  type: 'test'
+  ...
+# Subtest: v2 has eight four-beat slots and shrinks only after speech and typing finish
+ok 5 - v2 has eight four-beat slots and shrinks only after speech and typing finish
+  ---
+  duration_ms: 13.8646
+  type: 'test'
+  ...
+# Subtest: v2 click/English/morph land on the approved beats with grapheme-safe typing
+ok 6 - v2 click/English/morph land on the approved beats with grapheme-safe typing
+  ---
+  duration_ms: 0.3321
+  type: 'test'
+  ...
+# Subtest: selected English B keeps its exact approved recording and complete displayed sentence
+ok 7 - selected English B keeps its exact approved recording and complete displayed sentence
+  ---
+  duration_ms: 1.5072
+  type: 'test'
+  ...
+# Subtest: native candidate character onsets and window tails use the actual audio markers
+ok 8 - native candidate character onsets and window tails use the actual audio markers
+  ---
+  duration_ms: 3.5523
+  type: 'test'
+  ...
+# Subtest: v3 ordering preserves setup before EN and the before/after comparison
+ok 9 - v3 ordering preserves setup before EN and the before/after comparison
+  ---
+  duration_ms: 1.2101
+  type: 'test'
+  ...
+# Subtest: all eight naturally spoken inputs type from onset and finish before recession
+ok 10 - all eight naturally spoken inputs type from onset and finish before recession
+  ---
+  duration_ms: 10.4684
+  type: 'test'
+  ...
+# Subtest: camera travels through space and returns to the same input before clicking
+ok 11 - camera travels through space and returns to the same input before clicking
+  ---
+  duration_ms: 1.0768
+  type: 'test'
+  ...
+# Subtest: overlapping voice tails never reverse the window recession interval
+ok 12 - overlapping voice tails never reverse the window recession interval
+  ---
+  duration_ms: 0.1883
+  type: 'test'
+  ...
+# Subtest: pointer clicks precede typing and adjacent windows leave input space clear
+ok 13 - pointer clicks precede typing and adjacent windows leave input space clear
+  ---
+  duration_ms: 1.4268
+  type: 'test'
+  ...
+# Subtest: camera and spatial windows have no discontinuities at phase boundaries
+ok 14 - camera and spatial windows have no discontinuities at phase boundaries
+  ---
+  duration_ms: 0.7913
+  type: 'test'
+  ...
+# Subtest: final English is the explicitly corrected C audition with complete text
+ok 15 - final English is the explicitly corrected C audition with complete text
+  ---
+  duration_ms: 2.9477
+  type: 'test'
+  ...
+# Subtest: native B recordings and accepted C rhythm stems remain byte-identical
+ok 16 - native B recordings and accepted C rhythm stems remain byte-identical
+  ---
+  duration_ms: 39.4344
+  type: 'test'
+  ...
+# Subtest: mux contract references the current mix, manifest, timing and timeline
+ok 17 - mux contract references the current mix, manifest, timing and timeline
+  ---
+  duration_ms: 9.0873
+  type: 'test'
+  ...
+# Subtest: settings click actually lands inside the toolbar icon on screen
+ok 18 - settings click actually lands inside the toolbar icon on screen
+  ---
+  duration_ms: 3.0052
+  type: 'test'
+  ...
+# Subtest: settings click follows a stable single-browser closeup
+ok 19 - settings click follows a stable single-browser closeup
+  ---
+  duration_ms: 0.1842
+  type: 'test'
+  ...
+# Subtest: English output retains the complete creative request
+ok 20 - English output retains the complete creative request
+  ---
+  duration_ms: 0.1275
+  type: 'test'
+  ...
+# Subtest: cursor stays continuous entering and leaving the settings gesture
+ok 21 - cursor stays continuous entering and leaving the settings gesture
+  ---
+  duration_ms: 0.4977
+  type: 'test'
+  ...
+# Subtest: DeepSeek selection lands on its radio control
+ok 22 - DeepSeek selection lands on its radio control
+  ---
+  duration_ms: 0.5005
+  type: 'test'
+  ...
+# Subtest: subtitle renders the full authored request before logo formation
+ok 23 - subtitle renders the full authored request before logo formation
+  ---
+  duration_ms: 10.0309
+  type: 'test'
+  ...
+# Subtest: a complete 4.105s English take fits without speed change or truncation
+ok 24 - a complete 4.105s English take fits without speed change or truncation
+  ---
+  duration_ms: 0.3399
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 168.3868

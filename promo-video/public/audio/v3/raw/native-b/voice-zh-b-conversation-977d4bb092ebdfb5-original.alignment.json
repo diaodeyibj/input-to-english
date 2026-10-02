@@ -1,0 +1,96 @@
+{
+  "text": "帮我设计一张更有创意的新海报吧。",
+  "words": [
+    {
+      "word": "帮",
+      "start": 0.0,
+      "end": 0.12,
+      "probability": 0.9969444572925568
+    },
+    {
+      "word": "我",
+      "start": 0.12,
+      "end": 0.28,
+      "probability": 0.9991949200630188
+    },
+    {
+      "word": "设",
+      "start": 0.28,
+      "end": 0.4,
+      "probability": 0.9991482496261597
+    },
+    {
+      "word": "计",
+      "start": 0.4,
+      "end": 0.5,
+      "probability": 0.9974786043167114
+    },
+    {
+      "word": "一",
+      "start": 0.5,
+      "end": 0.62,
+      "probability": 0.9998261332511902
+    },
+    {
+      "word": "张",
+      "start": 0.62,
+      "end": 0.72,
+      "probability": 0.9987592697143555
+    },
+    {
+      "word": "更",
+      "start": 0.72,
+      "end": 0.88,
+      "probability": 0.9997628331184387
+    },
+    {
+      "word": "有",
+      "start": 0.88,
+      "end": 1.02,
+      "probability": 0.999945878982544
+    },
+    {
+      "word": "创",
+      "start": 1.02,
+      "end": 1.24,
+      "probability": 0.9999336004257202
+    },
+    {
+      "word": "意",
+      "start": 1.24,
+      "end": 1.34,
+      "probability": 0.9979155659675598
+    },
+    {
+      "word": "的",
+      "start": 1.34,
+      "end": 1.44,
+      "probability": 0.9999867677688599
+    },
+    {
+      "word": "新",
+      "start": 1.44,
+      "end": 1.58,
+      "probability": 0.8336982727050781
+    },
+    {
+      "word": "海",
+      "start": 1.58,
+      "end": 1.72,
+      "probability": 0.9995577931404114
+    },
+    {
+      "word": "报",
+      "start": 1.72,
+      "end": 1.9,
+      "probability": 0.9864196181297302
+    },
+    {
+      "word": "吧。",
+      "start": 1.9,
+      "end": 2.06,
+      "probability": 0.9995751976966858
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

@@ -6,7 +6,7 @@ import type { RuntimeMessage } from '../src/messaging/protocol';
 import { selectSiteAdapter } from '../src/sites/select-adapter';
 
 export default defineContentScript({
-  matches: ['https://chatgpt.com/*', 'https://claude.ai/*'],
+  matches: ['https://chatgpt.com/*', 'https://claude.ai/*', 'https://gemini.google.com/*', 'https://x.com/*'],
   runAt: 'document_idle',
   main(ctx) {
     const adapter = selectSiteAdapter(location.hostname);

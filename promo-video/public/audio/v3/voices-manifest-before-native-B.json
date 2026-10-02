@@ -1,0 +1,1927 @@
+{
+  "version": "v3-english-B-approved-native-listening-pending",
+  "engine": "Fun-CosyVoice3-0.5B-2512",
+  "inference": "local CUDA; no download/cloud",
+  "fps": 60,
+  "sample_rate_delivery": 48000,
+  "delivery_channels": 1,
+  "subjective_review": "No native-speaker fluency or subjective announcer approval performed. These are audition candidates for user review.",
+  "english_selection": "User approved candidate B in chat; 2.975 seconds, natural speed 1.0.",
+  "voices": [
+    {
+      "language": "zh",
+      "take_id": "zh",
+      "text": "帮我。请设计一张新海报。",
+      "display_text": "帮我",
+      "instruction": "请用自然温和的语气说一句话。 Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+      "prompt_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+      "inference_speed": 1.0,
+      "seed": 7300,
+      "cache_key": "2e04e75af75cedf8033d1c1f7ed9c6a211300f91b05179464426913fa088418c",
+      "raw_file": "public/audio/v3/raw/voice-zh-2e04e75af75cedf8-original.wav",
+      "raw_sha256": "745a0807d28c520fb46ed24323d6961bdc5dad57979b2446aab24aba67df2bd9",
+      "raw_duration_seconds": 3.04,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-zh.wav",
+      "output_sha256": "0d5e1d44834322d9f7b492276b57ddf5388d1885853bacfb347ff795502fc197",
+      "duration_seconds": 0.46,
+      "start_frame": 100,
+      "end_frame": 127.6,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 16.8,
+      "speech_onset_frame": 100.0,
+      "speech_end_frame": 116.8,
+      "first_character_frame": 100.0,
+      "crop_start_seconds": 0.025,
+      "crop_end_seconds": 0.485,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": 3.8215084020973498,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -17.912079095840454,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "帮",
+          "start_seconds": 0.0,
+          "end_seconds": 0.115,
+          "start_frame": 100.0,
+          "end_frame": 106.9,
+          "confidence": 0.4054546330589801
+        },
+        {
+          "text": "我。",
+          "start_seconds": 0.115,
+          "end_seconds": 0.335,
+          "start_frame": 106.9,
+          "end_frame": 120.1,
+          "confidence": 0.990199089050293
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": "帮我。请设计一张新海报。",
+        "words": [
+          {
+            "word": "帮",
+            "start": 0.0,
+            "end": 0.14,
+            "probability": 0.4054546330589801
+          },
+          {
+            "word": "我。",
+            "start": 0.14,
+            "end": 0.36,
+            "probability": 0.990199089050293
+          },
+          {
+            "word": "请",
+            "start": 1.7,
+            "end": 1.96,
+            "probability": 0.9762654900550842
+          },
+          {
+            "word": "设",
+            "start": 1.96,
+            "end": 2.14,
+            "probability": 0.9900374710559845
+          },
+          {
+            "word": "计",
+            "start": 2.14,
+            "end": 2.26,
+            "probability": 0.9994041919708252
+          },
+          {
+            "word": "一",
+            "start": 2.26,
+            "end": 2.34,
+            "probability": 0.9984695315361023
+          },
+          {
+            "word": "张",
+            "start": 2.34,
+            "end": 2.44,
+            "probability": 0.997957706451416
+          },
+          {
+            "word": "新",
+            "start": 2.44,
+            "end": 2.62,
+            "probability": 0.9960998296737671
+          },
+          {
+            "word": "海",
+            "start": 2.62,
+            "end": 2.74,
+            "probability": 0.998823344707489
+          },
+          {
+            "word": "报。",
+            "start": 2.74,
+            "end": 2.9,
+            "probability": 0.9902026653289795
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "ja",
+      "take_id": "ja",
+      "text": "テツダッテ、アタラシイ ロゴ ヲ ツクッテ。",
+      "display_text": "手伝って",
+      "instruction": "Speak Japanese naturally, with friendly curiosity and a little warmth. Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+      "prompt_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+      "inference_speed": 1.0,
+      "seed": 7301,
+      "cache_key": "b26b5acc7ef4b3aa63a35e2a73510f117ac04e72285697c2f9792bc73c286e48",
+      "raw_file": "public/audio/v3/raw/voice-ja-b26b5acc7ef4b3aa-original.wav",
+      "raw_sha256": "a8c34249059ff6fc7c6dbb121cc49b9702643f7792299b94b39799517ecce271",
+      "raw_duration_seconds": 2.68,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-ja.wav",
+      "output_sha256": "486875879f2309ed8d8d48cd2095ce1d1f549f4c724404026412cd97812d5d27",
+      "duration_seconds": 0.785,
+      "start_frame": 200,
+      "end_frame": 247.1,
+      "speech_onset_frames": 0.3,
+      "speech_end_frames": 46.5,
+      "speech_onset_frame": 200.3,
+      "speech_end_frame": 246.5,
+      "first_character_frame": 200.3,
+      "crop_start_seconds": 0.035,
+      "crop_end_seconds": 0.82,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.015,
+      "gain_db": 1.1301295377492053,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -18.972244262695312,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "手",
+          "start_seconds": 0.005,
+          "end_seconds": 0.105,
+          "start_frame": 200.3,
+          "end_frame": 206.3,
+          "confidence": 0.9884327054023743
+        },
+        {
+          "text": "伝",
+          "start_seconds": 0.105,
+          "end_seconds": 0.325,
+          "start_frame": 206.3,
+          "end_frame": 219.5,
+          "confidence": 0.9995160102844238
+        },
+        {
+          "text": "って、",
+          "start_seconds": 0.325,
+          "end_seconds": 0.645,
+          "start_frame": 219.5,
+          "end_frame": 238.7,
+          "confidence": 0.999618411064148
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": "手伝って、アタラシイ ロゴ スクッテ。",
+        "words": [
+          {
+            "word": "手",
+            "start": 0.0,
+            "end": 0.14,
+            "probability": 0.9884327054023743
+          },
+          {
+            "word": "伝",
+            "start": 0.14,
+            "end": 0.36,
+            "probability": 0.9995160102844238
+          },
+          {
+            "word": "って、",
+            "start": 0.36,
+            "end": 0.68,
+            "probability": 0.999618411064148
+          },
+          {
+            "word": "ア",
+            "start": 0.82,
+            "end": 1.1,
+            "probability": 0.00035645675961859524
+          },
+          {
+            "word": "タ",
+            "start": 1.1,
+            "end": 1.26,
+            "probability": 0.9574829936027527
+          },
+          {
+            "word": "ラ",
+            "start": 1.26,
+            "end": 1.34,
+            "probability": 0.9153625965118408
+          },
+          {
+            "word": "シ",
+            "start": 1.34,
+            "end": 1.46,
+            "probability": 0.933872401714325
+          },
+          {
+            "word": "イ",
+            "start": 1.46,
+            "end": 1.56,
+            "probability": 0.8134437203407288
+          },
+          {
+            "word": " ロ",
+            "start": 1.56,
+            "end": 1.68,
+            "probability": 0.5053486432880163
+          },
+          {
+            "word": "ゴ",
+            "start": 1.68,
+            "end": 1.82,
+            "probability": 0.9300196766853333
+          },
+          {
+            "word": " ス",
+            "start": 1.96,
+            "end": 2.06,
+            "probability": 0.032944805920124054
+          },
+          {
+            "word": "ク",
+            "start": 2.06,
+            "end": 2.18,
+            "probability": 0.9893816709518433
+          },
+          {
+            "word": "ッ",
+            "start": 2.18,
+            "end": 2.26,
+            "probability": 0.8421672582626343
+          },
+          {
+            "word": "テ。",
+            "start": 2.26,
+            "end": 2.46,
+            "probability": 0.8496114611625671
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "ko",
+      "take_id": "ko",
+      "text": "도와줘, 새 영상을 만들어줘.",
+      "display_text": "도와줘",
+      "instruction": "Speak Korean naturally, with warm interest and clear articulation. Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+      "prompt_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+      "inference_speed": 1.0,
+      "seed": 7302,
+      "cache_key": "d0005f56fdffc509200a7d965e9cfa7b2ea9a50a561303390643ecc04a6f85f6",
+      "raw_file": "public/audio/v3/raw/voice-ko-d0005f56fdffc509-original.wav",
+      "raw_sha256": "51f7017c0d25d20c31e987471eef2769cef2d15af2540a4431003e99b37d8727",
+      "raw_duration_seconds": 1.44,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-ko.wav",
+      "output_sha256": "ea6c5c4b6f20069372e22009b95290cfaa559c323886d88da0a1941ef4e5f712",
+      "duration_seconds": 0.33,
+      "start_frame": 300,
+      "end_frame": 319.8,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 18.9,
+      "speech_onset_frame": 300.0,
+      "speech_end_frame": 318.9,
+      "first_character_frame": 300.0,
+      "crop_start_seconds": 0.05,
+      "crop_end_seconds": 0.38,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.02,
+      "gain_db": 5.211223958439142,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -17.02378273010254,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "도와줘,",
+          "start_seconds": 0.0,
+          "end_seconds": 0.29,
+          "start_frame": 300.0,
+          "end_frame": 317.4,
+          "confidence": 0.6631000687678655
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": " 도와줘, 새 영상을 만들어줘.",
+        "words": [
+          {
+            "word": " 도와줘,",
+            "start": 0.0,
+            "end": 0.34,
+            "probability": 0.6631000687678655
+          },
+          {
+            "word": " 새",
+            "start": 0.38,
+            "end": 0.44,
+            "probability": 0.9877732396125793
+          },
+          {
+            "word": " 영상을",
+            "start": 0.44,
+            "end": 0.76,
+            "probability": 0.933415949344635
+          },
+          {
+            "word": " 만들어줘.",
+            "start": 0.76,
+            "end": 1.34,
+            "probability": 0.9754641850789388
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "de",
+      "take_id": "de",
+      "text": "Hilf mir, ein neues Logo zu entwerfen.",
+      "display_text": "Hilf mir",
+      "instruction": "Speak German naturally, with engaged friendly confidence. Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+      "prompt_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+      "inference_speed": 1.0,
+      "seed": 7303,
+      "cache_key": "1c3370bd2fef7ae312b629811f7c3399bbb6b96ffa9153249682a70c58aec05f",
+      "raw_file": "public/audio/v3/raw/voice-de-1c3370bd2fef7ae3-original.wav",
+      "raw_sha256": "b25c1e2d3e4400e829c9240baa5e54bb3748e451151a505a5657df01b5f723a4",
+      "raw_duration_seconds": 2.12,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-de.wav",
+      "output_sha256": "0ac79f0acb20dc09bc0bb09c7f5106357445b671a9d106629da25b7bfb8cfe74",
+      "duration_seconds": 0.645,
+      "start_frame": 400,
+      "end_frame": 438.7,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 38.4,
+      "speech_onset_frame": 400.0,
+      "speech_end_frame": 438.4,
+      "first_character_frame": 400.0,
+      "crop_start_seconds": 0.035,
+      "crop_end_seconds": 0.68,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": -2.367582773011746,
+      "peak_dbfs": -4.013223648071289,
+      "rms_dbfs": -17.15753197669983,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Hilf",
+          "start_seconds": 0.0,
+          "end_seconds": 0.325,
+          "start_frame": 400.0,
+          "end_frame": 419.5,
+          "confidence": 0.8492128551006317
+        },
+        {
+          "text": "mir,",
+          "start_seconds": 0.325,
+          "end_seconds": 0.485,
+          "start_frame": 419.5,
+          "end_frame": 429.1,
+          "confidence": 0.9890195727348328
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": " Hilf mir, ein neues Logo zu entwerfen.",
+        "words": [
+          {
+            "word": " Hilf",
+            "start": 0.0,
+            "end": 0.36,
+            "probability": 0.8492128551006317
+          },
+          {
+            "word": " mir,",
+            "start": 0.36,
+            "end": 0.52,
+            "probability": 0.9890195727348328
+          },
+          {
+            "word": " ein",
+            "start": 0.68,
+            "end": 0.74,
+            "probability": 0.9956526756286621
+          },
+          {
+            "word": " neues",
+            "start": 0.74,
+            "end": 1.0,
+            "probability": 0.987636923789978
+          },
+          {
+            "word": " Logo",
+            "start": 1.0,
+            "end": 1.38,
+            "probability": 0.998016357421875
+          },
+          {
+            "word": " zu",
+            "start": 1.38,
+            "end": 1.52,
+            "probability": 0.9945762157440186
+          },
+          {
+            "word": " entwerfen.",
+            "start": 1.52,
+            "end": 2.04,
+            "probability": 0.9953798453013102
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "es",
+      "take_id": "es",
+      "text": "Ayúdame, quiero crear un nuevo cartel.",
+      "display_text": "Ayúdame",
+      "instruction": "Speak Spanish naturally, with warm enthusiasm and engaged expression. Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+      "prompt_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+      "inference_speed": 1.0,
+      "seed": 7304,
+      "cache_key": "a368d06db7fbc83e36240370c4b8ed8098690f57ea37423abd915f73699b654f",
+      "raw_file": "public/audio/v3/raw/voice-es-a368d06db7fbc83e-original.wav",
+      "raw_sha256": "0c801e774459fe77c2ad6bd74e54070458d41f0c77aa0f3d8cfe8fc5943e9fbd",
+      "raw_duration_seconds": 2.32,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-es.wav",
+      "output_sha256": "8563ff6236945012394a5f2eecec87518012faebf7c1e15f32dbc80717ea463f",
+      "duration_seconds": 0.69,
+      "start_frame": 500,
+      "end_frame": 541.4,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 32.1,
+      "speech_onset_frame": 500.0,
+      "speech_end_frame": 532.1,
+      "first_character_frame": 500.0,
+      "crop_start_seconds": 0.07,
+      "crop_end_seconds": 0.76,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": 10.01142128316249,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -19.180128574371338,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Ayúdame,",
+          "start_seconds": 0.0,
+          "end_seconds": 0.49,
+          "start_frame": 500.0,
+          "end_frame": 529.4,
+          "confidence": 0.9476578682661057
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": " Ayúdame, quiero crear un nuevo cartel.",
+        "words": [
+          {
+            "word": " Ayúdame,",
+            "start": 0.0,
+            "end": 0.56,
+            "probability": 0.9476578682661057
+          },
+          {
+            "word": " quiero",
+            "start": 0.76,
+            "end": 1.04,
+            "probability": 0.9970406889915466
+          },
+          {
+            "word": " crear",
+            "start": 1.04,
+            "end": 1.36,
+            "probability": 0.9993763566017151
+          },
+          {
+            "word": " un",
+            "start": 1.36,
+            "end": 1.54,
+            "probability": 0.9995668530464172
+          },
+          {
+            "word": " nuevo",
+            "start": 1.54,
+            "end": 1.76,
+            "probability": 0.9993225336074829
+          },
+          {
+            "word": " cartel.",
+            "start": 1.76,
+            "end": 2.22,
+            "probability": 0.9834242761135101
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "fr",
+      "take_id": "fr",
+      "text": "Aide-moi, je veux créer une nouvelle affiche.",
+      "display_text": "Aide-moi",
+      "instruction": "Speak French naturally, with lively warmth and positive energy. Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+      "prompt_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+      "inference_speed": 1.0,
+      "seed": 7305,
+      "cache_key": "01b3d9dcd9e590862c3879598b1a8b0786246ac7880fe4a833e2be6eb3b8fd62",
+      "raw_file": "public/audio/v3/raw/voice-fr-01b3d9dcd9e59086-original.wav",
+      "raw_sha256": "04ec3d0defe7c09cb8f12fd7b6d0d67242136cb04177575ce9f285676310790f",
+      "raw_duration_seconds": 2.8,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-fr.wav",
+      "output_sha256": "aa1b88246a8d0c5568239d1082cbd28d89f0011987e9efc5046bd98fa2c955a2",
+      "duration_seconds": 0.575,
+      "start_frame": 600,
+      "end_frame": 634.5,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 22.5,
+      "speech_onset_frame": 600.0,
+      "speech_end_frame": 622.5,
+      "first_character_frame": 600.0,
+      "crop_start_seconds": 0.095,
+      "crop_end_seconds": 0.67,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": -0.8257598083044287,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -17.42002248764038,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Aide",
+          "start_seconds": 0.0,
+          "end_seconds": 0.125,
+          "start_frame": 600.0,
+          "end_frame": 607.5,
+          "confidence": 0.7067904770374298
+        },
+        {
+          "text": "-moi,",
+          "start_seconds": 0.125,
+          "end_seconds": 0.345,
+          "start_frame": 607.5,
+          "end_frame": 620.7,
+          "confidence": 0.8719335496425629
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": " Aide-moi, je veux créer une nouvelle affiche.",
+        "words": [
+          {
+            "word": " Aide",
+            "start": 0.0,
+            "end": 0.22,
+            "probability": 0.7067904770374298
+          },
+          {
+            "word": "-moi,",
+            "start": 0.22,
+            "end": 0.44,
+            "probability": 0.8719335496425629
+          },
+          {
+            "word": " je",
+            "start": 0.74,
+            "end": 1.2,
+            "probability": 0.9898841381072998
+          },
+          {
+            "word": " veux",
+            "start": 1.2,
+            "end": 1.44,
+            "probability": 0.9963862895965576
+          },
+          {
+            "word": " créer",
+            "start": 1.44,
+            "end": 1.74,
+            "probability": 0.9907185435295105
+          },
+          {
+            "word": " une",
+            "start": 1.74,
+            "end": 1.9,
+            "probability": 0.9932889342308044
+          },
+          {
+            "word": " nouvelle",
+            "start": 1.9,
+            "end": 2.1,
+            "probability": 0.9976294636726379
+          },
+          {
+            "word": " affiche.",
+            "start": 2.1,
+            "end": 2.6,
+            "probability": 0.9986326098442078
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "it",
+      "take_id": "it",
+      "text": "Aiutami, voglio creare un nuovo video.",
+      "display_text": "Aiutami",
+      "instruction": "Speak Italian naturally, with bright enthusiasm and confident expression. Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+      "prompt_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+      "inference_speed": 1.0,
+      "seed": 7306,
+      "cache_key": "86c014a7e7be3bd425f9154434a7b49bff50df645e229e784810ba9e068fd663",
+      "raw_file": "public/audio/v3/raw/voice-it-86c014a7e7be3bd4-original.wav",
+      "raw_sha256": "4d69e4198b794c2f59b68f24913db51e1b8b260d45db2e6c62f656e5f44dd4df",
+      "raw_duration_seconds": 2.48,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-it.wav",
+      "output_sha256": "0d96b5710aa979502ae78846010b3eaa0466cdd4bfcc5a0b90492469b1a59ced",
+      "duration_seconds": 0.825,
+      "start_frame": 700,
+      "end_frame": 749.5,
+      "speech_onset_frames": 0.6,
+      "speech_end_frames": 42.3,
+      "speech_onset_frame": 700.6,
+      "speech_end_frame": 742.3,
+      "first_character_frame": 700.6,
+      "crop_start_seconds": 0.05,
+      "crop_end_seconds": 0.875,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": 1.3199793085151847,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -22.628002166748047,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Aiutami,",
+          "start_seconds": 0.01,
+          "end_seconds": 0.65,
+          "start_frame": 700.6,
+          "end_frame": 739.0,
+          "confidence": 0.9584524631500244
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": " Aiutami, voglio creare un nuovo video.",
+        "words": [
+          {
+            "word": " Aiutami,",
+            "start": 0.0,
+            "end": 0.7,
+            "probability": 0.9584524631500244
+          },
+          {
+            "word": " voglio",
+            "start": 0.92,
+            "end": 1.12,
+            "probability": 0.9964208900928497
+          },
+          {
+            "word": " creare",
+            "start": 1.12,
+            "end": 1.48,
+            "probability": 0.9996581077575684
+          },
+          {
+            "word": " un",
+            "start": 1.48,
+            "end": 1.6,
+            "probability": 0.9996020197868347
+          },
+          {
+            "word": " nuovo",
+            "start": 1.6,
+            "end": 1.8,
+            "probability": 0.9992086291313171
+          },
+          {
+            "word": " video.",
+            "start": 1.8,
+            "end": 2.18,
+            "probability": 0.9994383454322815
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "ru",
+      "take_id": "ru",
+      "text": "Помоги мне, я хочу сделать новый сайт.",
+      "display_text": "Помоги мне",
+      "instruction": "Speak Russian naturally, with warm enthusiastic confidence and clear expression. Use a natural conversational pace; no rushing or shouting.",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+      "prompt_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+      "inference_speed": 1.0,
+      "seed": 7307,
+      "cache_key": "21514ba5dd2e03373c46960e09ee8c5358b3c41983f584d99ad18cc9548fd781",
+      "raw_file": "public/audio/v3/raw/voice-ru-21514ba5dd2e0337-original.wav",
+      "raw_sha256": "e51757130b77c842285d484b7774819a70f1c213860d2c6ba0dc93537a28cc64",
+      "raw_duration_seconds": 2.44,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-ru.wav",
+      "output_sha256": "0077382fc5a622bf6865a3339f471e9a5e1190dad70afa907e676eb7c93775e5",
+      "duration_seconds": 0.76,
+      "start_frame": 800,
+      "end_frame": 845.6,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 41.4,
+      "speech_onset_frame": 800.0,
+      "speech_end_frame": 841.4,
+      "first_character_frame": 800.0,
+      "crop_start_seconds": 0.1,
+      "crop_end_seconds": 0.86,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.02,
+      "gain_db": -1.1512607234390213,
+      "peak_dbfs": -2.837092876434326,
+      "rms_dbfs": -17.000057697296143,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Помоги",
+          "start_seconds": 0.0,
+          "end_seconds": 0.4,
+          "start_frame": 800.0,
+          "end_frame": 824.0,
+          "confidence": 0.8170836667219797
+        },
+        {
+          "text": "мне,",
+          "start_seconds": 0.4,
+          "end_seconds": 0.6,
+          "start_frame": 824.0,
+          "end_frame": 836.0,
+          "confidence": 0.9986085295677185
+        }
+      ],
+      "character_markers": [],
+      "alignment": {
+        "text": " Помоги мне, я хочу сделать новый сайт.",
+        "words": [
+          {
+            "word": " Помоги",
+            "start": 0.0,
+            "end": 0.5,
+            "probability": 0.8170836667219797
+          },
+          {
+            "word": " мне,",
+            "start": 0.5,
+            "end": 0.7,
+            "probability": 0.9986085295677185
+          },
+          {
+            "word": " я",
+            "start": 0.86,
+            "end": 0.98,
+            "probability": 0.9975754618644714
+          },
+          {
+            "word": " хочу",
+            "start": 0.98,
+            "end": 1.26,
+            "probability": 0.9995341300964355
+          },
+          {
+            "word": " сделать",
+            "start": 1.26,
+            "end": 1.6,
+            "probability": 0.9983715415000916
+          },
+          {
+            "word": " новый",
+            "start": 1.6,
+            "end": 1.86,
+            "probability": 0.9959622025489807
+          },
+          {
+            "word": " сайт.",
+            "start": 1.86,
+            "end": 2.26,
+            "probability": 0.9992088377475739
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "en",
+      "take_id": "en-b",
+      "text": "Help me design a new logo.",
+      "display_text": "Help me design a new logo.",
+      "instruction": "请用尽可能慢地语速说一句话。用成熟低沉的男声播音腔，语气温暖沉稳，发音清楚，不要喊叫。",
+      "prompt_ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\reference-cross-first6.wav",
+      "prompt_sha256": "ce5a694def0d6cc80c5d746a52eb7931f7d4cbce6c1bd074fb74fef61090db9a",
+      "inference_speed": 1.0,
+      "seed": 7391,
+      "cache_key": "d6c1063389d4b845258e0d0f79e1e89601961e2988e99d24a51c530d3f524e7b",
+      "raw_file": "public/audio/v3/raw/voice-en-b-d6c1063389d4b845-original.wav",
+      "raw_sha256": "7a517cf75a8cda285eb87eed988272cd4369a3b2a8df212e40965a836e40c801",
+      "raw_duration_seconds": 3.04,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-en.wav",
+      "output_sha256": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef",
+      "duration_seconds": 2.975,
+      "start_frame": 1800,
+      "end_frame": 1978.5,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 172.5,
+      "speech_onset_frame": 1800.0,
+      "speech_end_frame": 1972.5,
+      "first_character_frame": 1800.0,
+      "crop_start_seconds": 0.0,
+      "crop_end_seconds": 2.975,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": 1.4947350413397562,
+      "peak_dbfs": -1.912003606557846,
+      "rms_dbfs": -17.0082688331604,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Help",
+          "start_seconds": 0.0,
+          "end_seconds": 0.36,
+          "start_frame": 1800.0,
+          "end_frame": 1821.6,
+          "confidence": 0.28374406695365906
+        },
+        {
+          "text": "me",
+          "start_seconds": 0.36,
+          "end_seconds": 0.68,
+          "start_frame": 1821.6,
+          "end_frame": 1840.8,
+          "confidence": 0.9788933396339417
+        },
+        {
+          "text": "design",
+          "start_seconds": 0.68,
+          "end_seconds": 1.16,
+          "start_frame": 1840.8,
+          "end_frame": 1869.6,
+          "confidence": 0.9772025942802429
+        },
+        {
+          "text": "a",
+          "start_seconds": 1.16,
+          "end_seconds": 1.68,
+          "start_frame": 1869.6,
+          "end_frame": 1900.8,
+          "confidence": 0.981225311756134
+        },
+        {
+          "text": "new",
+          "start_seconds": 1.68,
+          "end_seconds": 2.02,
+          "start_frame": 1900.8,
+          "end_frame": 1921.2,
+          "confidence": 0.997065007686615
+        },
+        {
+          "text": "logo.",
+          "start_seconds": 2.02,
+          "end_seconds": 2.62,
+          "start_frame": 1921.2,
+          "end_frame": 1957.2,
+          "confidence": 0.9980735778808594
+        }
+      ],
+      "character_markers": [
+        {
+          "character": "H",
+          "frame": 1800.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1805.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "l",
+          "frame": 1810.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "p",
+          "frame": 1816.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1821.6,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1821.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1831.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1840.8,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "d",
+          "frame": 1840.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1845.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "s",
+          "frame": 1850.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1855.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1860.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "n",
+          "frame": 1864.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1869.6,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "a",
+          "frame": 1869.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1900.8,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "n",
+          "frame": 1900.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1907.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "w",
+          "frame": 1914.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1921.2,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "l",
+          "frame": 1921.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1928.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1935.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1942.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": ".",
+          "frame": 1950.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        }
+      ],
+      "alignment": {
+        "text": " Help me design a new logo.",
+        "words": [
+          {
+            "word": " Help",
+            "start": 0.0,
+            "end": 0.36,
+            "probability": 0.28374406695365906
+          },
+          {
+            "word": " me",
+            "start": 0.36,
+            "end": 0.68,
+            "probability": 0.9788933396339417
+          },
+          {
+            "word": " design",
+            "start": 0.68,
+            "end": 1.16,
+            "probability": 0.9772025942802429
+          },
+          {
+            "word": " a",
+            "start": 1.16,
+            "end": 1.68,
+            "probability": 0.981225311756134
+          },
+          {
+            "word": " new",
+            "start": 1.68,
+            "end": 2.02,
+            "probability": 0.997065007686615
+          },
+          {
+            "word": " logo.",
+            "start": 2.02,
+            "end": 2.62,
+            "probability": 0.9980735778808594
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity.",
+      "selected_candidate": "en-b"
+    }
+  ],
+  "english_candidates": [
+    {
+      "language": "en",
+      "take_id": "en-a",
+      "text": "Help me design a new logo.",
+      "display_text": "Help me design a new logo.",
+      "instruction": "请用尽可能慢地语速说一句话。使用成熟、低沉、浑厚的男声播音腔，语气自然沉稳，不要喊叫。",
+      "prompt_ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+      "prompt_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+      "inference_speed": 1.0,
+      "seed": 7390,
+      "cache_key": "1a87528758caa4fa62e2cb41c2dedce809e851fd7146f071f2861d79c209e301",
+      "raw_file": "public/audio/v3/raw/voice-en-a-1a87528758caa4fa-original.wav",
+      "raw_sha256": "3eb5dc220d3728abe279daee5629eb9e65cd28cefcca21310a9f537c11530f0d",
+      "raw_duration_seconds": 2.76,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-en-a.wav",
+      "output_sha256": "121891da04eb42180b77555ca6c1ae79ae3571f958b829535845e7d22ce69c50",
+      "duration_seconds": 2.69,
+      "start_frame": 1800,
+      "end_frame": 1961.4,
+      "speech_onset_frames": 0.3,
+      "speech_end_frames": 155.39999999999998,
+      "speech_onset_frame": 1800.3,
+      "speech_end_frame": 1955.4,
+      "first_character_frame": 1800.3,
+      "crop_start_seconds": 0.025,
+      "crop_end_seconds": 2.715,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": 0.1381333517988109,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -17.44331121444702,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Help",
+          "start_seconds": 0.005,
+          "end_seconds": 0.255,
+          "start_frame": 1800.3,
+          "end_frame": 1815.3,
+          "confidence": 0.5766152739524841
+        },
+        {
+          "text": "me",
+          "start_seconds": 0.255,
+          "end_seconds": 0.615,
+          "start_frame": 1815.3,
+          "end_frame": 1836.9,
+          "confidence": 0.9901532530784607
+        },
+        {
+          "text": "design",
+          "start_seconds": 0.615,
+          "end_seconds": 1.075,
+          "start_frame": 1836.9,
+          "end_frame": 1864.5,
+          "confidence": 0.9849488139152527
+        },
+        {
+          "text": "a",
+          "start_seconds": 1.075,
+          "end_seconds": 1.535,
+          "start_frame": 1864.5,
+          "end_frame": 1892.1,
+          "confidence": 0.9955423474311829
+        },
+        {
+          "text": "new",
+          "start_seconds": 1.535,
+          "end_seconds": 1.815,
+          "start_frame": 1892.1,
+          "end_frame": 1908.9,
+          "confidence": 0.9977505803108215
+        },
+        {
+          "text": "logo.",
+          "start_seconds": 1.815,
+          "end_seconds": 2.355,
+          "start_frame": 1908.9,
+          "end_frame": 1941.3,
+          "confidence": 0.9980599284172058
+        }
+      ],
+      "character_markers": [
+        {
+          "character": "H",
+          "frame": 1800.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1804.05,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "l",
+          "frame": 1807.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "p",
+          "frame": 1811.55,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1815.3,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1815.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1826.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1836.9,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "d",
+          "frame": 1836.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1841.5,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "s",
+          "frame": 1846.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1850.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1855.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "n",
+          "frame": 1859.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1864.5,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "a",
+          "frame": 1864.5,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1892.1,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "n",
+          "frame": 1892.1,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1897.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "w",
+          "frame": 1903.3,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1908.9,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "l",
+          "frame": 1908.9,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1915.38,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1921.86,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1928.34,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": ".",
+          "frame": 1934.82,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        }
+      ],
+      "alignment": {
+        "text": " Help me design a new logo.",
+        "words": [
+          {
+            "word": " Help",
+            "start": 0.0,
+            "end": 0.28,
+            "probability": 0.5766152739524841
+          },
+          {
+            "word": " me",
+            "start": 0.28,
+            "end": 0.64,
+            "probability": 0.9901532530784607
+          },
+          {
+            "word": " design",
+            "start": 0.64,
+            "end": 1.1,
+            "probability": 0.9849488139152527
+          },
+          {
+            "word": " a",
+            "start": 1.1,
+            "end": 1.56,
+            "probability": 0.9955423474311829
+          },
+          {
+            "word": " new",
+            "start": 1.56,
+            "end": 1.84,
+            "probability": 0.9977505803108215
+          },
+          {
+            "word": " logo.",
+            "start": 1.84,
+            "end": 2.38,
+            "probability": 0.9980599284172058
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "en",
+      "take_id": "en-b",
+      "text": "Help me design a new logo.",
+      "display_text": "Help me design a new logo.",
+      "instruction": "请用尽可能慢地语速说一句话。用成熟低沉的男声播音腔，语气温暖沉稳，发音清楚，不要喊叫。",
+      "prompt_ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\reference-cross-first6.wav",
+      "prompt_sha256": "ce5a694def0d6cc80c5d746a52eb7931f7d4cbce6c1bd074fb74fef61090db9a",
+      "inference_speed": 1.0,
+      "seed": 7391,
+      "cache_key": "d6c1063389d4b845258e0d0f79e1e89601961e2988e99d24a51c530d3f524e7b",
+      "raw_file": "public/audio/v3/raw/voice-en-b-d6c1063389d4b845-original.wav",
+      "raw_sha256": "7a517cf75a8cda285eb87eed988272cd4369a3b2a8df212e40965a836e40c801",
+      "raw_duration_seconds": 3.04,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-en-b.wav",
+      "output_sha256": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef",
+      "duration_seconds": 2.975,
+      "start_frame": 1800,
+      "end_frame": 1978.5,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 172.5,
+      "speech_onset_frame": 1800.0,
+      "speech_end_frame": 1972.5,
+      "first_character_frame": 1800.0,
+      "crop_start_seconds": 0.0,
+      "crop_end_seconds": 2.975,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": 1.4947350413397562,
+      "peak_dbfs": -1.912003606557846,
+      "rms_dbfs": -17.0082688331604,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Help",
+          "start_seconds": 0.0,
+          "end_seconds": 0.36,
+          "start_frame": 1800.0,
+          "end_frame": 1821.6,
+          "confidence": 0.28374406695365906
+        },
+        {
+          "text": "me",
+          "start_seconds": 0.36,
+          "end_seconds": 0.68,
+          "start_frame": 1821.6,
+          "end_frame": 1840.8,
+          "confidence": 0.9788933396339417
+        },
+        {
+          "text": "design",
+          "start_seconds": 0.68,
+          "end_seconds": 1.16,
+          "start_frame": 1840.8,
+          "end_frame": 1869.6,
+          "confidence": 0.9772025942802429
+        },
+        {
+          "text": "a",
+          "start_seconds": 1.16,
+          "end_seconds": 1.68,
+          "start_frame": 1869.6,
+          "end_frame": 1900.8,
+          "confidence": 0.981225311756134
+        },
+        {
+          "text": "new",
+          "start_seconds": 1.68,
+          "end_seconds": 2.02,
+          "start_frame": 1900.8,
+          "end_frame": 1921.2,
+          "confidence": 0.997065007686615
+        },
+        {
+          "text": "logo.",
+          "start_seconds": 2.02,
+          "end_seconds": 2.62,
+          "start_frame": 1921.2,
+          "end_frame": 1957.2,
+          "confidence": 0.9980735778808594
+        }
+      ],
+      "character_markers": [
+        {
+          "character": "H",
+          "frame": 1800.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1805.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "l",
+          "frame": 1810.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "p",
+          "frame": 1816.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1821.6,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1821.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1831.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1840.8,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "d",
+          "frame": 1840.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1845.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "s",
+          "frame": 1850.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1855.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1860.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "n",
+          "frame": 1864.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1869.6,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "a",
+          "frame": 1869.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1900.8,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "n",
+          "frame": 1900.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1907.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "w",
+          "frame": 1914.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1921.2,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "l",
+          "frame": 1921.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1928.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1935.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1942.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": ".",
+          "frame": 1950.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        }
+      ],
+      "alignment": {
+        "text": " Help me design a new logo.",
+        "words": [
+          {
+            "word": " Help",
+            "start": 0.0,
+            "end": 0.36,
+            "probability": 0.28374406695365906
+          },
+          {
+            "word": " me",
+            "start": 0.36,
+            "end": 0.68,
+            "probability": 0.9788933396339417
+          },
+          {
+            "word": " design",
+            "start": 0.68,
+            "end": 1.16,
+            "probability": 0.9772025942802429
+          },
+          {
+            "word": " a",
+            "start": 1.16,
+            "end": 1.68,
+            "probability": 0.981225311756134
+          },
+          {
+            "word": " new",
+            "start": 1.68,
+            "end": 2.02,
+            "probability": 0.997065007686615
+          },
+          {
+            "word": " logo.",
+            "start": 2.02,
+            "end": 2.62,
+            "probability": 0.9980735778808594
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    },
+    {
+      "language": "en",
+      "take_id": "en-c",
+      "text": "Help me design a new logo.",
+      "display_text": "Help me design a new logo.",
+      "instruction": "请用尽可能慢地语速说一句话。使用成熟低沉浑厚的男声，专业播音，温暖沉稳，自然停顿，不要喊叫。",
+      "prompt_ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\reference-cross-last6.wav",
+      "prompt_sha256": "341be93f13fa70a41e7068accf88005d5e89b04a4146aa1c97e267582d3e4ba5",
+      "inference_speed": 1.0,
+      "seed": 7392,
+      "cache_key": "c6546e9a48ee6cc929fd23f34356e9a3d2855e4c1dcebb5871ac0f0cfea6138a",
+      "raw_file": "public/audio/v3/raw/voice-en-c-c6546e9a48ee6cc9-original.wav",
+      "raw_sha256": "d91c545f243a05ca26add56e8d4efc356af4eb7aeb3a07ad78ea4c51860bc82d",
+      "raw_duration_seconds": 3.24,
+      "raw_sample_rate": 24000,
+      "output_file": "public/audio/v3/voice-en-c.wav",
+      "output_sha256": "32faa204afc5d925d041bb61df6b3efa70a7130023f4cfd179610626c2e78384",
+      "duration_seconds": 3.1,
+      "start_frame": 1800,
+      "end_frame": 1986.0,
+      "speech_onset_frames": 0.0,
+      "speech_end_frames": 180.0,
+      "speech_onset_frame": 1800.0,
+      "speech_end_frame": 1980.0,
+      "first_character_frame": 1800.0,
+      "crop_start_seconds": 0.03,
+      "crop_end_seconds": 3.13,
+      "fade_in_seconds": 0.005,
+      "fade_out_seconds": 0.05,
+      "gain_db": -1.4332138512459938,
+      "peak_dbfs": -1.5000000596046448,
+      "rms_dbfs": -17.879897356033325,
+      "fps": 60,
+      "word_markers": [
+        {
+          "text": "Help",
+          "start_seconds": 0.0,
+          "end_seconds": 0.39,
+          "start_frame": 1800.0,
+          "end_frame": 1823.4,
+          "confidence": 0.4333299696445465
+        },
+        {
+          "text": "me",
+          "start_seconds": 0.39,
+          "end_seconds": 0.75,
+          "start_frame": 1823.4,
+          "end_frame": 1845.0,
+          "confidence": 0.9851909279823303
+        },
+        {
+          "text": "design",
+          "start_seconds": 0.75,
+          "end_seconds": 1.21,
+          "start_frame": 1845.0,
+          "end_frame": 1872.6,
+          "confidence": 0.9916073083877563
+        },
+        {
+          "text": "a",
+          "start_seconds": 1.21,
+          "end_seconds": 1.77,
+          "start_frame": 1872.6,
+          "end_frame": 1906.2,
+          "confidence": 0.9950673580169678
+        },
+        {
+          "text": "new",
+          "start_seconds": 1.77,
+          "end_seconds": 2.11,
+          "start_frame": 1906.2,
+          "end_frame": 1926.6,
+          "confidence": 0.9962087869644165
+        },
+        {
+          "text": "logo.",
+          "start_seconds": 2.11,
+          "end_seconds": 2.77,
+          "start_frame": 1926.6,
+          "end_frame": 1966.2,
+          "confidence": 0.9978532195091248
+        }
+      ],
+      "character_markers": [
+        {
+          "character": "H",
+          "frame": 1800.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1805.85,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "l",
+          "frame": 1811.7,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "p",
+          "frame": 1817.55,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1823.4,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "m",
+          "frame": 1823.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1834.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1845.0,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "d",
+          "frame": 1845.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1849.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "s",
+          "frame": 1854.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "i",
+          "frame": 1858.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1863.4,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "n",
+          "frame": 1868.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1872.6,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "a",
+          "frame": 1872.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1906.2,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "n",
+          "frame": 1906.2,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "e",
+          "frame": 1913.0,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "w",
+          "frame": 1919.8,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": " ",
+          "frame": 1926.6,
+          "method": "source whitespace at next aligned word onset"
+        },
+        {
+          "character": "l",
+          "frame": 1926.6,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1934.52,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "g",
+          "frame": 1942.44,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": "o",
+          "frame": 1950.36,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        },
+        {
+          "character": ".",
+          "frame": 1958.28,
+          "method": "interpolated within Whisper-aligned word; not phoneme alignment"
+        }
+      ],
+      "alignment": {
+        "text": " Help me design a new logo.",
+        "words": [
+          {
+            "word": " Help",
+            "start": 0.0,
+            "end": 0.42,
+            "probability": 0.4333299696445465
+          },
+          {
+            "word": " me",
+            "start": 0.42,
+            "end": 0.78,
+            "probability": 0.9851909279823303
+          },
+          {
+            "word": " design",
+            "start": 0.78,
+            "end": 1.24,
+            "probability": 0.9916073083877563
+          },
+          {
+            "word": " a",
+            "start": 1.24,
+            "end": 1.8,
+            "probability": 0.9950673580169678
+          },
+          {
+            "word": " new",
+            "start": 1.8,
+            "end": 2.14,
+            "probability": 0.9962087869644165
+          },
+          {
+            "word": " logo.",
+            "start": 2.14,
+            "end": 2.8,
+            "probability": 0.9978532195091248
+          }
+        ],
+        "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+      },
+      "phrase_matched": true,
+      "within_target": true,
+      "boundary_review": "Automatic word timestamps and energy trough; listen to native audition to approve boundary and pronunciation.",
+      "provenance": "New local CosyVoice3 full-sentence synthesis, natural speed; raw never reused across changed identity."
+    }
+  ],
+  "auditions": {
+    "native_sequence": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\audition-native-sequence.wav",
+    "english_candidates": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\audition-english-candidates.wav"
+  }
+}

@@ -9,8 +9,11 @@ import {
   type TranslationOptions,
 } from '../../../../packages/core/src/index';
 import type { LanguageDetectionBridge } from '../../../../packages/providers/src/browser-local';
+import { detectSourceLanguage, nonLatinText } from '../../../../packages/providers/src/language-detection';
+import { EditorWriteError } from '../sites/dom-editor';
 import type { EditorHandle } from '../sites/editor-adapter';
 import { createDocumentBrowserBridges } from './provider-factory';
+import { protectText } from './protected-text';
 
 const ACTION_TIMEOUT_MS = 30_000;
 
@@ -21,13 +24,16 @@ export interface ControllerState {
   canUndo: boolean;
   error?: TranslationError;
   progress?: TranslationProgress;
+  recoveryText?: string;
 }
 
 export interface TranslationControllerOptions {
   editor: EditorHandle;
   provider: UserActivatedTranslationProvider;
   detector?: LanguageDetectionBridge;
-  isPromptSubmitted?: (event: Event) => boolean;
+  isPromptSubmitted?: (event: Event, editor: EditorHandle) => boolean;
+  protectContent?: boolean;
+  isCurrentTarget?: () => boolean;
 }
 
 export interface PreparedTranslationAction {
@@ -52,24 +58,17 @@ function error(code: ConstructorParameters<typeof TranslationError>[0]['code'], 
   return new TranslationError({ code, userMessage: message, retryable: false });
 }
 
-function canonicalLanguage(value: unknown): string | undefined {
-  if (typeof value !== 'string' || value === '' || value === 'und') return undefined;
-  try {
-    return Intl.getCanonicalLocales(value)[0];
-  } catch {
-    return undefined;
-  }
-}
-
 function isCurrent(editor: EditorHandle, text: string, revision: number): boolean {
-  return editor.readText() === text && editor.getRevision() === revision;
+  return editor.element.isConnected && editor.readText() === text && editor.getRevision() === revision;
 }
 
 export class TranslationController {
   private readonly editor: EditorHandle;
   private readonly provider: UserActivatedTranslationProvider;
   private readonly detector?: LanguageDetectionBridge;
-  private readonly isPromptSubmitted?: (event: Event) => boolean;
+  private readonly isPromptSubmitted?: (event: Event, editor: EditorHandle) => boolean;
+  private readonly protectContent: boolean;
+  private readonly isCurrentTarget: () => boolean;
   private readonly listeners = new Set<(state: ControllerState) => void>();
   private currentState: ControllerState = { status: 'idle', canUndo: false };
   private active?: AbortController;
@@ -79,15 +78,19 @@ export class TranslationController {
   private replacing = false;
   private submitted = false;
 
-  constructor({ editor, provider, detector, isPromptSubmitted }: TranslationControllerOptions) {
+  constructor({ editor, provider, detector, isPromptSubmitted, protectContent = false,
+    isCurrentTarget = () => true }: TranslationControllerOptions) {
     this.editor = editor;
     this.provider = provider;
     this.detector = detector ?? createDocumentBrowserBridges().detector;
     this.isPromptSubmitted = isPromptSubmitted;
+    this.protectContent = protectContent;
+    this.isCurrentTarget = isCurrentTarget;
     editor.element.addEventListener('input', this.onInput);
     const document = editor.element.ownerDocument;
     document.addEventListener('submit', this.onSubmit, true);
     document.addEventListener('keydown', this.onSubmit, true);
+    document.addEventListener('click', this.onSubmit, true);
   }
 
   get state(): ControllerState {
@@ -106,7 +109,7 @@ export class TranslationController {
   }
 
   async translate(): Promise<void> {
-    if (this.disposed || this.active) return;
+    if (this.disposed || this.active || this.replacing) return;
     this.clearUndo();
     const snapshot = this.editor.readText();
     const revision = this.editor.getRevision();
@@ -145,11 +148,7 @@ export class TranslationController {
           } else if (selectedProvider !== 'browser' || !action) {
             if (this.detector) {
               try {
-                const detected = await this.detector.detect(snapshot, { signal });
-                if (Number.isFinite(detected.confidence) && detected.confidence >= 0.5 &&
-                    detected.confidence <= 1) {
-                  sourceLanguage = canonicalLanguage(detected.detectedLanguage);
-                }
+                sourceLanguage = await detectSourceLanguage(snapshot, this.detector, { signal });
               } catch {
                 // Remote providers can translate without source-language detection.
                 // Browser Local retains its own defensive detector check.
@@ -157,13 +156,17 @@ export class TranslationController {
             }
           }
           if (!isWorkActive()) return;
-          if (this.submitted || !isCurrent(this.editor, snapshot, revision)) throw inputChanged();
+          if (this.submitted || !this.isCurrentEditor(snapshot, revision)) throw inputChanged();
           if (sourceLanguage?.split('-')[0].toLowerCase() === 'en') {
-            throw error('ALREADY_ENGLISH', 'This input is already in English.');
+            if (!nonLatinText(snapshot)) {
+              throw error('ALREADY_ENGLISH', 'This input is already in English.');
+            }
+            sourceLanguage = undefined;
           }
 
+          const protectedText = this.protectContent ? protectText(snapshot) : undefined;
           const request: TranslationRequest = {
-            text: snapshot,
+            text: protectedText?.text ?? snapshot,
             targetLanguage: 'en',
             ...(sourceLanguage === undefined ? {} : { sourceLanguage }),
           };
@@ -171,25 +174,28 @@ export class TranslationController {
             ? action.translate(request, translationOptions)
             : this.provider.translate(request, translationOptions));
           if (!isWorkActive()) return;
-          if (this.submitted || !isCurrent(this.editor, snapshot, revision)) throw inputChanged();
+          if (this.submitted || !this.isCurrentEditor(snapshot, revision)) throw inputChanged();
           if (typeof result.text !== 'string' || result.text.trim().length === 0) {
             throw error('MALFORMED_RESPONSE', 'The provider returned no translation.');
           }
+          const translated = protectedText ? protectedText.restore(result.text) : result.text;
 
           this.replacing = true;
           try {
-            this.editor.replaceText(result.text);
+            const writing = this.editor.replaceText(translated,
+              () => isWorkActive() && !this.submitted && this.isCurrentTarget());
+            if (writing) await writing;
           } finally {
             this.replacing = false;
           }
           if (!isWorkActive()) return;
           if (this.submitted) throw inputChanged();
-          if (!isCurrent(this.editor, result.text, this.editor.getRevision())) {
+          if (!this.isCurrentEditor(translated, this.editor.getRevision())) {
             throw error('EDITOR_NOT_FOUND', 'The editor could not be updated. Please try again.');
           }
           this.undoRecord = {
             original: snapshot,
-            translated: result.text,
+            translated,
             revision: this.editor.getRevision(),
           };
           this.undoTimer = setTimeout(() => {
@@ -206,43 +212,54 @@ export class TranslationController {
       }, ACTION_TIMEOUT_MS);
     } catch (cause) {
       if (!this.isActive(active)) return;
-      const failure = this.submitted || !isCurrent(this.editor, snapshot, revision)
+      const failure = cause instanceof EditorWriteError
+        ? error('EDITOR_NOT_FOUND', 'The host editor could not accept the replacement.')
+        : this.submitted || !this.isCurrentEditor(snapshot, revision)
         ? inputChanged()
         : cause instanceof TranslationError
           ? cause
           : error('UNKNOWN', 'Translation failed. Please try again.');
       this.active = undefined;
-      this.publish({ status: 'error', canUndo: false, error: failure });
+      this.publish({ status: 'error', canUndo: false, error: failure,
+        ...(cause instanceof EditorWriteError ? { recoveryText: cause.original } : {}) });
     } finally {
       if (this.active === active) this.active = undefined;
     }
   }
 
-  undo(): boolean {
-    if (this.disposed || this.active || !this.undoRecord) return false;
+  undo(): boolean | Promise<boolean> {
+    if (this.disposed || this.active || this.replacing || !this.undoRecord) return false;
     const record = this.undoRecord;
-    if (!isCurrent(this.editor, record.translated, record.revision)) {
+    if (!this.isCurrentEditor(record.translated, record.revision)) {
       this.clearUndo();
       this.publish({ status: 'idle', canUndo: false });
       return false;
     }
-    try {
-      this.replacing = true;
-      this.editor.replaceText(record.original);
-      if (this.editor.readText() !== record.original) {
+    const finish = (): boolean => {
+      if (this.disposed || this.submitted || this.undoRecord !== record ||
+          !this.isCurrentTarget() || this.editor.readText() !== record.original) {
         throw new Error('The host editor changed the restored text.');
       }
+      this.replacing = false;
       this.clearUndo();
       this.publish({ status: 'idle', canUndo: false });
       return true;
-    } catch {
+    };
+    const failed = (): boolean => {
+      this.replacing = false;
       this.clearUndo();
       this.publish({ status: 'error', canUndo: false,
-        error: error('EDITOR_NOT_FOUND', 'The editor could not restore the original text.') });
+        error: error('EDITOR_NOT_FOUND', 'The editor could not restore the original text.'),
+        recoveryText: record.original });
       return false;
-    } finally {
-      this.replacing = false;
-    }
+    };
+    try {
+      this.replacing = true;
+      const writing = this.editor.replaceText(record.original, () => !this.disposed &&
+        !this.submitted && this.undoRecord === record && this.isCurrentTarget());
+      if (writing) return writing.then(finish).catch(failed);
+      return finish();
+    } catch { return failed(); }
   }
 
   dispose(): void {
@@ -255,11 +272,16 @@ export class TranslationController {
     const document = this.editor.element.ownerDocument;
     document.removeEventListener('submit', this.onSubmit, true);
     document.removeEventListener('keydown', this.onSubmit, true);
+    document.removeEventListener('click', this.onSubmit, true);
     this.listeners.clear();
   }
 
   private isActive(active: AbortController): boolean {
     return !this.disposed && this.active === active;
+  }
+
+  private isCurrentEditor(text: string, revision: number): boolean {
+    return this.isCurrentTarget() && isCurrent(this.editor, text, revision);
   }
 
   private publish(state: ControllerState): void {
@@ -297,13 +319,7 @@ export class TranslationController {
   };
 
   private readonly onSubmit = (event: Event): void => {
-    if (!this.isPromptSubmitted?.(event) || this.disposed) return;
-    const target = event.target;
-    const form = this.editor.element.closest('form');
-    const belongsToEditor = event.type === 'submit'
-      ? target === form
-      : target instanceof Node && this.editor.element.contains(target);
-    if (!belongsToEditor) return;
+    if (this.disposed || !this.isPromptSubmitted?.(event, this.editor)) return;
     this.submitted = true;
     this.clearUndo();
     if (this.active) {

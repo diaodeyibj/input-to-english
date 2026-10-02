@@ -1,0 +1,16 @@
+{
+  "id": "en-r1-f",
+  "language": "en",
+  "text": "Help me design a more creative new logo",
+  "phrase": "Help me design a more creative new logo",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\round2\\reference-male.wav",
+  "ref_sha256": "c20215977c42be7706a7546a7674b34db055263e53e44307e021103882aa97db",
+  "prompt": "Hey look a flying pig",
+  "instruction": "请像和同事聊天一样自然地说这句话，语气从容自信，不要朗读或播音。",
+  "mode": "instruct2",
+  "speed": 1.0,
+  "seed": 9813,
+  "start_frame": 1770,
+  "cache_key": "b2dfb2ab7f3acebfc8eb42cabcb4acb02ab590db66dd0aa49aa82bfa31d35b19",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\round2\\en-r1-f-b2dfb2ab7f3acebf-original.wav"
+}

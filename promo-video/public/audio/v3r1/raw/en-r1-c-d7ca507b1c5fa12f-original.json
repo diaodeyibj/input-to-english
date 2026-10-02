@@ -1,0 +1,14 @@
+{
+  "id": "en-r1-c",
+  "language": "en",
+  "text": "Help me design a more creative new logo",
+  "phrase": "Help me design a more creative new logo",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\reference-hard-en-official-4.wav",
+  "ref_sha256": "e13be5eeae57ac6d2f226bf43fd88fc1efe0ed6133d204a1ede35bd30e970b81",
+  "instruction": "请像一位专业产品负责人面对面请求同事帮助一样说这句话，成熟男性，平静有自信，自然口语，轻微微笑，不要朗读，不要夸张，不要刻意放慢。",
+  "speed": 1.0,
+  "seed": 9703,
+  "start_frame": 1770,
+  "cache_key": "d7ca507b1c5fa12fd804c46233231d4700ca3fe0817241ef9a3d15a7c3ca817a",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3r1\\raw\\en-r1-c-d7ca507b1c5fa12f-original.wav"
+}

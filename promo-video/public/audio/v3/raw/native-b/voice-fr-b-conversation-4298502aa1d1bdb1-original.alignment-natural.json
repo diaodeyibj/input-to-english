@@ -1,0 +1,66 @@
+{
+  "text": " Aide-moi à créer une nouvelle affiche pour mon projet.",
+  "words": [
+    {
+      "word": " Aide",
+      "start": 0.0,
+      "end": 0.26,
+      "probability": 0.5795340836048126
+    },
+    {
+      "word": "-moi",
+      "start": 0.26,
+      "end": 0.58,
+      "probability": 0.9561754763126373
+    },
+    {
+      "word": " à",
+      "start": 0.58,
+      "end": 0.82,
+      "probability": 0.9722862839698792
+    },
+    {
+      "word": " créer",
+      "start": 0.82,
+      "end": 1.08,
+      "probability": 0.9957939386367798
+    },
+    {
+      "word": " une",
+      "start": 1.08,
+      "end": 1.3,
+      "probability": 0.9957477450370789
+    },
+    {
+      "word": " nouvelle",
+      "start": 1.3,
+      "end": 1.5,
+      "probability": 0.9914788603782654
+    },
+    {
+      "word": " affiche",
+      "start": 1.5,
+      "end": 1.94,
+      "probability": 0.9992215931415558
+    },
+    {
+      "word": " pour",
+      "start": 1.94,
+      "end": 2.1,
+      "probability": 0.9953948855400085
+    },
+    {
+      "word": " mon",
+      "start": 2.1,
+      "end": 2.26,
+      "probability": 0.9978905320167542
+    },
+    {
+      "word": " projet.",
+      "start": 2.26,
+      "end": 2.58,
+      "probability": 0.9987473487854004
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

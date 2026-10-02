@@ -1,0 +1,66 @@
+{
+  "text": " Hilf mir bitte bei einem neuen Logo für mein Projekt.",
+  "words": [
+    {
+      "word": " Hilf",
+      "start": 0.0,
+      "end": 0.44,
+      "probability": 0.9121536910533905
+    },
+    {
+      "word": " mir",
+      "start": 0.44,
+      "end": 0.64,
+      "probability": 0.9968618154525757
+    },
+    {
+      "word": " bitte",
+      "start": 0.64,
+      "end": 0.92,
+      "probability": 0.9860279560089111
+    },
+    {
+      "word": " bei",
+      "start": 0.92,
+      "end": 1.22,
+      "probability": 0.9912125468254089
+    },
+    {
+      "word": " einem",
+      "start": 1.22,
+      "end": 1.6,
+      "probability": 0.9963626265525818
+    },
+    {
+      "word": " neuen",
+      "start": 1.6,
+      "end": 2.08,
+      "probability": 0.9984604120254517
+    },
+    {
+      "word": " Logo",
+      "start": 2.08,
+      "end": 2.64,
+      "probability": 0.998313844203949
+    },
+    {
+      "word": " für",
+      "start": 2.64,
+      "end": 2.84,
+      "probability": 0.9949378967285156
+    },
+    {
+      "word": " mein",
+      "start": 2.84,
+      "end": 3.14,
+      "probability": 0.9965522289276123
+    },
+    {
+      "word": " Projekt.",
+      "start": 3.14,
+      "end": 3.58,
+      "probability": 0.9977994561195374
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

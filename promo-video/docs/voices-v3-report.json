@@ -1,0 +1,240 @@
+{
+  "manifest": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\voices-manifest.json",
+  "selected_english": "en-a",
+  "auditions": {
+    "native_sequence": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\audition-native-sequence.wav",
+    "english_candidates": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\audition-english-candidates.wav"
+  },
+  "measurements": [
+    {
+      "take": "zh",
+      "raw_seconds": 3.04,
+      "clip_seconds": 0.46,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 16.8,
+      "sha256": "0d5e1d44834322d9f7b492276b57ddf5388d1885853bacfb347ff795502fc197"
+    },
+    {
+      "take": "ja",
+      "raw_seconds": 2.68,
+      "clip_seconds": 0.785,
+      "within_target": true,
+      "onset_frames": 0.3,
+      "speech_end_frames": 46.5,
+      "sha256": "486875879f2309ed8d8d48cd2095ce1d1f549f4c724404026412cd97812d5d27"
+    },
+    {
+      "take": "ko",
+      "raw_seconds": 1.44,
+      "clip_seconds": 0.33,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 18.9,
+      "sha256": "ea6c5c4b6f20069372e22009b95290cfaa559c323886d88da0a1941ef4e5f712"
+    },
+    {
+      "take": "de",
+      "raw_seconds": 2.12,
+      "clip_seconds": 0.645,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 38.4,
+      "sha256": "0ac79f0acb20dc09bc0bb09c7f5106357445b671a9d106629da25b7bfb8cfe74"
+    },
+    {
+      "take": "es",
+      "raw_seconds": 2.32,
+      "clip_seconds": 0.69,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 32.1,
+      "sha256": "8563ff6236945012394a5f2eecec87518012faebf7c1e15f32dbc80717ea463f"
+    },
+    {
+      "take": "fr",
+      "raw_seconds": 2.8,
+      "clip_seconds": 0.575,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 22.5,
+      "sha256": "aa1b88246a8d0c5568239d1082cbd28d89f0011987e9efc5046bd98fa2c955a2"
+    },
+    {
+      "take": "it",
+      "raw_seconds": 2.48,
+      "clip_seconds": 0.825,
+      "within_target": true,
+      "onset_frames": 0.6,
+      "speech_end_frames": 42.3,
+      "sha256": "0d96b5710aa979502ae78846010b3eaa0466cdd4bfcc5a0b90492469b1a59ced"
+    },
+    {
+      "take": "ru",
+      "raw_seconds": 2.44,
+      "clip_seconds": 0.76,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 41.4,
+      "sha256": "0077382fc5a622bf6865a3339f471e9a5e1190dad70afa907e676eb7c93775e5"
+    },
+    {
+      "take": "en-a",
+      "raw_seconds": 2.76,
+      "clip_seconds": 2.69,
+      "within_target": true,
+      "onset_frames": 0.3,
+      "speech_end_frames": 155.39999999999998,
+      "sha256": "121891da04eb42180b77555ca6c1ae79ae3571f958b829535845e7d22ce69c50"
+    },
+    {
+      "take": "en-b",
+      "raw_seconds": 3.04,
+      "clip_seconds": 2.975,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 172.5,
+      "sha256": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef"
+    },
+    {
+      "take": "en-c",
+      "raw_seconds": 3.24,
+      "clip_seconds": 3.1,
+      "within_target": true,
+      "onset_frames": 0.0,
+      "speech_end_frames": 180.0,
+      "sha256": "32faa204afc5d925d041bb61df6b3efa70a7130023f4cfd179610626c2e78384"
+    }
+  ],
+  "validation": {
+    "status": "PASS",
+    "checks": "Delivered/raw SHA256, PCM rate/channels/finite/peak/RMS, exact full English transcript and six word boundaries, 2.5..3.1s English timing, native speech end <=76 frames, distinct from old assets, audition files verified. Automatic only; user listening approval pending.",
+    "files": [
+      {
+        "take": "zh",
+        "duration_seconds": 0.46,
+        "sha256": "0d5e1d44834322d9f7b492276b57ddf5388d1885853bacfb347ff795502fc197",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "ja",
+        "duration_seconds": 0.785,
+        "sha256": "486875879f2309ed8d8d48cd2095ce1d1f549f4c724404026412cd97812d5d27",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "ko",
+        "duration_seconds": 0.33,
+        "sha256": "ea6c5c4b6f20069372e22009b95290cfaa559c323886d88da0a1941ef4e5f712",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "de",
+        "duration_seconds": 0.645,
+        "sha256": "0ac79f0acb20dc09bc0bb09c7f5106357445b671a9d106629da25b7bfb8cfe74",
+        "channels": 1,
+        "peak": 0.6299974918365479
+      },
+      {
+        "take": "es",
+        "duration_seconds": 0.69,
+        "sha256": "8563ff6236945012394a5f2eecec87518012faebf7c1e15f32dbc80717ea463f",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "fr",
+        "duration_seconds": 0.575,
+        "sha256": "aa1b88246a8d0c5568239d1082cbd28d89f0011987e9efc5046bd98fa2c955a2",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "it",
+        "duration_seconds": 0.825,
+        "sha256": "0d96b5710aa979502ae78846010b3eaa0466cdd4bfcc5a0b90492469b1a59ced",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "ru",
+        "duration_seconds": 0.76,
+        "sha256": "0077382fc5a622bf6865a3339f471e9a5e1190dad70afa907e676eb7c93775e5",
+        "channels": 1,
+        "peak": 0.7213488817214966
+      },
+      {
+        "take": "en-a",
+        "duration_seconds": 2.69,
+        "sha256": "121891da04eb42180b77555ca6c1ae79ae3571f958b829535845e7d22ce69c50",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "en-a",
+        "duration_seconds": 2.69,
+        "sha256": "121891da04eb42180b77555ca6c1ae79ae3571f958b829535845e7d22ce69c50",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      },
+      {
+        "take": "en-b",
+        "duration_seconds": 2.975,
+        "sha256": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef",
+        "channels": 1,
+        "peak": 0.8024164438247681
+      },
+      {
+        "take": "en-c",
+        "duration_seconds": 3.1,
+        "sha256": "32faa204afc5d925d041bb61df6b3efa70a7130023f4cfd179610626c2e78384",
+        "channels": 1,
+        "peak": 0.8413951396942139
+      }
+    ]
+  },
+  "character_marker_validation": {
+    "status": "PASS",
+    "repair": "Metadata only; no GPU inference or WAV writes.",
+    "wav_hashes_unchanged": true,
+    "wav_sha256": {
+      "public/audio/v3/voice-en.wav": "121891da04eb42180b77555ca6c1ae79ae3571f958b829535845e7d22ce69c50",
+      "public/audio/v3/voice-en-a.wav": "121891da04eb42180b77555ca6c1ae79ae3571f958b829535845e7d22ce69c50",
+      "public/audio/v3/voice-en-b.wav": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef",
+      "public/audio/v3/voice-en-c.wav": "32faa204afc5d925d041bb61df6b3efa70a7130023f4cfd179610626c2e78384"
+    },
+    "entries": [
+      {
+        "take": "en-a",
+        "output_file": "public/audio/v3/voice-en.wav",
+        "marker_count": 26,
+        "joined_text": "Help me design a new logo.",
+        "full_sentence_match": true
+      },
+      {
+        "take": "en-a",
+        "output_file": "public/audio/v3/voice-en-a.wav",
+        "marker_count": 26,
+        "joined_text": "Help me design a new logo.",
+        "full_sentence_match": true
+      },
+      {
+        "take": "en-b",
+        "output_file": "public/audio/v3/voice-en-b.wav",
+        "marker_count": 26,
+        "joined_text": "Help me design a new logo.",
+        "full_sentence_match": true
+      },
+      {
+        "take": "en-c",
+        "output_file": "public/audio/v3/voice-en-c.wav",
+        "marker_count": 26,
+        "joined_text": "Help me design a new logo.",
+        "full_sentence_match": true
+      }
+    ]
+  }
+}

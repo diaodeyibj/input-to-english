@@ -1,0 +1,60 @@
+{
+  "text": "帮我设计一张新海报。",
+  "words": [
+    {
+      "word": "帮",
+      "start": 0.0,
+      "end": 0.12,
+      "probability": 0.9964132308959961
+    },
+    {
+      "word": "我",
+      "start": 0.12,
+      "end": 0.28,
+      "probability": 0.9990687966346741
+    },
+    {
+      "word": "设",
+      "start": 0.28,
+      "end": 0.4,
+      "probability": 0.9988219738006592
+    },
+    {
+      "word": "计",
+      "start": 0.4,
+      "end": 0.52,
+      "probability": 0.9974825382232666
+    },
+    {
+      "word": "一",
+      "start": 0.52,
+      "end": 0.62,
+      "probability": 0.9980583786964417
+    },
+    {
+      "word": "张",
+      "start": 0.62,
+      "end": 0.74,
+      "probability": 0.9993280172348022
+    },
+    {
+      "word": "新",
+      "start": 0.74,
+      "end": 0.92,
+      "probability": 0.9955447912216187
+    },
+    {
+      "word": "海",
+      "start": 0.92,
+      "end": 1.08,
+      "probability": 0.9990203380584717
+    },
+    {
+      "word": "报。",
+      "start": 1.08,
+      "end": 1.28,
+      "probability": 0.9841905236244202
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

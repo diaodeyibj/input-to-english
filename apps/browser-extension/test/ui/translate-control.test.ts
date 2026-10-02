@@ -23,6 +23,38 @@ describe('translate control', () => {
     expect(document.body.querySelector('button')).toBeNull();
   });
 
+  it('keeps mouse activation out of host composer focus handlers and preserves the editor caret', () => {
+    const owner = document.createElement('section');
+    const editor = document.createElement('div'); editor.contentEditable = 'true'; editor.tabIndex = 0; editor.textContent = 'draft';
+    const control = createTranslateControl(); owner.append(editor, control.element); document.body.append(owner);
+    editor.focus(); document.getSelection()!.collapse(editor.firstChild, 2);
+    const host = vi.fn(() => editor.focus());
+    owner.addEventListener('mousedown', host); owner.addEventListener('click', host);
+    const translate = vi.fn(); control.onTranslate(translate);
+    const button = getButton(control, '-> EN');
+    const down = new MouseEvent('mousedown', { bubbles: true, composed: true, cancelable: true, button: 0 });
+    button.dispatchEvent(down); button.click();
+    expect(down.defaultPrevented).toBe(true);
+    expect(host).not.toHaveBeenCalled();
+    expect(document.activeElement).toBe(editor);
+    expect(document.getSelection()!.anchorOffset).toBe(2);
+    expect(translate).toHaveBeenCalledOnce();
+    control.dispose();
+  });
+
+  it('offers a read-only original when a host fails after changing its draft', () => {
+    const control = createTranslateControl();
+    control.render({ status: 'error', canUndo: false, recoveryText: '原文 <script>安全</script>' });
+    const original = control.element.shadowRoot!.querySelector('textarea')!;
+    expect(original.readOnly).toBe(true);
+    expect(original.hidden).toBe(false);
+    expect(original.value).toBe('原文 <script>安全</script>');
+    expect(control.element.shadowRoot!.querySelector('script')).toBeNull();
+    control.render({ status: 'idle', canUndo: false });
+    expect(original.hidden).toBe(true);
+    expect(original.value).toBe('');
+  });
+
   it('invokes the translate callback from mouse and keyboard activation', () => {
     const control = createTranslateControl();
     const translate = vi.fn();

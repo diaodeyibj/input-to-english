@@ -1,0 +1,14 @@
+{
+  "id": "ja",
+  "language": "ja",
+  "text": "テツダッテ、アタラシイ ロゴ ヲ ツクッテ。",
+  "phrase": "手伝って",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\cross_lingual_prompt.wav",
+  "instruction": "Speak Japanese naturally, with friendly curiosity and a little warmth. Use a natural conversational pace; no rushing or shouting.",
+  "speed": 1.0,
+  "seed": 7301,
+  "start_frame": 200,
+  "ref_sha256": "353a7715c2e4811f4045658b29d1ce67ecad5120e09de10ce890f1763aab486c",
+  "cache_key": "b26b5acc7ef4b3aa63a35e2a73510f117ac04e72285697c2f9792bc73c286e48",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-ja-b26b5acc7ef4b3aa-original.wav"
+}

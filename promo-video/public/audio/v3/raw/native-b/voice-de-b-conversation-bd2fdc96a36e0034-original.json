@@ -1,0 +1,20 @@
+{
+  "lang": "de",
+  "source": "Hilf mir bitte bei einem neuen Logo für mein Projekt.",
+  "text": "Hilf mir bitte bei einem neuen Logo für mein Projekt.",
+  "head": "Hilf mir",
+  "ref_id": 1,
+  "prompt": "Zieht euch bitte draußen die Schuhe aus.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-de-official.wav",
+  "ref_sha256": "31211fcd0787f908569c7846798abeab802152630bae450064821b37c686f722",
+  "id": "de-b-conversation",
+  "language": "de",
+  "variant": "conversation",
+  "instruction": "请像和朋友聊天一样自然地说这句话，语气温暖轻松，不要朗读或播音。",
+  "mode": "instruct2",
+  "speed": 1.0,
+  "seed": 8631,
+  "start_frame": 400,
+  "cache_key": "bd2fdc96a36e0034b959989b9e7cb527627b9de915bb89b4ade1e351e19da9c5",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-de-b-conversation-bd2fdc96a36e0034-original.wav"
+}

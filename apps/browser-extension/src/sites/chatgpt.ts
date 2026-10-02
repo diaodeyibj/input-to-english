@@ -5,6 +5,7 @@ const SELECTORS = [
   'form #prompt-textarea',
   'form[data-testid="prompt-form"] textarea[aria-label="Message ChatGPT"]',
   'main form textarea[aria-label="Message ChatGPT"]',
+  'main form [contenteditable="true"]',
 ];
 
 export const chatgptAdapter: SiteAdapter = {

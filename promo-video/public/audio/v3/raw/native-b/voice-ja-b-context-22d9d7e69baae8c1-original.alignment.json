@@ -1,0 +1,144 @@
+{
+  "text": "ペツダッテ ホシインダケド、アタラシイ ロゴを作りたいんだ。",
+  "words": [
+    {
+      "word": "ペ",
+      "start": 1.4800000000000006,
+      "end": 1.8,
+      "probability": 0.3209522493707482
+    },
+    {
+      "word": "ツ",
+      "start": 1.8,
+      "end": 1.9,
+      "probability": 0.5731381177902222
+    },
+    {
+      "word": "ダ",
+      "start": 1.9,
+      "end": 2.04,
+      "probability": 0.03702739253640175
+    },
+    {
+      "word": "ッ",
+      "start": 2.04,
+      "end": 2.06,
+      "probability": 0.002086744410917163
+    },
+    {
+      "word": "テ",
+      "start": 2.06,
+      "end": 2.42,
+      "probability": 0.37330296635627747
+    },
+    {
+      "word": " ホ",
+      "start": 2.42,
+      "end": 2.82,
+      "probability": 0.36427707302209456
+    },
+    {
+      "word": "シ",
+      "start": 2.82,
+      "end": 2.98,
+      "probability": 0.9297042489051819
+    },
+    {
+      "word": "イ",
+      "start": 2.98,
+      "end": 3.08,
+      "probability": 0.7329180240631104
+    },
+    {
+      "word": "ンダ",
+      "start": 3.08,
+      "end": 3.24,
+      "probability": 0.11597765982151031
+    },
+    {
+      "word": "ケ",
+      "start": 3.24,
+      "end": 3.4,
+      "probability": 0.8947915434837341
+    },
+    {
+      "word": "ド、",
+      "start": 3.4,
+      "end": 3.64,
+      "probability": 0.9723904132843018
+    },
+    {
+      "word": "ア",
+      "start": 3.8,
+      "end": 4.32,
+      "probability": 0.2145911157131195
+    },
+    {
+      "word": "タ",
+      "start": 4.32,
+      "end": 4.48,
+      "probability": 0.9882164597511292
+    },
+    {
+      "word": "ラ",
+      "start": 4.48,
+      "end": 4.58,
+      "probability": 0.9595534205436707
+    },
+    {
+      "word": "シ",
+      "start": 4.58,
+      "end": 4.76,
+      "probability": 0.9715947508811951
+    },
+    {
+      "word": "イ",
+      "start": 4.76,
+      "end": 4.86,
+      "probability": 0.9642337560653687
+    },
+    {
+      "word": " ロ",
+      "start": 4.86,
+      "end": 4.98,
+      "probability": 0.5686557590961456
+    },
+    {
+      "word": "ゴ",
+      "start": 4.98,
+      "end": 5.14,
+      "probability": 0.9984830021858215
+    },
+    {
+      "word": "を",
+      "start": 5.14,
+      "end": 5.26,
+      "probability": 0.8208180069923401
+    },
+    {
+      "word": "作",
+      "start": 5.26,
+      "end": 5.44,
+      "probability": 0.47074204683303833
+    },
+    {
+      "word": "り",
+      "start": 5.44,
+      "end": 5.6,
+      "probability": 0.9472932815551758
+    },
+    {
+      "word": "たい",
+      "start": 5.6,
+      "end": 5.78,
+      "probability": 0.8976723551750183
+    },
+    {
+      "word": "んだ。",
+      "start": 5.78,
+      "end": 5.98,
+      "probability": 0.9403712153434753
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

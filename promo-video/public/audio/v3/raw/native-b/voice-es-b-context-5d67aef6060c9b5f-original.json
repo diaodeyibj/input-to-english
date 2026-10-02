@@ -1,0 +1,20 @@
+{
+  "lang": "es",
+  "source": "Ayúdame a diseñar un nuevo cartel para mi proyecto.",
+  "text": "Ayúdame a diseñar un nuevo cartel para mi proyecto.",
+  "head": "Ayúdame",
+  "ref_id": 1,
+  "prompt": "Durante unos años, enseñó Física e Historia en el colegio de nobles de Parma.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-es-official.wav",
+  "ref_sha256": "373a10bc9ced818fb549ae3bdf34b1686dd04eb22a5fcdb1d2c782d84fb2760f",
+  "id": "es-b-context",
+  "language": "es",
+  "variant": "context",
+  "instruction": null,
+  "mode": "zero_shot",
+  "speed": 1.0,
+  "seed": 8640,
+  "start_frame": 500,
+  "cache_key": "5d67aef6060c9b5f792b76c5b824b4e8b10cf53863507403c695c5ed2bf3e341",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-es-b-context-5d67aef6060c9b5f-original.wav"
+}

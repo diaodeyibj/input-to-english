@@ -2,7 +2,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import type { TranslationProvider } from '../../../../packages/core/src/contracts';
-import { createEditorHandle, isSubmitEvent } from '../../src/sites/dom-editor';
+import { createEditorHandle, isSubmitEvent, EditorWriteError } from '../../src/sites/dom-editor';
 import { TranslationController } from '../../src/content/translation-controller';
 
 function deferred<T>() {
@@ -38,6 +38,93 @@ afterEach(() => {
 });
 
 describe('safe translation controller', () => {
+  it('waits for a framework-owned asynchronous write before reporting success or Undo', async () => {
+    const { editor, textarea } = setup();
+    const write = deferred<void>();
+    const asyncEditor = { ...editor, replaceText: async (text: string) => { await write.promise; editor.replaceText(text); } };
+    const controller = new TranslationController({ editor: asyncEditor,
+      provider: { id: 'deepseek', availability: async () => ({ status: 'available' }),
+        translate: async () => ({ text: 'Hello', providerId: 'deepseek' }) },
+    });
+    const translating = controller.translate();
+    await Promise.resolve(); await Promise.resolve();
+    expect(controller.state.status).toBe('translating');
+    write.resolve();
+    await translating;
+    expect(textarea.value).toBe('Hello');
+    expect(await controller.undo()).toBe(true);
+    expect(textarea.value).toBe('你好');
+    controller.dispose();
+  });
+
+  it('retains the original for recovery when a host partially changes its draft and fails', async () => {
+    const { editor, textarea, provider } = setup();
+    const brokenEditor = { ...editor, replaceText: () => { textarea.value = 'partial'; throw new EditorWriteError('你好'); } };
+    const controller = new TranslationController({ editor: brokenEditor, provider });
+    await controller.translate();
+    expect(textarea.value).toBe('partial');
+    expect(controller.state).toMatchObject({ status: 'error', canUndo: false, recoveryText: '你好', error: { code: 'EDITOR_NOT_FOUND' } });
+    controller.dispose();
+  });
+
+  it.each(['browser', 'deepseek', 'kimi'] as const)('preserves protected content with %s and restores the full original on Undo', async (id) => {
+    const { textarea, editor } = setup(undefined, id);
+    textarea.value = '你好 @alice #中文 https://example.com 👩🏽‍💻\n再见';
+    const original = textarea.value;
+    const controller = new TranslationController({ editor, protectContent: true,
+      provider: { id, availability: async () => ({ status: 'available' }),
+        translate: async request => ({ text: request.text.replace('你好', 'Hello').replace('再见', 'Goodbye')
+          .replace('@alice', '@changed').replace('#中文', '#English'), providerId: id }) },
+    });
+    await controller.translate();
+    expect(textarea.value).toBe('Hello @alice #中文 https://example.com 👩🏽‍💻\nGoodbye');
+    expect(controller.undo()).toBe(true);
+    expect(textarea.value).toBe(original);
+    controller.dispose();
+  });
+
+  it('refuses a translation that removed protected content before touching the input', async () => {
+    const { textarea, editor } = setup();
+    textarea.value = '你好 @alice';
+    const controller = new TranslationController({ editor, protectContent: true,
+      provider: { id: 'deepseek', availability: async () => ({ status: 'available' }),
+        translate: async () => ({ text: 'Hello', providerId: 'deepseek' }) },
+    });
+    await controller.translate();
+    expect(textarea.value).toBe('你好 @alice');
+    expect(controller.state).toMatchObject({ status: 'error', canUndo: false, error: { code: 'MALFORMED_RESPONSE' } });
+    controller.dispose();
+  });
+
+  it('does not write to a removed editor even before the mutation observer runs', async () => {
+    const pending = deferred<{ text: string; providerId: 'deepseek' }>();
+    const { textarea, controller } = setup(() => pending.promise);
+    const translating = controller.translate();
+    textarea.remove();
+    pending.resolve({ text: 'Hello', providerId: 'deepseek' });
+    await translating;
+    expect(textarea.value).toBe('你好');
+    expect(controller.state.canUndo).toBe(false);
+    controller.dispose();
+  });
+
+  it('invalidates Undo when the owning composer sends through a sibling button', async () => {
+    const { textarea, editor, form } = setup();
+    const button = document.createElement('button');
+    button.type = 'button'; form.append(button);
+    const controller = new TranslationController({ editor,
+      provider: { id: 'deepseek', availability: async () => ({ status: 'available' }),
+        translate: async () => ({ text: 'Hello', providerId: 'deepseek' }) },
+      isPromptSubmitted: event => event.type === 'click' && event.target === button,
+    });
+    await controller.translate();
+    button.click();
+    expect(controller.state.canUndo).toBe(false);
+    expect(controller.undo()).toBe(false);
+    expect(textarea.value).toBe('Hello');
+    controller.dispose();
+  });
+
   it.each(['', ' \n\t '])('rejects blank editor input without a provider call (%j)', async (text) => {
     const translate = vi.fn(async () => ({ text: 'Hello', providerId: 'deepseek' as const }));
     const { textarea, controller } = setup(translate);
@@ -92,10 +179,11 @@ describe('safe translation controller', () => {
     expect(JSON.stringify(controller.state)).not.toContain('secret remote detail');
   });
 
-  it.each(['deepseek', 'kimi', 'ollama', 'browser'] as const)(
+  it.each(['deepseek', 'kimi', 'browser'] as const)(
     'short-circuits detected English before requesting %s', async (id) => {
       const translate = vi.fn(async () => ({ text: 'Hello', providerId: id }));
       const { textarea, editor } = setup(translate, id);
+      textarea.value = 'Hello, world!';
       const controller = new TranslationController({
         editor,
         provider: { id, availability: async () => ({ status: 'available' }), translate },
@@ -105,7 +193,7 @@ describe('safe translation controller', () => {
       await controller.translate();
 
       expect(controller.state).toMatchObject({ status: 'error', error: { code: 'ALREADY_ENGLISH' } });
-      expect(textarea.value).toBe('你好');
+      expect(textarea.value).toBe('Hello, world!');
       expect(translate).not.toHaveBeenCalled();
     },
   );
@@ -120,13 +208,55 @@ describe('safe translation controller', () => {
       }),
     });
     const translate = vi.fn(async () => ({ text: 'Hello', providerId: 'deepseek' as const }));
-    const { controller } = setup(translate);
+    const { controller, textarea } = setup(translate);
+    textarea.value = 'Hello, world!';
 
     await controller.translate();
 
     expect(controller.state).toMatchObject({ status: 'error', error: { code: 'ALREADY_ENGLISH' } });
     expect(translate).not.toHaveBeenCalled();
     expect(destroy).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['deepseek', 'kimi'] as const)('translates English-dominant mixed input with %s', async (id) => {
+    const mixed = 'Please help me design a more creative new logo 谢谢';
+    const { textarea, editor } = setup(undefined, id);
+    textarea.value = mixed;
+    const controller = new TranslationController({
+      editor,
+      provider: {
+        id, availability: async () => ({ status: 'available' }),
+        translate: async (request) => {
+          expect(request).toEqual({ text: mixed, targetLanguage: 'en', sourceLanguage: 'zh' });
+          return { text: 'Please help me design a more creative new logo. Thank you.', providerId: id };
+        },
+      },
+      detector: { detect: async (text) => ({ detectedLanguage: text === mixed ? 'en' : 'zh', confidence: 0.99 }) },
+    });
+
+    await controller.translate();
+
+    expect(controller.state.status).toBe('success');
+    expect(textarea.value).toBe('Please help me design a more creative new logo. Thank you.');
+    controller.dispose();
+  });
+
+  it('allows a remote translation when the mixed-language fragment cannot be detected', async () => {
+    const { textarea, editor } = setup();
+    textarea.value = 'Please translate this 谢';
+    const controller = new TranslationController({
+      editor,
+      provider: { id: 'deepseek', availability: async () => ({ status: 'available' }),
+        translate: async (request) => {
+          expect(request.sourceLanguage).toBeUndefined();
+          return { text: 'Please translate this. Thanks.', providerId: 'deepseek' };
+        } },
+      detector: { detect: async () => ({ detectedLanguage: 'en', confidence: 0.99 }) },
+    });
+    await controller.translate();
+    expect(controller.state.status).toBe('success');
+    expect(textarea.value).toBe('Please translate this. Thanks.');
+    controller.dispose();
   });
 
   it('times out a stalled language preflight within the full action deadline and ignores a late result', async () => {
@@ -203,7 +333,7 @@ describe('safe translation controller', () => {
     );
   });
 
-  it.each(['deepseek', 'kimi', 'ollama'] as const)(
+  it.each(['deepseek', 'kimi'] as const)(
     'runs %s without sourceLanguage when detection is unavailable', async (id) => {
       const translate = vi.fn(async () => ({ text: 'Hello', providerId: id }));
       const { editor } = setup(translate, id);
@@ -327,7 +457,7 @@ describe('safe translation controller', () => {
 
   it('makes Undo available as soon as subscribers observe success', async () => {
     const { textarea, controller } = setup();
-    let undone = false;
+    let undone: boolean | Promise<boolean> = false;
     controller.subscribe((state) => {
       if (state.status === 'success') undone = controller.undo();
     });

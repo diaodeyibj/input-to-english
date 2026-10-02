@@ -1,0 +1,186 @@
+{
+  "version": "v3-c",
+  "status": "Candidate C music audition; approval pending, no speech master generated",
+  "seconds": 40,
+  "sample_rate": 48000,
+  "channels": 2,
+  "pcm_bits": 24,
+  "bpm": 144,
+  "bars": 24,
+  "fps": 60,
+  "composition": "B drum/bass foundation unchanged; sparse four-note F#5–E5–D5–A4 theme across two bars, warm harmonic additive synth with short soft stereo echoes and quiet D-major pads. No FM/metallic lead or extra drum lattice. Independent mechanical keyboard, mouse and motion tracks bound to current rendered text/action frames.",
+  "reference_access": "The coordinating agent inspected direct browser playback and observed a 39-second feature promo with fast UI movement, feature headings and mouse zooms. Page inventory exposed no exportable video. Documented downloadMedia on the actual video blob timed out after 30 seconds. Reference audio was not heard or measured; no claim of tempo, beat or instrumentation equivalence is made.",
+  "reference_urls": [
+    "https://x.com/Kimi_Moonshot/status/2102372557190230244",
+    "https://www.youtube.com/watch?v=L1y09RA3fts"
+  ],
+  "mix": "Only 700-4800 Hz melodic band ducks for speech (native 0.39, English 0.24). No speech duck on drums/bass. 2-pass EBU master target -16 LUFS / <=-1.5 dBTP.",
+  "voice_windows": [],
+  "measurements": {
+    "drums": {
+      "integrated_lufs": -24.18,
+      "true_peak_dbtp": -8.91,
+      "loudness_range_lu": 2.5,
+      "threshold_lufs": -34.46
+    },
+    "bass": {
+      "integrated_lufs": -23.1,
+      "true_peak_dbtp": -12.81,
+      "loudness_range_lu": 3.6,
+      "threshold_lufs": -33.2
+    },
+    "melody": {
+      "integrated_lufs": -27.57,
+      "true_peak_dbtp": -13.77,
+      "loudness_range_lu": 11.2,
+      "threshold_lufs": -38.31
+    },
+    "music": {
+      "integrated_lufs": -20.17,
+      "true_peak_dbtp": -6.71,
+      "loudness_range_lu": 3.4,
+      "threshold_lufs": -30.52
+    },
+    "effects": {
+      "integrated_lufs": -39.79,
+      "true_peak_dbtp": -18.03,
+      "loudness_range_lu": 7.0,
+      "threshold_lufs": -50.2
+    },
+    "motion": {
+      "integrated_lufs": -38.73,
+      "true_peak_dbtp": -20.79,
+      "loudness_range_lu": 5.8,
+      "threshold_lufs": -49.98
+    },
+    "keyboard": {
+      "integrated_lufs": -40.66,
+      "true_peak_dbtp": -18.03,
+      "loudness_range_lu": 5.7,
+      "threshold_lufs": -50.7
+    },
+    "mouse": {
+      "integrated_lufs": -46.69,
+      "true_peak_dbtp": -18.22,
+      "loudness_range_lu": 6.5,
+      "threshold_lufs": -56.69
+    },
+    "audition": {
+      "integrated_lufs": -16.4,
+      "true_peak_dbtp": -2.65,
+      "loudness_range_lu": 3.0,
+      "threshold_lufs": -26.4
+    },
+    "audition_pure": {
+      "integrated_lufs": -16.42,
+      "true_peak_dbtp": -2.65,
+      "loudness_range_lu": 3.1,
+      "threshold_lufs": -26.42
+    }
+  },
+  "regional_rms_dbfs": {
+    "languages": {
+      "drums": -24.28,
+      "bass": -22.83,
+      "music": -19.98,
+      "voices": -240.0
+    },
+    "before_en": {
+      "drums": -25.37,
+      "bass": -22.84,
+      "music": -20.04,
+      "voices": -240.0
+    },
+    "after_en": {
+      "drums": -22.84,
+      "bass": -22.67,
+      "music": -19.44,
+      "voices": -240.0
+    },
+    "english": {
+      "drums": -26.18,
+      "bass": -25.78,
+      "music": -22.51,
+      "voices": -240.0
+    },
+    "brand": {
+      "drums": -32.85,
+      "bass": -27.84,
+      "music": -25.99,
+      "voices": -240.0
+    }
+  },
+  "validation": {
+    "stem_frames": 1920000,
+    "audition_frames": 960000,
+    "stem_sum_max_error": 0.0,
+    "en_pocket_max_amplitude": 0.0,
+    "tail_max_amplitude": 0.0
+  },
+  "stops_frames": [
+    [
+      1390,
+      1400
+    ],
+    [
+      1095,
+      1100
+    ]
+  ],
+  "dry_tail_start_seconds": 39.65,
+  "audition": {
+    "file": "audition/music-groove-c-ui.wav",
+    "pure_file": "audition/music-groove-c-pure.wav",
+    "source_start_seconds": 14,
+    "duration_seconds": 20,
+    "en_click_in_audition_seconds": 9.333333333333332
+  },
+  "ui_events": {
+    "manifest": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\revision-c\\ui-events.json",
+    "keyboard_count": 83,
+    "mouse_count": 11,
+    "binding_status": "Actual current visible-character frames; native voice/text timing undergoing revision. Rerun C to rebind."
+  },
+  "phase_map": [
+    {
+      "frame": 0,
+      "label": "intro"
+    },
+    {
+      "frame": 100,
+      "label": "eight languages"
+    },
+    {
+      "frame": 900,
+      "label": "Waiting / Token overhead"
+    },
+    {
+      "frame": 1100,
+      "label": "settings / DeepSeek"
+    },
+    {
+      "frame": 1400,
+      "label": "EN click / converge"
+    },
+    {
+      "frame": 1600,
+      "label": "Less waiting / Fewer tokens"
+    },
+    {
+      "frame": 1800,
+      "label": "English full line"
+    },
+    {
+      "frame": 2000,
+      "label": "logo morph"
+    },
+    {
+      "frame": 2200,
+      "label": "brand land"
+    },
+    {
+      "frame": 2400,
+      "label": "end"
+    }
+  ]
+}

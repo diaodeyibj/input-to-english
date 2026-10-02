@@ -1,0 +1,20 @@
+{
+  "lang": "ko",
+  "source": "도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어.",
+  "text": "도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어.",
+  "head": "도와줘",
+  "ref_id": 5,
+  "prompt": "그들이 집까지 왔을 때는 어슬어슬한 황혼이었다.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-ko-official.wav",
+  "ref_sha256": "55493322a4dc908dc864c691fb59a99a0a65bb8b0c120fc781e3b1d56864ea18",
+  "id": "ko-b-context",
+  "language": "ko",
+  "variant": "context",
+  "instruction": null,
+  "mode": "zero_shot",
+  "speed": 1.0,
+  "seed": 8620,
+  "start_frame": 300,
+  "cache_key": "4f9113cd7e5ac0ca2101b2cc007f0430e11eaa910532b784b4f1c0830b1bb551",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\voice-ko-b-context-4f9113cd7e5ac0ca-original.wav"
+}

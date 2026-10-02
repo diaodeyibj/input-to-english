@@ -6,6 +6,7 @@ import {
   type LanguagePairAvailability,
   type TranslationBridge,
 } from '../../../../packages/providers/src/browser-local';
+import { detectSourceLanguage } from '../../../../packages/providers/src/language-detection';
 import { createRuntimeProvider, getActiveProvider, type RuntimeClient } from '../messaging/runtime-provider';
 import type { ExtensionSettings } from '../storage/settings';
 import type { PreparedTranslationAction, UserActivatedTranslationProvider } from './translation-controller';
@@ -157,11 +158,6 @@ export interface ActiveProvider extends UserActivatedTranslationProvider {
   refreshSelection(): Promise<ProviderId>;
 }
 
-function canonicalSource(value: unknown): string | undefined {
-  if (typeof value !== 'string' || value === '' || value === 'und') return undefined;
-  try { return Intl.getCanonicalLocales(value)[0]; } catch { return undefined; }
-}
-
 function preparingError(): TranslationError {
   return new TranslationError({
     code: 'BROWSER_API_UNAVAILABLE',
@@ -208,10 +204,8 @@ export function createActiveProvider(dependencies: ProviderFactoryDependencies):
     // The first call starts model creation in the user input/click task. Edits
     // made while it is pending are coalesced to one later detection pass.
     void withTimeout(async (signal) => {
-      const result = await detector.detect(entry.text, { signal });
+      const sourceLanguage = await detectSourceLanguage(entry.text, detector, { signal });
       if (detection !== entry) return undefined;
-      const sourceLanguage = result.confidence >= 0.5 && result.confidence <= 1
-        ? canonicalSource(result.detectedLanguage) : undefined;
       if (!sourceLanguage) throw new Error('Language detection returned no supported source.');
       const pairAvailability = sourceLanguage.split('-')[0]?.toLowerCase() === 'en'
         ? 'available' : await translator.availability(sourceLanguage, 'en');

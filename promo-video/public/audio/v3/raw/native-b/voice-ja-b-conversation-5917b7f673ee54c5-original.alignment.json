@@ -1,0 +1,156 @@
+{
+  "text": "テツダッテ ホシインダケド、アタラシイ ロゴ オ スクリタインダ。",
+  "words": [
+    {
+      "word": "テ",
+      "start": 0.0,
+      "end": 0.14,
+      "probability": 0.00010896961612161249
+    },
+    {
+      "word": "ツ",
+      "start": 0.14,
+      "end": 0.26,
+      "probability": 0.956349790096283
+    },
+    {
+      "word": "ダ",
+      "start": 0.26,
+      "end": 0.44,
+      "probability": 0.6444759964942932
+    },
+    {
+      "word": "ッ",
+      "start": 0.44,
+      "end": 0.56,
+      "probability": 0.030053522437810898
+    },
+    {
+      "word": "テ",
+      "start": 0.56,
+      "end": 0.62,
+      "probability": 0.6867963671684265
+    },
+    {
+      "word": " ホ",
+      "start": 0.62,
+      "end": 0.82,
+      "probability": 0.4668314151931554
+    },
+    {
+      "word": "シ",
+      "start": 0.82,
+      "end": 0.96,
+      "probability": 0.9391931295394897
+    },
+    {
+      "word": "イ",
+      "start": 0.96,
+      "end": 1.06,
+      "probability": 0.5530977249145508
+    },
+    {
+      "word": "ンダ",
+      "start": 1.06,
+      "end": 1.26,
+      "probability": 0.1007363572716713
+    },
+    {
+      "word": "ケ",
+      "start": 1.26,
+      "end": 1.38,
+      "probability": 0.7957225441932678
+    },
+    {
+      "word": "ド、",
+      "start": 1.38,
+      "end": 1.56,
+      "probability": 0.9628491997718811
+    },
+    {
+      "word": "ア",
+      "start": 2.04,
+      "end": 2.16,
+      "probability": 0.24667096138000488
+    },
+    {
+      "word": "タ",
+      "start": 2.16,
+      "end": 2.3,
+      "probability": 0.9889589548110962
+    },
+    {
+      "word": "ラ",
+      "start": 2.3,
+      "end": 2.4,
+      "probability": 0.9377402663230896
+    },
+    {
+      "word": "シ",
+      "start": 2.4,
+      "end": 2.54,
+      "probability": 0.9781172275543213
+    },
+    {
+      "word": "イ",
+      "start": 2.54,
+      "end": 2.64,
+      "probability": 0.9554484486579895
+    },
+    {
+      "word": " ロ",
+      "start": 2.64,
+      "end": 2.76,
+      "probability": 0.600467287003994
+    },
+    {
+      "word": "ゴ",
+      "start": 2.76,
+      "end": 2.9,
+      "probability": 0.7545203566551208
+    },
+    {
+      "word": " オ",
+      "start": 3.06,
+      "end": 3.06,
+      "probability": 0.06231111288070679
+    },
+    {
+      "word": " ス",
+      "start": 3.14,
+      "end": 3.22,
+      "probability": 0.425385981798172
+    },
+    {
+      "word": "ク",
+      "start": 3.22,
+      "end": 3.34,
+      "probability": 0.9655950665473938
+    },
+    {
+      "word": "リ",
+      "start": 3.34,
+      "end": 3.48,
+      "probability": 0.9784518480300903
+    },
+    {
+      "word": "タ",
+      "start": 3.48,
+      "end": 3.62,
+      "probability": 0.8062431216239929
+    },
+    {
+      "word": "イ",
+      "start": 3.62,
+      "end": 3.74,
+      "probability": 0.9905866980552673
+    },
+    {
+      "word": "ンダ。",
+      "start": 3.74,
+      "end": 3.94,
+      "probability": 0.19466376304626465
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

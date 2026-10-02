@@ -1,0 +1,319 @@
+{
+  "status": "Final C mix: user-approved music C, keyboard/mouse, native B-logo and English B.",
+  "approval": "Coordinating agent confirmed user adopted native B, English B and music C; final manifest and timing marked selected.",
+  "reference_audio": "Reference soundtrack unavailable; no claim of listening, copying, measured tempo or musical equivalence.",
+  "reference_urls": [
+    "https://x.com/Kimi_Moonshot/status/2102372557190230244",
+    "https://www.youtube.com/watch?v=L1y09RA3fts"
+  ],
+  "voice_manifest": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\voices-manifest.json",
+  "voice_manifest_sha256": "2ea7024d186635546573277bc6dc87bc0c292b5b789f5ec3aaaf5ba4b5e1ba4a",
+  "voice_windows": [
+    {
+      "language": "zh",
+      "start_frame": 100,
+      "end_frame": 220.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b-logo/voice-zh-b-conversation-logo-faded.wav"
+    },
+    {
+      "language": "ja",
+      "start_frame": 200,
+      "end_frame": 320.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-ja-b-conversation-r2-faded.wav"
+    },
+    {
+      "language": "ko",
+      "start_frame": 300,
+      "end_frame": 420.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-ko-b-conversation-faded.wav"
+    },
+    {
+      "language": "de",
+      "start_frame": 400,
+      "end_frame": 520.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-de-b-conversation-faded.wav"
+    },
+    {
+      "language": "es",
+      "start_frame": 500,
+      "end_frame": 620.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-es-b-conversation-faded.wav"
+    },
+    {
+      "language": "fr",
+      "start_frame": 600,
+      "end_frame": 720.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-fr-b-conversation-faded.wav"
+    },
+    {
+      "language": "it",
+      "start_frame": 700,
+      "end_frame": 820.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-it-b-conversation-faded.wav"
+    },
+    {
+      "language": "ru",
+      "start_frame": 800,
+      "end_frame": 920.0,
+      "mix_gain": 0.91,
+      "file": "public/audio/v3/native-b/voice-ru-b-conversation-faded.wav"
+    },
+    {
+      "language": "en",
+      "start_frame": 1800,
+      "end_frame": 1978.5,
+      "mix_gain": 1.0,
+      "file": "public/audio/v3/voice-en.wav"
+    }
+  ],
+  "voice_input_hashes": {
+    "zh": {
+      "file": "public/audio/v3/native-b-logo/voice-zh-b-conversation-logo-faded.wav",
+      "sha256": "f5fea434ce75f8d1ca1a5f7fae359de6e77fd0e2a99238c69eeb8442a91823eb"
+    },
+    "ja": {
+      "file": "public/audio/v3/native-b/voice-ja-b-conversation-r2-faded.wav",
+      "sha256": "b3eba06edab38617dc19e5da101cce5c0cfbfbc79db103b403b3f4302385eb6d"
+    },
+    "ko": {
+      "file": "public/audio/v3/native-b/voice-ko-b-conversation-faded.wav",
+      "sha256": "cde7905fd1c260c682c67f20348438a441bf69764e90ee637881c6a728bdaef2"
+    },
+    "de": {
+      "file": "public/audio/v3/native-b/voice-de-b-conversation-faded.wav",
+      "sha256": "1d4d097a0ca084b6449262eb355c94b6ce5a9c6a0d166e7a71fe428ad71d8092"
+    },
+    "es": {
+      "file": "public/audio/v3/native-b/voice-es-b-conversation-faded.wav",
+      "sha256": "f78ecc1493b8e43613672781878405ffb2af60e55623697d1e419815bc08e065"
+    },
+    "fr": {
+      "file": "public/audio/v3/native-b/voice-fr-b-conversation-faded.wav",
+      "sha256": "5008c6e00a69040b105f6307bd8a41daa1b37ce340c7f6d21af40321b7b19958"
+    },
+    "it": {
+      "file": "public/audio/v3/native-b/voice-it-b-conversation-faded.wav",
+      "sha256": "cf33b7e6f1aaf394b447744451dc25ae55f33cde8fd4f50f57e484dcda621b27"
+    },
+    "ru": {
+      "file": "public/audio/v3/native-b/voice-ru-b-conversation-faded.wav",
+      "sha256": "0f27518500083768cb730531e4f2e860a117c6d769bc3af0c8802125d906475f"
+    },
+    "en": {
+      "file": "public/audio/v3/voice-en.wav",
+      "sha256": "ef22b565b31f91863b894cb0848ebcde7ce4db08aca683b1638c512f3d6855ef"
+    }
+  },
+  "voice_bus_peak_guard_gain": 1.0,
+  "keyboard_count": 248,
+  "mouse_events": [
+    {
+      "frame": 98,
+      "event": "input_focus",
+      "language": "zh",
+      "sample_frame": 78400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 198,
+      "event": "input_focus",
+      "language": "ja",
+      "sample_frame": 158400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 298,
+      "event": "input_focus",
+      "language": "ko",
+      "sample_frame": 238400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 398,
+      "event": "input_focus",
+      "language": "de",
+      "sample_frame": 318400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 498,
+      "event": "input_focus",
+      "language": "es",
+      "sample_frame": 398400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 598,
+      "event": "input_focus",
+      "language": "fr",
+      "sample_frame": 478400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 698,
+      "event": "input_focus",
+      "language": "it",
+      "sample_frame": 558400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 798,
+      "event": "input_focus",
+      "language": "ru",
+      "sample_frame": 638400,
+      "velocity": 0.36
+    },
+    {
+      "frame": 1100,
+      "event": "settings_open",
+      "sample_frame": 880000,
+      "velocity": 0.61
+    },
+    {
+      "frame": 1230,
+      "event": "DeepSeek_select",
+      "sample_frame": 984000,
+      "velocity": 0.61
+    },
+    {
+      "frame": 1400,
+      "event": "EN_click",
+      "sample_frame": 1120000,
+      "velocity": 0.77
+    }
+  ],
+  "bpm": 144,
+  "bars": 24,
+  "seconds": 40,
+  "fps": 60,
+  "mix": "Only 700–4800 Hz melody ducks for speech; drums and bass remain. Native overlapping fades are in approved delivery WAVs; no extra crop/stretch. 2-pass EBU -16 LUFS, guarded <=-1.5 dBTP.",
+  "measurements": {
+    "drums": {
+      "integrated_lufs": -24.18,
+      "true_peak_dbtp": -8.91,
+      "loudness_range_lu": 2.5,
+      "threshold_lufs": -34.46
+    },
+    "bass": {
+      "integrated_lufs": -23.1,
+      "true_peak_dbtp": -12.81,
+      "loudness_range_lu": 3.6,
+      "threshold_lufs": -33.2
+    },
+    "melody": {
+      "integrated_lufs": -28.09,
+      "true_peak_dbtp": -13.77,
+      "loudness_range_lu": 11.2,
+      "threshold_lufs": -38.8
+    },
+    "keyboard": {
+      "integrated_lufs": -37.91,
+      "true_peak_dbtp": -14.08,
+      "loudness_range_lu": 8.8,
+      "threshold_lufs": -47.93
+    },
+    "mouse": {
+      "integrated_lufs": -46.1,
+      "true_peak_dbtp": -18.32,
+      "loudness_range_lu": 6.7,
+      "threshold_lufs": -56.1
+    },
+    "motion": {
+      "integrated_lufs": -38.73,
+      "true_peak_dbtp": -20.79,
+      "loudness_range_lu": 5.8,
+      "threshold_lufs": -49.98
+    },
+    "voices": {
+      "integrated_lufs": -15.75,
+      "true_peak_dbtp": -1.91,
+      "loudness_range_lu": 5.4,
+      "threshold_lufs": -26.03
+    },
+    "music": {
+      "integrated_lufs": -20.24,
+      "true_peak_dbtp": -6.71,
+      "loudness_range_lu": 3.3,
+      "threshold_lufs": -30.59
+    },
+    "effects": {
+      "integrated_lufs": -37.8,
+      "true_peak_dbtp": -14.08,
+      "loudness_range_lu": 12.4,
+      "threshold_lufs": -48.05
+    },
+    "master": {
+      "integrated_lufs": -16.15,
+      "true_peak_dbtp": -1.66,
+      "loudness_range_lu": 7.8,
+      "threshold_lufs": -26.55
+    },
+    "output_logo": {
+      "integrated_lufs": -16.89,
+      "true_peak_dbtp": -1.66,
+      "loudness_range_lu": 4.8,
+      "threshold_lufs": -26.89
+    },
+    "phone_mono": {
+      "integrated_lufs": -17.71,
+      "true_peak_dbtp": -2.83,
+      "loudness_range_lu": 6.3,
+      "threshold_lufs": -28.11
+    }
+  },
+  "validation": {
+    "frames_per_full_stem": 1920000,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "old_a_b_c_audition_hashes_preserved": {
+      "music-groove.wav": "ecf59bbcae5347c86c8e5528fefa535d353a97d679727838d2f27f7e9341d079",
+      "music-groove-a-rejected.wav": "ecf59bbcae5347c86c8e5528fefa535d353a97d679727838d2f27f7e9341d079",
+      "music-groove-b.wav": "468d504912407d1618877e123512d96713e63c4c4b5512644aaa2ace78f4b8f6",
+      "music-groove-c-pure.wav": "6f502d494132c0cef8cb7bd6338c8936063694c9cc1e964302eb44c58f13338e",
+      "music-groove-c-ui.wav": "df01e25780a183c9e49dad9247801ed5abfd5e4772e38f3af7a48483b3d8b5b5"
+    },
+    "music_stem_sum_max_error": 0.0,
+    "effects_stem_sum_max_error": 0.0,
+    "en_pocket_max_amplitude": 0.0,
+    "tail_max_amplitude": 0.0,
+    "output_logo_frame_range_inclusive": [
+      1400,
+      2259
+    ],
+    "output_logo_sample_frames": 688000,
+    "native_starts": [
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "native_ends": [
+      220.0,
+      320.0,
+      420.0,
+      520.0,
+      620.0,
+      720.0,
+      820.0,
+      920.0
+    ],
+    "overlap_frames": 20
+  },
+  "mobile": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\master-phone-mono.mp3",
+  "chinese_mono": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\preview-chinese-mono.wav",
+  "preview_master": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\preview-master-native-b-c.wav",
+  "output_logo": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\output-logo.wav",
+  "master_sha256": "b1ca6ab4afbe1ba985a6196a50e84cb78fdf8d2fba5939f5712f77259b315169"
+}

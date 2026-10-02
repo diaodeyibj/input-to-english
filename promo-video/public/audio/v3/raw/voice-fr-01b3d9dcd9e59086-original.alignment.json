@@ -1,0 +1,54 @@
+{
+  "text": " Aide-moi, je veux créer une nouvelle affiche.",
+  "words": [
+    {
+      "word": " Aide",
+      "start": 0.0,
+      "end": 0.22,
+      "probability": 0.7067904770374298
+    },
+    {
+      "word": "-moi,",
+      "start": 0.22,
+      "end": 0.44,
+      "probability": 0.8719335496425629
+    },
+    {
+      "word": " je",
+      "start": 0.74,
+      "end": 1.2,
+      "probability": 0.9898841381072998
+    },
+    {
+      "word": " veux",
+      "start": 1.2,
+      "end": 1.44,
+      "probability": 0.9963862895965576
+    },
+    {
+      "word": " créer",
+      "start": 1.44,
+      "end": 1.74,
+      "probability": 0.9907185435295105
+    },
+    {
+      "word": " une",
+      "start": 1.74,
+      "end": 1.9,
+      "probability": 0.9932889342308044
+    },
+    {
+      "word": " nouvelle",
+      "start": 1.9,
+      "end": 2.1,
+      "probability": 0.9976294636726379
+    },
+    {
+      "word": " affiche.",
+      "start": 2.1,
+      "end": 2.6,
+      "probability": 0.9986326098442078
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

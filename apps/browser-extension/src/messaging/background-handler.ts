@@ -8,8 +8,6 @@ import {
   createDeepSeekProvider,
   createJsonHttpClient,
   createKimiProvider,
-  createOllamaProvider,
-  listOllamaModels,
   type JsonHttpClient,
 } from '../../../../packages/providers/src/index';
 import { SettingsStore, type ExtensionSettings } from '../storage/settings';
@@ -21,12 +19,10 @@ export interface BackgroundDependencies {
 }
 
 const REQUEST_TIMEOUT_MS = 30_000;
-
 function remoteProviders(settings: ExtensionSettings, http: JsonHttpClient): TranslationProvider[] {
   return [
     createDeepSeekProvider({ ...settings.deepseek, http }),
     createKimiProvider({ ...settings.kimi, http }),
-    createOllamaProvider({ ...settings.ollama, http }),
   ];
 }
 
@@ -53,14 +49,6 @@ export async function handleRuntimeMessage(
   }
 
   try {
-    if (request.type === 'list-ollama-models') {
-      const models = await withTimeout(
-        (signal) => listOllamaModels(dependencies.http, signal),
-        REQUEST_TIMEOUT_MS,
-      );
-      return { ok: true, type: 'list-ollama-models', models };
-    }
-
     return await withTimeout(async (signal): Promise<RuntimeResponse> => {
       const settings = await dependencies.settings.get();
       signal.throwIfAborted();

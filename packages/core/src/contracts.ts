@@ -1,6 +1,6 @@
 import type { TranslationError } from './errors';
 
-export type ProviderId = 'browser' | 'deepseek' | 'kimi' | 'ollama';
+export type ProviderId = 'browser' | 'deepseek' | 'kimi';
 
 export interface TranslationRequest {
   text: string;

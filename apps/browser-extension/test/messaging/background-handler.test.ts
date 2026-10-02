@@ -12,7 +12,6 @@ function setup(
     ...DEFAULT_SETTINGS,
     deepseek: { apiKey: 'deepseek-test-key', model: 'deepseek-test-model' },
     kimi: { apiKey: 'kimi-test-key', model: 'kimi-test-model' },
-    ollama: { model: 'llama-test' },
     ...overrides,
   };
   const get = vi.fn(async () => settings);
@@ -86,15 +85,6 @@ describe('background runtime handler', () => {
     } finally {
       vi.useRealTimers();
     }
-  });
-
-  it('lists installed Ollama models without requiring a selected model', async () => {
-    const dependencies = setup(async ({ url }) => {
-      expect(url).toBe('http://localhost:11434/api/tags');
-      return { status: 200, data: { models: [{ name: 'zeta' }, { name: 'alpha' }] } };
-    }, { ollama: { model: '' } });
-    expect(await handleRuntimeMessage({ type: 'list-ollama-models' }, dependencies))
-      .toEqual({ ok: true, type: 'list-ollama-models', models: ['alpha', 'zeta'] });
   });
 
   it('rejects malformed and browser-provider messages without loading settings', async () => {

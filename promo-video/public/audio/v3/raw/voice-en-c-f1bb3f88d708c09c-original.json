@@ -1,0 +1,14 @@
+{
+  "id": "en-c",
+  "language": "en",
+  "text": "Help me design a new logo.",
+  "phrase": "Help me design a new logo.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\reference-cross-last6.wav",
+  "instruction": "Speak in a mature resonant male professional narrator voice. Quiet authority, low rich register, concise natural phrasing with a small pause after Help me. Finish the full sentence calmly within about three seconds. Do not shout.",
+  "speed": 1.0,
+  "seed": 7392,
+  "start_frame": 1800,
+  "ref_sha256": "341be93f13fa70a41e7068accf88005d5e89b04a4146aa1c97e267582d3e4ba5",
+  "cache_key": "f1bb3f88d708c09cee78c669501a53edfb121981fe05c0a96fb4ee512b52f06a",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-en-c-f1bb3f88d708c09c-original.wav"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "en-b",
+  "language": "en",
+  "text": "Help me design a new logo.",
+  "phrase": "Help me design a new logo.",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\reference-cross-first6.wav",
+  "instruction": "Speak as an experienced male broadcast announcer in a deep, warm, resonant register. Relaxed and grounded, deliberate clear diction, gentle emphasis on design and logo. Natural measured rhythm, never rushed or shouted.",
+  "speed": 1.0,
+  "seed": 7391,
+  "start_frame": 1800,
+  "ref_sha256": "ce5a694def0d6cc80c5d746a52eb7931f7d4cbce6c1bd074fb74fef61090db9a",
+  "cache_key": "28cc25c12b319d21d083e08700531f255712afeeca78bb8974baf0aab8bc624d",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-en-b-28cc25c12b319d21-original.wav"
+}

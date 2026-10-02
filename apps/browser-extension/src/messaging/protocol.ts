@@ -18,13 +18,11 @@ export type TestProviderRuntimeMessage = {
   providerId: ProviderId;
 };
 
-export type ListOllamaModelsRuntimeMessage = { type: 'list-ollama-models' };
 export type GetActiveProviderRuntimeMessage = { type: 'get-active-provider' };
 
 export type RuntimeMessage =
   | TranslateRuntimeMessage
   | TestProviderRuntimeMessage
-  | ListOllamaModelsRuntimeMessage
   | GetActiveProviderRuntimeMessage;
 
 export type SerializedRuntimeError = {
@@ -36,13 +34,12 @@ export type SerializedRuntimeError = {
 export type RuntimeSuccessResponse =
   | { ok: true; type: 'translate'; result: TranslationResult }
   | { ok: true; type: 'test-provider'; result: ConnectionTestResult }
-  | { ok: true; type: 'list-ollama-models'; models: string[] }
   | { ok: true; type: 'get-active-provider'; activeProvider: ProviderId };
 
 export type RuntimeErrorResponse = { ok: false; error: SerializedRuntimeError };
 export type RuntimeResponse = RuntimeSuccessResponse | RuntimeErrorResponse;
 
-const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi', 'ollama'];
+const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi'];
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -78,7 +75,6 @@ export function parseRuntimeMessage(value: unknown): RuntimeMessage | null {
       : null;
   }
 
-  if (value.type === 'list-ollama-models') return { type: 'list-ollama-models' };
   return value.type === 'get-active-provider' ? { type: 'get-active-provider' } : null;
 }
 

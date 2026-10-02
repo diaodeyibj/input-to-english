@@ -1,0 +1,23 @@
+{
+  "lang": "zh",
+  "source": "帮我设计一个更有创意的新标志吧。",
+  "text": "帮我设计一个更有创意的新标志吧。",
+  "head": "帮我",
+  "ref_id": 4,
+  "prompt": "转任福建路转运判官。",
+  "ref": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b\\references\\reference-zh-official.wav",
+  "ref_sha256": "eebef878ba64d38e8edabc58de7a6496763ac1699cc6b81f2cf8df1dffb7ac39",
+  "revision": "logo",
+  "id": "zh-b-context-logo",
+  "language": "zh",
+  "variant": "context",
+  "instruction": null,
+  "mode": "zero_shot",
+  "asr_initial_prompt": "帮我设计一个更有创意的新标志吧。",
+  "alignment_suffix": ".alignment-natural.json",
+  "speed": 1.0,
+  "seed": 8600,
+  "start_frame": 100,
+  "cache_key": "2609d41eb3abb3f730a52bbc4bd4f228fa442d094446f8cb12d1cbe03747316a",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\native-b-logo\\voice-zh-b-context-logo-2609d41eb3abb3f7-original.wav"
+}

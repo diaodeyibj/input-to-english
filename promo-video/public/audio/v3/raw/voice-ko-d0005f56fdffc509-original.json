@@ -1,0 +1,14 @@
+{
+  "id": "ko",
+  "language": "ko",
+  "text": "도와줘, 새 영상을 만들어줘.",
+  "phrase": "도와줘",
+  "ref": "D:\\TTS\\CosyVoice3-Test\\asset\\zero_shot_prompt.wav",
+  "instruction": "Speak Korean naturally, with warm interest and clear articulation. Use a natural conversational pace; no rushing or shouting.",
+  "speed": 1.0,
+  "seed": 7302,
+  "start_frame": 300,
+  "ref_sha256": "c7b31d6dbe7cc6a716dded00550db5b50940bf209e424e4ad207b12e657c8ff6",
+  "cache_key": "d0005f56fdffc509200a7d965e9cfa7b2ea9a50a561303390643ecc04a6f85f6",
+  "raw_file": "F:\\chatGPT\\Second-Class\\promo-video\\public\\audio\\v3\\raw\\voice-ko-d0005f56fdffc509-original.wav"
+}

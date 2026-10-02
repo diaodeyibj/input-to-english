@@ -1,0 +1,61 @@
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\requests\__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+Loading local CosyVoice3 on NVIDIA GeForce RTX 4060 Ti
+2026-10-01 12:06:14,835 INFO input frame rate=25
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\torch\nn\utils\weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py:69: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-10-01 12:06:18,813 INFO no frontend is avaliable
+SYNTH zh: 帮我。请设计一张新海报。
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:06:22,197 INFO synthesis text 帮我。请设计一张新海报。
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\transformers\models\qwen2\modeling_qwen2.py:693: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+2026-10-01 12:06:26,036 INFO yield speech len 3.04, rtf 1.262780082853217
+
+100%|██████████| 1/1 [00:04<00:00,  4.36s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.36s/it]
+RAW zh 3.040s
+IDENTITY CACHE ja b26b5acc7ef4b3aa
+IDENTITY CACHE ko d0005f56fdffc509
+IDENTITY CACHE de 1c3370bd2fef7ae3
+IDENTITY CACHE es a368d06db7fbc83e
+IDENTITY CACHE fr 01b3d9dcd9e59086
+IDENTITY CACHE it 86c014a7e7be3bd4
+IDENTITY CACHE ru 21514ba5dd2e0337
+IDENTITY CACHE en-a 1a87528758caa4fa
+SYNTH en-b: Help me design a new logo.
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:06:26,799 INFO synthesis text Help me design a new logo.
+2026-10-01 12:06:30,026 INFO yield speech len 3.04, rtf 1.0612570925762779
+
+100%|██████████| 1/1 [00:03<00:00,  3.99s/it]
+100%|██████████| 1/1 [00:03<00:00,  3.99s/it]
+RAW en-b 3.040s
+IDENTITY CACHE en-c c6546e9a48ee6cc9
+Loading cached local Whisper large-v3-turbo for word alignment
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN zh 帮我。请设计一张新海报。 [{'word': '帮', 'start': 0.0, 'end': 0.14, 'probability': 0.4054546330589801}, {'word': '我。', 'start': 0.14, 'end': 0.36, 'probability': 0.990199089050293}, {'word': '请', 'start': 1.7, 'end': 1.96, 'probability': 0.9762654900550842}, {'word': '设', 'start': 1.96, 'end': 2.14, 'probability': 0.9900374710559845}, {'word': '计', 'start': 2.14, 'end': 2.26, 'probability': 0.9994041919708252}, {'word': '一', 'start': 2.26, 'end': 2.34, 'probability': 0.9984695315361023}, {'word': '张', 'start': 2.34, 'end': 2.44, 'probability': 0.997957706451416}, {'word': '新', 'start': 2.44, 'end': 2.62, 'probability': 0.9960998296737671}, {'word': '海', 'start': 2.62, 'end': 2.74, 'probability': 0.998823344707489}, {'word': '报。', 'start': 2.74, 'end': 2.9, 'probability': 0.9902026653289795}]
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN en-b  Help me design a new logo. [{'word': ' Help', 'start': 0.0, 'end': 0.36, 'probability': 0.28374406695365906}, {'word': ' me', 'start': 0.36, 'end': 0.68, 'probability': 0.9788933396339417}, {'word': ' design', 'start': 0.68, 'end': 1.16, 'probability': 0.9772025942802429}, {'word': ' a', 'start': 1.16, 'end': 1.68, 'probability': 0.981225311756134}, {'word': ' new', 'start': 1.68, 'end': 2.02, 'probability': 0.997065007686615}, {'word': ' logo.', 'start': 2.02, 'end': 2.62, 'probability': 0.9980735778808594}]
+DELIVER zh 0.460s speech 0.00..16.80 frames
+DELIVER ja 0.785s speech 0.30..46.50 frames
+DELIVER ko 0.330s speech 0.00..18.90 frames
+DELIVER de 0.645s speech 0.00..38.40 frames
+DELIVER es 0.690s speech 0.00..32.10 frames
+DELIVER fr 0.575s speech 0.00..22.50 frames
+DELIVER it 0.825s speech 0.60..42.30 frames
+DELIVER ru 0.760s speech 0.00..41.40 frames
+DELIVER en-a 2.690s speech 0.30..155.40 frames
+DELIVER en-b 2.975s speech 0.00..172.50 frames
+DELIVER en-c 3.100s speech 0.00..180.00 frames
+READY F:\chatGPT\Second-Class\promo-video\public\audio\v3\voices-manifest.json

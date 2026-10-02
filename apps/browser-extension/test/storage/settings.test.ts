@@ -27,16 +27,35 @@ describe('SettingsStore', () => {
         activeProvider: 'deepseek',
         deepseek: { apiKey: 42, model: 'custom-deepseek' },
         kimi: 'invalid',
-        ollama: { model: null },
       },
     });
 
     await expect(new SettingsStore().get()).resolves.toEqual({
+      displayLanguage: 'zh-CN',
       activeProvider: 'deepseek',
       deepseek: { apiKey: '', model: 'custom-deepseek' },
       kimi: DEFAULT_SETTINGS.kimi,
-      ollama: DEFAULT_SETTINGS.ollama,
     });
+  });
+
+  it('removes legacy Ollama settings and resets a retired active provider safely', async () => {
+    const { local, values } = installLocalStorage({
+      [SETTINGS_STORAGE_KEY]: {
+        ...DEFAULT_SETTINGS,
+        activeProvider: 'ollama',
+        displayLanguage: 'ja',
+        kimi: { ...DEFAULT_SETTINGS.kimi, apiKey: 'keep-this-key' },
+        ollama: { model: 'legacy-model' },
+      },
+    });
+
+    await expect(new SettingsStore().get()).resolves.toMatchObject({
+      activeProvider: 'browser',
+      displayLanguage: 'ja',
+      kimi: { apiKey: 'keep-this-key' },
+    });
+    expect(local.set).toHaveBeenCalledOnce();
+    expect(values[SETTINGS_STORAGE_KEY]).not.toHaveProperty('ollama');
   });
 
   it('reads and writes only browser.storage.local', async () => {
@@ -81,5 +100,14 @@ describe('SettingsStore', () => {
     expect(second.deepseek.model).toBe(DEFAULT_SETTINGS.deepseek.model);
     expect(second).not.toBe(DEFAULT_SETTINGS);
     expect(second.deepseek).not.toBe(DEFAULT_SETTINGS.deepseek);
+  });
+
+  it('persists the chosen settings-page display language', async () => {
+    const { values } = installLocalStorage();
+
+    await new SettingsStore().update({ displayLanguage: 'ja' });
+
+    expect(values[SETTINGS_STORAGE_KEY]).toEqual(expect.objectContaining({ displayLanguage: 'ja' }));
+    await expect(new SettingsStore().get()).resolves.toEqual(expect.objectContaining({ displayLanguage: 'ja' }));
   });
 });

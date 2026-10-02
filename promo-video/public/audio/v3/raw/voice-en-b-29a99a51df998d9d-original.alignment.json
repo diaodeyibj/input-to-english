@@ -1,0 +1,48 @@
+{
+  "text": " Speak as an experienced male. Broadcast announcer.",
+  "words": [
+    {
+      "word": " Speak",
+      "start": 0.0,
+      "end": 0.52,
+      "probability": 0.28343841433525085
+    },
+    {
+      "word": " as",
+      "start": 0.52,
+      "end": 1.52,
+      "probability": 0.8093652725219727
+    },
+    {
+      "word": " an",
+      "start": 1.52,
+      "end": 1.68,
+      "probability": 0.9964955449104309
+    },
+    {
+      "word": " experienced",
+      "start": 1.68,
+      "end": 2.26,
+      "probability": 0.9785471558570862
+    },
+    {
+      "word": " male.",
+      "start": 2.26,
+      "end": 3.0,
+      "probability": 0.989150881767273
+    },
+    {
+      "word": " Broadcast",
+      "start": 3.48,
+      "end": 4.52,
+      "probability": 0.9956294000148773
+    },
+    {
+      "word": " announcer.",
+      "start": 4.52,
+      "end": 5.04,
+      "probability": 0.9748693108558655
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

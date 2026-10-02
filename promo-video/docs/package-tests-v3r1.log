@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: final English is the explicitly corrected C audition with complete text
+ok 1 - final English is the explicitly corrected C audition with complete text
+  ---
+  duration_ms: 2.8345
+  type: 'test'
+  ...
+# Subtest: native B recordings and accepted C rhythm stems remain byte-identical
+ok 2 - native B recordings and accepted C rhythm stems remain byte-identical
+  ---
+  duration_ms: 37.5331
+  type: 'test'
+  ...
+# Subtest: mux contract references the current mix, manifest, timing and timeline
+ok 3 - mux contract references the current mix, manifest, timing and timeline
+  ---
+  duration_ms: 8.3169
+  type: 'test'
+  ...
+# Subtest: settings click actually lands inside the toolbar icon on screen
+ok 4 - settings click actually lands inside the toolbar icon on screen
+  ---
+  duration_ms: 2.9065
+  type: 'test'
+  ...
+# Subtest: settings click follows a stable single-browser closeup
+ok 5 - settings click follows a stable single-browser closeup
+  ---
+  duration_ms: 0.1864
+  type: 'test'
+  ...
+# Subtest: English output retains the complete creative request
+ok 6 - English output retains the complete creative request
+  ---
+  duration_ms: 0.1318
+  type: 'test'
+  ...
+# Subtest: cursor stays continuous entering and leaving the settings gesture
+ok 7 - cursor stays continuous entering and leaving the settings gesture
+  ---
+  duration_ms: 0.5009
+  type: 'test'
+  ...
+# Subtest: DeepSeek selection lands on its radio control
+ok 8 - DeepSeek selection lands on its radio control
+  ---
+  duration_ms: 0.5075
+  type: 'test'
+  ...
+# Subtest: subtitle renders the full authored request before logo formation
+ok 9 - subtitle renders the full authored request before logo formation
+  ---
+  duration_ms: 10.23
+  type: 'test'
+  ...
+# Subtest: a complete 4.105s English take fits without speed change or truncation
+ok 10 - a complete 4.105s English take fits without speed change or truncation
+  ---
+  duration_ms: 0.34
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 120.4432

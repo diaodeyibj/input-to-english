@@ -1,0 +1,42 @@
+{
+  "text": " Dogs are sitting by the door.",
+  "words": [
+    {
+      "word": " Dogs",
+      "start": 0.8200000000000003,
+      "end": 1.4,
+      "probability": 0.7817274928092957
+    },
+    {
+      "word": " are",
+      "start": 1.4,
+      "end": 1.6,
+      "probability": 0.9957454800605774
+    },
+    {
+      "word": " sitting",
+      "start": 1.6,
+      "end": 1.9,
+      "probability": 0.997670590877533
+    },
+    {
+      "word": " by",
+      "start": 1.9,
+      "end": 2.36,
+      "probability": 0.9932324886322021
+    },
+    {
+      "word": " the",
+      "start": 2.36,
+      "end": 2.54,
+      "probability": 0.9982684850692749
+    },
+    {
+      "word": " door.",
+      "start": 2.54,
+      "end": 2.82,
+      "probability": 0.9993595480918884
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

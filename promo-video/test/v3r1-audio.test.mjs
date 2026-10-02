@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),json=p=>JSON.parse(read(p));
+const hash=p=>createHash('sha256').update(read(p)).digest('hex');
+test('final English is the explicitly corrected C audition with complete text',()=>{const m=json('public/audio/v3r1/voices-manifest.json'),e=m.voices.find(v=>v.language==='en');assert.equal(e.selected_candidate,'en-r1-c');assert.equal(e.text,'Help me design a more creative new logo');assert.equal(hash(e.output_file),e.output_sha256);assert.equal(e.inference_speed,1);assert.ok(e.end_frame<2000);assert.equal(e.character_markers.map(x=>x.character).join(''),e.text);});
+test('native B recordings and accepted C rhythm stems remain byte-identical',()=>{const old=json('public/audio/v3/voices-manifest.json'),next=json('public/audio/v3r1/voices-manifest.json');for(const v of old.voices){assert.equal(hash(v.output_file),v.output_sha256);if(v.language!=='en'){const n=next.voices.find(x=>x.language===v.language);assert.equal(n.output_sha256,v.output_sha256);assert.equal(n.start_frame,v.start_frame);}}for(const name of ['drums','bass'])assert.equal(hash(`public/audio/v3r1/${name}.wav`),hash(`public/audio/v3/${name}.wav`));});
+test('mux contract references the current mix, manifest, timing and timeline',()=>{const c=json('public/audio/v3r1/final-audio-contract.json');assert.equal(c.approval_status,'user-approved');assert.equal(c.english_selection,'en-r1-c');for(const [path,key] of [['public/audio/v3r1/master.wav','master_sha256'],['public/audio/v3r1/voices-manifest.json','official_manifest_sha256'],['src/v3r1/voice-timing.json','voice_timing_sha256'],['src/v3r1/timeline.mjs','timeline_sha256']])assert.equal(hash(path),c[key]);assert.ok(c.loudness.true_peak_dbtp<=-1.5);});

@@ -1,0 +1,66 @@
+{
+  "text": " Aiutami a creare un nuovo video per il mio progetto.",
+  "words": [
+    {
+      "word": " Aiutami",
+      "start": 0.0,
+      "end": 0.52,
+      "probability": 0.8803279598553976
+    },
+    {
+      "word": " a",
+      "start": 0.52,
+      "end": 0.64,
+      "probability": 0.9988986253738403
+    },
+    {
+      "word": " creare",
+      "start": 0.64,
+      "end": 1.12,
+      "probability": 0.9993443787097931
+    },
+    {
+      "word": " un",
+      "start": 1.12,
+      "end": 1.36,
+      "probability": 0.9969090819358826
+    },
+    {
+      "word": " nuovo",
+      "start": 1.36,
+      "end": 1.58,
+      "probability": 0.9975653886795044
+    },
+    {
+      "word": " video",
+      "start": 1.58,
+      "end": 2.0,
+      "probability": 0.9990905523300171
+    },
+    {
+      "word": " per",
+      "start": 2.0,
+      "end": 2.26,
+      "probability": 0.9970205426216125
+    },
+    {
+      "word": " il",
+      "start": 2.26,
+      "end": 2.46,
+      "probability": 0.9988177418708801
+    },
+    {
+      "word": " mio",
+      "start": 2.46,
+      "end": 2.58,
+      "probability": 0.9989749193191528
+    },
+    {
+      "word": " progetto.",
+      "start": 2.58,
+      "end": 3.26,
+      "probability": 0.9994348088900248
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

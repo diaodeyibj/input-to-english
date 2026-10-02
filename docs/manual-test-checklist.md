@@ -2,6 +2,32 @@
 
 Use a fresh production build for each browser. Record the browser version, build path, date, tester, and evidence before changing any result from `NOT RUN`.
 
+## Gemini / X Edge acceptance — 2026-10-02
+
+This section supersedes the old two-site permission inventory below. Current permissions are the four site origins (`chatgpt.com`, `claude.ai`, `gemini.google.com`, `x.com`), the two cloud API origins, and local storage. No new translation provider or settings migration was added.
+
+| Check | Result / evidence |
+| --- | --- |
+| Authenticated Gemini DOM inspection | PASS in the **in-app browser**, not Edge: `input-area-v2`, `rich-textarea .ql-editor[role=textbox]`, `.ql-clipboard` excluded; native send button in `[data-test-id=send-button-container]` |
+| Authenticated X DOM inspection | PASS in the **in-app browser**, not Edge: Draft `tweetTextarea_0`, nested `data-block` paragraphs, `tweetButtonInline`; modal uses `tweetButton`. `@alice`, `#中文`, URL and ZWJ emoji remain textual Draft entities. Test text was cleared without publishing. |
+| Initial user Edge feedback | X translation initially passed, but translated text could not be deleted: **FAIL**. Gemini control briefly appeared then disappeared: **FAIL**. Scope, browser version and provider were not recorded. |
+| Updated Edge build after fixes | Awaiting user reload and retest. Follow-up: X still changed focus and Browser Local intermittently showed a background-connection error; new fixes separate these two paths. Edge is not connected to the browser tool; logged-in in-app pages do not load this unpacked extension. |
+
+Load/reload `F:\chatGPT\Second-Class\.output\edge-mv3` in `edge://extensions`, grant Gemini/X site access, select an existing provider, and refresh the website tabs. Run the following in Edge before recording production readiness:
+
+- [ ] Gemini: focus the prompt on both the welcome page and an existing conversation; check one control at the actual text input’s upper right (not the page lower left), resize the window and expand multiline input, then translate, continue typing and deleting without rollback, Undo restores exact original, uploads remain attached. **NOT RUN — requires loaded Edge extension.**
+- [ ] X: confirm EN mouse clicks keep the current caret while the provider runs; failed writes restore the caret, keyboard activation still works, and moving focus to another page action is not undone by a late response. Repeat on home posting, post modal, inline reply, reply modal, quote commentary and each thread entry. After translation, Backspace and select-all/Delete work, continued typing persists and the native counter updates. Only user-authored input changes; original quoted posts and reply context remain intact. **NOT RUN — requires loaded Edge extension.**
+- [ ] Before focus no control selects an arbitrary composer. Switch between home/modal/thread editors while translating: old input must remain unchanged and old Undo must not return. Own control buttons retain their target. **NOT RUN — requires loaded Edge extension.**
+- [ ] Translate `你好 @alice #中文 https://example.com 👩🏽‍💻 🇨🇳 1️⃣` with blank/trailing lines; identifiers, URLs, emoji and exact line breaks survive each configured provider and Undo. **NOT RUN — requires loaded Edge extension and providers.**
+- [ ] Add an attachment, translate text, and verify attachment/context stay present. Unsupported in-editor chips must show an error without rewriting them. **NOT RUN — requires loaded Edge extension.**
+- [ ] Translate long text past X's current account limit: full output remains, native counter updates, no extension truncation or publication occurs. **NOT RUN — requires loaded Edge extension.**
+- [ ] Edit during a request, close a modal, navigate, or remove a thread entry; late results never write into another or removed editor. **NOT RUN — requires loaded Edge extension.**
+- [ ] X Enter and Shift+Enter remain line breaks; IME confirmation is not submission. Submission/shortcut event ownership and Undo invalidation are covered automatically; verify actual sending only with an explicitly approved disposable post. **NOT RUN — requires loaded Edge extension.**
+- [ ] X DMs/Grok and unrelated search/edit fields have no translation controls. **NOT RUN — requires loaded Edge extension.**
+- [ ] Regression: ChatGPT/Claude translation, continuation typing, Undo and navigation. **NOT RUN — requires loaded Edge extension and site sessions.**
+
+Automated tests cover the synthetic DOM and provider boundaries; they do not prove Draft/Quill framework acceptance in Edge. Latest automated results and review findings are recorded in `docs/gemini-x-implementation.md`.
+
 ## Test record
 
 | Field | Value |
@@ -19,7 +45,7 @@ Result values: `PASS`, `FAIL`, or `NOT RUN — <exact prerequisite>`.
 
 - [ ] Chrome: load `.output/chrome-mv3` unpacked and confirm there are no install errors. **NOT RUN — requires an interactive Chrome extensions page.**
 - [ ] Edge: load `.output/edge-mv3` unpacked and confirm there are no install errors. **NOT RUN — requires an interactive Edge extensions page.**
-- [ ] In both browsers, inspect extension permissions and confirm access is limited to ChatGPT, Claude, official DeepSeek/Kimi API origins, local Ollama, and local extension storage. **NOT RUN — requires both installed browser builds.**
+- [ ] In both browsers, inspect extension permissions and confirm access is limited to ChatGPT, Claude, official DeepSeek/Kimi API origins, and local extension storage. **NOT RUN — requires both installed browser builds.**
 - [ ] Open Options and confirm local/cloud privacy labels are visible before configuring a provider. **NOT RUN — requires an installed build in an interactive browser.**
 
 ## Website integration
@@ -57,13 +83,6 @@ On a cold start, if language detection has not finished while the prompt is bein
 - [ ] Use an invalid key and confirm a safe authentication error appears while the original prompt remains unchanged. **NOT RUN — requires an interactive browser and a deliberately invalid Kimi key.**
 - [ ] Delete the saved key and confirm Kimi reports that configuration is required. **NOT RUN — requires a previously saved test key in an interactive browser.**
 
-## Ollama provider
-
-- [ ] Start Ollama at `http://localhost:11434`, refresh models, and confirm installed model names appear. **NOT RUN — requires an interactive installed extension connected to the local Ollama service.**
-- [ ] Select and save an installed model, test the connection, and translate on ChatGPT and Claude. **NOT RUN — requires a locally installed Ollama model and authenticated site sessions.**
-- [ ] Stop Ollama and confirm the unavailable error preserves the original prompt. **NOT RUN — requires control of a local Ollama service from an interactive browser session.**
-- [ ] Remove or select a missing model and confirm the missing-model error preserves the original prompt. **NOT RUN — requires a disposable Ollama model configuration.**
-
 ## Safety and race handling
 
 Repeat with at least one available local provider and one configured cloud provider.
@@ -91,3 +110,8 @@ The following checks ran on 2026-09-29. Automated checks do not substitute for t
 | `npm run zip:edge` | PASS — `.output/input-to-english-0.1.0-edge.zip` |
 | Archive content audit | PASS — each archive contains its manifest, background worker, and content script |
 | Credential-shaped string scan | PASS — no `sk-*` value matching the audit pattern in repository files or artifacts |
+
+## Runtime reconnection check — 2026-10-02
+- After reloading the extension, refresh existing website tabs before testing; an invalidated old content-script context cannot reconnect by retrying its button.
+- For Browser Local, repeat EN without reloading between attempts. Confirm no background-connectivity error with an active extension worker.
+- If the error persists after refreshing, inspect Input to English errors/service-worker status in `edge://extensions`; capture only the error message and browser version, without credentials or draft content.

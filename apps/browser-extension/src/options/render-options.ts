@@ -1,6 +1,6 @@
 import type { ProviderId } from '../../../../packages/core/src/index';
-import { OLLAMA_BASE_URL } from '../../../../packages/providers/src/index';
 import type { CloudConfigInput, OptionsSnapshot } from './options-controller';
+import type { DisplayLanguage } from '../storage/settings';
 
 export interface ProviderStatusMessage {
   kind: 'info' | 'success' | 'error';
@@ -8,19 +8,45 @@ export interface ProviderStatusMessage {
 }
 
 export interface OptionsViewState extends OptionsSnapshot {
-  ollamaModels: string[];
   providerStatus: Partial<Record<ProviderId, ProviderStatusMessage>>;
   pendingAction?: string;
 }
 
 export interface OptionsActions {
+  setDisplayLanguage(language: DisplayLanguage): void | Promise<void>;
   selectProvider(id: ProviderId): void | Promise<void>;
   saveCloudConfig(id: 'deepseek' | 'kimi', config: CloudConfigInput): void | Promise<void>;
   deleteApiKey(id: 'deepseek' | 'kimi'): void | Promise<void>;
   testProvider(id: ProviderId): void | Promise<void>;
-  refreshOllamaModels(): void | Promise<void>;
-  saveOllamaModel(model: string): void | Promise<void>;
 }
+
+const pageCopy: Record<DisplayLanguage, {
+  language: string;
+  heading: string;
+  summary: string;
+  privacyLocal: string;
+  privacyCloud: string;
+  footer: string;
+}> = {
+  'zh-CN': {
+    language: '界面语言', heading: '选择你的输入翻译路径。',
+    summary: '选择一个翻译服务。在 ChatGPT、Claude、Gemini 或 X 中点击 → EN 时才会翻译你的输入。',
+    privacyLocal: '本地服务会将提示文本保留在此设备上。', privacyCloud: '云端服务会将提示文本发送给你选择的服务商。',
+    footer: 'API 密钥仅保存在扩展本地，不会同步或写入网站内容。',
+  },
+  en: {
+    language: 'Display language', heading: 'Choose the route your words take.',
+    summary: 'Pick one translation provider. Your input is translated only when you press → EN in ChatGPT, Claude, Gemini or X.',
+    privacyLocal: 'Local providers keep prompt text on this device.', privacyCloud: 'Cloud providers send prompt text to the provider you select.',
+    footer: 'API keys stay in extension-local storage. They are never synced or placed in website content.',
+  },
+  ja: {
+    language: '表示言語', heading: '入力を翻訳する経路を選択します。',
+    summary: '翻訳プロバイダーを選択してください。ChatGPT、Claude、Gemini または X で → EN を押したときだけ、入力を翻訳します。',
+    privacyLocal: 'ローカルのプロバイダーは、入力テキストをこの端末内に保持します。', privacyCloud: 'クラウドのプロバイダーは、入力テキストを選択したプロバイダーに送信します。',
+    footer: 'API キーは拡張機能のローカル ストレージにのみ保存され、同期や Web サイト には書き込まれません。',
+  },
+};
 
 const providerDetails: Record<ProviderId, {
   name: string;
@@ -41,11 +67,6 @@ const providerDetails: Record<ProviderId, {
     name: 'Kimi',
     location: 'Cloud',
     description: 'Sends only the prompt you translate to the official Kimi API.',
-  },
-  ollama: {
-    name: 'Ollama',
-    location: 'Local',
-    description: 'Uses a model installed on this device through the local Ollama service.',
   },
 };
 
@@ -193,76 +214,16 @@ function addBrowserFields(
   );
 }
 
-function addOllamaFields(
-  body: HTMLElement,
-  state: OptionsViewState,
-  actions: OptionsActions,
-): void {
-  const fields = element('div', 'field-grid');
-  const urlId = 'ollama-url';
-  const url = element('input');
-  url.id = urlId;
-  url.type = 'url';
-  url.value = OLLAMA_BASE_URL;
-  url.readOnly = true;
-  const urlField = element('div', 'field');
-  urlField.append(fieldLabel('Local service URL', urlId), url);
-
-  const modelId = 'ollama-model';
-  const model = element('select');
-  model.id = modelId;
-  const choices = [...new Set([
-    ...(state.ollama.model ? [state.ollama.model] : []),
-    ...state.ollamaModels,
-  ])];
-  const placeholder = element('option', undefined, choices.length === 0
-    ? 'Refresh to find installed models'
-    : 'Select an installed model');
-  placeholder.value = '';
-  model.append(placeholder);
-  for (const name of choices) {
-    const option = element('option', undefined, name);
-    option.value = name;
-    option.selected = name === state.ollama.model;
-    model.append(option);
-  }
-  const modelField = element('div', 'field');
-  modelField.append(fieldLabel('Installed model', modelId), model);
-  fields.append(urlField, modelField);
-
-  const controls = element('div', 'button-row');
-  controls.append(
-    actionButton(
-      'ollama-refresh-models',
-      'Refresh models',
-      'refresh-models',
-      () => void actions.refreshOllamaModels(),
-    ),
-    actionButton(
-      'ollama-save-model',
-      'Save model',
-      'save-model',
-      () => void actions.saveOllamaModel(model.value),
-    ),
-    actionButton(
-      'ollama-test-provider',
-      'Test connection',
-      'test-provider',
-      () => void actions.testProvider('ollama'),
-    ),
-  );
-  body.append(fields, controls);
-}
-
 export function renderOptions(
   root: HTMLElement,
   state: OptionsViewState,
   actions: OptionsActions,
 ): void {
+  const copy = pageCopy[state.displayLanguage ?? 'zh-CN'];
   const drafts = new Map<string, string>();
   for (const id of [
     'deepseek-api-key', 'deepseek-model',
-    'kimi-api-key', 'kimi-model', 'ollama-model',
+    'kimi-api-key', 'kimi-model',
   ]) {
     const field = root.querySelector<HTMLInputElement | HTMLSelectElement>(`#${id}`);
     if (field) drafts.set(id, field.value);
@@ -272,27 +233,38 @@ export function renderOptions(
     : '';
   const content = document.createDocumentFragment();
   const intro = element('header', 'page-header');
+  const languageField = element('div', 'language-field');
+  const language = element('select');
+  language.id = 'display-language';
+  language.setAttribute('aria-label', copy.language);
+  for (const [value, label] of [['zh-CN', '中文'], ['en', 'English'], ['ja', '日本語']] as const) {
+    const option = element('option', undefined, label);
+    option.value = value;
+    option.selected = value === (state.displayLanguage ?? 'zh-CN');
+    language.append(option);
+  }
+  language.addEventListener('change', () => void actions.setDisplayLanguage(language.value as DisplayLanguage));
+  languageField.append(fieldLabel(copy.language, language.id), language);
   const eyebrow = element('p', 'eyebrow', 'INPUT → ENGLISH');
-  const heading = element('h1', undefined, 'Choose the route your words take.');
+  const heading = element('h1', undefined, copy.heading);
   const summary = element(
     'p',
     'page-summary',
-    'Pick one translation provider. A selection never sends text until you press → EN in ChatGPT or Claude.',
+    copy.summary,
   );
-  intro.append(eyebrow, heading, summary);
+  intro.append(languageField, eyebrow, heading, summary);
 
   const privacy = element('aside', 'privacy-note');
   privacy.setAttribute('aria-label', 'Privacy guide');
   privacy.append(
-    element('p', 'privacy-local', 'Local providers keep prompt text on this device.'),
-    element('p', 'privacy-cloud', 'Cloud providers send prompt text to the provider you select.'),
+    element('p', 'privacy-local', copy.privacyLocal),
+    element('p', 'privacy-cloud', copy.privacyCloud),
   );
 
   const list = element('div', 'provider-list');
-  for (const id of ['browser', 'deepseek', 'kimi', 'ollama'] as const) {
+  for (const id of ['browser', 'deepseek', 'kimi'] as const) {
     const { card, body } = createCardShell(state, id, actions);
     if (id === 'browser') addBrowserFields(body, state, actions);
-    else if (id === 'ollama') addOllamaFields(body, state, actions);
     else addCloudFields(body, id, state, actions);
     addStatus(card, id, state.providerStatus[id]);
     list.append(card);
@@ -301,7 +273,7 @@ export function renderOptions(
   const footer = element(
     'footer',
     'page-footer',
-    'API keys stay in extension-local storage. They are never synced or placed in website content.',
+    copy.footer,
   );
   content.append(intro, privacy, list, footer);
   root.replaceChildren(content);

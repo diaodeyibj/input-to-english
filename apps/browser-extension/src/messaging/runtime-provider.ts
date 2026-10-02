@@ -15,7 +15,7 @@ export interface RuntimeClient {
   sendMessage(message: RuntimeMessage): Promise<unknown>;
 }
 
-const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi', 'ollama'];
+const providerIds: readonly ProviderId[] = ['browser', 'deepseek', 'kimi'];
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -42,8 +42,22 @@ async function send(client: RuntimeClient, message: RuntimeMessage): Promise<Rec
   let response: unknown;
   try {
     response = await client.sendMessage(message);
-  } catch {
-    throw error('NETWORK_ERROR', 'The extension background service could not be reached.', true);
+  } catch (cause) {
+    const detail = cause instanceof Error ? cause.message : typeof cause === 'string' ? cause : '';
+    if (/extension context invalidated|context has been invalidated/i.test(detail)) {
+      throw error('NETWORK_ERROR', 'The extension was reloaded or updated. Refresh this page to reconnect.', false);
+    }
+    // Only retry an idempotent read: a translate/test request may already have run.
+    if (message.type === 'get-active-provider') {
+      await new Promise<void>(resolve => setTimeout(resolve, 100));
+      try {
+        response = await client.sendMessage(message);
+      } catch {
+        throw error('NETWORK_ERROR', 'The extension background service could not be reached. Refresh this page; if it persists, reload the extension and refresh again.', true);
+      }
+    } else {
+      throw error('NETWORK_ERROR', 'The extension background service could not be reached. Refresh this page before trying again.', true);
+    }
   }
   if (!isRecord(response)) throw malformedResponse();
   if (response.ok === false) throw readRuntimeError(response.error);

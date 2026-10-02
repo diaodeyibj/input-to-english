@@ -1,0 +1,90 @@
+{
+  "text": "帮我设计一个更有创意的新标志吧。",
+  "words": [
+    {
+      "word": "帮",
+      "start": 0.0,
+      "end": 0.44,
+      "probability": 0.9790676236152649
+    },
+    {
+      "word": "我",
+      "start": 0.44,
+      "end": 0.66,
+      "probability": 0.9992731213569641
+    },
+    {
+      "word": "设",
+      "start": 0.66,
+      "end": 0.88,
+      "probability": 0.9993433952331543
+    },
+    {
+      "word": "计",
+      "start": 0.88,
+      "end": 1.12,
+      "probability": 0.9984426498413086
+    },
+    {
+      "word": "一个",
+      "start": 1.12,
+      "end": 1.58,
+      "probability": 0.9955537915229797
+    },
+    {
+      "word": "更",
+      "start": 1.58,
+      "end": 3.22,
+      "probability": 0.9914056062698364
+    },
+    {
+      "word": "有",
+      "start": 3.22,
+      "end": 3.44,
+      "probability": 0.9997557997703552
+    },
+    {
+      "word": "创",
+      "start": 3.44,
+      "end": 3.7,
+      "probability": 0.9999189972877502
+    },
+    {
+      "word": "意",
+      "start": 3.7,
+      "end": 3.84,
+      "probability": 0.9955869913101196
+    },
+    {
+      "word": "的",
+      "start": 3.84,
+      "end": 4.12,
+      "probability": 0.9997605681419373
+    },
+    {
+      "word": "新",
+      "start": 4.12,
+      "end": 5.34,
+      "probability": 0.9987296462059021
+    },
+    {
+      "word": "标",
+      "start": 5.34,
+      "end": 5.66,
+      "probability": 0.9998118877410889
+    },
+    {
+      "word": "志",
+      "start": 5.66,
+      "end": 5.88,
+      "probability": 0.9977207779884338
+    },
+    {
+      "word": "吧。",
+      "start": 5.88,
+      "end": 6.1,
+      "probability": 0.9978893399238586
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}

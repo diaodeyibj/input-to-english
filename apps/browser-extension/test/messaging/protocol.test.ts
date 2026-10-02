@@ -22,9 +22,6 @@ describe('runtime protocol', () => {
       type: 'test-provider',
       providerId: 'kimi',
     });
-    expect(parseRuntimeMessage({ type: 'list-ollama-models' })).toEqual({
-      type: 'list-ollama-models',
-    });
     expect(parseRuntimeMessage({ type: 'get-active-provider' })).toEqual({
       type: 'get-active-provider',
     });

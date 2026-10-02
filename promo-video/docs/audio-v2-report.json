@@ -1,0 +1,72 @@
+{
+  "version": "approved-40sec-v2",
+  "sample_rate": 48000,
+  "channels": 2,
+  "pcm_bits": 24,
+  "seconds": 40,
+  "video_frames": 2400,
+  "bpm": 144,
+  "bars": 24,
+  "seed": 20261001,
+  "original_score": true,
+  "score_provenance": "Original additive/subtractive synthesis using existing project synthesizer primitives; no external samples.",
+  "master_target_lufs": -16,
+  "master_true_peak_ceiling_dbtp": -1.5,
+  "measurements": {
+    "music.wav": {
+      "integrated_lufs": -26.92,
+      "true_peak_dbtp": -11.77,
+      "loudness_range_lu": 6.2,
+      "threshold_lufs": -37.0
+    },
+    "effects.wav": {
+      "integrated_lufs": -33.74,
+      "true_peak_dbtp": -16.01,
+      "loudness_range_lu": 23.6,
+      "threshold_lufs": -47.96
+    },
+    "voices.wav": {
+      "integrated_lufs": -17.21,
+      "true_peak_dbtp": -3.0,
+      "loudness_range_lu": 4.8,
+      "threshold_lufs": -28.05
+    },
+    "master-premix.wav": {
+      "integrated_lufs": -21.74,
+      "true_peak_dbtp": -3.01,
+      "loudness_range_lu": 8.4,
+      "threshold_lufs": -32.1
+    },
+    "master.wav": {
+      "integrated_lufs": -16.47,
+      "true_peak_dbtp": -1.59,
+      "loudness_range_lu": 6.1,
+      "threshold_lufs": -26.76
+    }
+  },
+  "sync_events": {
+    "native_voice_frames": [
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900
+    ],
+    "feature_beats_frames": [
+      1000,
+      1100,
+      1200
+    ],
+    "click_frame": 1400,
+    "lines_bar_frame": 1500,
+    "english_frame": 1600,
+    "mint_frame": 1750,
+    "logo_frame": 2200,
+    "end_frame": 2400
+  },
+  "voice_mix_gain": 0.79,
+  "subjective_review": "Objective timing, finite samples, peak and loudness verified. No native speaker review."
+}

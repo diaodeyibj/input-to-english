@@ -14,8 +14,3 @@ export {
   type LanguagePairAvailability,
   type TranslationBridge,
 } from './browser-local';
-export {
-  createOllamaProvider,
-  listOllamaModels,
-  OLLAMA_BASE_URL,
-} from './ollama';

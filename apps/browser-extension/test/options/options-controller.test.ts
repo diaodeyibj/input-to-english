@@ -22,7 +22,6 @@ function cloneSettings(settings: ExtensionSettings): ExtensionSettings {
     activeProvider: settings.activeProvider,
     deepseek: { ...settings.deepseek },
     kimi: { ...settings.kimi },
-    ollama: { ...settings.ollama },
   };
 }
 
@@ -40,7 +39,6 @@ function mergeSettings(
     activeProvider: patch.activeProvider ?? settings.activeProvider,
     deepseek: { ...settings.deepseek, ...patch.deepseek },
     kimi: { ...settings.kimi, ...patch.kimi },
-    ollama: { ...settings.ollama, ...patch.ollama },
   };
 }
 
@@ -103,11 +101,11 @@ describe('OptionsController', () => {
     const state = await controller.load();
 
     expect(state).toEqual({
+      displayLanguage: 'zh-CN',
       activeProvider: 'browser',
       browser: { status: 'available', detail: 'Browser language tools are ready.' },
       deepseek: { hasApiKey: true, model: 'deepseek-custom' },
       kimi: { hasApiKey: false, model: DEFAULT_SETTINGS.kimi.model },
-      ollama: { model: '' },
     });
     expect(JSON.stringify(state)).not.toContain('deepseek-secret');
   });
@@ -264,21 +262,6 @@ describe('OptionsController', () => {
     ]);
   });
 
-  it('lists installed Ollama models and saves an explicit selection locally', async () => {
-    const { controller, sent, current } = setup({
-      send: async (message) => message.type === 'list-ollama-models'
-        ? { ok: true, type: 'list-ollama-models', models: ['qwen2.5:7b', 'gemma3:4b'] }
-        : { ok: false },
-    });
-
-    await expect(controller.listOllamaModels()).resolves.toEqual(['qwen2.5:7b', 'gemma3:4b']);
-    const state = await controller.saveOllamaModel(' qwen2.5:7b ');
-
-    expect(state.ollama.model).toBe('qwen2.5:7b');
-    expect(current().ollama.model).toBe('qwen2.5:7b');
-    expect(sent).toEqual([{ type: 'list-ollama-models' }]);
-  });
-
   it('reports browser capability locally without sending a runtime message', async () => {
     const { controller, sent } = setup({
       availability: { status: 'downloadable', detail: 'Language tools download on first use.' },
@@ -290,7 +273,7 @@ describe('OptionsController', () => {
     expect(sent).toEqual([]);
   });
 
-  it.each<ProviderId>(['browser', 'deepseek', 'kimi', 'ollama'])(
+  it.each<ProviderId>(['browser', 'deepseek', 'kimi'])(
     'never includes stored credentials in the %s load result',
     async () => {
       const settings: ExtensionSettings = {

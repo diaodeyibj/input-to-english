@@ -9,8 +9,8 @@ afterEach(() => {
 });
 
 describe('content entrypoint', () => {
-  it('registers only the approved ChatGPT and Claude origins', () => {
-    expect(content.matches).toEqual(['https://chatgpt.com/*', 'https://claude.ai/*']);
+  it('registers only the four approved input origins', () => {
+    expect(content.matches).toEqual(['https://chatgpt.com/*', 'https://claude.ai/*', 'https://gemini.google.com/*', 'https://x.com/*']);
   });
 
   it('mounts the control, uses only background messages, and cleans up on invalidation', async () => {

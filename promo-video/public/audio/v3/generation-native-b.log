@@ -1,0 +1,185 @@
+FETCH native reference zh
+FETCH native reference ja
+FETCH native reference ko
+FETCH native reference de
+FETCH native reference es
+FETCH native reference fr
+FETCH native reference it
+FETCH native reference ru
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\requests\__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+Loading local CosyVoice3 with mother-tongue references
+2026-10-01 12:25:56,314 INFO input frame rate=25
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\torch\nn\utils\weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py:69: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-10-01 12:26:00,021 INFO no frontend is avaliable
+SYNTH zh-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:02,732 WARNING synthesis text 帮我设计一张更有创意的新海报吧。 too short than prompt text You are a helpful assistant.<|endofprompt|>转任福建路转运判官。, this may lead to bad performance
+2026-10-01 12:26:03,270 INFO synthesis text 帮我设计一张更有创意的新海报吧。
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\transformers\models\qwen2\modeling_qwen2.py:693: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+2026-10-01 12:26:07,634 INFO yield speech len 3.48, rtf 1.2540878235608681
+
+100%|██████████| 1/1 [00:04<00:00,  4.92s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.92s/it]
+RAW zh-b-context 3.480s
+SYNTH zh-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:08,131 INFO synthesis text 帮我设计一张更有创意的新海报吧。
+2026-10-01 12:26:10,940 INFO yield speech len 2.24, rtf 1.2539339917046681
+
+100%|██████████| 1/1 [00:03<00:00,  3.30s/it]
+100%|██████████| 1/1 [00:03<00:00,  3.30s/it]
+RAW zh-b-conversation 2.240s
+SYNTH ja-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:10,958 WARNING synthesis text テツダッテ ホシインダケド、アタラシイ ロゴ ヲ ツクリタインダ。 too short than prompt text You are a helpful assistant.<|endofprompt|>ライシュウ ビヨウイン デ カミ ヲ キロウ ト オモッテ イマス。, this may lead to bad performance
+2026-10-01 12:26:11,805 INFO synthesis text テツダッテ ホシインダケド、アタラシイ ロゴ ヲ ツクリタインダ。
+2026-10-01 12:26:18,258 INFO yield speech len 6.12, rtf 1.0544359294417636
+
+100%|██████████| 1/1 [00:07<00:00,  7.32s/it]
+100%|██████████| 1/1 [00:07<00:00,  7.32s/it]
+RAW ja-b-context 6.120s
+SYNTH ja-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:19,134 INFO synthesis text テツダッテ ホシインダケド、アタラシイ ロゴ ヲ ツクリタインダ。
+2026-10-01 12:26:23,801 INFO yield speech len 4.12, rtf 1.1328793845130403
+
+100%|██████████| 1/1 [00:05<00:00,  5.54s/it]
+100%|██████████| 1/1 [00:05<00:00,  5.54s/it]
+RAW ja-b-conversation 4.120s
+SYNTH ko-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:23,821 WARNING synthesis text 도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어. too short than prompt text You are a helpful assistant.<|endofprompt|>그들이 집까지 왔을 때는 어슬어슬한 황혼이었다., this may lead to bad performance
+2026-10-01 12:26:24,348 INFO synthesis text 도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어.
+2026-10-01 12:26:28,717 INFO yield speech len 3.8, rtf 1.1497154361323307
+
+100%|██████████| 1/1 [00:04<00:00,  4.91s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.91s/it]
+RAW ko-b-context 3.800s
+SYNTH ko-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:29,261 INFO synthesis text 도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어.
+2026-10-01 12:26:32,871 INFO yield speech len 3.04, rtf 1.1874738492463763
+
+100%|██████████| 1/1 [00:04<00:00,  4.15s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.15s/it]
+RAW ko-b-conversation 3.040s
+SYNTH de-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:33,360 INFO synthesis text Hilf mir bitte bei einem neuen Logo für mein Projekt.
+2026-10-01 12:26:36,937 INFO yield speech len 2.76, rtf 1.2957172117371492
+
+100%|██████████| 1/1 [00:04<00:00,  4.06s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.06s/it]
+RAW de-b-context 2.760s
+SYNTH de-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:37,431 INFO synthesis text Hilf mir bitte bei einem neuen Logo für mein Projekt.
+2026-10-01 12:26:42,372 INFO yield speech len 3.88, rtf 1.2734513307355113
+
+100%|██████████| 1/1 [00:05<00:00,  5.43s/it]
+100%|██████████| 1/1 [00:05<00:00,  5.43s/it]
+RAW de-b-conversation 3.880s
+SYNTH es-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:42,392 WARNING synthesis text Ayúdame a diseñar un nuevo cartel para mi proyecto. too short than prompt text You are a helpful assistant.<|endofprompt|>Durante unos años, enseñó Física e Historia en el colegio de nobles de Parma., this may lead to bad performance
+2026-10-01 12:26:43,355 INFO synthesis text Ayúdame a diseñar un nuevo cartel para mi proyecto.
+2026-10-01 12:26:48,512 INFO yield speech len 4.72, rtf 1.0923761937577847
+
+100%|██████████| 1/1 [00:06<00:00,  6.14s/it]
+100%|██████████| 1/1 [00:06<00:00,  6.14s/it]
+RAW es-b-context 4.720s
+SYNTH es-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:49,484 INFO synthesis text Ayúdame a diseñar un nuevo cartel para mi proyecto.
+2026-10-01 12:26:53,648 INFO yield speech len 3.48, rtf 1.196318453755872
+
+100%|██████████| 1/1 [00:05<00:00,  5.13s/it]
+100%|██████████| 1/1 [00:05<00:00,  5.13s/it]
+RAW es-b-conversation 3.480s
+SYNTH fr-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:54,196 INFO synthesis text Aide-moi à créer une nouvelle affiche pour mon projet.
+2026-10-01 12:26:58,122 INFO yield speech len 3.12, rtf 1.2581806916456955
+
+100%|██████████| 1/1 [00:04<00:00,  4.47s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.47s/it]
+RAW fr-b-context 3.120s
+SYNTH fr-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:26:58,782 INFO synthesis text Aide-moi à créer une nouvelle affiche pour mon projet.
+2026-10-01 12:27:02,630 INFO yield speech len 2.84, rtf 1.3549143999395237
+
+100%|██████████| 1/1 [00:04<00:00,  4.50s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.50s/it]
+RAW fr-b-conversation 2.840s
+SYNTH it-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:27:02,651 WARNING synthesis text Aiutami a creare un nuovo video per il mio progetto. too short than prompt text You are a helpful assistant.<|endofprompt|>Fin dall'inizio la sede episcopale è stata immediatamente soggetta alla Santa Sede., this may lead to bad performance
+2026-10-01 12:27:03,730 INFO synthesis text Aiutami a creare un nuovo video per il mio progetto.
+2026-10-01 12:27:08,639 INFO yield speech len 4.0, rtf 1.2274331450462341
+
+100%|██████████| 1/1 [00:06<00:00,  6.00s/it]
+100%|██████████| 1/1 [00:06<00:00,  6.00s/it]
+RAW it-b-context 4.000s
+SYNTH it-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:27:09,747 INFO synthesis text Aiutami a creare un nuovo video per il mio progetto.
+2026-10-01 12:27:14,036 INFO yield speech len 3.44, rtf 1.246887999911641
+
+100%|██████████| 1/1 [00:05<00:00,  5.39s/it]
+100%|██████████| 1/1 [00:05<00:00,  5.39s/it]
+RAW it-b-conversation 3.440s
+SYNTH ru-b-context
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:27:14,717 INFO synthesis text Помоги мне сделать новый сайт для моего проекта.
+2026-10-01 12:27:18,465 INFO yield speech len 2.92, rtf 1.2834113754638254
+
+100%|██████████| 1/1 [00:04<00:00,  4.43s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.43s/it]
+RAW ru-b-context 2.920s
+SYNTH ru-b-conversation
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:27:19,135 INFO synthesis text Помоги мне сделать новый сайт для моего проекта.
+2026-10-01 12:27:23,249 INFO yield speech len 3.4, rtf 1.210008088280173
+
+100%|██████████| 1/1 [00:04<00:00,  4.78s/it]
+100%|██████████| 1/1 [00:04<00:00,  4.78s/it]
+RAW ru-b-conversation 3.400s
+Loading cached local Whisper large-v3-turbo for word alignment
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN zh-b-context 帮我设计一张更有创意的新海报吧。 [{'word': '帮', 'start': 0.0, 'end': 0.34, 'probability': 0.9898295402526855}, {'word': '我', 'start': 0.34, 'end': 0.54, 'probability': 0.9975143671035767}, {'word': '设', 'start': 0.54, 'end': 0.72, 'probability': 0.9990332424640656}, {'word': '计', 'start': 0.72, 'end': 0.86, 'probability': 0.9990187287330627}, {'word': '一', 'start': 0.86, 'end': 1.04, 'probability': 0.9963939785957336}, {'word': '张', 'start': 1.04, 'end': 1.22, 'probability': 0.9974241256713867}, {'word': '更', 'start': 1.22, 'end': 1.5, 'probability': 0.9949710369110107}, {'word': '有', 'start': 1.5, 'end': 1.72, 'probability': 0.9987000226974487}, {'word': '创', 'start': 1.72, 'end': 2.02, 'probability': 0.9998278319835663}, {'word': '意', 'start': 2.02, 'end': 2.18, 'probability': 0.9980351328849792}, {'word': '的', 'start': 2.18, 'end': 2.34, 'probability': 0.9986758828163147}, {'word': '新', 'start': 2.34, 'end': 2.62, 'probability': 0.9827849268913269}, {'word': '海', 'start': 2.62, 'end': 2.82, 'probability': 0.9994211196899414}, {'word': '报', 'start': 2.82, 'end': 3.06, 'probability': 0.981616735458374}, {'word': '吧。', 'start': 3.06, 'end': 3.3, 'probability': 0.9973562955856323}]
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN zh-b-conversation 帮我设计一张更有创意的新海报吧。 [{'word': '帮', 'start': 0.0, 'end': 0.12, 'probability': 0.9969444572925568}, {'word': '我', 'start': 0.12, 'end': 0.28, 'probability': 0.9991949200630188}, {'word': '设', 'start': 0.28, 'end': 0.4, 'probability': 0.9991482496261597}, {'word': '计', 'start': 0.4, 'end': 0.5, 'probability': 0.9974786043167114}, {'word': '一', 'start': 0.5, 'end': 0.62, 'probability': 0.9998261332511902}, {'word': '张', 'start': 0.62, 'end': 0.72, 'probability': 0.9987592697143555}, {'word': '更', 'start': 0.72, 'end': 0.88, 'probability': 0.9997628331184387}, {'word': '有', 'start': 0.88, 'end': 1.02, 'probability': 0.999945878982544}, {'word': '创', 'start': 1.02, 'end': 1.24, 'probability': 0.9999336004257202}, {'word': '意', 'start': 1.24, 'end': 1.34, 'probability': 0.9979155659675598}, {'word': '的', 'start': 1.34, 'end': 1.44, 'probability': 0.9999867677688599}, {'word': '新', 'start': 1.44, 'end': 1.58, 'probability': 0.8336982727050781}, {'word': '海', 'start': 1.58, 'end': 1.72, 'probability': 0.9995577931404114}, {'word': '报', 'start': 1.72, 'end': 1.9, 'probability': 0.9864196181297302}, {'word': '吧。', 'start': 1.9, 'end': 2.06, 'probability': 0.9995751976966858}]
+ALIGN ja-b-context ペツダッテ ホシインダケド、アタラシイ ロゴを作りたいんだ。 [{'word': 'ペ', 'start': 1.4800000000000006, 'end': 1.8, 'probability': 0.3209522493707482}, {'word': 'ツ', 'start': 1.8, 'end': 1.9, 'probability': 0.5731381177902222}, {'word': 'ダ', 'start': 1.9, 'end': 2.04, 'probability': 0.03702739253640175}, {'word': 'ッ', 'start': 2.04, 'end': 2.06, 'probability': 0.002086744410917163}, {'word': 'テ', 'start': 2.06, 'end': 2.42, 'probability': 0.37330296635627747}, {'word': ' ホ', 'start': 2.42, 'end': 2.82, 'probability': 0.36427707302209456}, {'word': 'シ', 'start': 2.82, 'end': 2.98, 'probability': 0.9297042489051819}, {'word': 'イ', 'start': 2.98, 'end': 3.08, 'probability': 0.7329180240631104}, {'word': 'ンダ', 'start': 3.08, 'end': 3.24, 'probability': 0.11597765982151031}, {'word': 'ケ', 'start': 3.24, 'end': 3.4, 'probability': 0.8947915434837341}, {'word': 'ド、', 'start': 3.4, 'end': 3.64, 'probability': 0.9723904132843018}, {'word': 'ア', 'start': 3.8, 'end': 4.32, 'probability': 0.2145911157131195}, {'word': 'タ', 'start': 4.32, 'end': 4.48, 'probability': 0.9882164597511292}, {'word': 'ラ', 'start': 4.48, 'end': 4.58, 'probability': 0.9595534205436707}, {'word': 'シ', 'start': 4.58, 'end': 4.76, 'probability': 0.9715947508811951}, {'word': 'イ', 'start': 4.76, 'end': 4.86, 'probability': 0.9642337560653687}, {'word': ' ロ', 'start': 4.86, 'end': 4.98, 'probability': 0.5686557590961456}, {'word': 'ゴ', 'start': 4.98, 'end': 5.14, 'probability': 0.9984830021858215}, {'word': 'を', 'start': 5.14, 'end': 5.26, 'probability': 0.8208180069923401}, {'word': '作', 'start': 5.26, 'end': 5.44, 'probability': 0.47074204683303833}, {'word': 'り', 'start': 5.44, 'end': 5.6, 'probability': 0.9472932815551758}, {'word': 'たい', 'start': 5.6, 'end': 5.78, 'probability': 0.8976723551750183}, {'word': 'んだ。', 'start': 5.78, 'end': 5.98, 'probability': 0.9403712153434753}]
+ALIGN ja-b-conversation テツダッテ ホシインダケド、アタラシイ ロゴ オ スクリタインダ。 [{'word': 'テ', 'start': 0.0, 'end': 0.14, 'probability': 0.00010896961612161249}, {'word': 'ツ', 'start': 0.14, 'end': 0.26, 'probability': 0.956349790096283}, {'word': 'ダ', 'start': 0.26, 'end': 0.44, 'probability': 0.6444759964942932}, {'word': 'ッ', 'start': 0.44, 'end': 0.56, 'probability': 0.030053522437810898}, {'word': 'テ', 'start': 0.56, 'end': 0.62, 'probability': 0.6867963671684265}, {'word': ' ホ', 'start': 0.62, 'end': 0.82, 'probability': 0.4668314151931554}, {'word': 'シ', 'start': 0.82, 'end': 0.96, 'probability': 0.9391931295394897}, {'word': 'イ', 'start': 0.96, 'end': 1.06, 'probability': 0.5530977249145508}, {'word': 'ンダ', 'start': 1.06, 'end': 1.26, 'probability': 0.1007363572716713}, {'word': 'ケ', 'start': 1.26, 'end': 1.38, 'probability': 0.7957225441932678}, {'word': 'ド、', 'start': 1.38, 'end': 1.56, 'probability': 0.9628491997718811}, {'word': 'ア', 'start': 2.04, 'end': 2.16, 'probability': 0.24667096138000488}, {'word': 'タ', 'start': 2.16, 'end': 2.3, 'probability': 0.9889589548110962}, {'word': 'ラ', 'start': 2.3, 'end': 2.4, 'probability': 0.9377402663230896}, {'word': 'シ', 'start': 2.4, 'end': 2.54, 'probability': 0.9781172275543213}, {'word': 'イ', 'start': 2.54, 'end': 2.64, 'probability': 0.9554484486579895}, {'word': ' ロ', 'start': 2.64, 'end': 2.76, 'probability': 0.600467287003994}, {'word': 'ゴ', 'start': 2.76, 'end': 2.9, 'probability': 0.7545203566551208}, {'word': ' オ', 'start': 3.06, 'end': 3.06, 'probability': 0.06231111288070679}, {'word': ' ス', 'start': 3.14, 'end': 3.22, 'probability': 0.425385981798172}, {'word': 'ク', 'start': 3.22, 'end': 3.34, 'probability': 0.9655950665473938}, {'word': 'リ', 'start': 3.34, 'end': 3.48, 'probability': 0.9784518480300903}, {'word': 'タ', 'start': 3.48, 'end': 3.62, 'probability': 0.8062431216239929}, {'word': 'イ', 'start': 3.62, 'end': 3.74, 'probability': 0.9905866980552673}, {'word': 'ンダ。', 'start': 3.74, 'end': 3.94, 'probability': 0.19466376304626465}]
+ALIGN ko-b-context  도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어. [{'word': ' 도와줘', 'start': 0.0, 'end': 1.26, 'probability': 0.3311399941643079}, {'word': ' 새', 'start': 1.26, 'end': 1.4, 'probability': 0.8816404342651367}, {'word': ' 영상을', 'start': 1.4, 'end': 1.88, 'probability': 0.962315022945404}, {'word': ' 좀', 'start': 1.88, 'end': 2.14, 'probability': 0.9745927453041077}, {'word': ' 더', 'start': 2.14, 'end': 2.28, 'probability': 0.9975093603134155}, {'word': ' 멋지게', 'start': 2.28, 'end': 2.76, 'probability': 0.9985333482424418}, {'word': ' 만들어', 'start': 2.76, 'end': 3.06, 'probability': 0.878292441368103}, {'word': ' 보고', 'start': 3.06, 'end': 3.4, 'probability': 0.9965929388999939}, {'word': ' 싶어.', 'start': 3.4, 'end': 3.78, 'probability': 0.9860169887542725}]
+ALIGN ko-b-conversation  도와줘 새 영상을 좀 더 멋지게 만들어 보고 싶어. [{'word': ' 도와줘', 'start': 0.0, 'end': 0.48, 'probability': 0.8162264823913574}, {'word': ' 새', 'start': 0.48, 'end': 0.62, 'probability': 0.17758823931217194}, {'word': ' 영상을', 'start': 0.62, 'end': 1.06, 'probability': 0.9467349052429199}, {'word': ' 좀', 'start': 1.06, 'end': 1.48, 'probability': 0.9460066556930542}, {'word': ' 더', 'start': 1.48, 'end': 1.64, 'probability': 0.9963441491127014}, {'word': ' 멋지게', 'start': 1.64, 'end': 2.04, 'probability': 0.9951542019844055}, {'word': ' 만들어', 'start': 2.04, 'end': 2.24, 'probability': 0.4981819689273834}, {'word': ' 보고', 'start': 2.24, 'end': 2.48, 'probability': 0.9927151799201965}, {'word': ' 싶어.', 'start': 2.48, 'end': 2.78, 'probability': 0.9092817306518555}]
+ALIGN de-b-context  Hilf mir bitte bei einem neuen Logo für mein Projekt. [{'word': ' Hilf', 'start': 0.0, 'end': 0.6, 'probability': 0.9890646934509277}, {'word': ' mir', 'start': 0.6, 'end': 0.68, 'probability': 0.9984148740768433}, {'word': ' bitte', 'start': 0.68, 'end': 0.88, 'probability': 0.9994732737541199}, {'word': ' bei', 'start': 0.88, 'end': 1.08, 'probability': 0.9891148805618286}, {'word': ' einem', 'start': 1.08, 'end': 1.28, 'probability': 0.9977523684501648}, {'word': ' neuen', 'start': 1.28, 'end': 1.54, 'probability': 0.9994788765907288}, {'word': ' Logo', 'start': 1.54, 'end': 1.92, 'probability': 0.9987391233444214}, {'word': ' für', 'start': 1.92, 'end': 2.06, 'probability': 0.9994680285453796}, {'word': ' mein', 'start': 2.06, 'end': 2.26, 'probability': 0.9989640712738037}, {'word': ' Projekt.', 'start': 2.26, 'end': 2.56, 'probability': 0.9996389150619507}]
+ALIGN de-b-conversation  Hilf mir bitte bei einem neuen Logo für mein Projekt. [{'word': ' Hilf', 'start': 0.0, 'end': 0.44, 'probability': 0.9121536910533905}, {'word': ' mir', 'start': 0.44, 'end': 0.64, 'probability': 0.9968618154525757}, {'word': ' bitte', 'start': 0.64, 'end': 0.92, 'probability': 0.9860279560089111}, {'word': ' bei', 'start': 0.92, 'end': 1.22, 'probability': 0.9912125468254089}, {'word': ' einem', 'start': 1.22, 'end': 1.6, 'probability': 0.9963626265525818}, {'word': ' neuen', 'start': 1.6, 'end': 2.08, 'probability': 0.9984604120254517}, {'word': ' Logo', 'start': 2.08, 'end': 2.64, 'probability': 0.998313844203949}, {'word': ' für', 'start': 2.64, 'end': 2.84, 'probability': 0.9949378967285156}, {'word': ' mein', 'start': 2.84, 'end': 3.14, 'probability': 0.9965522289276123}, {'word': ' Projekt.', 'start': 3.14, 'end': 3.58, 'probability': 0.9977994561195374}]
+ALIGN es-b-context  Ayúdame a diseñar un nuevo cartel para mi proyecto. [{'word': ' Ayúdame', 'start': 0.0, 'end': 0.74, 'probability': 0.8802017718553543}, {'word': ' a', 'start': 0.74, 'end': 1.02, 'probability': 0.9931190013885498}, {'word': ' diseñar', 'start': 1.02, 'end': 1.68, 'probability': 0.9976397752761841}, {'word': ' un', 'start': 1.68, 'end': 1.92, 'probability': 0.9960004687309265}, {'word': ' nuevo', 'start': 1.92, 'end': 2.18, 'probability': 0.9924949407577515}, {'word': ' cartel', 'start': 2.18, 'end': 2.78, 'probability': 0.9962461292743683}, {'word': ' para', 'start': 2.78, 'end': 3.18, 'probability': 0.9929254055023193}, {'word': ' mi', 'start': 3.18, 'end': 3.4, 'probability': 0.9933850169181824}, {'word': ' proyecto.', 'start': 3.4, 'end': 4.0, 'probability': 0.9956318140029907}]
+ALIGN es-b-conversation  Ayúdame a diseñar un nuevo cartel para mi proyecto. [{'word': ' Ayúdame', 'start': 0.0, 'end': 0.6, 'probability': 0.8714927136898041}, {'word': ' a', 'start': 0.6, 'end': 0.66, 'probability': 0.9902846217155457}, {'word': ' diseñar', 'start': 0.66, 'end': 1.24, 'probability': 0.9993366599082947}, {'word': ' un', 'start': 1.24, 'end': 1.44, 'probability': 0.9975939393043518}, {'word': ' nuevo', 'start': 1.44, 'end': 1.72, 'probability': 0.9974950551986694}, {'word': ' cartel', 'start': 1.72, 'end': 2.24, 'probability': 0.9942832589149475}, {'word': ' para', 'start': 2.24, 'end': 2.46, 'probability': 0.9962783455848694}, {'word': ' mi', 'start': 2.46, 'end': 2.64, 'probability': 0.9979405999183655}, {'word': ' proyecto.', 'start': 2.64, 'end': 3.16, 'probability': 0.9979323148727417}]
+ALIGN fr-b-context  Aide-moi à créer une nouvelle affiche pour mon projet. [{'word': ' Aide', 'start': 0.0, 'end': 0.34, 'probability': 0.7506350874900818}, {'word': '-moi', 'start': 0.34, 'end': 0.6, 'probability': 0.9411798119544983}, {'word': ' à', 'start': 0.6, 'end': 0.76, 'probability': 0.9922549724578857}, {'word': ' créer', 'start': 0.76, 'end': 1.0, 'probability': 0.9966793060302734}, {'word': ' une', 'start': 1.0, 'end': 1.2, 'probability': 0.9982505440711975}, {'word': ' nouvelle', 'start': 1.2, 'end': 1.46, 'probability': 0.9962679743766785}, {'word': ' affiche', 'start': 1.46, 'end': 1.96, 'probability': 0.9995004832744598}, {'word': ' pour', 'start': 1.96, 'end': 2.16, 'probability': 0.9944368600845337}, {'word': ' mon', 'start': 2.16, 'end': 2.36, 'probability': 0.9983019828796387}, {'word': ' projet.', 'start': 2.36, 'end': 2.78, 'probability': 0.9984305500984192}]
+ALIGN fr-b-conversation  Aide-moi à créer une nouvelle affiche pour mon projet. [{'word': ' Aide', 'start': 0.0, 'end': 0.26, 'probability': 0.5795340836048126}, {'word': '-moi', 'start': 0.26, 'end': 0.58, 'probability': 0.9561754763126373}, {'word': ' à', 'start': 0.58, 'end': 0.82, 'probability': 0.9722862839698792}, {'word': ' créer', 'start': 0.82, 'end': 1.08, 'probability': 0.9957939386367798}, {'word': ' une', 'start': 1.08, 'end': 1.3, 'probability': 0.9957477450370789}, {'word': ' nouvelle', 'start': 1.3, 'end': 1.5, 'probability': 0.9914788603782654}, {'word': ' affiche', 'start': 1.5, 'end': 1.94, 'probability': 0.9992215931415558}, {'word': ' pour', 'start': 1.94, 'end': 2.1, 'probability': 0.9953948855400085}, {'word': ' mon', 'start': 2.1, 'end': 2.26, 'probability': 0.9978905320167542}, {'word': ' projet.', 'start': 2.26, 'end': 2.58, 'probability': 0.9987473487854004}]
+ALIGN it-b-context  Aiutami a creare un nuovo video per il mio progetto. [{'word': ' Aiutami', 'start': 0.4800000000000001, 'end': 0.92, 'probability': 0.9044298529624939}, {'word': ' a', 'start': 0.92, 'end': 1.04, 'probability': 0.9972652196884155}, {'word': ' creare', 'start': 1.04, 'end': 1.42, 'probability': 0.9988403618335724}, {'word': ' un', 'start': 1.42, 'end': 1.54, 'probability': 0.9977253079414368}, {'word': ' nuovo', 'start': 1.54, 'end': 1.76, 'probability': 0.9968145489692688}, {'word': ' video', 'start': 1.76, 'end': 2.14, 'probability': 0.9988456964492798}, {'word': ' per', 'start': 2.14, 'end': 2.44, 'probability': 0.9938642978668213}, {'word': ' il', 'start': 2.44, 'end': 2.6, 'probability': 0.99750155210495}, {'word': ' mio', 'start': 2.6, 'end': 2.78, 'probability': 0.9973763227462769}, {'word': ' progetto.', 'start': 2.78, 'end': 3.5, 'probability': 0.9983929594357809}]
+ALIGN it-b-conversation  Aiutami a creare un nuovo video per il mio progetto. [{'word': ' Aiutami', 'start': 0.0, 'end': 0.52, 'probability': 0.8803279598553976}, {'word': ' a', 'start': 0.52, 'end': 0.64, 'probability': 0.9988986253738403}, {'word': ' creare', 'start': 0.64, 'end': 1.12, 'probability': 0.9993443787097931}, {'word': ' un', 'start': 1.12, 'end': 1.36, 'probability': 0.9969090819358826}, {'word': ' nuovo', 'start': 1.36, 'end': 1.58, 'probability': 0.9975653886795044}, {'word': ' video', 'start': 1.58, 'end': 2.0, 'probability': 0.9990905523300171}, {'word': ' per', 'start': 2.0, 'end': 2.26, 'probability': 0.9970205426216125}, {'word': ' il', 'start': 2.26, 'end': 2.46, 'probability': 0.9988177418708801}, {'word': ' mio', 'start': 2.46, 'end': 2.58, 'probability': 0.9989749193191528}, {'word': ' progetto.', 'start': 2.58, 'end': 3.26, 'probability': 0.9994348088900248}]
+ALIGN ru-b-context  Помоги мне сделать новый сайт для моего проекта. [{'word': ' Помоги', 'start': 0.0, 'end': 0.7, 'probability': 0.9089299043019613}, {'word': ' мне', 'start': 0.7, 'end': 0.8, 'probability': 0.9916653037071228}, {'word': ' сделать', 'start': 0.8, 'end': 1.14, 'probability': 0.9936777949333191}, {'word': ' новый', 'start': 1.14, 'end': 1.48, 'probability': 0.992938220500946}, {'word': ' сайт', 'start': 1.48, 'end': 1.84, 'probability': 0.9977430701255798}, {'word': ' для', 'start': 1.84, 'end': 2.0, 'probability': 0.9949801564216614}, {'word': ' моего', 'start': 2.0, 'end': 2.32, 'probability': 0.9994573295116425}, {'word': ' проекта.', 'start': 2.32, 'end': 2.84, 'probability': 0.9993400871753693}]
+ALIGN ru-b-conversation  Помоги мне сделать новый сайт для моего проекта. [{'word': ' Помоги', 'start': 0.0, 'end': 0.56, 'probability': 0.9603785276412964}, {'word': ' мне', 'start': 0.56, 'end': 0.7, 'probability': 0.999909520149231}, {'word': ' сделать', 'start': 0.7, 'end': 1.08, 'probability': 0.9996302127838135}, {'word': ' новый', 'start': 1.08, 'end': 1.46, 'probability': 0.9995934367179871}, {'word': ' сайт', 'start': 1.46, 'end': 1.88, 'probability': 0.9997588396072388}, {'word': ' для', 'start': 1.88, 'end': 2.24, 'probability': 0.9990962743759155}, {'word': ' моего', 'start': 2.24, 'end': 2.64, 'probability': 0.9999402165412903}, {'word': ' проекта.', 'start': 2.64, 'end': 3.3, 'probability': 0.9999578595161438}]
+Traceback (most recent call last):
+  File "F:\chatGPT\Second-Class\promo-video\scripts\generate-native-voices-v3-b.py", line 270, in <module>
+    locks[str(path)]=v.digest(path)
+  File "F:\chatGPT\Second-Class\promo-video\scripts\generate-native-voices-v3-b.py", line 239, in main
+    peak_dbfs=float(20*np.log10(max(np.max(np.abs(actual)),1e-10))),
+RuntimeError: No accurately recognized help-me head for ja

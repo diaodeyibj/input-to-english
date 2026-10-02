@@ -1,0 +1,55 @@
+IDENTITY CACHE zh-b-context
+IDENTITY CACHE zh-b-conversation
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\requests\__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+Loading local CosyVoice3 with mother-tongue references
+2026-10-01 12:31:50,960 INFO input frame rate=25
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\torch\nn\utils\weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py:69: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-10-01 12:31:54,804 INFO no frontend is avaliable
+SYNTH ja-b-context-r2
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:31:59,633 INFO synthesis text テツダッテ ホシインダケド アタラシイ ロゴ ヲ イッショニ ツクッテ クレル？
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\transformers\models\qwen2\modeling_qwen2.py:693: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+2026-10-01 12:32:06,860 INFO yield speech len 5.72, rtf 1.2633533744545251
+
+100%|██████████| 1/1 [00:08<00:00,  8.33s/it]
+100%|██████████| 1/1 [00:08<00:00,  8.33s/it]
+RAW ja-b-context-r2 5.720s
+SYNTH ja-b-conversation-r2
+
+  0%|          | 0/1 [00:00<?, ?it/s]2026-10-01 12:32:07,776 INFO synthesis text テツダッテ ホシインダケド アタラシイ ロゴ ヲ イッショニ ツクッテ クレル？
+2026-10-01 12:32:12,937 INFO yield speech len 4.32, rtf 1.1945280763838027
+
+100%|██████████| 1/1 [00:06<00:00,  6.06s/it]
+100%|██████████| 1/1 [00:06<00:00,  6.06s/it]
+RAW ja-b-conversation-r2 4.320s
+IDENTITY CACHE ko-b-context
+IDENTITY CACHE ko-b-conversation
+IDENTITY CACHE de-b-context
+IDENTITY CACHE de-b-conversation
+IDENTITY CACHE es-b-context
+IDENTITY CACHE es-b-conversation
+IDENTITY CACHE fr-b-context
+IDENTITY CACHE fr-b-conversation
+IDENTITY CACHE it-b-context
+IDENTITY CACHE it-b-conversation
+IDENTITY CACHE ru-b-context
+IDENTITY CACHE ru-b-conversation
+Loading cached local Whisper large-v3-turbo for word alignment
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN ja-b-context-r2 手伝ってほしいんだけど新しいロゴを一緒に作ってくれる？ [{'word': '手', 'start': 0.7999999999999996, 'end': 1.24, 'probability': 0.8804394602775574}, {'word': '伝', 'start': 1.24, 'end': 1.5, 'probability': 0.9862040281295776}, {'word': 'って', 'start': 1.5, 'end': 1.84, 'probability': 0.9946829676628113}, {'word': 'ほ', 'start': 1.84, 'end': 2.14, 'probability': 0.4433412551879883}, {'word': 'しい', 'start': 2.14, 'end': 2.38, 'probability': 0.9958121180534363}, {'word': 'んだ', 'start': 2.38, 'end': 2.64, 'probability': 0.9894564747810364}, {'word': 'けど', 'start': 2.64, 'end': 2.96, 'probability': 0.9982870221138}, {'word': '新', 'start': 2.96, 'end': 3.38, 'probability': 0.3241385221481323}, {'word': 'しい', 'start': 3.38, 'end': 3.72, 'probability': 0.9965671300888062}, {'word': 'ロ', 'start': 3.72, 'end': 3.9, 'probability': 0.9592902660369873}, {'word': 'ゴ', 'start': 3.9, 'end': 4.08, 'probability': 0.9981188178062439}, {'word': 'を', 'start': 4.08, 'end': 4.26, 'probability': 0.9851750731468201}, {'word': '一', 'start': 4.26, 'end': 4.4, 'probability': 0.8450148701667786}, {'word': '緒', 'start': 4.4, 'end': 4.56, 'probability': 0.9996942281723022}, {'word': 'に', 'start': 4.56, 'end': 4.7, 'probability': 0.998719334602356}, {'word': '作', 'start': 4.7, 'end': 4.88, 'probability': 0.9202184081077576}, {'word': 'って', 'start': 4.88, 'end': 5.1, 'probability': 0.9962286949157715}, {'word': 'く', 'start': 5.1, 'end': 5.22, 'probability': 0.9975878000259399}, {'word': 'れる？', 'start': 5.22, 'end': 5.44, 'probability': 0.9982718229293823}]
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:42: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower median kernel implementation...
+  warnings.warn(
+C:\Users\diaod\.conda\envs\cosyvoice\lib\site-packages\whisper\timing.py:146: UserWarning: Failed to launch Triton kernels, likely due to missing CUDA toolkit; falling back to a slower DTW implementation...
+  warnings.warn(
+ALIGN ja-b-conversation-r2 手伝ってほしいんだけど新しいロゴを一緒に作ってくれる？ [{'word': '手', 'start': 0.0, 'end': 0.16, 'probability': 0.5473344326019287}, {'word': '伝', 'start': 0.16, 'end': 0.38, 'probability': 0.9936789274215698}, {'word': 'って', 'start': 0.38, 'end': 0.66, 'probability': 0.9925510883331299}, {'word': 'ほ', 'start': 0.66, 'end': 1.14, 'probability': 0.14446453750133514}, {'word': 'しい', 'start': 1.14, 'end': 1.38, 'probability': 0.9955450296401978}, {'word': 'んだ', 'start': 1.38, 'end': 1.58, 'probability': 0.9891424775123596}, {'word': 'けど', 'start': 1.58, 'end': 1.84, 'probability': 0.9989731311798096}, {'word': '新', 'start': 1.84, 'end': 2.36, 'probability': 0.5013865232467651}, {'word': 'しい', 'start': 2.36, 'end': 2.7, 'probability': 0.9979915618896484}, {'word': 'ロ', 'start': 2.7, 'end': 2.84, 'probability': 0.9687134623527527}, {'word': 'ゴ', 'start': 2.84, 'end': 2.98, 'probability': 0.9405802488327026}, {'word': 'を', 'start': 2.98, 'end': 3.1, 'probability': 0.9790740013122559}, {'word': '一', 'start': 3.1, 'end': 3.2, 'probability': 0.8181167244911194}, {'word': '緒', 'start': 3.2, 'end': 3.38, 'probability': 0.9997881948947906}, {'word': 'に', 'start': 3.38, 'end': 3.5, 'probability': 0.9987133741378784}, {'word': '作', 'start': 3.5, 'end': 3.66, 'probability': 0.9031772017478943}, {'word': 'って', 'start': 3.66, 'end': 3.86, 'probability': 0.9978857636451721}, {'word': 'く', 'start': 3.86, 'end': 3.96, 'probability': 0.9977014660835266}, {'word': 'れる？', 'start': 3.96, 'end': 4.14, 'probability': 0.9974615573883057}]
+READY F:\chatGPT\Second-Class\promo-video\public\audio\v3\native-b\voices-manifest-native-b.json

@@ -11,8 +11,6 @@ export const translationErrorCodes = [
   'BROWSER_API_UNAVAILABLE',
   'UNSUPPORTED_LANGUAGE',
   'MODEL_DOWNLOAD_FAILED',
-  'OLLAMA_UNAVAILABLE',
-  'MODEL_NOT_FOUND',
   'EDITOR_NOT_FOUND',
   'UNKNOWN',
 ] as const;

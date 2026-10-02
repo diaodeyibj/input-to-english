@@ -1,0 +1,54 @@
+{
+  "text": " Help me design a more creative new logo",
+  "words": [
+    {
+      "word": " Help",
+      "start": 0.0,
+      "end": 0.22,
+      "probability": 0.29632651805877686
+    },
+    {
+      "word": " me",
+      "start": 0.22,
+      "end": 0.4,
+      "probability": 0.9894860982894897
+    },
+    {
+      "word": " design",
+      "start": 0.4,
+      "end": 0.74,
+      "probability": 0.9853185415267944
+    },
+    {
+      "word": " a",
+      "start": 0.74,
+      "end": 0.96,
+      "probability": 0.9911822080612183
+    },
+    {
+      "word": " more",
+      "start": 0.96,
+      "end": 1.1,
+      "probability": 0.9937500357627869
+    },
+    {
+      "word": " creative",
+      "start": 1.1,
+      "end": 1.62,
+      "probability": 0.9923200011253357
+    },
+    {
+      "word": " new",
+      "start": 1.62,
+      "end": 1.9,
+      "probability": 0.9728370904922485
+    },
+    {
+      "word": " logo",
+      "start": 1.9,
+      "end": 2.36,
+      "probability": 0.9952475428581238
+    }
+  ],
+  "method": "Local cached Whisper large-v3-turbo word timestamps; automatic estimated alignment, no native-speaker certification."
+}
