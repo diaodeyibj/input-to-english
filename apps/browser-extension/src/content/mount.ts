@@ -54,18 +54,22 @@ export function mountForActiveEditor(
   });
   const control = createTranslateControl();
   control.element.setAttribute('data-input-to-english-root', 'v1');
+  let restoreAnchorPosition: (() => void) | undefined;
   if (adapter.id === 'gemini') {
     control.element.style.display = 'block';
     const position = document.defaultView?.getComputedStyle(anchor).position;
-    if (position && position !== 'static') {
-      control.element.style.position = 'absolute';
-      control.element.style.right = '8px';
-      control.element.style.bottom = 'calc(100% + 6px)';
-      control.element.style.zIndex = '2';
-      control.element.style.maxWidth = 'calc(100% - 16px)';
-    } else {
-      control.element.style.margin = '4px 0';
+    if (!position || position === 'static') {
+      const originalPosition = anchor.style.position;
+      anchor.style.position = 'relative';
+      restoreAnchorPosition = () => {
+        if (anchor.style.position === 'relative') anchor.style.position = originalPosition;
+      };
     }
+    control.element.style.position = 'absolute';
+    control.element.style.right = '8px';
+    control.element.style.bottom = 'calc(100% + 6px)';
+    control.element.style.zIndex = '2';
+    control.element.style.maxWidth = 'calc(100% - 16px)';
   }
   control.bind(controller);
   anchor.append(control.element);
@@ -79,6 +83,7 @@ export function mountForActiveEditor(
       disposed = true;
       controller.dispose();
       control.dispose();
+      restoreAnchorPosition?.();
       if (mounts.get(document) === mounted) mounts.delete(document);
     },
   };

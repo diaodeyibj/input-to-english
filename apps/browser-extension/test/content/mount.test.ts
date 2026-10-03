@@ -42,6 +42,20 @@ afterEach(() => {
 });
 
 describe('content editor mounting', () => {
+  it('positions the Gemini control beside the prompt when its fieldset has static positioning', () => {
+    document.body.innerHTML = '<main><input-container><div class="input-area-container" style="position:absolute;top:300px;left:200px"><fieldset class="input-area-fieldset"><input-area-v2><rich-textarea><div class="ql-editor" role="textbox" contenteditable="true" tabindex="0">你好</div></rich-textarea></input-area-v2></fieldset></div></input-container></main>';
+    const fieldset = document.querySelector<HTMLElement>('.input-area-fieldset')!;
+    const editor = document.querySelector<HTMLElement>('.ql-editor')!;
+    const mounted = mountForActiveEditor(document, selectSiteAdapter('gemini.google.com')!, { provider: provider() }, editor)!;
+    expect(mounted).not.toBeNull();
+    expect(window.getComputedStyle(fieldset).position).toBe('relative');
+    expect(mounted.control.element.style.position).toBe('absolute');
+    expect(mounted.control.element.style.right).toBe('8px');
+    expect(mounted.control.element.style.bottom).toBe('calc(100% + 6px)');
+    mounted.dispose();
+    expect(fieldset.style.position).toBe('');
+  });
+
   it('anchors Gemini to the actual input area instead of its separately positioned page-bottom shell', async () => {
     document.body.innerHTML = '<main><input-container style="position:relative;top:667px"><div class="input-area-container" style="position:absolute;top:-339px"><fieldset class="input-area-fieldset" style="position:relative"><input-area-v2><div class="text-input-field" style="overflow:hidden;height:40px"><rich-textarea><div class="ql-editor" role="textbox" contenteditable="true" tabindex="0">你好</div></rich-textarea></div><div data-test-id="send-button-container"><button>Send</button></div></input-area-v2></fieldset></div></input-container></main>';
     const editor = document.querySelector<HTMLElement>('.ql-editor')!;
