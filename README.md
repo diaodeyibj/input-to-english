@@ -1,16 +1,46 @@
-# Input to English
+<div align="center">
+  <img src="docs/assets/input-to-english-icon-master.png" alt="Input to English logo" width="112" />
+  <h1>Input to English</h1>
+  <p><strong>Write naturally. Translate in place. Send when you're ready.</strong></p>
+  <p>在熟悉的输入框里写作，一键翻译成英文，由你确认后再发送。</p>
+  <p>
+    <img src="https://img.shields.io/badge/Chrome-%26-Edge-2563EB" alt="Chrome and Edge" />
+    <img src="https://img.shields.io/badge/Manifest-V3-2563EB" alt="Manifest V3" />
+    <img src="https://img.shields.io/badge/Version-0.1.0-16A085" alt="Version 0.1.0" />
+  </p>
+  <p>
+    <a href="#quick-start">Quick start</a> ·
+    <a href="#supported-sites">Supported sites</a> ·
+    <a href="#configure-providers">Providers</a> ·
+    <a href="#privacy-and-security">Privacy</a> ·
+    <a href="#troubleshooting">Troubleshooting</a>
+  </p>
+</div>
 
-Input to English is a Manifest V3 browser extension for Chrome and Edge. It adds a compact `-> EN` control beside the active input editor on ChatGPT, Claude, Gemini and X. Pressing the control translates your own input into English in place. It never submits the input or publishes a post. Gemini and X target Edge for initial verification; their adapters are shared with Chrome.
+---
 
-The first release supports:
+Input to English adds a small **→ EN** control beside your active editor on ChatGPT, Claude, Gemini and X. It replaces only the text you wrote. It does not submit a prompt or publish a post.
 
-- ChatGPT at `https://chatgpt.com`
-- Claude at `https://claude.ai`
-- Gemini at `https://gemini.google.com` (web chat, not a Gemini API provider)
-- X at `https://x.com` (posts, replies, quote commentary and individual thread entries; excludes DMs and Grok)
-- Browser Local Translation
-- DeepSeek with your own API key
-- Kimi with your own API key
+> **You stay in control:** write → translate → review → submit yourself. Use **Undo** to restore your original text while the Undo window is available.
+
+## Supported sites
+
+| Site | Where the control appears |
+| --- | --- |
+| [ChatGPT](https://chatgpt.com) | Active prompt editor |
+| [Claude](https://claude.ai) | Active prompt editor |
+| [Gemini](https://gemini.google.com) | Focused web chat editor; this is a supported site, not a translation provider |
+| [X](https://x.com) | Focused post, reply, quote commentary or thread entry; excludes DMs and Grok |
+
+Gemini and X target Edge for initial verification; their adapters are shared with Chrome.
+
+| Translation provider | What you need | Where prompt text goes |
+| --- | --- | --- |
+| **Browser Local** | A supported browser and available language pack | Stays on your device |
+| **DeepSeek** | Your own API key | Official DeepSeek API |
+| **Kimi** | Your own API key | Official Kimi API |
+
+Only the provider you select is used. There is no automatic fallback.
 
 ## Prerequisites
 
@@ -22,7 +52,9 @@ The first release supports:
 
 Browser Local support is determined by the browser at runtime. Browser version alone does not guarantee that every source-language pack is available.
 
-## Install dependencies and verify
+## Quick start
+
+### 1. Install dependencies and verify
 
 ```console
 npm install
@@ -30,7 +62,7 @@ npm test
 npm run typecheck
 ```
 
-Build both browser targets:
+### 2. Build the extension
 
 ```console
 npm run build:chrome
@@ -49,16 +81,16 @@ npm run zip:chrome
 npm run zip:edge
 ```
 
-## Load the unpacked extension
+### 3. Load the unpacked extension
 
-### Chrome
+#### Chrome
 
 1. Open `chrome://extensions`.
 2. Enable **Developer mode**.
 3. Select **Load unpacked**.
 4. Choose `.output/chrome-mv3`.
 
-### Edge
+#### Edge
 
 1. Open `edge://extensions`.
 2. Enable **Developer mode**.
